@@ -87,3 +87,14 @@ Each chapter lists: Opening, Objective, Characters, Dialogue (IDs in DIALOGUE_SC
 - **Turning point:** Wren asks Alex to choose.
 - **Ending:** one of four endings (ENDING_DESIGN.md).
 - **Link:** credits, post-game unlocks.
+
+## Location mapping (Prompt 03 update, v1.1)
+Every mission now uses `LOC_*` IDs. See LEVEL_FLOW_DIAGRAMS.md (mission-to-location matrix) and LOCATION_REGISTER.md.
+
+Changes from v1.0 caused by the world design:
+- Chapter 1 starts at `LOC_UM_ECHO_STATION` (Underground Metro); "Echo Station" is the Metro platform. CH1_M02 now routes through the Safe Room (`LOC_EC_SAFE_ROOM`) as the save tutorial.
+- Chapter 2 ends at the Hartwell Hotel (`LOC_EC_ABANDONED_BLDG`) whose basement stair opens the Static Tunnel (`LOC_UM_TUNNEL_STATIC`).
+- Chapter 3 = Underground Metro Line 0 then Dreamland (the Other Side). Added optional **CH3_S03 The Maintenance Log**.
+- Chapter 4 = Memory Hospital and Black Forest (crash site). Added optional **CH4_S03 Totem Hollow**.
+- Chapter 5 = Sunken District (Old City Hall and the Atrium). Chapter 6 = The Core (new region, `CR`).
+- Deep Fragments (`CH2_F05`, `CH4_F05`, `CH5_F05`) are hidden collectibles; CH6_S01 uses them. Collectibles missed before the Ch5 collapse are recoverable through Chapter Replay.

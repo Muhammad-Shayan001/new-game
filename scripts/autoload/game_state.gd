@@ -9,6 +9,8 @@ var chapter: int = 1
 var flags: Dictionary = {}
 var clues: Array[String] = []
 var memories: Array[String] = []
+var current_location: String = LocationIDs.UM_ECHO_STATION
+var visited_locations: Array[String] = []
 
 func set_flag(flag: String, value: Variant = true) -> void:
 	flags[flag] = value
@@ -26,11 +28,19 @@ func unlock_memory(memory_id: String) -> void:
 		memories.append(memory_id)
 		memory_unlocked.emit(memory_id)
 
+func enter_location(loc_id: String) -> void:
+	current_location = loc_id
+	if loc_id not in visited_locations:
+		visited_locations.append(loc_id)
+
 func to_dict() -> Dictionary:
-	return {"chapter": chapter, "flags": flags, "clues": clues, "memories": memories}
+	return {"chapter": chapter, "flags": flags, "clues": clues, "memories": memories,
+		"current_location": current_location, "visited_locations": visited_locations}
 
 func from_dict(d: Dictionary) -> void:
 	chapter = d.get("chapter", 1)
 	flags = d.get("flags", {})
 	clues.assign(d.get("clues", []))
 	memories.assign(d.get("memories", []))
+	current_location = d.get("current_location", LocationIDs.UM_ECHO_STATION)
+	visited_locations.assign(d.get("visited_locations", []))

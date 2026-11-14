@@ -1,4 +1,5 @@
 # Mission Design Template
+All `Location` fields must use IDs from LOCATION_REGISTER.md.
 Copy for each mission. All fields required.
 
 ```
@@ -23,7 +24,7 @@ Estimated duration:
 ```
 
 ## Example — CH1_M01 "Static"
-- Type: Main · Chapter 1 · Location: Echo Station platform
+- Type: Main · Chapter 1 · Location: `LOC_UM_ECHO_STATION` → `LOC_UM_CONCOURSE` → `LOC_EC_METRO_ENTRANCE`
 - Purpose: teach movement, camera, interaction.
 - Start: Alex wakes on bench; flag `ch1_started`.
 - Main objective: Reach the station exit.

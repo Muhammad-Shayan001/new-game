@@ -5,4 +5,4 @@ Godot 4.x third-person supernatural mystery (Android first, PC later).
 - Docs source: `docs/`
 - Project: open `project.godot` in Godot 4.3+
 
-Status: design and story docs complete (draft); code is an untested scaffold.
+Status: design, story and world docs complete (draft); `python3 tools/world_data.py` validates world data. Code is an untested scaffold.
