@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="MissionDef" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/missions/objective_def.gd" id="1_mk4yq"]
+[ext_resource type="Script" path="res://scripts/missions/mission_def.gd" id="2_f6e62"]
+[ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="3_bciee"]
+
+[sub_resource type="Resource" id="Resource_4pubr"]
+script = ExtResource("1_mk4yq")
+id = "reach_sd_atrium"
+text_key = "MISSION_CH5_M02_OBJ_REACH_SD_ATRIUM"
+objective_kind = 0
+target = "LOC_SD_ATRIUM"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_4i0fg"]
+script = ExtResource("3_bciee")
+min_chapter = 0
+flags_all = Array[String]([])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String](["CH5_M01"])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+
+[resource]
+script = ExtResource("2_f6e62")
+mission_type = 0
+chapter = 5
+title_key = "MISSION_CH5_M02_TITLE"
+summary_key = ""
+locations = Array[String](["LOC_SD_ATRIUM"])
+unlock = SubResource("Resource_4i0fg")
+auto_start = true
+start_flags = Array[String]([])
+objectives = Array[ExtResource("1_mk4yq")]([SubResource("Resource_4pubr")])
+complete_flags = Array[String]([])
+reward_fragments = Array[String]([])
+reward_items = Array[String]([])
+reward_clues = Array[String]([])
+reward_abilities = Array[String]([])
+completion_dialogue = ""
+respawn_location = ""
+respawn_spawn = "default"
+estimated_minutes = 10
+authored = false
+id = "CH5_M02"

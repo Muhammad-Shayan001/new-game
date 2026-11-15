@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="MissionDef" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/missions/objective_def.gd" id="1_l4ibe"]
+[ext_resource type="Script" path="res://scripts/missions/mission_def.gd" id="2_h2spa"]
+[ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="3_5w1wb"]
+
+[sub_resource type="Resource" id="Resource_a6r62"]
+script = ExtResource("1_l4ibe")
+id = "reach_dl_echo_gallery"
+text_key = "MISSION_CH3_S01_OBJ_REACH_DL_ECHO_GALLERY"
+objective_kind = 0
+target = "LOC_DL_ECHO_GALLERY"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_y422h"]
+script = ExtResource("3_5w1wb")
+min_chapter = 0
+flags_all = Array[String]([])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String]([])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+
+[resource]
+script = ExtResource("2_h2spa")
+mission_type = 1
+chapter = 3
+title_key = "MISSION_CH3_S01_TITLE"
+summary_key = ""
+locations = Array[String](["LOC_DL_ECHO_GALLERY"])
+unlock = SubResource("Resource_y422h")
+auto_start = true
+start_flags = Array[String]([])
+objectives = Array[ExtResource("1_l4ibe")]([SubResource("Resource_a6r62")])
+complete_flags = Array[String]([])
+reward_fragments = Array[String]([])
+reward_items = Array[String]([])
+reward_clues = Array[String]([])
+reward_abilities = Array[String]([])
+completion_dialogue = ""
+respawn_location = ""
+respawn_spawn = "default"
+estimated_minutes = 10
+authored = false
+id = "CH3_S01"

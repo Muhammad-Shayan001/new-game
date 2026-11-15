@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="MissionDef" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/missions/objective_def.gd" id="1_qh037"]
+[ext_resource type="Script" path="res://scripts/missions/mission_def.gd" id="2_spjau"]
+[ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="3_0b6h6"]
+
+[sub_resource type="Resource" id="Resource_iao54"]
+script = ExtResource("1_qh037")
+id = "reach_um_concourse"
+text_key = "MISSION_CH1_M01_OBJ_REACH_UM_CONCOURSE"
+objective_kind = 0
+target = "LOC_UM_CONCOURSE"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_v1ae3"]
+script = ExtResource("1_qh037")
+id = "reach_ec_metro_entrance"
+text_key = "MISSION_CH1_M01_OBJ_REACH_EC_METRO_ENTRANCE"
+objective_kind = 0
+target = "LOC_EC_METRO_ENTRANCE"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_0583g"]
+script = ExtResource("3_0b6h6")
+min_chapter = 0
+flags_all = Array[String](["ch1_started"])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String]([])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+
+[resource]
+script = ExtResource("2_spjau")
+mission_type = 0
+chapter = 1
+title_key = "MISSION_CH1_M01_TITLE"
+summary_key = ""
+locations = Array[String](["LOC_UM_ECHO_STATION", "LOC_UM_CONCOURSE", "LOC_EC_METRO_ENTRANCE"])
+unlock = SubResource("Resource_0583g")
+auto_start = true
+start_flags = Array[String]([])
+objectives = Array[ExtResource("1_qh037")]([SubResource("Resource_iao54"), SubResource("Resource_v1ae3")])
+complete_flags = Array[String](["ch1_exit_reached"])
+reward_fragments = Array[String](["CH1_F01"])
+reward_items = Array[String]([])
+reward_clues = Array[String]([])
+reward_abilities = Array[String]([])
+completion_dialogue = ""
+respawn_location = "LOC_UM_ECHO_STATION"
+respawn_spawn = "default"
+estimated_minutes = 10
+authored = true
+id = "CH1_M01"

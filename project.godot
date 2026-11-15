@@ -3,12 +3,26 @@ config_version=5
 
 [application]
 config/name="AFTERLIFE.EXE"
-run/main_scene="res://scenes/main.tscn"
+config/version="0.1.0"
+run/main_scene="res://scenes/game_root.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 
 [autoload]
+EventBus="*res://scripts/autoload/event_bus.gd"
+DataRegistry="*res://scripts/autoload/data_registry.gd"
 GameState="*res://scripts/autoload/game_state.gd"
+InputService="*res://scripts/autoload/input_service.gd"
+AudioManager="*res://scripts/autoload/audio_manager.gd"
+SettingsManager="*res://scripts/autoload/settings_manager.gd"
 SaveManager="*res://scripts/autoload/save_manager.gd"
+SceneRouter="*res://scripts/autoload/scene_router.gd"
+InventoryManager="*res://scripts/systems/inventory_manager.gd"
+MemoryManager="*res://scripts/systems/memory_manager.gd"
+AbilityManager="*res://scripts/abilities/ability_manager.gd"
+PuzzleManager="*res://scripts/puzzles/puzzle_manager.gd"
+DialogueManager="*res://scripts/dialogue/dialogue_manager.gd"
+MissionManager="*res://scripts/missions/mission_manager.gd"
+NetworkManager="*res://scripts/autoload/network_manager.gd"
 
 [display]
 window/size/viewport_width=1280
@@ -16,12 +30,14 @@ window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/handheld/orientation=0
 
-[input]
-move_left={"deadzone": 0.2, "events": [Object(InputEventKey,"keycode":65)]}
-move_right={"deadzone": 0.2, "events": [Object(InputEventKey,"keycode":68)]}
-move_forward={"deadzone": 0.2, "events": [Object(InputEventKey,"keycode":87)]}
-move_back={"deadzone": 0.2, "events": [Object(InputEventKey,"keycode":83)]}
-interact={"deadzone": 0.2, "events": [Object(InputEventKey,"keycode":69)]}
+[internationalization]
+locale/fallback="en"
+locale/translations=PackedStringArray("res://localization/en_ui.po", "res://localization/en_world.po", "res://localization/en_content.po")
+
+[layer_names]
+3d_physics/layer_1="world"
+3d_physics/layer_2="player"
+3d_physics/layer_3="interactable"
 
 [rendering]
 renderer/rendering_method="mobile"

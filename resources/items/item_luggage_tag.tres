@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/item_def.gd" id="1_yfw1v"]
+
+[resource]
+script = ExtResource("1_yfw1v")
+name_key = "ITEM_LUGGAGE_TAG_NAME"
+description_key = "ITEM_LUGGAGE_TAG_DESC"
+stackable = true
+max_stack = 3
+id = "ITEM_LUGGAGE_TAG"

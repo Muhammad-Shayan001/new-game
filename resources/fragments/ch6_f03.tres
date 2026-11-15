@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FragmentDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/fragment_def.gd" id="1_7ywe7"]
+
+[resource]
+script = ExtResource("1_7ywe7")
+name_key = "FRAG_CH6_F03_NAME"
+journal_key = ""
+location_id = "LOC_CR_LULLABY_PIER"
+fragment_kind = 1
+flashback_scene = ""
+id = "CH6_F03"

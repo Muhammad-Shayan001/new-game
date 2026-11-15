@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="LocationDef" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_yt5y2"]
+[ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_8mjed"]
+
+[sub_resource type="Resource" id="Resource_upa1t"]
+script = ExtResource("1_yt5y2")
+to_location = "LOC_MH_LOBBY"
+route_type = "main"
+gate_chapter = 4
+spawn_id = "default"
+note = "Lab corridor"
+
+[sub_resource type="Resource" id="Resource_qw0og"]
+script = ExtResource("1_yt5y2")
+to_location = "LOC_BF_ROAD_EDGE"
+route_type = "transition"
+gate_chapter = 4
+spawn_id = "default"
+note = "Memory projection"
+
+[resource]
+script = ExtResource("2_8mjed")
+name_key = "LOC_MH_RECON_LAB"
+region_id = "MH"
+location_type = "interior"
+first_chapter = 4
+safe_point = false
+hidden = false
+status = 0
+scene_path = "res://scenes/world/memory_hospital/recon_lab.tscn"
+default_spawn = "default"
+ambience_cue = ""
+connections = Array[ExtResource("1_yt5y2")]([SubResource("Resource_upa1t"), SubResource("Resource_qw0og")])
+id = "LOC_MH_RECON_LAB"

@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="MissionDef" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/missions/objective_def.gd" id="1_fkvau"]
+[ext_resource type="Script" path="res://scripts/missions/mission_def.gd" id="2_0x266"]
+[ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="3_kkg2h"]
+
+[sub_resource type="Resource" id="Resource_2b2ph"]
+script = ExtResource("1_fkvau")
+id = "reach_mh_recon_lab"
+text_key = "MISSION_CH4_M02_OBJ_REACH_MH_RECON_LAB"
+objective_kind = 0
+target = "LOC_MH_RECON_LAB"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_1fawc"]
+script = ExtResource("1_fkvau")
+id = "reach_bf_road_edge"
+text_key = "MISSION_CH4_M02_OBJ_REACH_BF_ROAD_EDGE"
+objective_kind = 0
+target = "LOC_BF_ROAD_EDGE"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_b6oyq"]
+script = ExtResource("1_fkvau")
+id = "reach_bf_crash_site"
+text_key = "MISSION_CH4_M02_OBJ_REACH_BF_CRASH_SITE"
+objective_kind = 0
+target = "LOC_BF_CRASH_SITE"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_0jjon"]
+script = ExtResource("3_kkg2h")
+min_chapter = 0
+flags_all = Array[String]([])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String](["CH4_M01"])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+
+[resource]
+script = ExtResource("2_0x266")
+mission_type = 0
+chapter = 4
+title_key = "MISSION_CH4_M02_TITLE"
+summary_key = ""
+locations = Array[String](["LOC_MH_RECON_LAB", "LOC_BF_ROAD_EDGE", "LOC_BF_CRASH_SITE"])
+unlock = SubResource("Resource_0jjon")
+auto_start = true
+start_flags = Array[String]([])
+objectives = Array[ExtResource("1_fkvau")]([SubResource("Resource_2b2ph"), SubResource("Resource_1fawc"), SubResource("Resource_b6oyq")])
+complete_flags = Array[String]([])
+reward_fragments = Array[String]([])
+reward_items = Array[String]([])
+reward_clues = Array[String]([])
+reward_abilities = Array[String]([])
+completion_dialogue = ""
+respawn_location = ""
+respawn_spawn = "default"
+estimated_minutes = 10
+authored = false
+id = "CH4_M02"

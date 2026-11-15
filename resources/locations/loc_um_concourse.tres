@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="LocationDef" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_o038i"]
+[ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_djj5f"]
+
+[sub_resource type="Resource" id="Resource_h4ei8"]
+script = ExtResource("1_o038i")
+to_location = "LOC_UM_ECHO_STATION"
+route_type = "main"
+gate_chapter = 1
+spawn_id = "default"
+note = "Stairs"
+
+[sub_resource type="Resource" id="Resource_ti4nb"]
+script = ExtResource("1_o038i")
+to_location = "LOC_EC_METRO_ENTRANCE"
+route_type = "transition"
+gate_chapter = 1
+spawn_id = "default"
+note = "Escalator to street"
+
+[sub_resource type="Resource" id="Resource_jymym"]
+script = ExtResource("1_o038i")
+to_location = "LOC_UM_ABANDONED_PLATFORMS"
+route_type = "optional"
+gate_chapter = 3
+spawn_id = "default"
+note = "Shortcut gate opened from Line 0"
+
+[resource]
+script = ExtResource("2_djj5f")
+name_key = "LOC_UM_CONCOURSE"
+region_id = "UM"
+location_type = "interior"
+first_chapter = 1
+safe_point = false
+hidden = false
+status = 0
+scene_path = "res://scenes/world/underground_metro/concourse.tscn"
+default_spawn = "default"
+ambience_cue = ""
+connections = Array[ExtResource("1_o038i")]([SubResource("Resource_h4ei8"), SubResource("Resource_ti4nb"), SubResource("Resource_jymym")])
+id = "LOC_UM_CONCOURSE"

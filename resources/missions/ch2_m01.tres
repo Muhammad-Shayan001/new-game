@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="MissionDef" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/missions/objective_def.gd" id="1_dalo2"]
+[ext_resource type="Script" path="res://scripts/missions/mission_def.gd" id="2_77uux"]
+[ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="3_61b7u"]
+
+[sub_resource type="Resource" id="Resource_34rjw"]
+script = ExtResource("1_dalo2")
+id = "reach_ec_alley"
+text_key = "MISSION_CH2_M01_OBJ_REACH_EC_ALLEY"
+objective_kind = 0
+target = "LOC_EC_ALLEY"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_m14wn"]
+script = ExtResource("1_dalo2")
+id = "reach_ec_forgotten_quarter"
+text_key = "MISSION_CH2_M01_OBJ_REACH_EC_FORGOTTEN_QUARTER"
+objective_kind = 0
+target = "LOC_EC_FORGOTTEN_QUARTER"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_ervae"]
+script = ExtResource("3_61b7u")
+min_chapter = 0
+flags_all = Array[String]([])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String]([])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+
+[resource]
+script = ExtResource("2_77uux")
+mission_type = 0
+chapter = 2
+title_key = "MISSION_CH2_M01_TITLE"
+summary_key = ""
+locations = Array[String](["LOC_EC_ALLEY", "LOC_EC_FORGOTTEN_QUARTER"])
+unlock = SubResource("Resource_ervae")
+auto_start = true
+start_flags = Array[String]([])
+objectives = Array[ExtResource("1_dalo2")]([SubResource("Resource_34rjw"), SubResource("Resource_m14wn")])
+complete_flags = Array[String]([])
+reward_fragments = Array[String]([])
+reward_items = Array[String]([])
+reward_clues = Array[String]([])
+reward_abilities = Array[String]([])
+completion_dialogue = ""
+respawn_location = ""
+respawn_spawn = "default"
+estimated_minutes = 10
+authored = false
+id = "CH2_M01"

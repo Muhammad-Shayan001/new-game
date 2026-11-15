@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AbilityDef" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/abilities/reality_shift.gd" id="1_bmldv"]
+[ext_resource type="Script" path="res://scripts/abilities/ability_def.gd" id="2_0bg04"]
+
+[resource]
+script = ExtResource("2_0bg04")
+name_key = "ABIL_REALITY_SHIFT_NAME"
+description_key = "ABIL_REALITY_SHIFT_DESC"
+unlock_chapter = 3
+input_slot = 2
+duration = 0.0
+cooldown = 0.0
+behavior = ExtResource("1_bmldv")
+id = "ABIL_REALITY_SHIFT"

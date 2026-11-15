@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="LocationDef" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_l0iwx"]
+[ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_m6fxa"]
+
+[sub_resource type="Resource" id="Resource_fnq7o"]
+script = ExtResource("1_l0iwx")
+to_location = "LOC_CR_SHORE"
+route_type = "main"
+gate_chapter = 6
+spawn_id = "default"
+note = "Pier"
+
+[sub_resource type="Resource" id="Resource_il0hp"]
+script = ExtResource("1_l0iwx")
+to_location = "LOC_CR_CHOICE_POINT"
+route_type = "main"
+gate_chapter = 6
+spawn_id = "default"
+note = "Pier end"
+
+[resource]
+script = ExtResource("2_m6fxa")
+name_key = "LOC_CR_LULLABY_PIER"
+region_id = "CR"
+location_type = "exterior"
+first_chapter = 6
+safe_point = false
+hidden = false
+status = 0
+scene_path = "res://scenes/world/the_core/lullaby_pier.tscn"
+default_spawn = "default"
+ambience_cue = ""
+connections = Array[ExtResource("1_l0iwx")]([SubResource("Resource_fnq7o"), SubResource("Resource_il0hp")])
+id = "LOC_CR_LULLABY_PIER"

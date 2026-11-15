@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="LocationDef" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_01hxf"]
+[ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_r4uea"]
+
+[sub_resource type="Resource" id="Resource_ineqf"]
+script = ExtResource("1_01hxf")
+to_location = "LOC_UM_ABANDONED_PLATFORMS"
+route_type = "main"
+gate_chapter = 3
+spawn_id = "default"
+note = "Service door"
+
+[sub_resource type="Resource" id="Resource_cyr08"]
+script = ExtResource("1_01hxf")
+to_location = "LOC_DL_CROSSING"
+route_type = "transition"
+gate_chapter = 3
+spawn_id = "default"
+note = "Static wall"
+
+[resource]
+script = ExtResource("2_r4uea")
+name_key = "LOC_UM_RECORDING_ROOM"
+region_id = "UM"
+location_type = "interior"
+first_chapter = 3
+safe_point = true
+hidden = false
+status = 0
+scene_path = "res://scenes/world/underground_metro/recording_room.tscn"
+default_spawn = "default"
+ambience_cue = ""
+connections = Array[ExtResource("1_01hxf")]([SubResource("Resource_ineqf"), SubResource("Resource_cyr08")])
+id = "LOC_UM_RECORDING_ROOM"

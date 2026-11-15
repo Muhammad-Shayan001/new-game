@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="MissionDef" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/missions/objective_def.gd" id="1_ve8lm"]
+[ext_resource type="Script" path="res://scripts/missions/mission_def.gd" id="2_bx8ch"]
+[ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="3_yo1je"]
+
+[sub_resource type="Resource" id="Resource_ktcna"]
+script = ExtResource("1_ve8lm")
+id = "reach_cr_lullaby_pier"
+text_key = "MISSION_CH6_M02_OBJ_REACH_CR_LULLABY_PIER"
+objective_kind = 0
+target = "LOC_CR_LULLABY_PIER"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_gyrgq"]
+script = ExtResource("3_yo1je")
+min_chapter = 0
+flags_all = Array[String]([])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String](["CH6_M01"])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+
+[resource]
+script = ExtResource("2_bx8ch")
+mission_type = 0
+chapter = 6
+title_key = "MISSION_CH6_M02_TITLE"
+summary_key = ""
+locations = Array[String](["LOC_CR_LULLABY_PIER"])
+unlock = SubResource("Resource_gyrgq")
+auto_start = true
+start_flags = Array[String]([])
+objectives = Array[ExtResource("1_ve8lm")]([SubResource("Resource_ktcna")])
+complete_flags = Array[String]([])
+reward_fragments = Array[String]([])
+reward_items = Array[String]([])
+reward_clues = Array[String]([])
+reward_abilities = Array[String]([])
+completion_dialogue = ""
+respawn_location = ""
+respawn_spawn = "default"
+estimated_minutes = 10
+authored = false
+id = "CH6_M02"

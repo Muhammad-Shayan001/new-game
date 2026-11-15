@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="LocationDef" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_s3lxh"]
+[ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_ardnc"]
+
+[sub_resource type="Resource" id="Resource_iit0l"]
+script = ExtResource("1_s3lxh")
+to_location = "LOC_UM_RECORDING_ROOM"
+route_type = "transition"
+gate_chapter = 3
+spawn_id = "default"
+note = "Static wall"
+
+[sub_resource type="Resource" id="Resource_k23ok"]
+script = ExtResource("1_s3lxh")
+to_location = "LOC_DL_ANCHOR_FIELDS"
+route_type = "main"
+gate_chapter = 3
+spawn_id = "default"
+note = "Floating bridge"
+
+[resource]
+script = ExtResource("2_ardnc")
+name_key = "LOC_DL_CROSSING"
+region_id = "DL"
+location_type = "exterior"
+first_chapter = 3
+safe_point = false
+hidden = false
+status = 0
+scene_path = "res://scenes/world/dreamland/crossing.tscn"
+default_spawn = "default"
+ambience_cue = ""
+connections = Array[ExtResource("1_s3lxh")]([SubResource("Resource_iit0l"), SubResource("Resource_k23ok")])
+id = "LOC_DL_CROSSING"

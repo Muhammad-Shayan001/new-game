@@ -1,0 +1,122 @@
+[gd_resource type="Resource" script_class="DialogueDef" load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/dialogue/dialogue_node.gd" id="1_ownsw"]
+[ext_resource type="Script" path="res://scripts/dialogue/dialogue_choice.gd" id="2_spn8b"]
+[ext_resource type="Script" path="res://scripts/dialogue/dialogue_def.gd" id="3_hjwwx"]
+
+[sub_resource type="Resource" id="Resource_dugg6"]
+script = ExtResource("1_ownsw")
+id = "arv_001"
+speaker_id = "ARV"
+text_key = "DLG_CH1_M03_CATALOGUE_ARV_001"
+next_id = "alx_001"
+choices = Array[ExtResource("2_spn8b")]([])
+set_flags = Array[String]([])
+relationship_changes = {}
+voice_cue = ""
+
+[sub_resource type="Resource" id="Resource_oah72"]
+script = ExtResource("1_ownsw")
+id = "alx_001"
+speaker_id = "ALX"
+text_key = "DLG_CH1_M03_CATALOGUE_ALX_001"
+next_id = "arv_002"
+choices = Array[ExtResource("2_spn8b")]([])
+set_flags = Array[String]([])
+relationship_changes = {}
+voice_cue = ""
+
+[sub_resource type="Resource" id="Resource_p5sy1"]
+script = ExtResource("1_ownsw")
+id = "arv_002"
+speaker_id = "ARV"
+text_key = "DLG_CH1_M03_CATALOGUE_ARV_002"
+next_id = "alx_002"
+choices = Array[ExtResource("2_spn8b")]([])
+set_flags = Array[String]([])
+relationship_changes = {}
+voice_cue = ""
+
+[sub_resource type="Resource" id="Resource_4igsk"]
+script = ExtResource("1_ownsw")
+id = "alx_002"
+speaker_id = "ALX"
+text_key = "DLG_CH1_M03_CATALOGUE_ALX_002"
+next_id = "arv_003"
+choices = Array[ExtResource("2_spn8b")]([])
+set_flags = Array[String]([])
+relationship_changes = {}
+voice_cue = ""
+
+[sub_resource type="Resource" id="Resource_wa05k"]
+script = ExtResource("1_ownsw")
+id = "arv_003"
+speaker_id = "ARV"
+text_key = "DLG_CH1_M03_CATALOGUE_ARV_003"
+next_id = "alx_003"
+choices = Array[ExtResource("2_spn8b")]([])
+set_flags = Array[String]([])
+relationship_changes = {}
+voice_cue = ""
+
+[sub_resource type="Resource" id="Resource_47y3j"]
+script = ExtResource("1_ownsw")
+id = "alx_003"
+speaker_id = "ALX"
+text_key = "DLG_CH1_M03_CATALOGUE_ALX_003"
+next_id = "arv_004"
+choices = Array[ExtResource("2_spn8b")]([])
+set_flags = Array[String]([])
+relationship_changes = {}
+voice_cue = ""
+
+[sub_resource type="Resource" id="Resource_fqbw6"]
+script = ExtResource("1_ownsw")
+id = "arv_004"
+speaker_id = "ARV"
+text_key = "DLG_CH1_M03_CATALOGUE_ARV_004"
+next_id = "alx_004"
+choices = Array[ExtResource("2_spn8b")]([])
+set_flags = Array[String]([])
+relationship_changes = {}
+voice_cue = ""
+
+[sub_resource type="Resource" id="Resource_4nl5x"]
+script = ExtResource("1_ownsw")
+id = "alx_004"
+speaker_id = "ALX"
+text_key = "DLG_CH1_M03_CATALOGUE_ALX_004"
+next_id = "arv_005"
+choices = Array[ExtResource("2_spn8b")]([])
+set_flags = Array[String]([])
+relationship_changes = {}
+voice_cue = ""
+
+[sub_resource type="Resource" id="Resource_p3pdy"]
+script = ExtResource("1_ownsw")
+id = "arv_005"
+speaker_id = "ARV"
+text_key = "DLG_CH1_M03_CATALOGUE_ARV_005"
+next_id = "arv_006"
+choices = Array[ExtResource("2_spn8b")]([])
+set_flags = Array[String]([])
+relationship_changes = {}
+voice_cue = ""
+
+[sub_resource type="Resource" id="Resource_2khs7"]
+script = ExtResource("1_ownsw")
+id = "arv_006"
+speaker_id = "ARV"
+text_key = "DLG_CH1_M03_CATALOGUE_ARV_006"
+next_id = ""
+choices = Array[ExtResource("2_spn8b")]([])
+set_flags = Array[String](["ch1_archive_card_received"])
+relationship_changes = {}
+voice_cue = ""
+
+[resource]
+script = ExtResource("3_hjwwx")
+start_id = "arv_001"
+nodes = Array[ExtResource("1_ownsw")]([SubResource("Resource_dugg6"), SubResource("Resource_oah72"), SubResource("Resource_p5sy1"), SubResource("Resource_4igsk"), SubResource("Resource_wa05k"), SubResource("Resource_47y3j"), SubResource("Resource_fqbw6"), SubResource("Resource_4nl5x"), SubResource("Resource_p3pdy"), SubResource("Resource_2khs7")])
+repeatable = false
+id = "DLG_CH1_M03_CATALOGUE"

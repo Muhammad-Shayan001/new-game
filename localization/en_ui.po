@@ -1,0 +1,46 @@
+msgid ""
+msgstr ""
+"Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "UI_PAUSED"
+msgstr "Paused"
+
+msgid "UI_RESUME"
+msgstr "Resume"
+
+msgid "UI_SAVE_SLOT"
+msgstr "Save to slot"
+
+msgid "UI_SAVED"
+msgstr "Saved"
+
+msgid "UI_SAVE_FAILED"
+msgstr "Could not save"
+
+msgid "UI_QUIT"
+msgstr "Quit"
+
+msgid "PROMPT_EXAMINE"
+msgstr "Examine"
+
+msgid "PROMPT_TALK"
+msgstr "Talk"
+
+msgid "PROMPT_ENTER"
+msgstr "Enter"
+
+msgid "TOAST_CLUE_ADDED"
+msgstr "Clue added to Journal"
+
+msgid "TOAST_CLUES_DONT_FIT"
+msgstr "These clues don't fit together. Yet."
+
+msgid "TOAST_MEMORY_RECOVERED"
+msgstr "Memory recovered"
+
+msgid "TOAST_ABILITY_UNLOCKED"
+msgstr "New ability unlocked"
+
+msgid "TOAST_TRANSITION_FAILED"
+msgstr "Something blocked the way. Try again."

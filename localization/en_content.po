@@ -1,0 +1,133 @@
+msgid ""
+msgstr ""
+"Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "CHR_ALX_NAME"
+msgstr "Alex Morgan"
+
+msgid "CHR_MAY_NAME"
+msgstr "Maya Reed"
+
+msgid "CHR_ARV_NAME"
+msgstr "The Archivist"
+
+msgid "CHR_ARC_NAME"
+msgstr "The Architect"
+
+msgid "CHR_FCH_NAME"
+msgstr "The Forgotten Child"
+
+msgid "ABIL_MEMORY_SIGHT_NAME"
+msgstr "Memory Sight"
+
+msgid "ABIL_MEMORY_SIGHT_DESC"
+msgstr "See docs/GAMEPLAY_SYSTEMS.md"
+
+msgid "ABIL_REALITY_SHIFT_NAME"
+msgstr "Reality Shift"
+
+msgid "ABIL_REALITY_SHIFT_DESC"
+msgstr "See docs/GAMEPLAY_SYSTEMS.md"
+
+msgid "ABIL_TIME_ECHO_NAME"
+msgstr "Time Echo"
+
+msgid "ABIL_TIME_ECHO_DESC"
+msgstr "See docs/GAMEPLAY_SYSTEMS.md"
+
+msgid "ABIL_ECHO_VOICE_NAME"
+msgstr "Echo Voice"
+
+msgid "ABIL_ECHO_VOICE_DESC"
+msgstr "See docs/GAMEPLAY_SYSTEMS.md"
+
+msgid "ITEM_ARCHIVE_CARD_NAME"
+msgstr "Archive Card"
+
+msgid "ITEM_ARCHIVE_CARD_DESC"
+msgstr "A blank index card. It opens the way to the Forgotten Quarter."
+
+msgid "ITEM_LUGGAGE_TAG_NAME"
+msgstr "Luggage Tag"
+
+msgid "ITEM_LUGGAGE_TAG_DESC"
+msgstr "A tag from lost luggage. Someone wrote a name, then scratched it out."
+
+msgid "PZL_CH1_CLOCK_4_17_TITLE"
+msgstr "The Stopped Clock"
+
+msgid "PZL_CH1_CLOCK_4_17_HINT_1"
+msgstr "Every clock in this city agrees on one moment."
+
+msgid "PZL_CH1_CLOCK_4_17_HINT_2"
+msgstr "The moment is written on the receipts and on the station clock."
+
+msgid "PZL_CH1_CLOCK_4_17_HINT_3"
+msgstr "Press 4, then 1, then 7."
+
+msgid "DLG_CH1_M03_CATALOGUE_ARV_001"
+msgstr "Item: one visitor. Condition: awake. This is... unusual."
+
+msgid "DLG_CH1_M03_CATALOGUE_ALX_001"
+msgstr "Where am I? Who are you?"
+
+msgid "DLG_CH1_M03_CATALOGUE_ARV_002"
+msgstr "Echo City. And I am merely the one who keeps the records."
+
+msgid "DLG_CH1_M03_CATALOGUE_ALX_002"
+msgstr "Then you have mine."
+
+msgid "DLG_CH1_M03_CATALOGUE_ARV_003"
+msgstr "Item: your name. Condition: misplaced. I am sorry."
+
+msgid "DLG_CH1_M03_CATALOGUE_ALX_003"
+msgstr "That's not an answer."
+
+msgid "DLG_CH1_M03_CATALOGUE_ARV_004"
+msgstr "It is the only one I am permitted to give. We... I am permitted to give."
+
+msgid "DLG_CH1_M03_CATALOGUE_ALX_004"
+msgstr "\"We\"?"
+
+msgid "DLG_CH1_M03_CATALOGUE_ARV_005"
+msgstr "A slip. Please record it as a slip."
+
+msgid "DLG_CH1_M03_CATALOGUE_ARV_006"
+msgstr "Take this card. Find what was removed."
+
+msgid "DLG_CH2_M02_CAFE_MAY_001"
+msgstr "Alex? Alex, look at me. It's me."
+
+msgid "DLG_CH2_M02_CAFE_ALX_001"
+msgstr "I don't... remember you."
+
+msgid "DLG_CH2_M02_CAFE_MAY_002"
+msgstr "That's okay. Vitals first. You're breathing, you're upright. We'll do the rest."
+
+msgid "DLG_CH2_M02_CAFE_MAY_003"
+msgstr "I'm not from here, Alex. This city is making me fuzzy at the edges."
+
+msgid "DLG_CH2_M02_CAFE_ALX_CHOICE"
+msgstr "(Ask Maya)"
+
+msgid "DLG_CH2_M02_CAFE_MAY_004"
+msgstr "Because I'm the one who never left. Don't go through that door alone."
+
+msgid "DLG_CH2_M02_CAFE_CHOICE_WHY"
+msgstr "Then why are you here?"
+
+msgid "DLG_CH2_M02_CAFE_CHOICE_REAL"
+msgstr "How do I know you're real?"
+
+msgid "MISSION_CH1_M03_OBJ_TALK"
+msgstr "Speak with the Archivist"
+
+msgid "MISSION_CH1_S01_OBJ_TAGS"
+msgstr "Find the lost luggage tags"
+
+msgid "MISSION_CH1_S02_OBJ_CLOCK"
+msgstr "Solve the stopped clock"
+
+msgid "MISSION_CH2_M02_OBJ_TALK"
+msgstr "Talk to Maya"

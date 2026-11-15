@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="MissionDef" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/missions/objective_def.gd" id="1_0ofhu"]
+[ext_resource type="Script" path="res://scripts/missions/mission_def.gd" id="2_e0uvs"]
+[ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="3_v0oio"]
+
+[sub_resource type="Resource" id="Resource_t41ci"]
+script = ExtResource("1_0ofhu")
+id = "reach_ec_archive_tower"
+text_key = "MISSION_CH1_M03_OBJ_REACH_EC_ARCHIVE_TOWER"
+objective_kind = 0
+target = "LOC_EC_ARCHIVE_TOWER"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_1gvud"]
+script = ExtResource("1_0ofhu")
+id = "talk_to_archivist"
+text_key = "MISSION_CH1_M03_OBJ_TALK"
+objective_kind = 7
+target = "DLG_CH1_M03_CATALOGUE"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_pe35y"]
+script = ExtResource("3_v0oio")
+min_chapter = 0
+flags_all = Array[String]([])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String](["CH1_M02"])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+
+[resource]
+script = ExtResource("2_e0uvs")
+mission_type = 0
+chapter = 1
+title_key = "MISSION_CH1_M03_TITLE"
+summary_key = ""
+locations = Array[String](["LOC_EC_ARCHIVE_TOWER"])
+unlock = SubResource("Resource_pe35y")
+auto_start = true
+start_flags = Array[String]([])
+objectives = Array[ExtResource("1_0ofhu")]([SubResource("Resource_t41ci"), SubResource("Resource_1gvud")])
+complete_flags = Array[String](["ch1_archive_card_given"])
+reward_fragments = Array[String]([])
+reward_items = Array[String](["ITEM_ARCHIVE_CARD"])
+reward_clues = Array[String]([])
+reward_abilities = Array[String]([])
+completion_dialogue = ""
+respawn_location = ""
+respawn_spawn = "default"
+estimated_minutes = 10
+authored = true
+id = "CH1_M03"

@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="MissionDef" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/missions/objective_def.gd" id="1_ytt65"]
+[ext_resource type="Script" path="res://scripts/missions/mission_def.gd" id="2_h4i0p"]
+[ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="3_l6fej"]
+
+[sub_resource type="Resource" id="Resource_ful24"]
+script = ExtResource("1_ytt65")
+id = "reach_ec_maya_cafe"
+text_key = "MISSION_CH2_M02_OBJ_REACH_EC_MAYA_CAFE"
+objective_kind = 0
+target = "LOC_EC_MAYA_CAFE"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_l8tnu"]
+script = ExtResource("1_ytt65")
+id = "talk_to_maya"
+text_key = "MISSION_CH2_M02_OBJ_TALK"
+objective_kind = 7
+target = "DLG_CH2_M02_CAFE"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_eo5lm"]
+script = ExtResource("3_l6fej")
+min_chapter = 0
+flags_all = Array[String]([])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String](["CH2_M01"])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+
+[resource]
+script = ExtResource("2_h4i0p")
+mission_type = 0
+chapter = 2
+title_key = "MISSION_CH2_M02_TITLE"
+summary_key = ""
+locations = Array[String](["LOC_EC_MAYA_CAFE"])
+unlock = SubResource("Resource_eo5lm")
+auto_start = true
+start_flags = Array[String]([])
+objectives = Array[ExtResource("1_ytt65")]([SubResource("Resource_ful24"), SubResource("Resource_l8tnu")])
+complete_flags = Array[String]([])
+reward_fragments = Array[String](["CH2_F01"])
+reward_items = Array[String]([])
+reward_clues = Array[String]([])
+reward_abilities = Array[String]([])
+completion_dialogue = ""
+respawn_location = ""
+respawn_spawn = "default"
+estimated_minutes = 10
+authored = true
+id = "CH2_M02"

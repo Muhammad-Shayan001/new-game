@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AbilityDef" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/abilities/time_echo.gd" id="1_ms3oi"]
+[ext_resource type="Script" path="res://scripts/abilities/ability_def.gd" id="2_frcrv"]
+
+[resource]
+script = ExtResource("2_frcrv")
+name_key = "ABIL_TIME_ECHO_NAME"
+description_key = "ABIL_TIME_ECHO_DESC"
+unlock_chapter = 3
+input_slot = 3
+duration = 10.0
+cooldown = 0.0
+behavior = ExtResource("1_ms3oi")
+id = "ABIL_TIME_ECHO"

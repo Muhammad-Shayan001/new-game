@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="LocationDef" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_lqso7"]
+[ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_215qe"]
+
+[sub_resource type="Resource" id="Resource_fwncf"]
+script = ExtResource("1_lqso7")
+to_location = "LOC_SD_ATRIUM"
+route_type = "main"
+gate_chapter = 6
+spawn_id = "default"
+note = "Floor collapses"
+
+[sub_resource type="Resource" id="Resource_56hmg"]
+script = ExtResource("1_lqso7")
+to_location = "LOC_CR_SHORE"
+route_type = "main"
+gate_chapter = 6
+spawn_id = "default"
+note = "Fall ends at shoreline"
+
+[resource]
+script = ExtResource("2_215qe")
+name_key = "LOC_SD_DESCENT"
+region_id = "SD"
+location_type = "tunnel"
+first_chapter = 6
+safe_point = false
+hidden = false
+status = 0
+scene_path = "res://scenes/world/sunken_district/descent.tscn"
+default_spawn = "default"
+ambience_cue = ""
+connections = Array[ExtResource("1_lqso7")]([SubResource("Resource_fwncf"), SubResource("Resource_56hmg")])
+id = "LOC_SD_DESCENT"

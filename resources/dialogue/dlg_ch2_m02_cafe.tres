@@ -1,0 +1,96 @@
+[gd_resource type="Resource" script_class="DialogueDef" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/dialogue/dialogue_node.gd" id="1_8jpde"]
+[ext_resource type="Script" path="res://scripts/dialogue/dialogue_choice.gd" id="2_qolk4"]
+[ext_resource type="Script" path="res://scripts/dialogue/dialogue_def.gd" id="3_j1hxh"]
+
+[sub_resource type="Resource" id="Resource_u4kay"]
+script = ExtResource("1_8jpde")
+id = "may_001"
+speaker_id = "MAY"
+text_key = "DLG_CH2_M02_CAFE_MAY_001"
+next_id = "alx_001"
+choices = Array[ExtResource("2_qolk4")]([])
+set_flags = Array[String]([])
+relationship_changes = {}
+voice_cue = ""
+
+[sub_resource type="Resource" id="Resource_smqnx"]
+script = ExtResource("1_8jpde")
+id = "alx_001"
+speaker_id = "ALX"
+text_key = "DLG_CH2_M02_CAFE_ALX_001"
+next_id = "may_002"
+choices = Array[ExtResource("2_qolk4")]([])
+set_flags = Array[String]([])
+relationship_changes = {}
+voice_cue = ""
+
+[sub_resource type="Resource" id="Resource_23nnd"]
+script = ExtResource("1_8jpde")
+id = "may_002"
+speaker_id = "MAY"
+text_key = "DLG_CH2_M02_CAFE_MAY_002"
+next_id = "may_003"
+choices = Array[ExtResource("2_qolk4")]([])
+set_flags = Array[String]([])
+relationship_changes = {}
+voice_cue = ""
+
+[sub_resource type="Resource" id="Resource_lf3c1"]
+script = ExtResource("1_8jpde")
+id = "may_003"
+speaker_id = "MAY"
+text_key = "DLG_CH2_M02_CAFE_MAY_003"
+next_id = "alx_choice"
+choices = Array[ExtResource("2_qolk4")]([])
+set_flags = Array[String]([])
+relationship_changes = {}
+voice_cue = ""
+
+[sub_resource type="Resource" id="Resource_5hfjy"]
+script = ExtResource("2_qolk4")
+text_key = "DLG_CH2_M02_CAFE_CHOICE_WHY"
+next_id = "may_004"
+set_flags = Array[String]([])
+relationship_changes = {
+"maya_trust": 1
+}
+log_choice = ""
+
+[sub_resource type="Resource" id="Resource_vn8ov"]
+script = ExtResource("2_qolk4")
+text_key = "DLG_CH2_M02_CAFE_CHOICE_REAL"
+next_id = "may_004"
+set_flags = Array[String]([])
+relationship_changes = {}
+log_choice = "asked_maya_if_real"
+
+[sub_resource type="Resource" id="Resource_st2uy"]
+script = ExtResource("1_8jpde")
+id = "alx_choice"
+speaker_id = "ALX"
+text_key = "DLG_CH2_M02_CAFE_ALX_CHOICE"
+next_id = ""
+choices = Array[ExtResource("2_qolk4")]([SubResource("Resource_5hfjy"), SubResource("Resource_vn8ov")])
+set_flags = Array[String]([])
+relationship_changes = {}
+voice_cue = ""
+
+[sub_resource type="Resource" id="Resource_gk1r3"]
+script = ExtResource("1_8jpde")
+id = "may_004"
+speaker_id = "MAY"
+text_key = "DLG_CH2_M02_CAFE_MAY_004"
+next_id = ""
+choices = Array[ExtResource("2_qolk4")]([])
+set_flags = Array[String]([])
+relationship_changes = {}
+voice_cue = ""
+
+[resource]
+script = ExtResource("3_j1hxh")
+start_id = "may_001"
+nodes = Array[ExtResource("1_8jpde")]([SubResource("Resource_u4kay"), SubResource("Resource_smqnx"), SubResource("Resource_23nnd"), SubResource("Resource_lf3c1"), SubResource("Resource_st2uy"), SubResource("Resource_gk1r3")])
+repeatable = false
+id = "DLG_CH2_M02_CAFE"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FragmentDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/fragment_def.gd" id="1_86prr"]
+
+[resource]
+script = ExtResource("1_86prr")
+name_key = "FRAG_CH2_F01_NAME"
+journal_key = ""
+location_id = "LOC_EC_MAYA_CAFE"
+fragment_kind = 0
+flashback_scene = ""
+id = "CH2_F01"

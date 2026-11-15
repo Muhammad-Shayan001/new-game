@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="LocationDef" load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_4nuak"]
+[ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_4yil7"]
+
+[sub_resource type="Resource" id="Resource_ehdqq"]
+script = ExtResource("1_4nuak")
+to_location = "LOC_EC_METRO_ENTRANCE"
+route_type = "main"
+gate_chapter = 1
+spawn_id = "default"
+note = "Canopy exit"
+
+[sub_resource type="Resource" id="Resource_riytt"]
+script = ExtResource("1_4nuak")
+to_location = "LOC_EC_APT_BLDG"
+route_type = "main"
+gate_chapter = 1
+spawn_id = "default"
+note = "Lit doorway"
+
+[sub_resource type="Resource" id="Resource_ifn3a"]
+script = ExtResource("1_4nuak")
+to_location = "LOC_EC_CONV_STORE"
+route_type = "optional"
+gate_chapter = 1
+spawn_id = "default"
+note = "Neon sign"
+
+[sub_resource type="Resource" id="Resource_mvqic"]
+script = ExtResource("1_4nuak")
+to_location = "LOC_EC_PARK"
+route_type = "optional"
+gate_chapter = 1
+spawn_id = "default"
+note = "Tree-lined side path"
+
+[sub_resource type="Resource" id="Resource_swbbe"]
+script = ExtResource("1_4nuak")
+to_location = "LOC_EC_ARCHIVE_TOWER"
+route_type = "main"
+gate_chapter = 1
+spawn_id = "default"
+note = "Tower visible at street end"
+
+[sub_resource type="Resource" id="Resource_axpnf"]
+script = ExtResource("1_4nuak")
+to_location = "LOC_EC_ALLEY"
+route_type = "main"
+gate_chapter = 2
+spawn_id = "default"
+note = "Alley opens after Archive card"
+
+[resource]
+script = ExtResource("2_4yil7")
+name_key = "LOC_EC_MAIN_STREET"
+region_id = "EC"
+location_type = "street"
+first_chapter = 1
+safe_point = false
+hidden = false
+status = 0
+scene_path = "res://scenes/world/echo_city/main_street.tscn"
+default_spawn = "default"
+ambience_cue = ""
+connections = Array[ExtResource("1_4nuak")]([SubResource("Resource_ehdqq"), SubResource("Resource_riytt"), SubResource("Resource_ifn3a"), SubResource("Resource_mvqic"), SubResource("Resource_swbbe"), SubResource("Resource_axpnf")])
+id = "LOC_EC_MAIN_STREET"

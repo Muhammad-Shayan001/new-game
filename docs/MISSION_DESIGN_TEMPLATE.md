@@ -5,7 +5,7 @@ Copy for each mission. All fields required.
 ```
 Mission ID:            CH#_M## (e.g. CH1_M01)
 Mission name:
-Type:                  Main | Secondary
+Type:                  Main | Optional
 Chapter:
 Location:
 Story purpose:
@@ -37,3 +37,8 @@ Estimated duration:
 - Rewards: Memory Fragment CH1_F01 "A Name on a Ticket".
 - Unlock: `ch1_started`.
 - Testing: movement at walk/run thresholds, camera collision, interact prompt appears at 2 m, save/load mid-mission.
+
+## Creating the mission in the project
+Missions are `MissionDef` resources (`resources/missions/<id>.tres`, see `DATA_SCHEMA.md`). Skeletons for all 31 missions are generated from `tools/world_data.py`; open the file in the editor, add real objectives, rewards and flags, and set `authored = true`. Or scaffold a new one:
+`godot --headless --path . res://tools/content_tool.tscn -- new-mission CH1_S08 "Title" optional LOC_EC_PARK`
+Examples already authored: `CH1_M01`, `CH1_M03`, `CH1_S01`, `CH1_S02`, `CH2_M02`.

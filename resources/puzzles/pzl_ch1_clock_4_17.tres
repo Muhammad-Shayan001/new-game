@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PuzzleDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/puzzles/puzzle_def.gd" id="1_7alue"]
+
+[resource]
+script = ExtResource("1_7alue")
+puzzle_type = 0
+title_key = "PZL_CH1_CLOCK_4_17_TITLE"
+location_id = "LOC_EC_HID_CLOCK_ROOM"
+hint_keys = Array[String](["PZL_CH1_CLOCK_4_17_HINT_1", "PZL_CH1_CLOCK_4_17_HINT_2", "PZL_CH1_CLOCK_4_17_HINT_3"])
+solution = Array[String](["4", "1", "7"])
+set_flags = Array[String](["ch1_clock_solved"])
+reward_clues = Array[String]([])
+reward_items = Array[String]([])
+reward_fragments = Array[String](["CH1_F05"])
+id = "PZL_CH1_CLOCK_4_17"

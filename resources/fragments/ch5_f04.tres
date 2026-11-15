@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FragmentDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/fragment_def.gd" id="1_b75lq"]
+
+[resource]
+script = ExtResource("1_b75lq")
+name_key = "FRAG_CH5_F04_NAME"
+journal_key = ""
+location_id = "LOC_SD_NODE_MEMORY"
+fragment_kind = 1
+flashback_scene = ""
+id = "CH5_F04"

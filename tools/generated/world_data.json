@@ -1,0 +1,1564 @@
+{
+ "locations": [
+  {
+   "id": "LOC_UM_ECHO_STATION",
+   "region": "UM",
+   "region_name": "Underground Metro",
+   "type": "platform",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/underground_metro/echo_station.tscn",
+   "connections": [
+    {
+     "to": "LOC_UM_CONCOURSE",
+     "type": "main",
+     "gate": 1,
+     "note": "Stairs"
+    }
+   ]
+  },
+  {
+   "id": "LOC_UM_CONCOURSE",
+   "region": "UM",
+   "region_name": "Underground Metro",
+   "type": "interior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/underground_metro/concourse.tscn",
+   "connections": [
+    {
+     "to": "LOC_UM_ECHO_STATION",
+     "type": "main",
+     "gate": 1,
+     "note": "Stairs"
+    },
+    {
+     "to": "LOC_EC_METRO_ENTRANCE",
+     "type": "transition",
+     "gate": 1,
+     "note": "Escalator to street"
+    },
+    {
+     "to": "LOC_UM_ABANDONED_PLATFORMS",
+     "type": "optional",
+     "gate": 3,
+     "note": "Shortcut gate opened from Line 0"
+    }
+   ]
+  },
+  {
+   "id": "LOC_UM_ABANDONED_PLATFORMS",
+   "region": "UM",
+   "region_name": "Underground Metro",
+   "type": "platform",
+   "chapter": 3,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/underground_metro/abandoned_platforms.tscn",
+   "connections": [
+    {
+     "to": "LOC_UM_TUNNEL_STATIC",
+     "type": "main",
+     "gate": 3,
+     "note": "Static dissolves"
+    },
+    {
+     "to": "LOC_UM_CONCOURSE",
+     "type": "optional",
+     "gate": 3,
+     "note": "Shortcut gate opened from Line 0"
+    },
+    {
+     "to": "LOC_UM_RECORDING_ROOM",
+     "type": "main",
+     "gate": 3,
+     "note": "Service door"
+    },
+    {
+     "to": "LOC_UM_HID_MAINTENANCE",
+     "type": "hidden",
+     "gate": 3,
+     "note": "Vent grate"
+    }
+   ]
+  },
+  {
+   "id": "LOC_UM_RECORDING_ROOM",
+   "region": "UM",
+   "region_name": "Underground Metro",
+   "type": "interior",
+   "chapter": 3,
+   "safe": true,
+   "hidden": false,
+   "scene_path": "res://scenes/world/underground_metro/recording_room.tscn",
+   "connections": [
+    {
+     "to": "LOC_UM_ABANDONED_PLATFORMS",
+     "type": "main",
+     "gate": 3,
+     "note": "Service door"
+    },
+    {
+     "to": "LOC_DL_CROSSING",
+     "type": "transition",
+     "gate": 3,
+     "note": "Static wall"
+    }
+   ]
+  },
+  {
+   "id": "LOC_UM_TUNNEL_STATIC",
+   "region": "UM",
+   "region_name": "Underground Metro",
+   "type": "tunnel",
+   "chapter": 2,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/underground_metro/tunnel_static.tscn",
+   "connections": [
+    {
+     "to": "LOC_EC_ABANDONED_BLDG",
+     "type": "transition",
+     "gate": 2,
+     "note": "Basement stair to static"
+    },
+    {
+     "to": "LOC_UM_ABANDONED_PLATFORMS",
+     "type": "main",
+     "gate": 3,
+     "note": "Static dissolves"
+    }
+   ]
+  },
+  {
+   "id": "LOC_UM_HID_MAINTENANCE",
+   "region": "UM",
+   "region_name": "Underground Metro",
+   "type": "interior",
+   "chapter": 3,
+   "safe": false,
+   "hidden": true,
+   "scene_path": "res://scenes/world/underground_metro/hid_maintenance.tscn",
+   "connections": [
+    {
+     "to": "LOC_UM_ABANDONED_PLATFORMS",
+     "type": "hidden",
+     "gate": 3,
+     "note": "Vent grate"
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_METRO_ENTRANCE",
+   "region": "EC",
+   "region_name": "Echo City",
+   "type": "exterior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/echo_city/metro_entrance.tscn",
+   "connections": [
+    {
+     "to": "LOC_UM_CONCOURSE",
+     "type": "transition",
+     "gate": 1,
+     "note": "Escalator to street"
+    },
+    {
+     "to": "LOC_EC_MAIN_STREET",
+     "type": "main",
+     "gate": 1,
+     "note": "Canopy exit"
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_MAIN_STREET",
+   "region": "EC",
+   "region_name": "Echo City",
+   "type": "street",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/echo_city/main_street.tscn",
+   "connections": [
+    {
+     "to": "LOC_EC_METRO_ENTRANCE",
+     "type": "main",
+     "gate": 1,
+     "note": "Canopy exit"
+    },
+    {
+     "to": "LOC_EC_APT_BLDG",
+     "type": "main",
+     "gate": 1,
+     "note": "Lit doorway"
+    },
+    {
+     "to": "LOC_EC_CONV_STORE",
+     "type": "optional",
+     "gate": 1,
+     "note": "Neon sign"
+    },
+    {
+     "to": "LOC_EC_PARK",
+     "type": "optional",
+     "gate": 1,
+     "note": "Tree-lined side path"
+    },
+    {
+     "to": "LOC_EC_ARCHIVE_TOWER",
+     "type": "main",
+     "gate": 1,
+     "note": "Tower visible at street end"
+    },
+    {
+     "to": "LOC_EC_ALLEY",
+     "type": "main",
+     "gate": 2,
+     "note": "Alley opens after Archive card"
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_APT_BLDG",
+   "region": "EC",
+   "region_name": "Echo City",
+   "type": "interior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/echo_city/apt_bldg.tscn",
+   "connections": [
+    {
+     "to": "LOC_EC_MAIN_STREET",
+     "type": "main",
+     "gate": 1,
+     "note": "Lit doorway"
+    },
+    {
+     "to": "LOC_EC_ALEX_APT",
+     "type": "main",
+     "gate": 1,
+     "note": "Stairwell"
+    },
+    {
+     "to": "LOC_EC_SAFE_ROOM",
+     "type": "main",
+     "gate": 1,
+     "note": "Basement door"
+    },
+    {
+     "to": "LOC_EC_HID_ROOFTOP",
+     "type": "hidden",
+     "gate": 1,
+     "note": "Memory Sight reveals ladder"
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_ALEX_APT",
+   "region": "EC",
+   "region_name": "Echo City",
+   "type": "interior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/echo_city/alex_apt.tscn",
+   "connections": [
+    {
+     "to": "LOC_EC_APT_BLDG",
+     "type": "main",
+     "gate": 1,
+     "note": "Stairwell"
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_CONV_STORE",
+   "region": "EC",
+   "region_name": "Echo City",
+   "type": "interior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/echo_city/conv_store.tscn",
+   "connections": [
+    {
+     "to": "LOC_EC_MAIN_STREET",
+     "type": "optional",
+     "gate": 1,
+     "note": "Neon sign"
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_PARK",
+   "region": "EC",
+   "region_name": "Echo City",
+   "type": "exterior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/echo_city/park.tscn",
+   "connections": [
+    {
+     "to": "LOC_EC_MAIN_STREET",
+     "type": "optional",
+     "gate": 1,
+     "note": "Tree-lined side path"
+    },
+    {
+     "to": "LOC_EC_FORGOTTEN_QUARTER",
+     "type": "optional",
+     "gate": 2,
+     "note": "Shortcut gate"
+    },
+    {
+     "to": "LOC_EC_HID_PLAYGROUND",
+     "type": "hidden",
+     "gate": 2,
+     "note": "Hidden gate (Memory Sight)"
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_ALLEY",
+   "region": "EC",
+   "region_name": "Echo City",
+   "type": "street",
+   "chapter": 2,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/echo_city/alley.tscn",
+   "connections": [
+    {
+     "to": "LOC_EC_MAIN_STREET",
+     "type": "main",
+     "gate": 2,
+     "note": "Alley opens after Archive card"
+    },
+    {
+     "to": "LOC_EC_FORGOTTEN_QUARTER",
+     "type": "main",
+     "gate": 2,
+     "note": "Chalk waves lead on"
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_ABANDONED_BLDG",
+   "region": "EC",
+   "region_name": "Echo City",
+   "type": "interior",
+   "chapter": 2,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/echo_city/abandoned_bldg.tscn",
+   "connections": [
+    {
+     "to": "LOC_EC_FORGOTTEN_QUARTER",
+     "type": "main",
+     "gate": 2,
+     "note": "Broken revolving door"
+    },
+    {
+     "to": "LOC_UM_TUNNEL_STATIC",
+     "type": "transition",
+     "gate": 2,
+     "note": "Basement stair to static"
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_SAFE_ROOM",
+   "region": "EC",
+   "region_name": "Echo City",
+   "type": "interior",
+   "chapter": 1,
+   "safe": true,
+   "hidden": false,
+   "scene_path": "res://scenes/world/echo_city/safe_room.tscn",
+   "connections": [
+    {
+     "to": "LOC_EC_APT_BLDG",
+     "type": "main",
+     "gate": 1,
+     "note": "Basement door"
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_ARCHIVE_TOWER",
+   "region": "EC",
+   "region_name": "Echo City",
+   "type": "interior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/echo_city/archive_tower.tscn",
+   "connections": [
+    {
+     "to": "LOC_EC_MAIN_STREET",
+     "type": "main",
+     "gate": 1,
+     "note": "Tower visible at street end"
+    },
+    {
+     "to": "LOC_EC_HID_CLOCK_ROOM",
+     "type": "hidden",
+     "gate": 1,
+     "note": "Ticking behind a panel"
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_FORGOTTEN_QUARTER",
+   "region": "EC",
+   "region_name": "Echo City",
+   "type": "street",
+   "chapter": 2,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/echo_city/forgotten_quarter.tscn",
+   "connections": [
+    {
+     "to": "LOC_EC_ALLEY",
+     "type": "main",
+     "gate": 2,
+     "note": "Chalk waves lead on"
+    },
+    {
+     "to": "LOC_EC_MAYA_CAFE",
+     "type": "main",
+     "gate": 2,
+     "note": "Warm light"
+    },
+    {
+     "to": "LOC_EC_ABANDONED_BLDG",
+     "type": "main",
+     "gate": 2,
+     "note": "Broken revolving door"
+    },
+    {
+     "to": "LOC_EC_PARK",
+     "type": "optional",
+     "gate": 2,
+     "note": "Shortcut gate"
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_MAYA_CAFE",
+   "region": "EC",
+   "region_name": "Echo City",
+   "type": "interior",
+   "chapter": 2,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/echo_city/maya_cafe.tscn",
+   "connections": [
+    {
+     "to": "LOC_EC_FORGOTTEN_QUARTER",
+     "type": "main",
+     "gate": 2,
+     "note": "Warm light"
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_HID_ROOFTOP",
+   "region": "EC",
+   "region_name": "Echo City",
+   "type": "exterior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": true,
+   "scene_path": "res://scenes/world/echo_city/hid_rooftop.tscn",
+   "connections": [
+    {
+     "to": "LOC_EC_APT_BLDG",
+     "type": "hidden",
+     "gate": 1,
+     "note": "Memory Sight reveals ladder"
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_HID_CLOCK_ROOM",
+   "region": "EC",
+   "region_name": "Echo City",
+   "type": "interior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": true,
+   "scene_path": "res://scenes/world/echo_city/hid_clock_room.tscn",
+   "connections": [
+    {
+     "to": "LOC_EC_ARCHIVE_TOWER",
+     "type": "hidden",
+     "gate": 1,
+     "note": "Ticking behind a panel"
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_HID_PLAYGROUND",
+   "region": "EC",
+   "region_name": "Echo City",
+   "type": "exterior",
+   "chapter": 2,
+   "safe": false,
+   "hidden": true,
+   "scene_path": "res://scenes/world/echo_city/hid_playground.tscn",
+   "connections": [
+    {
+     "to": "LOC_EC_PARK",
+     "type": "hidden",
+     "gate": 2,
+     "note": "Hidden gate (Memory Sight)"
+    }
+   ]
+  },
+  {
+   "id": "LOC_DL_CROSSING",
+   "region": "DL",
+   "region_name": "Dreamland",
+   "type": "exterior",
+   "chapter": 3,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/dreamland/crossing.tscn",
+   "connections": [
+    {
+     "to": "LOC_UM_RECORDING_ROOM",
+     "type": "transition",
+     "gate": 3,
+     "note": "Static wall"
+    },
+    {
+     "to": "LOC_DL_ANCHOR_FIELDS",
+     "type": "main",
+     "gate": 3,
+     "note": "Floating bridge"
+    }
+   ]
+  },
+  {
+   "id": "LOC_DL_ANCHOR_FIELDS",
+   "region": "DL",
+   "region_name": "Dreamland",
+   "type": "exterior",
+   "chapter": 3,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/dreamland/anchor_fields.tscn",
+   "connections": [
+    {
+     "to": "LOC_DL_CROSSING",
+     "type": "main",
+     "gate": 3,
+     "note": "Floating bridge"
+    },
+    {
+     "to": "LOC_DL_CRIB_ROOM",
+     "type": "main",
+     "gate": 3,
+     "note": "Door appears after 3 anchors"
+    },
+    {
+     "to": "LOC_DL_ECHO_GALLERY",
+     "type": "optional",
+     "gate": 3,
+     "note": "Side door"
+    },
+    {
+     "to": "LOC_DL_THE_HUM",
+     "type": "optional",
+     "gate": 3,
+     "note": "Low sound"
+    }
+   ]
+  },
+  {
+   "id": "LOC_DL_CRIB_ROOM",
+   "region": "DL",
+   "region_name": "Dreamland",
+   "type": "interior",
+   "chapter": 3,
+   "safe": true,
+   "hidden": false,
+   "scene_path": "res://scenes/world/dreamland/crib_room.tscn",
+   "connections": [
+    {
+     "to": "LOC_DL_ANCHOR_FIELDS",
+     "type": "main",
+     "gate": 3,
+     "note": "Door appears after 3 anchors"
+    },
+    {
+     "to": "LOC_MH_LOBBY",
+     "type": "transition",
+     "gate": 4,
+     "note": "Monitor tone door"
+    }
+   ]
+  },
+  {
+   "id": "LOC_DL_ECHO_GALLERY",
+   "region": "DL",
+   "region_name": "Dreamland",
+   "type": "interior",
+   "chapter": 3,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/dreamland/echo_gallery.tscn",
+   "connections": [
+    {
+     "to": "LOC_DL_ANCHOR_FIELDS",
+     "type": "optional",
+     "gate": 3,
+     "note": "Side door"
+    },
+    {
+     "to": "LOC_DL_HID_UPSIDE_STAIRS",
+     "type": "hidden",
+     "gate": 3,
+     "note": "Reality Shift"
+    }
+   ]
+  },
+  {
+   "id": "LOC_DL_THE_HUM",
+   "region": "DL",
+   "region_name": "Dreamland",
+   "type": "exterior",
+   "chapter": 3,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/dreamland/the_hum.tscn",
+   "connections": [
+    {
+     "to": "LOC_DL_ANCHOR_FIELDS",
+     "type": "optional",
+     "gate": 3,
+     "note": "Low sound"
+    }
+   ]
+  },
+  {
+   "id": "LOC_DL_HID_UPSIDE_STAIRS",
+   "region": "DL",
+   "region_name": "Dreamland",
+   "type": "interior",
+   "chapter": 3,
+   "safe": false,
+   "hidden": true,
+   "scene_path": "res://scenes/world/dreamland/hid_upside_stairs.tscn",
+   "connections": [
+    {
+     "to": "LOC_DL_ECHO_GALLERY",
+     "type": "hidden",
+     "gate": 3,
+     "note": "Reality Shift"
+    }
+   ]
+  },
+  {
+   "id": "LOC_MH_LOBBY",
+   "region": "MH",
+   "region_name": "Memory Hospital",
+   "type": "interior",
+   "chapter": 4,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/memory_hospital/lobby.tscn",
+   "connections": [
+    {
+     "to": "LOC_DL_CRIB_ROOM",
+     "type": "transition",
+     "gate": 4,
+     "note": "Monitor tone door"
+    },
+    {
+     "to": "LOC_MH_WARD_ALEX",
+     "type": "main",
+     "gate": 4,
+     "note": "Elevator"
+    },
+    {
+     "to": "LOC_MH_WAITING_ROOM",
+     "type": "optional",
+     "gate": 4,
+     "note": "Corridor"
+    },
+    {
+     "to": "LOC_MH_RECON_LAB",
+     "type": "main",
+     "gate": 4,
+     "note": "Lab corridor"
+    }
+   ]
+  },
+  {
+   "id": "LOC_MH_WARD_ALEX",
+   "region": "MH",
+   "region_name": "Memory Hospital",
+   "type": "interior",
+   "chapter": 4,
+   "safe": true,
+   "hidden": false,
+   "scene_path": "res://scenes/world/memory_hospital/ward_alex.tscn",
+   "connections": [
+    {
+     "to": "LOC_MH_LOBBY",
+     "type": "main",
+     "gate": 4,
+     "note": "Elevator"
+    },
+    {
+     "to": "LOC_SD_FLOODED_STREETS",
+     "type": "transition",
+     "gate": 5,
+     "note": "Index access door after Ch4"
+    }
+   ]
+  },
+  {
+   "id": "LOC_MH_WAITING_ROOM",
+   "region": "MH",
+   "region_name": "Memory Hospital",
+   "type": "interior",
+   "chapter": 4,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/memory_hospital/waiting_room.tscn",
+   "connections": [
+    {
+     "to": "LOC_MH_LOBBY",
+     "type": "optional",
+     "gate": 4,
+     "note": "Corridor"
+    }
+   ]
+  },
+  {
+   "id": "LOC_MH_RECON_LAB",
+   "region": "MH",
+   "region_name": "Memory Hospital",
+   "type": "interior",
+   "chapter": 4,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/memory_hospital/recon_lab.tscn",
+   "connections": [
+    {
+     "to": "LOC_MH_LOBBY",
+     "type": "main",
+     "gate": 4,
+     "note": "Lab corridor"
+    },
+    {
+     "to": "LOC_BF_ROAD_EDGE",
+     "type": "transition",
+     "gate": 4,
+     "note": "Memory projection"
+    }
+   ]
+  },
+  {
+   "id": "LOC_BF_ROAD_EDGE",
+   "region": "BF",
+   "region_name": "Black Forest",
+   "type": "exterior",
+   "chapter": 4,
+   "safe": true,
+   "hidden": false,
+   "scene_path": "res://scenes/world/black_forest/road_edge.tscn",
+   "connections": [
+    {
+     "to": "LOC_MH_RECON_LAB",
+     "type": "transition",
+     "gate": 4,
+     "note": "Memory projection"
+    },
+    {
+     "to": "LOC_BF_CRASH_SITE",
+     "type": "main",
+     "gate": 4,
+     "note": "Road"
+    },
+    {
+     "to": "LOC_BF_HOLLOW",
+     "type": "optional",
+     "gate": 4,
+     "note": "Deer trail"
+    }
+   ]
+  },
+  {
+   "id": "LOC_BF_CRASH_SITE",
+   "region": "BF",
+   "region_name": "Black Forest",
+   "type": "exterior",
+   "chapter": 4,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/black_forest/crash_site.tscn",
+   "connections": [
+    {
+     "to": "LOC_BF_ROAD_EDGE",
+     "type": "main",
+     "gate": 4,
+     "note": "Road"
+    }
+   ]
+  },
+  {
+   "id": "LOC_BF_HOLLOW",
+   "region": "BF",
+   "region_name": "Black Forest",
+   "type": "exterior",
+   "chapter": 4,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/black_forest/hollow.tscn",
+   "connections": [
+    {
+     "to": "LOC_BF_ROAD_EDGE",
+     "type": "optional",
+     "gate": 4,
+     "note": "Deer trail"
+    },
+    {
+     "to": "LOC_BF_LAKE_OVERLOOK",
+     "type": "optional",
+     "gate": 4,
+     "note": "Totem path"
+    }
+   ]
+  },
+  {
+   "id": "LOC_BF_LAKE_OVERLOOK",
+   "region": "BF",
+   "region_name": "Black Forest",
+   "type": "exterior",
+   "chapter": 4,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/black_forest/lake_overlook.tscn",
+   "connections": [
+    {
+     "to": "LOC_BF_HOLLOW",
+     "type": "optional",
+     "gate": 4,
+     "note": "Totem path"
+    },
+    {
+     "to": "LOC_BF_HID_SHRINE",
+     "type": "hidden",
+     "gate": 4,
+     "note": "Hidden stair"
+    }
+   ]
+  },
+  {
+   "id": "LOC_BF_HID_SHRINE",
+   "region": "BF",
+   "region_name": "Black Forest",
+   "type": "exterior",
+   "chapter": 4,
+   "safe": false,
+   "hidden": true,
+   "scene_path": "res://scenes/world/black_forest/hid_shrine.tscn",
+   "connections": [
+    {
+     "to": "LOC_BF_LAKE_OVERLOOK",
+     "type": "hidden",
+     "gate": 4,
+     "note": "Hidden stair"
+    }
+   ]
+  },
+  {
+   "id": "LOC_SD_FLOODED_STREETS",
+   "region": "SD",
+   "region_name": "Sunken District",
+   "type": "street",
+   "chapter": 5,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/sunken_district/flooded_streets.tscn",
+   "connections": [
+    {
+     "to": "LOC_MH_WARD_ALEX",
+     "type": "transition",
+     "gate": 5,
+     "note": "Index access door after Ch4"
+    },
+    {
+     "to": "LOC_SD_OLD_CITY_HALL",
+     "type": "main",
+     "gate": 5,
+     "note": "Steps above water"
+    },
+    {
+     "to": "LOC_SD_HID_NURSERY",
+     "type": "hidden",
+     "gate": 5,
+     "note": "Submerged door (Reality Shift)"
+    }
+   ]
+  },
+  {
+   "id": "LOC_SD_OLD_CITY_HALL",
+   "region": "SD",
+   "region_name": "Sunken District",
+   "type": "interior",
+   "chapter": 5,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/sunken_district/old_city_hall.tscn",
+   "connections": [
+    {
+     "to": "LOC_SD_FLOODED_STREETS",
+     "type": "main",
+     "gate": 5,
+     "note": "Steps above water"
+    },
+    {
+     "to": "LOC_SD_ATRIUM",
+     "type": "main",
+     "gate": 5,
+     "note": "Great doors"
+    }
+   ]
+  },
+  {
+   "id": "LOC_SD_ATRIUM",
+   "region": "SD",
+   "region_name": "Sunken District",
+   "type": "interior",
+   "chapter": 5,
+   "safe": true,
+   "hidden": false,
+   "scene_path": "res://scenes/world/sunken_district/atrium.tscn",
+   "connections": [
+    {
+     "to": "LOC_SD_OLD_CITY_HALL",
+     "type": "main",
+     "gate": 5,
+     "note": "Great doors"
+    },
+    {
+     "to": "LOC_SD_NODE_CONTROL",
+     "type": "main",
+     "gate": 5,
+     "note": "Ring corridor"
+    },
+    {
+     "to": "LOC_SD_NODE_ARCHIVE",
+     "type": "main",
+     "gate": 5,
+     "note": "Ring corridor"
+    },
+    {
+     "to": "LOC_SD_NODE_MEMORY",
+     "type": "main",
+     "gate": 5,
+     "note": "Ring corridor"
+    },
+    {
+     "to": "LOC_SD_DESCENT",
+     "type": "main",
+     "gate": 6,
+     "note": "Floor collapses"
+    }
+   ]
+  },
+  {
+   "id": "LOC_SD_NODE_CONTROL",
+   "region": "SD",
+   "region_name": "Sunken District",
+   "type": "interior",
+   "chapter": 5,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/sunken_district/node_control.tscn",
+   "connections": [
+    {
+     "to": "LOC_SD_ATRIUM",
+     "type": "main",
+     "gate": 5,
+     "note": "Ring corridor"
+    }
+   ]
+  },
+  {
+   "id": "LOC_SD_NODE_ARCHIVE",
+   "region": "SD",
+   "region_name": "Sunken District",
+   "type": "interior",
+   "chapter": 5,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/sunken_district/node_archive.tscn",
+   "connections": [
+    {
+     "to": "LOC_SD_ATRIUM",
+     "type": "main",
+     "gate": 5,
+     "note": "Ring corridor"
+    }
+   ]
+  },
+  {
+   "id": "LOC_SD_NODE_MEMORY",
+   "region": "SD",
+   "region_name": "Sunken District",
+   "type": "interior",
+   "chapter": 5,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/sunken_district/node_memory.tscn",
+   "connections": [
+    {
+     "to": "LOC_SD_ATRIUM",
+     "type": "main",
+     "gate": 5,
+     "note": "Ring corridor"
+    }
+   ]
+  },
+  {
+   "id": "LOC_SD_HID_NURSERY",
+   "region": "SD",
+   "region_name": "Sunken District",
+   "type": "interior",
+   "chapter": 5,
+   "safe": false,
+   "hidden": true,
+   "scene_path": "res://scenes/world/sunken_district/hid_nursery.tscn",
+   "connections": [
+    {
+     "to": "LOC_SD_FLOODED_STREETS",
+     "type": "hidden",
+     "gate": 5,
+     "note": "Submerged door (Reality Shift)"
+    }
+   ]
+  },
+  {
+   "id": "LOC_SD_DESCENT",
+   "region": "SD",
+   "region_name": "Sunken District",
+   "type": "tunnel",
+   "chapter": 6,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/sunken_district/descent.tscn",
+   "connections": [
+    {
+     "to": "LOC_SD_ATRIUM",
+     "type": "main",
+     "gate": 6,
+     "note": "Floor collapses"
+    },
+    {
+     "to": "LOC_CR_SHORE",
+     "type": "main",
+     "gate": 6,
+     "note": "Fall ends at shoreline"
+    }
+   ]
+  },
+  {
+   "id": "LOC_CR_SHORE",
+   "region": "CR",
+   "region_name": "The Core",
+   "type": "exterior",
+   "chapter": 6,
+   "safe": true,
+   "hidden": false,
+   "scene_path": "res://scenes/world/the_core/shore.tscn",
+   "connections": [
+    {
+     "to": "LOC_SD_DESCENT",
+     "type": "main",
+     "gate": 6,
+     "note": "Fall ends at shoreline"
+    },
+    {
+     "to": "LOC_CR_LULLABY_PIER",
+     "type": "main",
+     "gate": 6,
+     "note": "Pier"
+    }
+   ]
+  },
+  {
+   "id": "LOC_CR_LULLABY_PIER",
+   "region": "CR",
+   "region_name": "The Core",
+   "type": "exterior",
+   "chapter": 6,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/the_core/lullaby_pier.tscn",
+   "connections": [
+    {
+     "to": "LOC_CR_SHORE",
+     "type": "main",
+     "gate": 6,
+     "note": "Pier"
+    },
+    {
+     "to": "LOC_CR_CHOICE_POINT",
+     "type": "main",
+     "gate": 6,
+     "note": "Pier end"
+    }
+   ]
+  },
+  {
+   "id": "LOC_CR_CHOICE_POINT",
+   "region": "CR",
+   "region_name": "The Core",
+   "type": "exterior",
+   "chapter": 6,
+   "safe": false,
+   "hidden": false,
+   "scene_path": "res://scenes/world/the_core/choice_point.tscn",
+   "connections": [
+    {
+     "to": "LOC_CR_LULLABY_PIER",
+     "type": "main",
+     "gate": 6,
+     "note": "Pier end"
+    }
+   ]
+  }
+ ],
+ "missions": [
+  {
+   "id": "CH1_M01",
+   "chapter": 1,
+   "type": "Main",
+   "locations": [
+    "LOC_UM_ECHO_STATION",
+    "LOC_UM_CONCOURSE",
+    "LOC_EC_METRO_ENTRANCE"
+   ]
+  },
+  {
+   "id": "CH1_M02",
+   "chapter": 1,
+   "type": "Main",
+   "locations": [
+    "LOC_EC_MAIN_STREET",
+    "LOC_EC_APT_BLDG",
+    "LOC_EC_SAFE_ROOM",
+    "LOC_EC_ALEX_APT"
+   ]
+  },
+  {
+   "id": "CH1_M03",
+   "chapter": 1,
+   "type": "Main",
+   "locations": [
+    "LOC_EC_ARCHIVE_TOWER"
+   ]
+  },
+  {
+   "id": "CH1_S01",
+   "chapter": 1,
+   "type": "Optional",
+   "locations": [
+    "LOC_UM_CONCOURSE",
+    "LOC_EC_CONV_STORE"
+   ]
+  },
+  {
+   "id": "CH1_S02",
+   "chapter": 1,
+   "type": "Optional",
+   "locations": [
+    "LOC_EC_HID_CLOCK_ROOM"
+   ]
+  },
+  {
+   "id": "CH2_M01",
+   "chapter": 2,
+   "type": "Main",
+   "locations": [
+    "LOC_EC_ALLEY",
+    "LOC_EC_FORGOTTEN_QUARTER"
+   ]
+  },
+  {
+   "id": "CH2_M02",
+   "chapter": 2,
+   "type": "Main",
+   "locations": [
+    "LOC_EC_MAYA_CAFE"
+   ]
+  },
+  {
+   "id": "CH2_M03",
+   "chapter": 2,
+   "type": "Main",
+   "locations": [
+    "LOC_EC_ABANDONED_BLDG"
+   ]
+  },
+  {
+   "id": "CH2_S01",
+   "chapter": 2,
+   "type": "Optional",
+   "locations": [
+    "LOC_EC_FORGOTTEN_QUARTER"
+   ]
+  },
+  {
+   "id": "CH2_S02",
+   "chapter": 2,
+   "type": "Optional",
+   "locations": [
+    "LOC_EC_PARK",
+    "LOC_EC_MAYA_CAFE"
+   ]
+  },
+  {
+   "id": "CH3_M01",
+   "chapter": 3,
+   "type": "Main",
+   "locations": [
+    "LOC_UM_TUNNEL_STATIC",
+    "LOC_UM_ABANDONED_PLATFORMS",
+    "LOC_UM_RECORDING_ROOM",
+    "LOC_DL_CROSSING"
+   ]
+  },
+  {
+   "id": "CH3_M02",
+   "chapter": 3,
+   "type": "Main",
+   "locations": [
+    "LOC_DL_ANCHOR_FIELDS"
+   ]
+  },
+  {
+   "id": "CH3_M03",
+   "chapter": 3,
+   "type": "Main",
+   "locations": [
+    "LOC_DL_CRIB_ROOM"
+   ]
+  },
+  {
+   "id": "CH3_S01",
+   "chapter": 3,
+   "type": "Optional",
+   "locations": [
+    "LOC_DL_ECHO_GALLERY"
+   ]
+  },
+  {
+   "id": "CH3_S02",
+   "chapter": 3,
+   "type": "Optional",
+   "locations": [
+    "LOC_DL_THE_HUM"
+   ]
+  },
+  {
+   "id": "CH3_S03",
+   "chapter": 3,
+   "type": "Optional",
+   "locations": [
+    "LOC_UM_HID_MAINTENANCE"
+   ]
+  },
+  {
+   "id": "CH4_M01",
+   "chapter": 4,
+   "type": "Main",
+   "locations": [
+    "LOC_MH_LOBBY",
+    "LOC_MH_WARD_ALEX"
+   ]
+  },
+  {
+   "id": "CH4_M02",
+   "chapter": 4,
+   "type": "Main",
+   "locations": [
+    "LOC_MH_RECON_LAB",
+    "LOC_BF_ROAD_EDGE",
+    "LOC_BF_CRASH_SITE"
+   ]
+  },
+  {
+   "id": "CH4_M03",
+   "chapter": 4,
+   "type": "Main",
+   "locations": [
+    "LOC_MH_WARD_ALEX"
+   ]
+  },
+  {
+   "id": "CH4_S01",
+   "chapter": 4,
+   "type": "Optional",
+   "locations": [
+    "LOC_MH_WAITING_ROOM"
+   ]
+  },
+  {
+   "id": "CH4_S02",
+   "chapter": 4,
+   "type": "Optional",
+   "locations": [
+    "LOC_MH_RECON_LAB"
+   ]
+  },
+  {
+   "id": "CH4_S03",
+   "chapter": 4,
+   "type": "Optional",
+   "locations": [
+    "LOC_BF_HOLLOW"
+   ]
+  },
+  {
+   "id": "CH5_M01",
+   "chapter": 5,
+   "type": "Main",
+   "locations": [
+    "LOC_SD_FLOODED_STREETS",
+    "LOC_SD_OLD_CITY_HALL",
+    "LOC_SD_ATRIUM"
+   ]
+  },
+  {
+   "id": "CH5_M02",
+   "chapter": 5,
+   "type": "Main",
+   "locations": [
+    "LOC_SD_ATRIUM"
+   ]
+  },
+  {
+   "id": "CH5_M03",
+   "chapter": 5,
+   "type": "Main",
+   "locations": [
+    "LOC_SD_NODE_CONTROL",
+    "LOC_SD_NODE_ARCHIVE",
+    "LOC_SD_NODE_MEMORY"
+   ]
+  },
+  {
+   "id": "CH5_S01",
+   "chapter": 5,
+   "type": "Optional",
+   "locations": [
+    "LOC_SD_OLD_CITY_HALL"
+   ]
+  },
+  {
+   "id": "CH5_S02",
+   "chapter": 5,
+   "type": "Optional",
+   "locations": [
+    "LOC_SD_ATRIUM"
+   ]
+  },
+  {
+   "id": "CH6_M01",
+   "chapter": 6,
+   "type": "Main",
+   "locations": [
+    "LOC_CR_SHORE"
+   ]
+  },
+  {
+   "id": "CH6_M02",
+   "chapter": 6,
+   "type": "Main",
+   "locations": [
+    "LOC_CR_LULLABY_PIER"
+   ]
+  },
+  {
+   "id": "CH6_M03",
+   "chapter": 6,
+   "type": "Main",
+   "locations": [
+    "LOC_CR_CHOICE_POINT"
+   ]
+  },
+  {
+   "id": "CH6_S01",
+   "chapter": 6,
+   "type": "Optional",
+   "locations": [
+    "LOC_CR_LULLABY_PIER"
+   ]
+  }
+ ],
+ "fragments": [
+  {
+   "id": "CH1_F01",
+   "location": "LOC_UM_ECHO_STATION",
+   "kind": "Core"
+  },
+  {
+   "id": "CH1_F02",
+   "location": "LOC_EC_ALEX_APT",
+   "kind": "Hidden"
+  },
+  {
+   "id": "CH1_F03",
+   "location": "LOC_EC_CONV_STORE",
+   "kind": "Hidden"
+  },
+  {
+   "id": "CH1_F04",
+   "location": "LOC_EC_HID_ROOFTOP",
+   "kind": "Hidden"
+  },
+  {
+   "id": "CH1_F05",
+   "location": "LOC_EC_HID_CLOCK_ROOM",
+   "kind": "Hidden"
+  },
+  {
+   "id": "CH2_F01",
+   "location": "LOC_EC_MAYA_CAFE",
+   "kind": "Core"
+  },
+  {
+   "id": "CH2_F02",
+   "location": "LOC_EC_PARK",
+   "kind": "Core"
+  },
+  {
+   "id": "CH2_F03",
+   "location": "LOC_EC_ALLEY",
+   "kind": "Hidden"
+  },
+  {
+   "id": "CH2_F04",
+   "location": "LOC_EC_ABANDONED_BLDG",
+   "kind": "Hidden"
+  },
+  {
+   "id": "CH2_F05",
+   "location": "LOC_EC_HID_PLAYGROUND",
+   "kind": "Deep"
+  },
+  {
+   "id": "CH3_F01",
+   "location": "LOC_DL_ANCHOR_FIELDS",
+   "kind": "Core"
+  },
+  {
+   "id": "CH3_F02",
+   "location": "LOC_DL_CRIB_ROOM",
+   "kind": "Core"
+  },
+  {
+   "id": "CH3_F03",
+   "location": "LOC_UM_RECORDING_ROOM",
+   "kind": "Hidden"
+  },
+  {
+   "id": "CH3_F04",
+   "location": "LOC_DL_ECHO_GALLERY",
+   "kind": "Hidden"
+  },
+  {
+   "id": "CH3_F05",
+   "location": "LOC_DL_HID_UPSIDE_STAIRS",
+   "kind": "Hidden"
+  },
+  {
+   "id": "CH4_F01",
+   "location": "LOC_BF_CRASH_SITE",
+   "kind": "Core"
+  },
+  {
+   "id": "CH4_F02",
+   "location": "LOC_MH_WARD_ALEX",
+   "kind": "Core"
+  },
+  {
+   "id": "CH4_F03",
+   "location": "LOC_MH_WAITING_ROOM",
+   "kind": "Hidden"
+  },
+  {
+   "id": "CH4_F04",
+   "location": "LOC_BF_LAKE_OVERLOOK",
+   "kind": "Hidden"
+  },
+  {
+   "id": "CH4_F05",
+   "location": "LOC_BF_HID_SHRINE",
+   "kind": "Deep"
+  },
+  {
+   "id": "CH5_F01",
+   "location": "LOC_SD_ATRIUM",
+   "kind": "Core"
+  },
+  {
+   "id": "CH5_F02",
+   "location": "LOC_SD_OLD_CITY_HALL",
+   "kind": "Core"
+  },
+  {
+   "id": "CH5_F03",
+   "location": "LOC_SD_FLOODED_STREETS",
+   "kind": "Hidden"
+  },
+  {
+   "id": "CH5_F04",
+   "location": "LOC_SD_NODE_MEMORY",
+   "kind": "Hidden"
+  },
+  {
+   "id": "CH5_F05",
+   "location": "LOC_SD_HID_NURSERY",
+   "kind": "Deep"
+  },
+  {
+   "id": "CH6_F01",
+   "location": "LOC_CR_CHOICE_POINT",
+   "kind": "Core"
+  },
+  {
+   "id": "CH6_F02",
+   "location": "LOC_CR_SHORE",
+   "kind": "Hidden"
+  },
+  {
+   "id": "CH6_F03",
+   "location": "LOC_CR_LULLABY_PIER",
+   "kind": "Hidden"
+  },
+  {
+   "id": "CH6_F04",
+   "location": "LOC_CR_LULLABY_PIER",
+   "kind": "Hidden"
+  },
+  {
+   "id": "CH6_F05",
+   "location": "LOC_CR_CHOICE_POINT",
+   "kind": "Hidden"
+  }
+ ]
+}

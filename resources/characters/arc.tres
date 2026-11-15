@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/character_def.gd" id="1_xlymc"]
+
+[resource]
+script = ExtResource("1_xlymc")
+name_key = "CHR_ARC_NAME"
+accent_color = Color(0.8, 0.4, 0.4, 1)
+scene_path = ""
+default_dialogue = ""
+id = "ARC"

@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="MissionDef" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/missions/objective_def.gd" id="1_73q22"]
+[ext_resource type="Script" path="res://scripts/missions/mission_def.gd" id="2_uk1ub"]
+[ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="3_jfo3s"]
+
+[sub_resource type="Resource" id="Resource_733id"]
+script = ExtResource("1_73q22")
+id = "reach_sd_old_city_hall"
+text_key = "MISSION_CH5_S01_OBJ_REACH_SD_OLD_CITY_HALL"
+objective_kind = 0
+target = "LOC_SD_OLD_CITY_HALL"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_8axvv"]
+script = ExtResource("3_jfo3s")
+min_chapter = 0
+flags_all = Array[String]([])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String]([])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+
+[resource]
+script = ExtResource("2_uk1ub")
+mission_type = 1
+chapter = 5
+title_key = "MISSION_CH5_S01_TITLE"
+summary_key = ""
+locations = Array[String](["LOC_SD_OLD_CITY_HALL"])
+unlock = SubResource("Resource_8axvv")
+auto_start = true
+start_flags = Array[String]([])
+objectives = Array[ExtResource("1_73q22")]([SubResource("Resource_733id")])
+complete_flags = Array[String]([])
+reward_fragments = Array[String]([])
+reward_items = Array[String]([])
+reward_clues = Array[String]([])
+reward_abilities = Array[String]([])
+completion_dialogue = ""
+respawn_location = ""
+respawn_spawn = "default"
+estimated_minutes = 10
+authored = false
+id = "CH5_S01"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AbilityDef" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/abilities/echo_voice.gd" id="1_k8uno"]
+[ext_resource type="Script" path="res://scripts/abilities/ability_def.gd" id="2_fk8lp"]
+
+[resource]
+script = ExtResource("2_fk8lp")
+name_key = "ABIL_ECHO_VOICE_NAME"
+description_key = "ABIL_ECHO_VOICE_DESC"
+unlock_chapter = 5
+input_slot = 4
+duration = 0.0
+cooldown = 0.0
+behavior = ExtResource("1_k8uno")
+id = "ABIL_ECHO_VOICE"

@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="MissionDef" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/missions/objective_def.gd" id="1_s7wid"]
+[ext_resource type="Script" path="res://scripts/missions/mission_def.gd" id="2_qkkne"]
+[ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="3_4owly"]
+
+[sub_resource type="Resource" id="Resource_ymvh2"]
+script = ExtResource("1_s7wid")
+id = "reach_sd_node_control"
+text_key = "MISSION_CH5_M03_OBJ_REACH_SD_NODE_CONTROL"
+objective_kind = 0
+target = "LOC_SD_NODE_CONTROL"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_vc7h8"]
+script = ExtResource("1_s7wid")
+id = "reach_sd_node_archive"
+text_key = "MISSION_CH5_M03_OBJ_REACH_SD_NODE_ARCHIVE"
+objective_kind = 0
+target = "LOC_SD_NODE_ARCHIVE"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_o6hbn"]
+script = ExtResource("1_s7wid")
+id = "reach_sd_node_memory"
+text_key = "MISSION_CH5_M03_OBJ_REACH_SD_NODE_MEMORY"
+objective_kind = 0
+target = "LOC_SD_NODE_MEMORY"
+count = 1
+optional = false
+
+[sub_resource type="Resource" id="Resource_8smh4"]
+script = ExtResource("3_4owly")
+min_chapter = 0
+flags_all = Array[String]([])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String](["CH5_M02"])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+
+[resource]
+script = ExtResource("2_qkkne")
+mission_type = 0
+chapter = 5
+title_key = "MISSION_CH5_M03_TITLE"
+summary_key = ""
+locations = Array[String](["LOC_SD_NODE_CONTROL", "LOC_SD_NODE_ARCHIVE", "LOC_SD_NODE_MEMORY"])
+unlock = SubResource("Resource_8smh4")
+auto_start = true
+start_flags = Array[String]([])
+objectives = Array[ExtResource("1_s7wid")]([SubResource("Resource_ymvh2"), SubResource("Resource_vc7h8"), SubResource("Resource_o6hbn")])
+complete_flags = Array[String]([])
+reward_fragments = Array[String]([])
+reward_items = Array[String]([])
+reward_clues = Array[String]([])
+reward_abilities = Array[String]([])
+completion_dialogue = ""
+respawn_location = ""
+respawn_spawn = "default"
+estimated_minutes = 10
+authored = false
+id = "CH5_M03"
