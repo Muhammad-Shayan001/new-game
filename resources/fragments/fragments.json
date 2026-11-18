@@ -1,0 +1,214 @@
+{
+ "entries": [
+  {
+   "id": "CH1_F01",
+   "name_key": "frag.CH1_F01",
+   "location": "LOC_UM_ECHO_STATION",
+   "kind": "Core",
+   "chapter": 1
+  },
+  {
+   "id": "CH1_F02",
+   "name_key": "frag.CH1_F02",
+   "location": "LOC_EC_ALEX_APT",
+   "kind": "Hidden",
+   "chapter": 1
+  },
+  {
+   "id": "CH1_F03",
+   "name_key": "frag.CH1_F03",
+   "location": "LOC_EC_CONV_STORE",
+   "kind": "Hidden",
+   "chapter": 1
+  },
+  {
+   "id": "CH1_F04",
+   "name_key": "frag.CH1_F04",
+   "location": "LOC_EC_HID_ROOFTOP",
+   "kind": "Hidden",
+   "chapter": 1
+  },
+  {
+   "id": "CH1_F05",
+   "name_key": "frag.CH1_F05",
+   "location": "LOC_EC_HID_CLOCK_ROOM",
+   "kind": "Hidden",
+   "chapter": 1
+  },
+  {
+   "id": "CH2_F01",
+   "name_key": "frag.CH2_F01",
+   "location": "LOC_EC_MAYA_CAFE",
+   "kind": "Core",
+   "chapter": 2
+  },
+  {
+   "id": "CH2_F02",
+   "name_key": "frag.CH2_F02",
+   "location": "LOC_EC_PARK",
+   "kind": "Core",
+   "chapter": 2
+  },
+  {
+   "id": "CH2_F03",
+   "name_key": "frag.CH2_F03",
+   "location": "LOC_EC_ALLEY",
+   "kind": "Hidden",
+   "chapter": 2
+  },
+  {
+   "id": "CH2_F04",
+   "name_key": "frag.CH2_F04",
+   "location": "LOC_EC_ABANDONED_BLDG",
+   "kind": "Hidden",
+   "chapter": 2
+  },
+  {
+   "id": "CH2_F05",
+   "name_key": "frag.CH2_F05",
+   "location": "LOC_EC_HID_PLAYGROUND",
+   "kind": "Deep",
+   "chapter": 2
+  },
+  {
+   "id": "CH3_F01",
+   "name_key": "frag.CH3_F01",
+   "location": "LOC_DL_ANCHOR_FIELDS",
+   "kind": "Core",
+   "chapter": 3
+  },
+  {
+   "id": "CH3_F02",
+   "name_key": "frag.CH3_F02",
+   "location": "LOC_DL_CRIB_ROOM",
+   "kind": "Core",
+   "chapter": 3
+  },
+  {
+   "id": "CH3_F03",
+   "name_key": "frag.CH3_F03",
+   "location": "LOC_UM_RECORDING_ROOM",
+   "kind": "Hidden",
+   "chapter": 3
+  },
+  {
+   "id": "CH3_F04",
+   "name_key": "frag.CH3_F04",
+   "location": "LOC_DL_ECHO_GALLERY",
+   "kind": "Hidden",
+   "chapter": 3
+  },
+  {
+   "id": "CH3_F05",
+   "name_key": "frag.CH3_F05",
+   "location": "LOC_DL_HID_UPSIDE_STAIRS",
+   "kind": "Hidden",
+   "chapter": 3
+  },
+  {
+   "id": "CH4_F01",
+   "name_key": "frag.CH4_F01",
+   "location": "LOC_BF_CRASH_SITE",
+   "kind": "Core",
+   "chapter": 4
+  },
+  {
+   "id": "CH4_F02",
+   "name_key": "frag.CH4_F02",
+   "location": "LOC_MH_WARD_ALEX",
+   "kind": "Core",
+   "chapter": 4
+  },
+  {
+   "id": "CH4_F03",
+   "name_key": "frag.CH4_F03",
+   "location": "LOC_MH_WAITING_ROOM",
+   "kind": "Hidden",
+   "chapter": 4
+  },
+  {
+   "id": "CH4_F04",
+   "name_key": "frag.CH4_F04",
+   "location": "LOC_BF_LAKE_OVERLOOK",
+   "kind": "Hidden",
+   "chapter": 4
+  },
+  {
+   "id": "CH4_F05",
+   "name_key": "frag.CH4_F05",
+   "location": "LOC_BF_HID_SHRINE",
+   "kind": "Deep",
+   "chapter": 4
+  },
+  {
+   "id": "CH5_F01",
+   "name_key": "frag.CH5_F01",
+   "location": "LOC_SD_ATRIUM",
+   "kind": "Core",
+   "chapter": 5
+  },
+  {
+   "id": "CH5_F02",
+   "name_key": "frag.CH5_F02",
+   "location": "LOC_SD_OLD_CITY_HALL",
+   "kind": "Core",
+   "chapter": 5
+  },
+  {
+   "id": "CH5_F03",
+   "name_key": "frag.CH5_F03",
+   "location": "LOC_SD_FLOODED_STREETS",
+   "kind": "Hidden",
+   "chapter": 5
+  },
+  {
+   "id": "CH5_F04",
+   "name_key": "frag.CH5_F04",
+   "location": "LOC_SD_NODE_MEMORY",
+   "kind": "Hidden",
+   "chapter": 5
+  },
+  {
+   "id": "CH5_F05",
+   "name_key": "frag.CH5_F05",
+   "location": "LOC_SD_HID_NURSERY",
+   "kind": "Deep",
+   "chapter": 5
+  },
+  {
+   "id": "CH6_F01",
+   "name_key": "frag.CH6_F01",
+   "location": "LOC_CR_CHOICE_POINT",
+   "kind": "Core",
+   "chapter": 6
+  },
+  {
+   "id": "CH6_F02",
+   "name_key": "frag.CH6_F02",
+   "location": "LOC_CR_SHORE",
+   "kind": "Hidden",
+   "chapter": 6
+  },
+  {
+   "id": "CH6_F03",
+   "name_key": "frag.CH6_F03",
+   "location": "LOC_CR_LULLABY_PIER",
+   "kind": "Hidden",
+   "chapter": 6
+  },
+  {
+   "id": "CH6_F04",
+   "name_key": "frag.CH6_F04",
+   "location": "LOC_CR_LULLABY_PIER",
+   "kind": "Hidden",
+   "chapter": 6
+  },
+  {
+   "id": "CH6_F05",
+   "name_key": "frag.CH6_F05",
+   "location": "LOC_CR_CHOICE_POINT",
+   "kind": "Hidden",
+   "chapter": 6
+  }
+ ]
+}

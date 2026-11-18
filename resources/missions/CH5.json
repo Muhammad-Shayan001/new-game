@@ -1,0 +1,193 @@
+{
+ "entries": [
+  {
+   "id": "CH5_M01",
+   "name_key": "mission.CH5_M01",
+   "chapter": 5,
+   "type": "Main",
+   "location": "LOC_SD_FLOODED_STREETS",
+   "objectives": [
+    {
+     "id": "reach_sd_flooded_streets",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_SD_FLOODED_STREETS"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_SD_FLOODED_STREETS"
+     }
+    },
+    {
+     "id": "reach_sd_old_city_hall",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_SD_OLD_CITY_HALL"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_SD_OLD_CITY_HALL"
+     }
+    },
+    {
+     "id": "reach_sd_atrium",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_SD_ATRIUM"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_SD_ATRIUM"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH4_M03",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true,
+   "on_complete": [
+    {
+     "do": "unlock_ability",
+     "id": "ABL_ECHO_VOICE"
+    }
+   ]
+  },
+  {
+   "id": "CH5_M02",
+   "name_key": "mission.CH5_M02",
+   "chapter": 5,
+   "type": "Main",
+   "location": "LOC_SD_ATRIUM",
+   "objectives": [
+    {
+     "id": "reach_sd_atrium",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_SD_ATRIUM"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_SD_ATRIUM"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH5_M01",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true
+  },
+  {
+   "id": "CH5_M03",
+   "name_key": "mission.CH5_M03",
+   "chapter": 5,
+   "type": "Main",
+   "location": "LOC_SD_NODE_CONTROL",
+   "objectives": [
+    {
+     "id": "reach_sd_node_control",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_SD_NODE_CONTROL"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_SD_NODE_CONTROL"
+     }
+    },
+    {
+     "id": "reach_sd_node_archive",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_SD_NODE_ARCHIVE"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_SD_NODE_ARCHIVE"
+     }
+    },
+    {
+     "id": "reach_sd_node_memory",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_SD_NODE_MEMORY"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_SD_NODE_MEMORY"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH5_M02",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true,
+   "on_complete": [
+    {
+     "do": "set_chapter",
+     "value": 6
+    },
+    {
+     "do": "toast",
+     "key": "ui.chapter_complete"
+    }
+   ]
+  },
+  {
+   "id": "CH5_S01",
+   "name_key": "mission.CH5_S01",
+   "chapter": 5,
+   "type": "Secondary",
+   "location": "LOC_SD_OLD_CITY_HALL",
+   "objectives": [
+    {
+     "id": "reach_sd_old_city_hall",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_SD_OLD_CITY_HALL"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_SD_OLD_CITY_HALL"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "chapter_gte": 5
+   },
+   "auto_start": true
+  },
+  {
+   "id": "CH5_S02",
+   "name_key": "mission.CH5_S02",
+   "chapter": 5,
+   "type": "Secondary",
+   "location": "LOC_SD_ATRIUM",
+   "objectives": [
+    {
+     "id": "reach_sd_atrium",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_SD_ATRIUM"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_SD_ATRIUM"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "chapter_gte": 5
+   },
+   "auto_start": true
+  }
+ ]
+}

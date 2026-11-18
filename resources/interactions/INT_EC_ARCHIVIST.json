@@ -1,0 +1,17 @@
+{
+ "id": "INT_EC_ARCHIVIST",
+ "type": "npc",
+ "location": "LOC_EC_ARCHIVE_TOWER",
+ "dialogue_id": "DLG_CH1_CATALOGUE",
+ "position": [
+  0,
+  0,
+  -8
+ ],
+ "visible_if": {
+  "mission": [
+   "CH1_M03",
+   "ACTIVE"
+  ]
+ }
+}

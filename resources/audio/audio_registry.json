@@ -1,0 +1,12 @@
+{
+ "sounds": {
+  "SFX_FOOTSTEP": {
+   "path": "res://assets/audio/sfx/footstep.ogg",
+   "bus": "SFX"
+  },
+  "MUS_TITLE": {
+   "path": "res://assets/audio/music/title.ogg",
+   "bus": "Music"
+  }
+ }
+}

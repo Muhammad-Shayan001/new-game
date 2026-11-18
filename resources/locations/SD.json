@@ -1,0 +1,172 @@
+{
+ "entries": [
+  {
+   "id": "LOC_SD_FLOODED_STREETS",
+   "name_key": "loc.LOC_SD_FLOODED_STREETS",
+   "region": "SD",
+   "type": "street",
+   "chapter": 5,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_MH_WARD_ALEX",
+     "route": "transition",
+     "gate_chapter": 5
+    },
+    {
+     "to": "LOC_SD_OLD_CITY_HALL",
+     "route": "main",
+     "gate_chapter": 5
+    },
+    {
+     "to": "LOC_SD_HID_NURSERY",
+     "route": "hidden",
+     "gate_chapter": 5
+    }
+   ]
+  },
+  {
+   "id": "LOC_SD_OLD_CITY_HALL",
+   "name_key": "loc.LOC_SD_OLD_CITY_HALL",
+   "region": "SD",
+   "type": "interior",
+   "chapter": 5,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_SD_FLOODED_STREETS",
+     "route": "main",
+     "gate_chapter": 5
+    },
+    {
+     "to": "LOC_SD_ATRIUM",
+     "route": "main",
+     "gate_chapter": 5
+    }
+   ]
+  },
+  {
+   "id": "LOC_SD_ATRIUM",
+   "name_key": "loc.LOC_SD_ATRIUM",
+   "region": "SD",
+   "type": "interior",
+   "chapter": 5,
+   "safe": true,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_SD_OLD_CITY_HALL",
+     "route": "main",
+     "gate_chapter": 5
+    },
+    {
+     "to": "LOC_SD_NODE_CONTROL",
+     "route": "main",
+     "gate_chapter": 5
+    },
+    {
+     "to": "LOC_SD_NODE_ARCHIVE",
+     "route": "main",
+     "gate_chapter": 5
+    },
+    {
+     "to": "LOC_SD_NODE_MEMORY",
+     "route": "main",
+     "gate_chapter": 5
+    },
+    {
+     "to": "LOC_SD_DESCENT",
+     "route": "main",
+     "gate_chapter": 6
+    }
+   ]
+  },
+  {
+   "id": "LOC_SD_NODE_CONTROL",
+   "name_key": "loc.LOC_SD_NODE_CONTROL",
+   "region": "SD",
+   "type": "interior",
+   "chapter": 5,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_SD_ATRIUM",
+     "route": "main",
+     "gate_chapter": 5
+    }
+   ]
+  },
+  {
+   "id": "LOC_SD_NODE_ARCHIVE",
+   "name_key": "loc.LOC_SD_NODE_ARCHIVE",
+   "region": "SD",
+   "type": "interior",
+   "chapter": 5,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_SD_ATRIUM",
+     "route": "main",
+     "gate_chapter": 5
+    }
+   ]
+  },
+  {
+   "id": "LOC_SD_NODE_MEMORY",
+   "name_key": "loc.LOC_SD_NODE_MEMORY",
+   "region": "SD",
+   "type": "interior",
+   "chapter": 5,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_SD_ATRIUM",
+     "route": "main",
+     "gate_chapter": 5
+    }
+   ]
+  },
+  {
+   "id": "LOC_SD_HID_NURSERY",
+   "name_key": "loc.LOC_SD_HID_NURSERY",
+   "region": "SD",
+   "type": "interior",
+   "chapter": 5,
+   "safe": false,
+   "hidden": true,
+   "connections": [
+    {
+     "to": "LOC_SD_FLOODED_STREETS",
+     "route": "hidden",
+     "gate_chapter": 5
+    }
+   ]
+  },
+  {
+   "id": "LOC_SD_DESCENT",
+   "name_key": "loc.LOC_SD_DESCENT",
+   "region": "SD",
+   "type": "tunnel",
+   "chapter": 6,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_SD_ATRIUM",
+     "route": "main",
+     "gate_chapter": 6
+    },
+    {
+     "to": "LOC_CR_SHORE",
+     "route": "main",
+     "gate_chapter": 6
+    }
+   ]
+  }
+ ]
+}

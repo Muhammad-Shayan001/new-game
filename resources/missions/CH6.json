@@ -1,0 +1,115 @@
+{
+ "entries": [
+  {
+   "id": "CH6_M01",
+   "name_key": "mission.CH6_M01",
+   "chapter": 6,
+   "type": "Main",
+   "location": "LOC_CR_SHORE",
+   "objectives": [
+    {
+     "id": "reach_cr_shore",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_CR_SHORE"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_CR_SHORE"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH5_M03",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true
+  },
+  {
+   "id": "CH6_M02",
+   "name_key": "mission.CH6_M02",
+   "chapter": 6,
+   "type": "Main",
+   "location": "LOC_CR_LULLABY_PIER",
+   "objectives": [
+    {
+     "id": "reach_cr_lullaby_pier",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_CR_LULLABY_PIER"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_CR_LULLABY_PIER"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH6_M01",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true
+  },
+  {
+   "id": "CH6_M03",
+   "name_key": "mission.CH6_M03",
+   "chapter": 6,
+   "type": "Main",
+   "location": "LOC_CR_CHOICE_POINT",
+   "objectives": [
+    {
+     "id": "reach_cr_choice_point",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_CR_CHOICE_POINT"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_CR_CHOICE_POINT"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH6_M02",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true,
+   "on_complete": [
+    {
+     "do": "set_flag",
+     "flag": "game_complete"
+    }
+   ]
+  },
+  {
+   "id": "CH6_S01",
+   "name_key": "mission.CH6_S01",
+   "chapter": 6,
+   "type": "Secondary",
+   "location": "LOC_CR_LULLABY_PIER",
+   "objectives": [
+    {
+     "id": "reach_cr_lullaby_pier",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_CR_LULLABY_PIER"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_CR_LULLABY_PIER"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "chapter_gte": 6
+   },
+   "auto_start": true
+  }
+ ]
+}

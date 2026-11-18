@@ -1,0 +1,7 @@
+{
+ "id": "ITEM_TUNING_FORK",
+ "name_key": "item.ITEM_TUNING_FORK",
+ "desc_key": "item.ITEM_TUNING_FORK.desc",
+ "kind": "clue",
+ "stackable": false
+}

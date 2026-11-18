@@ -1,0 +1,13 @@
+{
+ "id": "INT_EC_STUB",
+ "type": "pickup",
+ "location": "LOC_EC_ALEX_APT",
+ "item_id": "ITEM_TICKET_STUB_WM",
+ "one_shot": true,
+ "position": [
+  4,
+  0,
+  -3
+ ],
+ "prompt_key": "prompt.take"
+}

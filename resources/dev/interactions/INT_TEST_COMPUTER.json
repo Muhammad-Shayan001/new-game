@@ -1,0 +1,15 @@
+{
+ "id": "INT_TEST_COMPUTER",
+ "type": "computer",
+ "location": "LOC_DEV_TEST_ARENA",
+ "position": [
+  0,
+  0,
+  -6.5
+ ],
+ "puzzle_id": "PZL_TEST_SEQUENCE",
+ "requires": {
+  "flag": "read:INT_TEST_NOTE"
+ },
+ "locked_key": "ui.test_locked"
+}

@@ -1,0 +1,11 @@
+{
+ "id": "INT_TEST_PHONE",
+ "type": "phone",
+ "location": "LOC_DEV_TEST_ARENA",
+ "position": [
+  6,
+  0,
+  -3
+ ],
+ "dialogue_id": "DLG_TEST_PHONE"
+}

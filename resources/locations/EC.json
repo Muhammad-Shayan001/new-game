@@ -1,0 +1,329 @@
+{
+ "entries": [
+  {
+   "id": "LOC_EC_METRO_ENTRANCE",
+   "name_key": "loc.LOC_EC_METRO_ENTRANCE",
+   "region": "EC",
+   "type": "exterior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_UM_CONCOURSE",
+     "route": "transition",
+     "gate_chapter": 1
+    },
+    {
+     "to": "LOC_EC_MAIN_STREET",
+     "route": "main",
+     "gate_chapter": 1
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_MAIN_STREET",
+   "name_key": "loc.LOC_EC_MAIN_STREET",
+   "region": "EC",
+   "type": "street",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_EC_METRO_ENTRANCE",
+     "route": "main",
+     "gate_chapter": 1
+    },
+    {
+     "to": "LOC_EC_APT_BLDG",
+     "route": "main",
+     "gate_chapter": 1
+    },
+    {
+     "to": "LOC_EC_CONV_STORE",
+     "route": "optional",
+     "gate_chapter": 1
+    },
+    {
+     "to": "LOC_EC_PARK",
+     "route": "optional",
+     "gate_chapter": 1
+    },
+    {
+     "to": "LOC_EC_ARCHIVE_TOWER",
+     "route": "main",
+     "gate_chapter": 1
+    },
+    {
+     "to": "LOC_EC_ALLEY",
+     "route": "main",
+     "gate_chapter": 2
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_APT_BLDG",
+   "name_key": "loc.LOC_EC_APT_BLDG",
+   "region": "EC",
+   "type": "interior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_EC_MAIN_STREET",
+     "route": "main",
+     "gate_chapter": 1
+    },
+    {
+     "to": "LOC_EC_ALEX_APT",
+     "route": "main",
+     "gate_chapter": 1
+    },
+    {
+     "to": "LOC_EC_SAFE_ROOM",
+     "route": "main",
+     "gate_chapter": 1
+    },
+    {
+     "to": "LOC_EC_HID_ROOFTOP",
+     "route": "hidden",
+     "gate_chapter": 1
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_ALEX_APT",
+   "name_key": "loc.LOC_EC_ALEX_APT",
+   "region": "EC",
+   "type": "interior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_EC_APT_BLDG",
+     "route": "main",
+     "gate_chapter": 1
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_CONV_STORE",
+   "name_key": "loc.LOC_EC_CONV_STORE",
+   "region": "EC",
+   "type": "interior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_EC_MAIN_STREET",
+     "route": "optional",
+     "gate_chapter": 1
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_PARK",
+   "name_key": "loc.LOC_EC_PARK",
+   "region": "EC",
+   "type": "exterior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_EC_MAIN_STREET",
+     "route": "optional",
+     "gate_chapter": 1
+    },
+    {
+     "to": "LOC_EC_FORGOTTEN_QUARTER",
+     "route": "optional",
+     "gate_chapter": 2
+    },
+    {
+     "to": "LOC_EC_HID_PLAYGROUND",
+     "route": "hidden",
+     "gate_chapter": 2
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_ALLEY",
+   "name_key": "loc.LOC_EC_ALLEY",
+   "region": "EC",
+   "type": "street",
+   "chapter": 2,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_EC_MAIN_STREET",
+     "route": "main",
+     "gate_chapter": 2
+    },
+    {
+     "to": "LOC_EC_FORGOTTEN_QUARTER",
+     "route": "main",
+     "gate_chapter": 2
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_ABANDONED_BLDG",
+   "name_key": "loc.LOC_EC_ABANDONED_BLDG",
+   "region": "EC",
+   "type": "interior",
+   "chapter": 2,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_EC_FORGOTTEN_QUARTER",
+     "route": "main",
+     "gate_chapter": 2
+    },
+    {
+     "to": "LOC_UM_TUNNEL_STATIC",
+     "route": "transition",
+     "gate_chapter": 2
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_SAFE_ROOM",
+   "name_key": "loc.LOC_EC_SAFE_ROOM",
+   "region": "EC",
+   "type": "interior",
+   "chapter": 1,
+   "safe": true,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_EC_APT_BLDG",
+     "route": "main",
+     "gate_chapter": 1
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_ARCHIVE_TOWER",
+   "name_key": "loc.LOC_EC_ARCHIVE_TOWER",
+   "region": "EC",
+   "type": "interior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_EC_MAIN_STREET",
+     "route": "main",
+     "gate_chapter": 1
+    },
+    {
+     "to": "LOC_EC_HID_CLOCK_ROOM",
+     "route": "hidden",
+     "gate_chapter": 1
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_FORGOTTEN_QUARTER",
+   "name_key": "loc.LOC_EC_FORGOTTEN_QUARTER",
+   "region": "EC",
+   "type": "street",
+   "chapter": 2,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_EC_ALLEY",
+     "route": "main",
+     "gate_chapter": 2
+    },
+    {
+     "to": "LOC_EC_MAYA_CAFE",
+     "route": "main",
+     "gate_chapter": 2
+    },
+    {
+     "to": "LOC_EC_ABANDONED_BLDG",
+     "route": "main",
+     "gate_chapter": 2
+    },
+    {
+     "to": "LOC_EC_PARK",
+     "route": "optional",
+     "gate_chapter": 2
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_MAYA_CAFE",
+   "name_key": "loc.LOC_EC_MAYA_CAFE",
+   "region": "EC",
+   "type": "interior",
+   "chapter": 2,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_EC_FORGOTTEN_QUARTER",
+     "route": "main",
+     "gate_chapter": 2
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_HID_ROOFTOP",
+   "name_key": "loc.LOC_EC_HID_ROOFTOP",
+   "region": "EC",
+   "type": "exterior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": true,
+   "connections": [
+    {
+     "to": "LOC_EC_APT_BLDG",
+     "route": "hidden",
+     "gate_chapter": 1
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_HID_CLOCK_ROOM",
+   "name_key": "loc.LOC_EC_HID_CLOCK_ROOM",
+   "region": "EC",
+   "type": "interior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": true,
+   "connections": [
+    {
+     "to": "LOC_EC_ARCHIVE_TOWER",
+     "route": "hidden",
+     "gate_chapter": 1
+    }
+   ]
+  },
+  {
+   "id": "LOC_EC_HID_PLAYGROUND",
+   "name_key": "loc.LOC_EC_HID_PLAYGROUND",
+   "region": "EC",
+   "type": "exterior",
+   "chapter": 2,
+   "safe": false,
+   "hidden": true,
+   "connections": [
+    {
+     "to": "LOC_EC_PARK",
+     "route": "hidden",
+     "gate_chapter": 2
+    }
+   ]
+  }
+ ]
+}

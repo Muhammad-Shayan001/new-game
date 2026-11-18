@@ -1,0 +1,58 @@
+{
+ "id": "DLG_TEST_NPC",
+ "start": "n1",
+ "nodes": {
+  "n1": {
+   "speaker": "ARV",
+   "text_key": "dlg.TEST_01",
+   "next": "n2"
+  },
+  "n2": {
+   "speaker": "ALX",
+   "text_key": "dlg.TEST_02",
+   "choices": [
+    {
+     "text_key": "dlg.TEST_C1",
+     "effects": [
+      {
+       "do": "set_flag",
+       "flag": "test_chose_a"
+      },
+      {
+       "do": "adjust_rel",
+       "key": "maya_trust",
+       "delta": 1
+      }
+     ],
+     "next": "n3a"
+    },
+    {
+     "text_key": "dlg.TEST_C_HIDDEN",
+     "requires": {
+      "flag": "never_set"
+     },
+     "next": "n3a"
+    },
+    {
+     "text_key": "dlg.TEST_C3",
+     "effects": [
+      {
+       "do": "adjust_rel",
+       "key": "maya_trust",
+       "delta": -1
+      }
+     ],
+     "next": "n3b"
+    }
+   ]
+  },
+  "n3a": {
+   "speaker": "ARV",
+   "text_key": "dlg.TEST_03A"
+  },
+  "n3b": {
+   "speaker": "ARV",
+   "text_key": "dlg.TEST_03B"
+  }
+ }
+}

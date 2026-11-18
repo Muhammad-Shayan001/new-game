@@ -1,0 +1,135 @@
+{
+ "entries": [
+  {
+   "id": "LOC_UM_ECHO_STATION",
+   "name_key": "loc.LOC_UM_ECHO_STATION",
+   "region": "UM",
+   "type": "platform",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_UM_CONCOURSE",
+     "route": "main",
+     "gate_chapter": 1
+    }
+   ]
+  },
+  {
+   "id": "LOC_UM_CONCOURSE",
+   "name_key": "loc.LOC_UM_CONCOURSE",
+   "region": "UM",
+   "type": "interior",
+   "chapter": 1,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_UM_ECHO_STATION",
+     "route": "main",
+     "gate_chapter": 1
+    },
+    {
+     "to": "LOC_EC_METRO_ENTRANCE",
+     "route": "transition",
+     "gate_chapter": 1
+    },
+    {
+     "to": "LOC_UM_ABANDONED_PLATFORMS",
+     "route": "optional",
+     "gate_chapter": 3
+    }
+   ]
+  },
+  {
+   "id": "LOC_UM_ABANDONED_PLATFORMS",
+   "name_key": "loc.LOC_UM_ABANDONED_PLATFORMS",
+   "region": "UM",
+   "type": "platform",
+   "chapter": 3,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_UM_TUNNEL_STATIC",
+     "route": "main",
+     "gate_chapter": 3
+    },
+    {
+     "to": "LOC_UM_CONCOURSE",
+     "route": "optional",
+     "gate_chapter": 3
+    },
+    {
+     "to": "LOC_UM_RECORDING_ROOM",
+     "route": "main",
+     "gate_chapter": 3
+    },
+    {
+     "to": "LOC_UM_HID_MAINTENANCE",
+     "route": "hidden",
+     "gate_chapter": 3
+    }
+   ]
+  },
+  {
+   "id": "LOC_UM_RECORDING_ROOM",
+   "name_key": "loc.LOC_UM_RECORDING_ROOM",
+   "region": "UM",
+   "type": "interior",
+   "chapter": 3,
+   "safe": true,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_UM_ABANDONED_PLATFORMS",
+     "route": "main",
+     "gate_chapter": 3
+    },
+    {
+     "to": "LOC_DL_CROSSING",
+     "route": "transition",
+     "gate_chapter": 3
+    }
+   ]
+  },
+  {
+   "id": "LOC_UM_TUNNEL_STATIC",
+   "name_key": "loc.LOC_UM_TUNNEL_STATIC",
+   "region": "UM",
+   "type": "tunnel",
+   "chapter": 2,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_EC_ABANDONED_BLDG",
+     "route": "transition",
+     "gate_chapter": 2
+    },
+    {
+     "to": "LOC_UM_ABANDONED_PLATFORMS",
+     "route": "main",
+     "gate_chapter": 3
+    }
+   ]
+  },
+  {
+   "id": "LOC_UM_HID_MAINTENANCE",
+   "name_key": "loc.LOC_UM_HID_MAINTENANCE",
+   "region": "UM",
+   "type": "interior",
+   "chapter": 3,
+   "safe": false,
+   "hidden": true,
+   "connections": [
+    {
+     "to": "LOC_UM_ABANDONED_PLATFORMS",
+     "route": "hidden",
+     "gate_chapter": 3
+    }
+   ]
+  }
+ ]
+}

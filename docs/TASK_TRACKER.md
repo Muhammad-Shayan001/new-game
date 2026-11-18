@@ -1,13 +1,21 @@
 # Task Tracker
 | ID | Task | Status |
 |---|---|---|
-| T-000 | Master director docs + project scaffold | READY FOR TESTING |
-| T-001 | Game Design Document + gameplay systems + mission template + progression + flowchart | READY FOR TESTING (needs owner approval) |
-| T-002 | Story Bible, Character Bible, outlines, dialogue sample, timeline, endings, cinematics | READY FOR TESTING (needs owner approval) |
-| T-003 | Player controller + camera + touch controls | IN PROGRESS (movement + joystick written, camera rig missing) |
-| T-007 | World/level design: WORLD_BIBLE, WORLD_MAP, LEVEL_DESIGN_DOCUMENT, LOCATION_REGISTER, ENVIRONMENT_ASSET_LIST, LEVEL_FLOW_DIAGRAMS + validator | READY FOR TESTING (validator passes; needs owner approval) |
-| T-004 | Interaction + clue/journal system | NOT STARTED (blocked until T-001 approved) |
-| T-005 | Graybox level (Echo Station) | NOT STARTED |
-| T-006 | Android export + device test | NOT STARTED |
-## Notes
-Dialogue script covers key lines only; full script is a later production task. Nothing has been run in the Godot editor.
+| T-000 | Master director docs + project scaffold | APPROVED (superseded by T-004) |
+| T-001 | Game design documents | READY FOR TESTING (needs owner approval) |
+| T-002 | Story, characters, chapters, endings, dialogue sample, cinematics | READY FOR TESTING (needs owner approval) |
+| T-007 | World/level design + validator + generated data | READY FOR TESTING (validator passes) |
+| T-004 | Technical architecture + working Godot foundation (Prompt 04) | READY FOR TESTING: all automated gates pass (see TESTING_AND_RUN_GUIDE.md) |
+| T-003 | Player controller, camera, input, interaction, animation integration, test scene (Prompt 07) | READY FOR TESTING in simulation. **Android gate NOT closed: needs the manual device checklist (TESTING_AND_RUN_GUIDE.md section D)** |
+| T-005 | Real character art/animation integration | NOT STARTED |
+| T-006 | Android export + on-device performance profiling | NOT STARTED (guide written) |
+| T-008 | Hand-built location scenes replacing graybox (Ch1 first) | NOT STARTED |
+| T-009 | Co-op replication | NOT STARTED |
+| T-010 | Full dialogue script and localization (en complete, ur) | NOT STARTED |
+
+## Known limitations
+- Never run on a physical Android device or profiled; all device claims are simulated.
+- Placeholder capsule character with procedural animation; no art or audio assets.
+- Headless tests use the dummy renderer: shaders/lighting/GPU cost are untested.
+- Networking is a skeleton (no replication).
+- Only Chapter 1-2 dialogue is authored in data.

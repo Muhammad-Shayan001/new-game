@@ -1,0 +1,52 @@
+{
+ "id": "MSN_TEST_ARENA",
+ "name_key": "mission.MSN_TEST_ARENA",
+ "chapter": 1,
+ "type": "Main",
+ "location": "LOC_DEV_TEST_ARENA",
+ "unlock_requires": {
+  "flag": "dev_arena"
+ },
+ "auto_start": true,
+ "objectives": [
+  {
+   "id": "lever",
+   "text_key": "obj.test_lever",
+   "complete_when": {
+    "event": "interacted",
+    "arg": "INT_TEST_LEVER"
+   }
+  },
+  {
+   "id": "note",
+   "text_key": "obj.test_note",
+   "complete_when": {
+    "event": "interacted",
+    "arg": "INT_TEST_NOTE"
+   }
+  },
+  {
+   "id": "puzzle",
+   "text_key": "obj.test_puzzle",
+   "complete_when": {
+    "event": "puzzle_solved",
+    "arg": "PZL_TEST_SEQUENCE"
+   }
+  },
+  {
+   "id": "goal",
+   "text_key": "obj.test_goal",
+   "complete_when": {
+    "event": "interacted",
+    "arg": "INT_TEST_GOAL"
+   }
+  }
+ ],
+ "on_complete": [
+  {
+   "do": "toast",
+   "key": "ui.test_complete"
+  }
+ ],
+ "priority": 100
+}

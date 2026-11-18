@@ -1,0 +1,104 @@
+{
+ "entries": [
+  {
+   "id": "LOC_BF_ROAD_EDGE",
+   "name_key": "loc.LOC_BF_ROAD_EDGE",
+   "region": "BF",
+   "type": "exterior",
+   "chapter": 4,
+   "safe": true,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_MH_RECON_LAB",
+     "route": "transition",
+     "gate_chapter": 4
+    },
+    {
+     "to": "LOC_BF_CRASH_SITE",
+     "route": "main",
+     "gate_chapter": 4
+    },
+    {
+     "to": "LOC_BF_HOLLOW",
+     "route": "optional",
+     "gate_chapter": 4
+    }
+   ]
+  },
+  {
+   "id": "LOC_BF_CRASH_SITE",
+   "name_key": "loc.LOC_BF_CRASH_SITE",
+   "region": "BF",
+   "type": "exterior",
+   "chapter": 4,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_BF_ROAD_EDGE",
+     "route": "main",
+     "gate_chapter": 4
+    }
+   ]
+  },
+  {
+   "id": "LOC_BF_HOLLOW",
+   "name_key": "loc.LOC_BF_HOLLOW",
+   "region": "BF",
+   "type": "exterior",
+   "chapter": 4,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_BF_ROAD_EDGE",
+     "route": "optional",
+     "gate_chapter": 4
+    },
+    {
+     "to": "LOC_BF_LAKE_OVERLOOK",
+     "route": "optional",
+     "gate_chapter": 4
+    }
+   ]
+  },
+  {
+   "id": "LOC_BF_LAKE_OVERLOOK",
+   "name_key": "loc.LOC_BF_LAKE_OVERLOOK",
+   "region": "BF",
+   "type": "exterior",
+   "chapter": 4,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_BF_HOLLOW",
+     "route": "optional",
+     "gate_chapter": 4
+    },
+    {
+     "to": "LOC_BF_HID_SHRINE",
+     "route": "hidden",
+     "gate_chapter": 4
+    }
+   ]
+  },
+  {
+   "id": "LOC_BF_HID_SHRINE",
+   "name_key": "loc.LOC_BF_HID_SHRINE",
+   "region": "BF",
+   "type": "exterior",
+   "chapter": 4,
+   "safe": false,
+   "hidden": true,
+   "connections": [
+    {
+     "to": "LOC_BF_LAKE_OVERLOOK",
+     "route": "hidden",
+     "gate_chapter": 4
+    }
+   ]
+  }
+ ]
+}

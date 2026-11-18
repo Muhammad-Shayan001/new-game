@@ -1,0 +1,23 @@
+{
+ "ui.new_game": "نیا کھیل",
+ "ui.continue": "جاری رکھیں",
+ "ui.language": "زبان",
+ "ui.quit": "باہر نکلیں",
+ "ui.paused": "وقفہ",
+ "ui.resume": "دوبارہ شروع کریں",
+ "ui.save": "محفوظ کریں",
+ "ui.saved": "کھیل محفوظ ہو گیا",
+ "ui.close": "بند کریں",
+ "ui.hint": "اشارہ",
+ "ui.reset": "دوبارہ",
+ "prompt.talk": "بات کریں",
+ "prompt.read": "پڑھیں",
+ "prompt.use": "استعمال کریں",
+ "prompt.open": "کھولیں",
+ "prompt.take": "اٹھائیں",
+ "prompt.examine": "جانچیں",
+ "prompt.remember": "یاد کریں",
+ "char.ALX": "ایلکس",
+ "char.MAY": "مایا",
+ "char.ARV": "آرکائیوسٹ"
+}

@@ -1,0 +1,66 @@
+{
+ "id": "DLG_CH2_CAFE",
+ "scene": "CH2_S02_Cafe",
+ "location": "LOC_EC_MAYA_CAFE",
+ "start": "CH2_MAY_001",
+ "once": true,
+ "nodes": {
+  "CH2_MAY_001": {
+   "speaker": "MAY",
+   "text_key": "dlg.CH2_MAY_001",
+   "next": "CH2_ALX_001"
+  },
+  "CH2_ALX_001": {
+   "speaker": "ALX",
+   "text_key": "dlg.CH2_ALX_001",
+   "next": "CH2_MAY_002"
+  },
+  "CH2_MAY_002": {
+   "speaker": "MAY",
+   "text_key": "dlg.CH2_MAY_002",
+   "next": "CH2_MAY_003"
+  },
+  "CH2_MAY_003": {
+   "speaker": "MAY",
+   "text_key": "dlg.CH2_MAY_003",
+   "next": "CH2_CHOICE"
+  },
+  "CH2_CHOICE": {
+   "speaker": "ALX",
+   "text_key": "dlg.CH2_CHOICE_PROMPT",
+   "choices": [
+    {
+     "text_key": "dlg.CH2_ALX_002",
+     "effects": [
+      {
+       "do": "adjust_rel",
+       "key": "maya_trust",
+       "delta": 1
+      },
+      {
+       "do": "log_decision",
+       "id": "ch2_asked_why",
+       "text_key": "dec.ch2_asked_why"
+      }
+     ],
+     "next": "CH2_MAY_004"
+    },
+    {
+     "text_key": "dlg.CH2_ALX_003",
+     "effects": [
+      {
+       "do": "log_decision",
+       "id": "ch2_doubted_maya",
+       "text_key": "dec.ch2_doubted_maya"
+      }
+     ],
+     "next": "CH2_MAY_004"
+    }
+   ]
+  },
+  "CH2_MAY_004": {
+   "speaker": "MAY",
+   "text_key": "dlg.CH2_MAY_004"
+  }
+ }
+}

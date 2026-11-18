@@ -1,0 +1,12 @@
+{
+ "id": "INT_TEST_NOTE",
+ "type": "note",
+ "location": "LOC_DEV_TEST_ARENA",
+ "position": [
+  -4,
+  0,
+  3
+ ],
+ "title_key": "doc.test.title",
+ "text_key": "doc.test.body"
+}

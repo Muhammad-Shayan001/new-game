@@ -1,0 +1,8 @@
+{
+ "id": "ABL_TIME_ECHO",
+ "name_key": "abl.ABL_TIME_ECHO",
+ "slot": 3,
+ "duration": 10,
+ "cooldown": 8,
+ "script": "res://scripts/abilities/time_echo.gd"
+}

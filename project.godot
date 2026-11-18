@@ -1,27 +1,40 @@
-; Engine configuration file for AFTERLIFE.EXE (Godot 4.x)
+; Engine configuration file for AFTERLIFE.EXE (Godot 4.3+)
 config_version=5
 
 [application]
 config/name="AFTERLIFE.EXE"
-run/main_scene="res://scenes/main.tscn"
+config/version="0.1.0"
+run/main_scene="res://scenes/ui/title_screen.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+config/icon=""
 
 [autoload]
-GameState="*res://scripts/autoload/game_state.gd"
-SaveManager="*res://scripts/autoload/save_manager.gd"
+EventBus="*res://scripts/systems/event_bus.gd"
+DataRegistry="*res://scripts/systems/data_registry.gd"
+Settings="*res://scripts/systems/settings.gd"
+Loc="*res://scripts/systems/localization.gd"
+GameState="*res://scripts/systems/game_state.gd"
+InventoryManager="*res://scripts/systems/inventory_manager.gd"
+MemoryManager="*res://scripts/systems/memory_manager.gd"
+PuzzleManager="*res://scripts/puzzles/puzzle_manager.gd"
+AbilityManager="*res://scripts/abilities/ability_manager.gd"
+MissionManager="*res://scripts/missions/mission_manager.gd"
+DialogueManager="*res://scripts/dialogue/dialogue_manager.gd"
+SaveManager="*res://scripts/systems/save_manager.gd"
+InputRouter="*res://scripts/systems/input_router.gd"
+Audio="*res://scripts/systems/audio_manager.gd"
+SceneManager="*res://scripts/systems/scene_manager.gd"
+Net="*res://scripts/network/network_manager.gd"
 
 [display]
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
-window/handheld/orientation=0
+window/stretch/aspect="expand"
+window/handheld/orientation=6
 
-[input]
-move_left={"deadzone": 0.2, "events": [Object(InputEventKey,"keycode":65)]}
-move_right={"deadzone": 0.2, "events": [Object(InputEventKey,"keycode":68)]}
-move_forward={"deadzone": 0.2, "events": [Object(InputEventKey,"keycode":87)]}
-move_back={"deadzone": 0.2, "events": [Object(InputEventKey,"keycode":83)]}
-interact={"deadzone": 0.2, "events": [Object(InputEventKey,"keycode":69)]}
+[input_devices]
+pointing/emulate_touch_from_mouse=false
 
 [rendering]
 renderer/rendering_method="mobile"

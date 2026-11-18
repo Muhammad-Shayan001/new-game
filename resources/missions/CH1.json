@@ -1,0 +1,218 @@
+{
+ "entries": [
+  {
+   "id": "CH1_M01",
+   "name_key": "mission.CH1_M01",
+   "chapter": 1,
+   "type": "Main",
+   "location": "LOC_UM_ECHO_STATION",
+   "objectives": [
+    {
+     "id": "reach_um_echo_station",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_UM_ECHO_STATION"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_UM_ECHO_STATION"
+     }
+    },
+    {
+     "id": "reach_um_concourse",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_UM_CONCOURSE"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_UM_CONCOURSE"
+     }
+    },
+    {
+     "id": "reach_ec_metro_entrance",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_EC_METRO_ENTRANCE"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_EC_METRO_ENTRANCE"
+     }
+    }
+   ],
+   "unlock_requires": {},
+   "auto_start": true,
+   "on_start": [
+    {
+     "do": "unlock_ability",
+     "id": "ABL_MEMORY_SIGHT"
+    }
+   ]
+  },
+  {
+   "id": "CH1_M02",
+   "name_key": "mission.CH1_M02",
+   "chapter": 1,
+   "type": "Main",
+   "location": "LOC_EC_MAIN_STREET",
+   "objectives": [
+    {
+     "id": "reach_ec_main_street",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_EC_MAIN_STREET"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_EC_MAIN_STREET"
+     }
+    },
+    {
+     "id": "reach_ec_apt_bldg",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_EC_APT_BLDG"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_EC_APT_BLDG"
+     }
+    },
+    {
+     "id": "reach_ec_safe_room",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_EC_SAFE_ROOM"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_EC_SAFE_ROOM"
+     }
+    },
+    {
+     "id": "reach_ec_alex_apt",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_EC_ALEX_APT"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_EC_ALEX_APT"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH1_M01",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true
+  },
+  {
+   "id": "CH1_M03",
+   "name_key": "mission.CH1_M03",
+   "chapter": 1,
+   "type": "Main",
+   "location": "LOC_EC_ARCHIVE_TOWER",
+   "objectives": [
+    {
+     "id": "reach_ec_archive_tower",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_EC_ARCHIVE_TOWER"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_EC_ARCHIVE_TOWER"
+     }
+    },
+    {
+     "id": "talk_archivist",
+     "text_key": "obj.talk_archivist",
+     "complete_when": {
+      "event": "dialogue_finished",
+      "arg": "DLG_CH1_CATALOGUE"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH1_M02",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true,
+   "on_complete": [
+    {
+     "do": "set_chapter",
+     "value": 2
+    },
+    {
+     "do": "toast",
+     "key": "ui.chapter_complete"
+    }
+   ]
+  },
+  {
+   "id": "CH1_S01",
+   "name_key": "mission.CH1_S01",
+   "chapter": 1,
+   "type": "Secondary",
+   "location": "LOC_UM_CONCOURSE",
+   "objectives": [
+    {
+     "id": "reach_um_concourse",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_UM_CONCOURSE"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_UM_CONCOURSE"
+     }
+    },
+    {
+     "id": "reach_ec_conv_store",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_EC_CONV_STORE"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_EC_CONV_STORE"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "chapter_gte": 1
+   },
+   "auto_start": true
+  },
+  {
+   "id": "CH1_S02",
+   "name_key": "mission.CH1_S02",
+   "chapter": 1,
+   "type": "Secondary",
+   "location": "LOC_EC_HID_CLOCK_ROOM",
+   "objectives": [
+    {
+     "id": "reach_ec_hid_clock_room",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_EC_HID_CLOCK_ROOM"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_EC_HID_CLOCK_ROOM"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "chapter_gte": 1
+   },
+   "auto_start": true
+  }
+ ]
+}

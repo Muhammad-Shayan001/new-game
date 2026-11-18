@@ -1,0 +1,64 @@
+{
+ "id": "DLG_CH1_CATALOGUE",
+ "scene": "CH1_S03_Catalogue",
+ "location": "LOC_EC_ARCHIVE_TOWER",
+ "start": "CH1_ARV_001",
+ "once": true,
+ "nodes": {
+  "CH1_ARV_001": {
+   "speaker": "ARV",
+   "text_key": "dlg.CH1_ARV_001",
+   "next": "CH1_ALX_001"
+  },
+  "CH1_ALX_001": {
+   "speaker": "ALX",
+   "text_key": "dlg.CH1_ALX_001",
+   "next": "CH1_ARV_002"
+  },
+  "CH1_ARV_002": {
+   "speaker": "ARV",
+   "text_key": "dlg.CH1_ARV_002",
+   "next": "CH1_ALX_002"
+  },
+  "CH1_ALX_002": {
+   "speaker": "ALX",
+   "text_key": "dlg.CH1_ALX_002",
+   "next": "CH1_ARV_003"
+  },
+  "CH1_ARV_003": {
+   "speaker": "ARV",
+   "text_key": "dlg.CH1_ARV_003",
+   "next": "CH1_ALX_003"
+  },
+  "CH1_ALX_003": {
+   "speaker": "ALX",
+   "text_key": "dlg.CH1_ALX_003",
+   "next": "CH1_ARV_004"
+  },
+  "CH1_ARV_004": {
+   "speaker": "ARV",
+   "text_key": "dlg.CH1_ARV_004",
+   "next": "CH1_ALX_004"
+  },
+  "CH1_ALX_004": {
+   "speaker": "ALX",
+   "text_key": "dlg.CH1_ALX_004",
+   "next": "CH1_ARV_005"
+  },
+  "CH1_ARV_005": {
+   "speaker": "ARV",
+   "text_key": "dlg.CH1_ARV_005",
+   "next": "CH1_ARV_006"
+  },
+  "CH1_ARV_006": {
+   "speaker": "ARV",
+   "text_key": "dlg.CH1_ARV_006",
+   "effects": [
+    {
+     "do": "add_item",
+     "id": "ITEM_ARCHIVE_CARD"
+    }
+   ]
+  }
+ }
+}

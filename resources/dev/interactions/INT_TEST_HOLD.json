@@ -1,0 +1,13 @@
+{
+ "id": "INT_TEST_HOLD",
+ "type": "mechanism",
+ "location": "LOC_DEV_TEST_ARENA",
+ "position": [
+  -10,
+  0,
+  -1
+ ],
+ "hold_time": 1.2,
+ "state_flag": "test_hold_done",
+ "prompt_key": "prompt.hold"
+}

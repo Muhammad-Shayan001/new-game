@@ -1,0 +1,93 @@
+{
+ "entries": [
+  {
+   "id": "LOC_MH_LOBBY",
+   "name_key": "loc.LOC_MH_LOBBY",
+   "region": "MH",
+   "type": "interior",
+   "chapter": 4,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_DL_CRIB_ROOM",
+     "route": "transition",
+     "gate_chapter": 4
+    },
+    {
+     "to": "LOC_MH_WARD_ALEX",
+     "route": "main",
+     "gate_chapter": 4
+    },
+    {
+     "to": "LOC_MH_WAITING_ROOM",
+     "route": "optional",
+     "gate_chapter": 4
+    },
+    {
+     "to": "LOC_MH_RECON_LAB",
+     "route": "main",
+     "gate_chapter": 4
+    }
+   ]
+  },
+  {
+   "id": "LOC_MH_WARD_ALEX",
+   "name_key": "loc.LOC_MH_WARD_ALEX",
+   "region": "MH",
+   "type": "interior",
+   "chapter": 4,
+   "safe": true,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_MH_LOBBY",
+     "route": "main",
+     "gate_chapter": 4
+    },
+    {
+     "to": "LOC_SD_FLOODED_STREETS",
+     "route": "transition",
+     "gate_chapter": 5
+    }
+   ]
+  },
+  {
+   "id": "LOC_MH_WAITING_ROOM",
+   "name_key": "loc.LOC_MH_WAITING_ROOM",
+   "region": "MH",
+   "type": "interior",
+   "chapter": 4,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_MH_LOBBY",
+     "route": "optional",
+     "gate_chapter": 4
+    }
+   ]
+  },
+  {
+   "id": "LOC_MH_RECON_LAB",
+   "name_key": "loc.LOC_MH_RECON_LAB",
+   "region": "MH",
+   "type": "interior",
+   "chapter": 4,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_MH_LOBBY",
+     "route": "main",
+     "gate_chapter": 4
+    },
+    {
+     "to": "LOC_BF_ROAD_EDGE",
+     "route": "transition",
+     "gate_chapter": 4
+    }
+   ]
+  }
+ ]
+}

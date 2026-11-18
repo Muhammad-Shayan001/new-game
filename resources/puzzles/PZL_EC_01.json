@@ -1,0 +1,39 @@
+{
+ "id": "PZL_EC_01",
+ "type": "sequence",
+ "title_key": "pzl.PZL_EC_01.title",
+ "solution": [
+  "wave",
+  "house",
+  "lake"
+ ],
+ "options": [
+  {
+   "id": "house",
+   "label_key": "pzl.opt.house"
+  },
+  {
+   "id": "lake",
+   "label_key": "pzl.opt.lake"
+  },
+  {
+   "id": "wave",
+   "label_key": "pzl.opt.wave"
+  }
+ ],
+ "hints": [
+  "pzl.PZL_EC_01.h1",
+  "pzl.PZL_EC_01.h2",
+  "pzl.PZL_EC_01.h3"
+ ],
+ "on_solved": [
+  {
+   "do": "add_item",
+   "id": "ITEM_CHILD_DRAWING"
+  },
+  {
+   "do": "set_flag",
+   "flag": "found_child_drawing"
+  }
+ ]
+}

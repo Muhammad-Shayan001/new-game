@@ -1,0 +1,17 @@
+{
+ "id": "INT_EC_MAYA",
+ "type": "npc",
+ "location": "LOC_EC_MAYA_CAFE",
+ "dialogue_id": "DLG_CH2_CAFE",
+ "position": [
+  0,
+  0,
+  -6
+ ],
+ "visible_if": {
+  "mission": [
+   "CH2_M02",
+   "ACTIVE"
+  ]
+ }
+}

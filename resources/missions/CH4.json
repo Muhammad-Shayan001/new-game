@@ -1,0 +1,200 @@
+{
+ "entries": [
+  {
+   "id": "CH4_M01",
+   "name_key": "mission.CH4_M01",
+   "chapter": 4,
+   "type": "Main",
+   "location": "LOC_MH_LOBBY",
+   "objectives": [
+    {
+     "id": "reach_mh_lobby",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_MH_LOBBY"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_MH_LOBBY"
+     }
+    },
+    {
+     "id": "reach_mh_ward_alex",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_MH_WARD_ALEX"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_MH_WARD_ALEX"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH3_M03",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true
+  },
+  {
+   "id": "CH4_M02",
+   "name_key": "mission.CH4_M02",
+   "chapter": 4,
+   "type": "Main",
+   "location": "LOC_MH_RECON_LAB",
+   "objectives": [
+    {
+     "id": "reach_mh_recon_lab",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_MH_RECON_LAB"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_MH_RECON_LAB"
+     }
+    },
+    {
+     "id": "reach_bf_road_edge",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_BF_ROAD_EDGE"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_BF_ROAD_EDGE"
+     }
+    },
+    {
+     "id": "reach_bf_crash_site",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_BF_CRASH_SITE"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_BF_CRASH_SITE"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH4_M01",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true
+  },
+  {
+   "id": "CH4_M03",
+   "name_key": "mission.CH4_M03",
+   "chapter": 4,
+   "type": "Main",
+   "location": "LOC_MH_WARD_ALEX",
+   "objectives": [
+    {
+     "id": "reach_mh_ward_alex",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_MH_WARD_ALEX"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_MH_WARD_ALEX"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH4_M02",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true,
+   "on_complete": [
+    {
+     "do": "set_chapter",
+     "value": 5
+    },
+    {
+     "do": "toast",
+     "key": "ui.chapter_complete"
+    }
+   ]
+  },
+  {
+   "id": "CH4_S01",
+   "name_key": "mission.CH4_S01",
+   "chapter": 4,
+   "type": "Secondary",
+   "location": "LOC_MH_WAITING_ROOM",
+   "objectives": [
+    {
+     "id": "reach_mh_waiting_room",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_MH_WAITING_ROOM"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_MH_WAITING_ROOM"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "chapter_gte": 4
+   },
+   "auto_start": true
+  },
+  {
+   "id": "CH4_S02",
+   "name_key": "mission.CH4_S02",
+   "chapter": 4,
+   "type": "Secondary",
+   "location": "LOC_MH_RECON_LAB",
+   "objectives": [
+    {
+     "id": "reach_mh_recon_lab",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_MH_RECON_LAB"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_MH_RECON_LAB"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "chapter_gte": 4
+   },
+   "auto_start": true
+  },
+  {
+   "id": "CH4_S03",
+   "name_key": "mission.CH4_S03",
+   "chapter": 4,
+   "type": "Secondary",
+   "location": "LOC_BF_HOLLOW",
+   "objectives": [
+    {
+     "id": "reach_bf_hollow",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_BF_HOLLOW"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_BF_HOLLOW"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "chapter_gte": 4
+   },
+   "auto_start": true
+  }
+ ]
+}

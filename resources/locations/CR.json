@@ -1,0 +1,62 @@
+{
+ "entries": [
+  {
+   "id": "LOC_CR_SHORE",
+   "name_key": "loc.LOC_CR_SHORE",
+   "region": "CR",
+   "type": "exterior",
+   "chapter": 6,
+   "safe": true,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_SD_DESCENT",
+     "route": "main",
+     "gate_chapter": 6
+    },
+    {
+     "to": "LOC_CR_LULLABY_PIER",
+     "route": "main",
+     "gate_chapter": 6
+    }
+   ]
+  },
+  {
+   "id": "LOC_CR_LULLABY_PIER",
+   "name_key": "loc.LOC_CR_LULLABY_PIER",
+   "region": "CR",
+   "type": "exterior",
+   "chapter": 6,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_CR_SHORE",
+     "route": "main",
+     "gate_chapter": 6
+    },
+    {
+     "to": "LOC_CR_CHOICE_POINT",
+     "route": "main",
+     "gate_chapter": 6
+    }
+   ]
+  },
+  {
+   "id": "LOC_CR_CHOICE_POINT",
+   "name_key": "loc.LOC_CR_CHOICE_POINT",
+   "region": "CR",
+   "type": "exterior",
+   "chapter": 6,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_CR_LULLABY_PIER",
+     "route": "main",
+     "gate_chapter": 6
+    }
+   ]
+  }
+ ]
+}

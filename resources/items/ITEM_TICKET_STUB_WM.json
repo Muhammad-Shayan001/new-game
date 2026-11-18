@@ -1,0 +1,7 @@
+{
+ "id": "ITEM_TICKET_STUB_WM",
+ "name_key": "item.ITEM_TICKET_STUB_WM",
+ "desc_key": "item.ITEM_TICKET_STUB_WM.desc",
+ "kind": "clue",
+ "stackable": false
+}

@@ -1,0 +1,11 @@
+{
+ "id": "INT_EC_WARDROBE",
+ "type": "puzzle",
+ "location": "LOC_EC_ALEX_APT",
+ "puzzle_id": "PZL_EC_01",
+ "position": [
+  -4,
+  0,
+  -3
+ ]
+}

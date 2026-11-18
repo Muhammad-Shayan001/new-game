@@ -1,0 +1,7 @@
+{
+ "id": "ITEM_ARCHIVE_CARD",
+ "name_key": "item.ITEM_ARCHIVE_CARD",
+ "desc_key": "item.ITEM_ARCHIVE_CARD.desc",
+ "kind": "key",
+ "stackable": false
+}

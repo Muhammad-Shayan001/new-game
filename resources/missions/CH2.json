@@ -1,0 +1,173 @@
+{
+ "entries": [
+  {
+   "id": "CH2_M01",
+   "name_key": "mission.CH2_M01",
+   "chapter": 2,
+   "type": "Main",
+   "location": "LOC_EC_ALLEY",
+   "objectives": [
+    {
+     "id": "reach_ec_alley",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_EC_ALLEY"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_EC_ALLEY"
+     }
+    },
+    {
+     "id": "reach_ec_forgotten_quarter",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_EC_FORGOTTEN_QUARTER"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_EC_FORGOTTEN_QUARTER"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH1_M03",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true
+  },
+  {
+   "id": "CH2_M02",
+   "name_key": "mission.CH2_M02",
+   "chapter": 2,
+   "type": "Main",
+   "location": "LOC_EC_MAYA_CAFE",
+   "objectives": [
+    {
+     "id": "reach_ec_maya_cafe",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_EC_MAYA_CAFE"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_EC_MAYA_CAFE"
+     }
+    },
+    {
+     "id": "talk_maya",
+     "text_key": "obj.talk_maya",
+     "complete_when": {
+      "event": "dialogue_finished",
+      "arg": "DLG_CH2_CAFE"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH2_M01",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true
+  },
+  {
+   "id": "CH2_M03",
+   "name_key": "mission.CH2_M03",
+   "chapter": 2,
+   "type": "Main",
+   "location": "LOC_EC_ABANDONED_BLDG",
+   "objectives": [
+    {
+     "id": "reach_ec_abandoned_bldg",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_EC_ABANDONED_BLDG"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_EC_ABANDONED_BLDG"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH2_M02",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true,
+   "on_complete": [
+    {
+     "do": "set_chapter",
+     "value": 3
+    },
+    {
+     "do": "toast",
+     "key": "ui.chapter_complete"
+    }
+   ]
+  },
+  {
+   "id": "CH2_S01",
+   "name_key": "mission.CH2_S01",
+   "chapter": 2,
+   "type": "Secondary",
+   "location": "LOC_EC_FORGOTTEN_QUARTER",
+   "objectives": [
+    {
+     "id": "reach_ec_forgotten_quarter",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_EC_FORGOTTEN_QUARTER"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_EC_FORGOTTEN_QUARTER"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "chapter_gte": 2
+   },
+   "auto_start": true
+  },
+  {
+   "id": "CH2_S02",
+   "name_key": "mission.CH2_S02",
+   "chapter": 2,
+   "type": "Secondary",
+   "location": "LOC_EC_PARK",
+   "objectives": [
+    {
+     "id": "reach_ec_park",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_EC_PARK"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_EC_PARK"
+     }
+    },
+    {
+     "id": "reach_ec_maya_cafe",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_EC_MAYA_CAFE"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_EC_MAYA_CAFE"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "chapter_gte": 2
+   },
+   "auto_start": true
+  }
+ ]
+}

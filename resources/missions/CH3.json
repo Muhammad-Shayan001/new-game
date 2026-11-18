@@ -1,0 +1,210 @@
+{
+ "entries": [
+  {
+   "id": "CH3_M01",
+   "name_key": "mission.CH3_M01",
+   "chapter": 3,
+   "type": "Main",
+   "location": "LOC_UM_TUNNEL_STATIC",
+   "objectives": [
+    {
+     "id": "reach_um_tunnel_static",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_UM_TUNNEL_STATIC"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_UM_TUNNEL_STATIC"
+     }
+    },
+    {
+     "id": "reach_um_abandoned_platforms",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_UM_ABANDONED_PLATFORMS"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_UM_ABANDONED_PLATFORMS"
+     }
+    },
+    {
+     "id": "reach_um_recording_room",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_UM_RECORDING_ROOM"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_UM_RECORDING_ROOM"
+     }
+    },
+    {
+     "id": "reach_dl_crossing",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_DL_CROSSING"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_DL_CROSSING"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH2_M03",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true
+  },
+  {
+   "id": "CH3_M02",
+   "name_key": "mission.CH3_M02",
+   "chapter": 3,
+   "type": "Main",
+   "location": "LOC_DL_ANCHOR_FIELDS",
+   "objectives": [
+    {
+     "id": "reach_dl_anchor_fields",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_DL_ANCHOR_FIELDS"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_DL_ANCHOR_FIELDS"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH3_M01",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true,
+   "on_start": [
+    {
+     "do": "unlock_ability",
+     "id": "ABL_REALITY_SHIFT"
+    },
+    {
+     "do": "unlock_ability",
+     "id": "ABL_TIME_ECHO"
+    }
+   ]
+  },
+  {
+   "id": "CH3_M03",
+   "name_key": "mission.CH3_M03",
+   "chapter": 3,
+   "type": "Main",
+   "location": "LOC_DL_CRIB_ROOM",
+   "objectives": [
+    {
+     "id": "reach_dl_crib_room",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_DL_CRIB_ROOM"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_DL_CRIB_ROOM"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "mission": [
+     "CH3_M02",
+     "COMPLETE"
+    ]
+   },
+   "auto_start": true,
+   "on_complete": [
+    {
+     "do": "set_chapter",
+     "value": 4
+    },
+    {
+     "do": "toast",
+     "key": "ui.chapter_complete"
+    }
+   ]
+  },
+  {
+   "id": "CH3_S01",
+   "name_key": "mission.CH3_S01",
+   "chapter": 3,
+   "type": "Secondary",
+   "location": "LOC_DL_ECHO_GALLERY",
+   "objectives": [
+    {
+     "id": "reach_dl_echo_gallery",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_DL_ECHO_GALLERY"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_DL_ECHO_GALLERY"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "chapter_gte": 3
+   },
+   "auto_start": true
+  },
+  {
+   "id": "CH3_S02",
+   "name_key": "mission.CH3_S02",
+   "chapter": 3,
+   "type": "Secondary",
+   "location": "LOC_DL_THE_HUM",
+   "objectives": [
+    {
+     "id": "reach_dl_the_hum",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_DL_THE_HUM"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_DL_THE_HUM"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "chapter_gte": 3
+   },
+   "auto_start": true
+  },
+  {
+   "id": "CH3_S03",
+   "name_key": "mission.CH3_S03",
+   "chapter": 3,
+   "type": "Secondary",
+   "location": "LOC_UM_HID_MAINTENANCE",
+   "objectives": [
+    {
+     "id": "reach_um_hid_maintenance",
+     "text_key": "obj.reach",
+     "args_keys": {
+      "place": "loc.LOC_UM_HID_MAINTENANCE"
+     },
+     "complete_when": {
+      "event": "location_entered",
+      "arg": "LOC_UM_HID_MAINTENANCE"
+     }
+    }
+   ],
+   "unlock_requires": {
+    "chapter_gte": 3
+   },
+   "auto_start": true
+  }
+ ]
+}

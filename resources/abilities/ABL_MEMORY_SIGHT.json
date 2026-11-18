@@ -1,0 +1,9 @@
+{
+ "id": "ABL_MEMORY_SIGHT",
+ "name_key": "abl.ABL_MEMORY_SIGHT",
+ "slot": 1,
+ "duration": 8,
+ "cooldown": 6,
+ "script": "res://scripts/abilities/memory_sight.gd",
+ "context_group": "memory_sight_target"
+}

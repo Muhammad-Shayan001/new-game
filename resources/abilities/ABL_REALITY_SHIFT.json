@@ -1,0 +1,9 @@
+{
+ "id": "ABL_REALITY_SHIFT",
+ "name_key": "abl.ABL_REALITY_SHIFT",
+ "slot": 2,
+ "duration": 1,
+ "cooldown": 2,
+ "script": "res://scripts/abilities/reality_shift.gd",
+ "context_group": "shiftable"
+}

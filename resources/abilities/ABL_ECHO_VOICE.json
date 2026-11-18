@@ -1,0 +1,9 @@
+{
+ "id": "ABL_ECHO_VOICE",
+ "name_key": "abl.ABL_ECHO_VOICE",
+ "slot": 4,
+ "duration": 3,
+ "cooldown": 4,
+ "script": "res://scripts/abilities/echo_voice.gd",
+ "context_group": "echo_voice_target"
+}

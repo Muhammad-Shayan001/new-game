@@ -1,0 +1,10 @@
+{
+ "id": "DLG_TEST_PHONE",
+ "start": "p1",
+ "nodes": {
+  "p1": {
+   "speaker": "MAY",
+   "text_key": "dlg.TEST_PHONE"
+  }
+ }
+}

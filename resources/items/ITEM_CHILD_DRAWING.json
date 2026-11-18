@@ -1,0 +1,7 @@
+{
+ "id": "ITEM_CHILD_DRAWING",
+ "name_key": "item.ITEM_CHILD_DRAWING",
+ "desc_key": "item.ITEM_CHILD_DRAWING.desc",
+ "kind": "clue",
+ "stackable": false
+}

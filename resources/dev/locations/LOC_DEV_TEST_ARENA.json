@@ -1,0 +1,11 @@
+{
+ "id": "LOC_DEV_TEST_ARENA",
+ "name_key": "loc.LOC_DEV_TEST_ARENA",
+ "region": "EC",
+ "type": "exterior",
+ "chapter": 1,
+ "safe": false,
+ "hidden": false,
+ "connections": [],
+ "scene": "res://scenes/world/test_arena.tscn"
+}

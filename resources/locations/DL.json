@@ -1,0 +1,130 @@
+{
+ "entries": [
+  {
+   "id": "LOC_DL_CROSSING",
+   "name_key": "loc.LOC_DL_CROSSING",
+   "region": "DL",
+   "type": "exterior",
+   "chapter": 3,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_UM_RECORDING_ROOM",
+     "route": "transition",
+     "gate_chapter": 3
+    },
+    {
+     "to": "LOC_DL_ANCHOR_FIELDS",
+     "route": "main",
+     "gate_chapter": 3
+    }
+   ]
+  },
+  {
+   "id": "LOC_DL_ANCHOR_FIELDS",
+   "name_key": "loc.LOC_DL_ANCHOR_FIELDS",
+   "region": "DL",
+   "type": "exterior",
+   "chapter": 3,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_DL_CROSSING",
+     "route": "main",
+     "gate_chapter": 3
+    },
+    {
+     "to": "LOC_DL_CRIB_ROOM",
+     "route": "main",
+     "gate_chapter": 3
+    },
+    {
+     "to": "LOC_DL_ECHO_GALLERY",
+     "route": "optional",
+     "gate_chapter": 3
+    },
+    {
+     "to": "LOC_DL_THE_HUM",
+     "route": "optional",
+     "gate_chapter": 3
+    }
+   ]
+  },
+  {
+   "id": "LOC_DL_CRIB_ROOM",
+   "name_key": "loc.LOC_DL_CRIB_ROOM",
+   "region": "DL",
+   "type": "interior",
+   "chapter": 3,
+   "safe": true,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_DL_ANCHOR_FIELDS",
+     "route": "main",
+     "gate_chapter": 3
+    },
+    {
+     "to": "LOC_MH_LOBBY",
+     "route": "transition",
+     "gate_chapter": 4
+    }
+   ]
+  },
+  {
+   "id": "LOC_DL_ECHO_GALLERY",
+   "name_key": "loc.LOC_DL_ECHO_GALLERY",
+   "region": "DL",
+   "type": "interior",
+   "chapter": 3,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_DL_ANCHOR_FIELDS",
+     "route": "optional",
+     "gate_chapter": 3
+    },
+    {
+     "to": "LOC_DL_HID_UPSIDE_STAIRS",
+     "route": "hidden",
+     "gate_chapter": 3
+    }
+   ]
+  },
+  {
+   "id": "LOC_DL_THE_HUM",
+   "name_key": "loc.LOC_DL_THE_HUM",
+   "region": "DL",
+   "type": "exterior",
+   "chapter": 3,
+   "safe": false,
+   "hidden": false,
+   "connections": [
+    {
+     "to": "LOC_DL_ANCHOR_FIELDS",
+     "route": "optional",
+     "gate_chapter": 3
+    }
+   ]
+  },
+  {
+   "id": "LOC_DL_HID_UPSIDE_STAIRS",
+   "name_key": "loc.LOC_DL_HID_UPSIDE_STAIRS",
+   "region": "DL",
+   "type": "interior",
+   "chapter": 3,
+   "safe": false,
+   "hidden": true,
+   "connections": [
+    {
+     "to": "LOC_DL_ECHO_GALLERY",
+     "route": "hidden",
+     "gate_chapter": 3
+    }
+   ]
+  }
+ ]
+}

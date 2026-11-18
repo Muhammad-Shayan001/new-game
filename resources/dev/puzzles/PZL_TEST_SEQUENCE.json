@@ -1,0 +1,29 @@
+{
+ "id": "PZL_TEST_SEQUENCE",
+ "type": "sequence",
+ "title_key": "pzl.PZL_TEST_SEQUENCE.title",
+ "solution": [
+  "a",
+  "b",
+  "c"
+ ],
+ "options": [
+  {
+   "id": "c",
+   "label_key": "pzl.opt.c"
+  },
+  {
+   "id": "a",
+   "label_key": "pzl.opt.a"
+  },
+  {
+   "id": "b",
+   "label_key": "pzl.opt.b"
+  }
+ ],
+ "hints": [
+  "pzl.test.h1",
+  "pzl.test.h2",
+  "pzl.test.h3"
+ ]
+}
