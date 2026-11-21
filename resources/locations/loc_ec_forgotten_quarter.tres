@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_sgn3t"]
 [ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_pdnrg"]
 
-[sub_resource type="Resource" id="Resource_064t7"]
+[sub_resource type="Resource" id="Resource_j4iq8"]
 script = ExtResource("1_sgn3t")
 to_location = "LOC_EC_ALLEY"
 route_type = "main"
@@ -11,7 +11,7 @@ gate_chapter = 2
 spawn_id = "default"
 note = "Chalk waves lead on"
 
-[sub_resource type="Resource" id="Resource_t73mp"]
+[sub_resource type="Resource" id="Resource_v8wag"]
 script = ExtResource("1_sgn3t")
 to_location = "LOC_EC_MAYA_CAFE"
 route_type = "main"
@@ -19,7 +19,7 @@ gate_chapter = 2
 spawn_id = "default"
 note = "Warm light"
 
-[sub_resource type="Resource" id="Resource_iw1ea"]
+[sub_resource type="Resource" id="Resource_6c5bb"]
 script = ExtResource("1_sgn3t")
 to_location = "LOC_EC_ABANDONED_BLDG"
 route_type = "main"
@@ -27,7 +27,7 @@ gate_chapter = 2
 spawn_id = "default"
 note = "Broken revolving door"
 
-[sub_resource type="Resource" id="Resource_er57s"]
+[sub_resource type="Resource" id="Resource_qwomx"]
 script = ExtResource("1_sgn3t")
 to_location = "LOC_EC_PARK"
 route_type = "optional"
@@ -47,5 +47,5 @@ status = 0
 scene_path = "res://scenes/world/echo_city/forgotten_quarter.tscn"
 default_spawn = "default"
 ambience_cue = ""
-connections = Array[ExtResource("1_sgn3t")]([SubResource("Resource_064t7"), SubResource("Resource_t73mp"), SubResource("Resource_iw1ea"), SubResource("Resource_er57s")])
+connections = Array[ExtResource("1_sgn3t")]([SubResource("Resource_j4iq8"), SubResource("Resource_v8wag"), SubResource("Resource_6c5bb"), SubResource("Resource_qwomx")])
 id = "LOC_EC_FORGOTTEN_QUARTER"

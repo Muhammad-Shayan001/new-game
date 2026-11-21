@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StoryStateDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/story/story_state_def.gd" id="1_bwefn"]
+
+[resource]
+script = ExtResource("1_bwefn")
+value_type = 1
+min_value = -3
+max_value = 3
+default_value = 0
+relationship_key = "maya_trust"
+aliases = Array[String](["maya_trust_level"])
+chapter = 2
+ending_relevant = true
+description = "Maya's trust in Alex, -3 to +3. Changed by dialogue choices."
+id = "maya_trust"

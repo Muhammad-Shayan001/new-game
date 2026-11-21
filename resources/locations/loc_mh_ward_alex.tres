@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_1017b"]
 [ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_tler1"]
 
-[sub_resource type="Resource" id="Resource_0k80h"]
+[sub_resource type="Resource" id="Resource_rak10"]
 script = ExtResource("1_1017b")
 to_location = "LOC_MH_LOBBY"
 route_type = "main"
@@ -11,7 +11,7 @@ gate_chapter = 4
 spawn_id = "default"
 note = "Elevator"
 
-[sub_resource type="Resource" id="Resource_jeiwd"]
+[sub_resource type="Resource" id="Resource_0xg3y"]
 script = ExtResource("1_1017b")
 to_location = "LOC_SD_FLOODED_STREETS"
 route_type = "transition"
@@ -31,5 +31,5 @@ status = 0
 scene_path = "res://scenes/world/memory_hospital/ward_alex.tscn"
 default_spawn = "default"
 ambience_cue = ""
-connections = Array[ExtResource("1_1017b")]([SubResource("Resource_0k80h"), SubResource("Resource_jeiwd")])
+connections = Array[ExtResource("1_1017b")]([SubResource("Resource_rak10"), SubResource("Resource_0xg3y")])
 id = "LOC_MH_WARD_ALEX"

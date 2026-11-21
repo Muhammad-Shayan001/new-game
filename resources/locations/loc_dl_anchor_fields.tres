@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_aq7ii"]
 [ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_5qxay"]
 
-[sub_resource type="Resource" id="Resource_d4w6k"]
+[sub_resource type="Resource" id="Resource_6wvnk"]
 script = ExtResource("1_aq7ii")
 to_location = "LOC_DL_CROSSING"
 route_type = "main"
@@ -11,7 +11,7 @@ gate_chapter = 3
 spawn_id = "default"
 note = "Floating bridge"
 
-[sub_resource type="Resource" id="Resource_osera"]
+[sub_resource type="Resource" id="Resource_mnhco"]
 script = ExtResource("1_aq7ii")
 to_location = "LOC_DL_CRIB_ROOM"
 route_type = "main"
@@ -19,7 +19,7 @@ gate_chapter = 3
 spawn_id = "default"
 note = "Door appears after 3 anchors"
 
-[sub_resource type="Resource" id="Resource_j86tu"]
+[sub_resource type="Resource" id="Resource_bd63o"]
 script = ExtResource("1_aq7ii")
 to_location = "LOC_DL_ECHO_GALLERY"
 route_type = "optional"
@@ -27,7 +27,7 @@ gate_chapter = 3
 spawn_id = "default"
 note = "Side door"
 
-[sub_resource type="Resource" id="Resource_qg6px"]
+[sub_resource type="Resource" id="Resource_035cl"]
 script = ExtResource("1_aq7ii")
 to_location = "LOC_DL_THE_HUM"
 route_type = "optional"
@@ -43,9 +43,9 @@ location_type = "exterior"
 first_chapter = 3
 safe_point = false
 hidden = false
-status = 0
+status = 1
 scene_path = "res://scenes/world/dreamland/anchor_fields.tscn"
 default_spawn = "default"
 ambience_cue = ""
-connections = Array[ExtResource("1_aq7ii")]([SubResource("Resource_d4w6k"), SubResource("Resource_osera"), SubResource("Resource_j86tu"), SubResource("Resource_qg6px")])
+connections = Array[ExtResource("1_aq7ii")]([SubResource("Resource_6wvnk"), SubResource("Resource_mnhco"), SubResource("Resource_bd63o"), SubResource("Resource_035cl")])
 id = "LOC_DL_ANCHOR_FIELDS"

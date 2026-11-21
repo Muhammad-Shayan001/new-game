@@ -28,6 +28,8 @@ func _ready() -> void:
 		match args[0]:
 			"generate-world": code = _generate_world()
 			"bootstrap-samples": code = _bootstrap_samples()
+			"bootstrap-story": code = _bootstrap_story()
+			"build-scenes": code = _build_scenes()
 			"new-mission": code = _new_mission(args)
 			"new-character": code = _new_character(args)
 			"new-location": code = _new_location(args)
@@ -104,6 +106,8 @@ func _generate_world() -> int:
 			d = LocationDef.new()
 			d.scene_path = l["scene_path"]
 			d.status = LocationDef.BuildStatus.GRAYBOX if ResourceLoader.exists(d.scene_path) else LocationDef.BuildStatus.PLANNED
+		if d.status == LocationDef.BuildStatus.PLANNED and ResourceLoader.exists(d.scene_path):
+			d.status = LocationDef.BuildStatus.GRAYBOX
 		d.id = l["id"]
 		d.name_key = l["id"]
 		d.region_id = l["region"]
@@ -412,3 +416,11 @@ func _validate() -> int:
 		printerr("ERROR: " + e)
 	print("validate: %d problem(s)" % errors.size())
 	return 1 if not errors.is_empty() else 0
+
+# --- Prompt 08 / 09 content and scenes ----------------------------------------------
+func _bootstrap_story() -> int:
+	StoryContent.build_all()
+	return 0
+
+func _build_scenes() -> int:
+	return SceneBuilder.build_all()

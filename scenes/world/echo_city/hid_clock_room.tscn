@@ -1,0 +1,637 @@
+[gd_scene load_steps=52 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/prototype_location.gd" id="1_iguwb"]
+[ext_resource type="Script" path="res://scripts/world/spawn_point.gd" id="2_ihuhj"]
+[ext_resource type="Script" path="res://scripts/abilities/revealable.gd" id="3_gweul"]
+[ext_resource type="Script" path="res://scripts/world/interactable.gd" id="4_6q4xj"]
+[ext_resource type="Script" path="res://scripts/abilities/memory_trace.gd" id="5_exd5k"]
+[ext_resource type="Script" path="res://scripts/world/clue_board.gd" id="6_6cach"]
+[ext_resource type="Script" path="res://scripts/world/condition_gate.gd" id="7_22mtj"]
+[ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="8_s1t8y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jmchs"]
+size = Vector3(34, 1, 34)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3hhe"]
+albedo_color = Color(0.2, 0.2, 0.24, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dfgcf"]
+size = Vector3(34, 1, 34)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ehbfu"]
+size = Vector3(3, 3, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0jp1"]
+albedo_color = Color(0.15, 0.15, 0.17, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8slha"]
+size = Vector3(3, 3, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dm3wh"]
+albedo_color = Color(0.3, 0.45, 0.6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_spqet"]
+size = Vector3(3.2, 1.4, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2dmu"]
+size = Vector3(3.5, 2, 2.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpom2"]
+albedo_color = Color(0.4, 0.7, 0.9, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8qbuk"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6kiso"]
+albedo_color = Color(0.9, 0.85, 0.6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hf8w1"]
+size = Vector3(0.5, 0.05, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v74nx"]
+size = Vector3(1.6, 1.6, 1.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_75qlp"]
+albedo_color = Color(0.9, 0.85, 0.6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pl7k2"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_385td"]
+size = Vector3(2.5, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fclw7"]
+albedo_color = Color(0.8, 0.5, 0.3, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qpapy"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Resource" id="Resource_cvhyy"]
+script = ExtResource("8_s1t8y")
+min_chapter = 0
+flags_all = Array[String](["ch1_clock_dial_unlocked"])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String]([])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+info_all = Array[String]([])
+traces_all = Array[String]([])
+echoes_seen_all = Array[String]([])
+locations_visited = Array[String]([])
+shift_states = {}
+states_min = {}
+states_max = {}
+
+[sub_resource type="Resource" id="Resource_th2ig"]
+script = ExtResource("8_s1t8y")
+min_chapter = 0
+flags_all = Array[String](["ch1_clock_dial_unlocked"])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String]([])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+info_all = Array[String]([])
+traces_all = Array[String]([])
+echoes_seen_all = Array[String]([])
+locations_visited = Array[String]([])
+shift_states = {}
+states_min = {}
+states_max = {}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_77wd8"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwxce"]
+albedo_color = Color(0.75, 0.75, 0.8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1m4vo"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Resource" id="Resource_ejm0t"]
+script = ExtResource("8_s1t8y")
+min_chapter = 0
+flags_all = Array[String](["ch1_clock_dial_unlocked"])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String]([])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+info_all = Array[String]([])
+traces_all = Array[String]([])
+echoes_seen_all = Array[String]([])
+locations_visited = Array[String]([])
+shift_states = {}
+states_min = {}
+states_max = {}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_excf7"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8s1o"]
+albedo_color = Color(0.75, 0.75, 0.8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ej5jb"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Resource" id="Resource_y2vrb"]
+script = ExtResource("8_s1t8y")
+min_chapter = 0
+flags_all = Array[String](["ch1_clock_dial_unlocked"])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String]([])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+info_all = Array[String]([])
+traces_all = Array[String]([])
+echoes_seen_all = Array[String]([])
+locations_visited = Array[String]([])
+shift_states = {}
+states_min = {}
+states_max = {}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1jgby"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f67dn"]
+albedo_color = Color(0.75, 0.75, 0.8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x4adm"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Resource" id="Resource_k3ojf"]
+script = ExtResource("8_s1t8y")
+min_chapter = 0
+flags_all = Array[String](["ch1_clock_dial_unlocked"])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String]([])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+info_all = Array[String]([])
+traces_all = Array[String]([])
+echoes_seen_all = Array[String]([])
+locations_visited = Array[String]([])
+shift_states = {}
+states_min = {}
+states_max = {}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fhht3"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nojo0"]
+albedo_color = Color(0.75, 0.75, 0.8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ghuu3"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Resource" id="Resource_8rmbs"]
+script = ExtResource("8_s1t8y")
+min_chapter = 0
+flags_all = Array[String](["ch1_clock_dial_unlocked"])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String]([])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+info_all = Array[String]([])
+traces_all = Array[String]([])
+echoes_seen_all = Array[String]([])
+locations_visited = Array[String]([])
+shift_states = {}
+states_min = {}
+states_max = {}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2dwvx"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmn0k"]
+albedo_color = Color(0.75, 0.75, 0.8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ddvp"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kyai3"]
+size = Vector3(1.8, 1.8, 1.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fc8na"]
+albedo_color = Color(0.5, 0.8, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jmutk"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="HidClockRoom" type="Node3D"]
+script = ExtResource("1_iguwb")
+door_row_origin = Vector3(-4, 1, 13)
+door_row_spacing = 3.0
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Shape" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_jmchs")
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor"]
+material_override = SubResource("StandardMaterial3D_b3hhe")
+mesh = SubResource("BoxMesh_dfgcf")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.383022, 0.321394, 0, 0.642788, 0.766044, -0.5, -0.663414, 0.55667, 0, 0, 0)
+
+[node name="Spawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 8)
+script = ExtResource("2_ihuhj")
+spawn_id = "default"
+
+[node name="Clock" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -12)
+
+[node name="Shape" type="CollisionShape3D" parent="Clock"]
+shape = SubResource("BoxShape3D_ehbfu")
+
+[node name="Mesh" type="MeshInstance3D" parent="Clock"]
+material_override = SubResource("StandardMaterial3D_r0jp1")
+mesh = SubResource("BoxMesh_8slha")
+
+[node name="Label2" type="Label3D" parent="Clock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+billboard = 1
+text = "4:17"
+font_size = 72
+
+[node name="HiddenWriting" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1.8, -6)
+script = ExtResource("3_gweul")
+interactable_path = NodePath("Examine")
+stay_visible_once_found = true
+
+[node name="Panel" type="MeshInstance3D" parent="HiddenWriting"]
+material_override = SubResource("StandardMaterial3D_dm3wh")
+mesh = SubResource("BoxMesh_spqet")
+
+[node name="Label1" type="Label3D" parent="HiddenWriting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+billboard = 1
+text = "THE HOUR IS A PROMISE:
+4 . 1 . 7"
+font_size = 40
+
+[node name="Examine" type="Area3D" parent="HiddenWriting"]
+script = ExtResource("4_6q4xj")
+interactable_id = "INT_EC_HID_CLOCK_ROOM_WRITING"
+prompt_key = "PROMPT_EXAMINE"
+interact_priority = 2
+hold_time = 0.0
+conditions = null
+once = true
+enabled = true
+set_flags = Array[String]([])
+give_clue = "CLUE_CLOCK_WALL_WRITING"
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = ""
+puzzle_symbol = ""
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = ""
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="HiddenWriting/Examine"]
+shape = SubResource("BoxShape3D_t2dmu")
+
+[node name="Mesh" type="MeshInstance3D" parent="HiddenWriting/Examine"]
+material_override = SubResource("StandardMaterial3D_cpom2")
+mesh = SubResource("BoxMesh_8qbuk")
+
+[node name="ClockmakerNote" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, -3)
+script = ExtResource("5_exd5k")
+trace_id = "TRC_CH1_CLOCKMAKER_NOTE"
+interactable_path = NodePath("Examine")
+stay_visible_once_found = false
+
+[node name="Note" type="MeshInstance3D" parent="ClockmakerNote"]
+material_override = SubResource("StandardMaterial3D_6kiso")
+mesh = SubResource("BoxMesh_hf8w1")
+
+[node name="Label1" type="Label3D" parent="ClockmakerNote"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+billboard = 1
+text = "A folded note"
+font_size = 30
+
+[node name="Examine" type="Area3D" parent="ClockmakerNote"]
+script = ExtResource("4_6q4xj")
+interactable_id = "INT_EC_HID_CLOCK_ROOM_NOTE"
+prompt_key = "PROMPT_EXAMINE"
+interact_priority = 2
+hold_time = 0.0
+conditions = null
+once = false
+enabled = true
+set_flags = Array[String]([])
+give_clue = "CLUE_CLOCKMAKER_NOTE"
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = ""
+puzzle_symbol = ""
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = ""
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="ClockmakerNote/Examine"]
+shape = SubResource("BoxShape3D_v74nx")
+
+[node name="Mesh" type="MeshInstance3D" parent="ClockmakerNote/Examine"]
+material_override = SubResource("StandardMaterial3D_75qlp")
+mesh = SubResource("BoxMesh_pl7k2")
+
+[node name="ClueBoard" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -9)
+script = ExtResource("6_6cach")
+deduction_id = "DED_STUCK_AT_417"
+interactable_id = "INT_EC_HID_CLOCK_ROOM_BOARD"
+prompt_key = "PROMPT_LINK_CLUES"
+interact_priority = 2
+hold_time = 0.0
+conditions = null
+once = false
+enabled = true
+set_flags = Array[String]([])
+give_clue = ""
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = "PZL_CH1_CLOCK_DEDUCTION"
+puzzle_symbol = ""
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = ""
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="ClueBoard"]
+shape = SubResource("BoxShape3D_385td")
+
+[node name="Mesh" type="MeshInstance3D" parent="ClueBoard"]
+material_override = SubResource("StandardMaterial3D_fclw7")
+mesh = SubResource("BoxMesh_qpapy")
+
+[node name="Label2" type="Label3D" parent="ClueBoard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Clue board:
+link two clues"
+font_size = 30
+
+[node name="DialLock" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -8.5)
+script = ExtResource("7_22mtj")
+conditions = SubResource("Resource_cvhyy")
+open_when_met = true
+
+[node name="Label0" type="Label3D" parent="DialLock"]
+billboard = 1
+text = "Dial locked.
+Link what you know on the board."
+font_size = 30
+
+[node name="Dial1" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -7)
+script = ExtResource("4_6q4xj")
+interactable_id = "INT_EC_HID_CLOCK_ROOM_DIAL_1"
+prompt_key = "PROMPT_PRESS"
+interact_priority = 3
+hold_time = 0.0
+conditions = SubResource("Resource_th2ig")
+once = false
+enabled = true
+set_flags = Array[String]([])
+give_clue = ""
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = "PZL_CH1_CLOCK_4_17"
+puzzle_symbol = "1"
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = ""
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="Dial1"]
+shape = SubResource("BoxShape3D_77wd8")
+
+[node name="Mesh" type="MeshInstance3D" parent="Dial1"]
+material_override = SubResource("StandardMaterial3D_nwxce")
+mesh = SubResource("BoxMesh_1m4vo")
+
+[node name="Label2" type="Label3D" parent="Dial1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+text = "1
+o"
+font_size = 30
+
+[node name="Dial2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -7)
+script = ExtResource("4_6q4xj")
+interactable_id = "INT_EC_HID_CLOCK_ROOM_DIAL_2"
+prompt_key = "PROMPT_PRESS"
+interact_priority = 3
+hold_time = 0.0
+conditions = SubResource("Resource_ejm0t")
+once = false
+enabled = true
+set_flags = Array[String]([])
+give_clue = ""
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = "PZL_CH1_CLOCK_4_17"
+puzzle_symbol = "2"
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = ""
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="Dial2"]
+shape = SubResource("BoxShape3D_excf7")
+
+[node name="Mesh" type="MeshInstance3D" parent="Dial2"]
+material_override = SubResource("StandardMaterial3D_i8s1o")
+mesh = SubResource("BoxMesh_ej5jb")
+
+[node name="Label2" type="Label3D" parent="Dial2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+text = "2
+oo"
+font_size = 30
+
+[node name="Dial4" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -7)
+script = ExtResource("4_6q4xj")
+interactable_id = "INT_EC_HID_CLOCK_ROOM_DIAL_4"
+prompt_key = "PROMPT_PRESS"
+interact_priority = 3
+hold_time = 0.0
+conditions = SubResource("Resource_y2vrb")
+once = false
+enabled = true
+set_flags = Array[String]([])
+give_clue = ""
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = "PZL_CH1_CLOCK_4_17"
+puzzle_symbol = "4"
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = ""
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="Dial4"]
+shape = SubResource("BoxShape3D_1jgby")
+
+[node name="Mesh" type="MeshInstance3D" parent="Dial4"]
+material_override = SubResource("StandardMaterial3D_f67dn")
+mesh = SubResource("BoxMesh_x4adm")
+
+[node name="Label2" type="Label3D" parent="Dial4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+text = "4
+oooo"
+font_size = 30
+
+[node name="Dial7" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -7)
+script = ExtResource("4_6q4xj")
+interactable_id = "INT_EC_HID_CLOCK_ROOM_DIAL_7"
+prompt_key = "PROMPT_PRESS"
+interact_priority = 3
+hold_time = 0.0
+conditions = SubResource("Resource_k3ojf")
+once = false
+enabled = true
+set_flags = Array[String]([])
+give_clue = ""
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = "PZL_CH1_CLOCK_4_17"
+puzzle_symbol = "7"
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = ""
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="Dial7"]
+shape = SubResource("BoxShape3D_fhht3")
+
+[node name="Mesh" type="MeshInstance3D" parent="Dial7"]
+material_override = SubResource("StandardMaterial3D_nojo0")
+mesh = SubResource("BoxMesh_ghuu3")
+
+[node name="Label2" type="Label3D" parent="Dial7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+text = "7
+ooooooo"
+font_size = 30
+
+[node name="Dial9" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -7)
+script = ExtResource("4_6q4xj")
+interactable_id = "INT_EC_HID_CLOCK_ROOM_DIAL_9"
+prompt_key = "PROMPT_PRESS"
+interact_priority = 3
+hold_time = 0.0
+conditions = SubResource("Resource_8rmbs")
+once = false
+enabled = true
+set_flags = Array[String]([])
+give_clue = ""
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = "PZL_CH1_CLOCK_4_17"
+puzzle_symbol = "9"
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = ""
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="Dial9"]
+shape = SubResource("BoxShape3D_2dwvx")
+
+[node name="Mesh" type="MeshInstance3D" parent="Dial9"]
+material_override = SubResource("StandardMaterial3D_pmn0k")
+mesh = SubResource("BoxMesh_8ddvp")
+
+[node name="Label2" type="Label3D" parent="Dial9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+text = "9
+ooooooooo"
+font_size = 30
+
+[node name="ExitToArchiveTower" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 11)
+script = ExtResource("4_6q4xj")
+interactable_id = "INT_EC_HID_CLOCK_ROOM_EXIT"
+prompt_key = "PROMPT_ENTER"
+interact_priority = 3
+hold_time = 0.0
+conditions = null
+once = false
+enabled = true
+set_flags = Array[String]([])
+give_clue = ""
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = ""
+puzzle_symbol = ""
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = "LOC_EC_ARCHIVE_TOWER"
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="ExitToArchiveTower"]
+shape = SubResource("BoxShape3D_kyai3")
+
+[node name="Mesh" type="MeshInstance3D" parent="ExitToArchiveTower"]
+material_override = SubResource("StandardMaterial3D_fc8na")
+mesh = SubResource("BoxMesh_jmutk")
+
+[node name="Label2" type="Label3D" parent="ExitToArchiveTower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Back to the Archive Tower"
+font_size = 30

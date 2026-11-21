@@ -46,7 +46,7 @@ func set_bus_volume_linear(key: String, value: float) -> void:
 	AudioServer.set_bus_mute(idx, value <= 0.0)
 	AudioServer.set_bus_volume_db(idx, linear_to_db(maxf(value, 0.0001)))
 
-func play_cue(cue_id: String) -> void:
+func play_cue(cue_id: String, pitch: float = 1.0) -> void:
 	var def := DataRegistry.get_audio(cue_id)
 	if def == null:
 		_warn_once(cue_id, "unknown audio cue '%s'" % cue_id)
@@ -63,7 +63,7 @@ func play_cue(cue_id: String) -> void:
 			p.bus = {AudioCueDef.Category.SFX: "SFX", AudioCueDef.Category.AMBIENCE: "Ambience",
 				AudioCueDef.Category.VOICE: "Voice"}[def.category]
 			p.volume_db = def.volume_db
-			p.pitch_scale = randf_range(def.pitch_min, def.pitch_max)
+			p.pitch_scale = randf_range(def.pitch_min, def.pitch_max) * pitch
 			p.play()
 			return
 	_warn_once("pool", "SFX pool exhausted; sound dropped")

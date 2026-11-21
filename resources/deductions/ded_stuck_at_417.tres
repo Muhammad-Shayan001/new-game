@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DeductionDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/deduction_def.gd" id="1_h5ixn"]
+
+[resource]
+script = ExtResource("1_h5ixn")
+clue_a = "CLUE_STATION_CLOCK"
+clue_b = "CLUE_CLOCK_WALL_WRITING"
+title_key = "DED_STUCK_AT_417_TITLE"
+set_flags = Array[String](["ch1_clock_dial_unlocked"])
+result_clue = ""
+id = "DED_STUCK_AT_417"

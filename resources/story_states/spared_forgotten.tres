@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StoryStateDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/story/story_state_def.gd" id="1_5yvpo"]
+
+[resource]
+script = ExtResource("1_5yvpo")
+value_type = 0
+min_value = 0
+max_value = 1
+default_value = 0
+relationship_key = ""
+aliases = Array[String]([])
+chapter = 4
+ending_relevant = true
+description = "Decision: Alex spared the Forgotten Child. Ending variable."
+id = "spared_forgotten"

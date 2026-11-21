@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_mnfm8"]
 [ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_bau4e"]
 
-[sub_resource type="Resource" id="Resource_qs6sa"]
+[sub_resource type="Resource" id="Resource_6nmms"]
 script = ExtResource("1_mnfm8")
 to_location = "LOC_UM_TUNNEL_STATIC"
 route_type = "main"
@@ -11,7 +11,7 @@ gate_chapter = 3
 spawn_id = "default"
 note = "Static dissolves"
 
-[sub_resource type="Resource" id="Resource_i2nco"]
+[sub_resource type="Resource" id="Resource_vcc2c"]
 script = ExtResource("1_mnfm8")
 to_location = "LOC_UM_CONCOURSE"
 route_type = "optional"
@@ -19,7 +19,7 @@ gate_chapter = 3
 spawn_id = "default"
 note = "Shortcut gate opened from Line 0"
 
-[sub_resource type="Resource" id="Resource_i425w"]
+[sub_resource type="Resource" id="Resource_umjj5"]
 script = ExtResource("1_mnfm8")
 to_location = "LOC_UM_RECORDING_ROOM"
 route_type = "main"
@@ -27,7 +27,7 @@ gate_chapter = 3
 spawn_id = "default"
 note = "Service door"
 
-[sub_resource type="Resource" id="Resource_yxk37"]
+[sub_resource type="Resource" id="Resource_ht732"]
 script = ExtResource("1_mnfm8")
 to_location = "LOC_UM_HID_MAINTENANCE"
 route_type = "hidden"
@@ -47,5 +47,5 @@ status = 0
 scene_path = "res://scenes/world/underground_metro/abandoned_platforms.tscn"
 default_spawn = "default"
 ambience_cue = ""
-connections = Array[ExtResource("1_mnfm8")]([SubResource("Resource_qs6sa"), SubResource("Resource_i2nco"), SubResource("Resource_i425w"), SubResource("Resource_yxk37")])
+connections = Array[ExtResource("1_mnfm8")]([SubResource("Resource_6nmms"), SubResource("Resource_vcc2c"), SubResource("Resource_umjj5"), SubResource("Resource_ht732")])
 id = "LOC_UM_ABANDONED_PLATFORMS"

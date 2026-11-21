@@ -11,3 +11,7 @@ extends Resource
 @export var relationship_changes: Dictionary = {}
 ## Optional decision-log entry shown in the Journal "Choices" tab.
 @export var log_choice: String = ""
+## Character information revealed (InfoDef ids).
+@export var reveals_info: Array[String] = []
+## Story states set (id -> value), for non-boolean values such as {"destroyed_index_node": 1}.
+@export var set_states: Dictionary = {}

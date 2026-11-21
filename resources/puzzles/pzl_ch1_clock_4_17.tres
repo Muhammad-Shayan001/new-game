@@ -7,10 +7,25 @@ script = ExtResource("1_7alue")
 puzzle_type = 0
 title_key = "PZL_CH1_CLOCK_4_17_TITLE"
 location_id = "LOC_EC_HID_CLOCK_ROOM"
+required_abilities = Array[String](["ABIL_MEMORY_SIGHT"])
+initial_state = {
+"dial_unlocked_by": "PZL_CH1_CLOCK_DEDUCTION",
+"entered": []
+}
 hint_keys = Array[String](["PZL_CH1_CLOCK_4_17_HINT_1", "PZL_CH1_CLOCK_4_17_HINT_2", "PZL_CH1_CLOCK_4_17_HINT_3"])
 solution = Array[String](["4", "1", "7"])
+completion = 0
+reset_policy = 1
+save_policy = 1
+success_key = ""
+failure_key = ""
+feedback_cue = ""
 set_flags = Array[String](["ch1_clock_solved"])
 reward_clues = Array[String]([])
 reward_items = Array[String]([])
 reward_fragments = Array[String](["CH1_F05"])
+cooperative = false
+min_players = 1
+accessibility_notes = "Dial keys show their digit as text and as a number of notches. No timing. Progress is saved, so leaving does not lose it."
+design_notes = "Sequence: enter three symbols in order. The digits come from the observation puzzle (Memory Sight reveals the wall writing)."
 id = "PZL_CH1_CLOCK_4_17"

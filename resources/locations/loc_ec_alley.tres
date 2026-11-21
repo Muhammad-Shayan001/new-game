@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_7g84w"]
 [ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_h18kt"]
 
-[sub_resource type="Resource" id="Resource_y2doy"]
+[sub_resource type="Resource" id="Resource_1ydi8"]
 script = ExtResource("1_7g84w")
 to_location = "LOC_EC_MAIN_STREET"
 route_type = "main"
@@ -11,7 +11,7 @@ gate_chapter = 2
 spawn_id = "default"
 note = "Alley opens after Archive card"
 
-[sub_resource type="Resource" id="Resource_dft3f"]
+[sub_resource type="Resource" id="Resource_a4nvd"]
 script = ExtResource("1_7g84w")
 to_location = "LOC_EC_FORGOTTEN_QUARTER"
 route_type = "main"
@@ -31,5 +31,5 @@ status = 0
 scene_path = "res://scenes/world/echo_city/alley.tscn"
 default_spawn = "default"
 ambience_cue = ""
-connections = Array[ExtResource("1_7g84w")]([SubResource("Resource_y2doy"), SubResource("Resource_dft3f")])
+connections = Array[ExtResource("1_7g84w")]([SubResource("Resource_1ydi8"), SubResource("Resource_a4nvd")])
 id = "LOC_EC_ALLEY"

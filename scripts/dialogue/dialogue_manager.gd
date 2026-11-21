@@ -38,6 +38,7 @@ func choose(index: int) -> void:
 	var choice := _visible_choices[index]
 	for f in choice.set_flags:
 		GameState.set_flag(f, true)
+	_apply_effects(choice.set_states, choice.reveals_info)
 	_apply_relationships(choice.relationship_changes)
 	if choice.log_choice != "" and choice.log_choice not in GameState.choices:
 		GameState.choices.append(choice.log_choice)
@@ -61,6 +62,7 @@ func _show(node_id: String) -> void:
 	_node = node
 	for f in node.set_flags:
 		GameState.set_flag(f, true)
+	_apply_effects(node.set_states, node.reveals_info)
 	_apply_relationships(node.relationship_changes)
 	if node.voice_cue != "":
 		AudioManager.play_cue(node.voice_cue)
@@ -83,9 +85,18 @@ func _end() -> void:
 	InputService.pop_lock("dialogue")
 	EventBus.dialogue_finished.emit(finished_id)
 
+func _apply_effects(states: Dictionary, info: Array[String]) -> void:
+	for s in states:
+		StoryState.set_value(str(s), states[s])
+	for i in info:
+		ProgressionManager.reveal_info(i)
+
 func _apply_relationships(changes: Dictionary) -> void:
 	for key in changes:
-		GameState.add_relationship(str(key), int(changes[key]))
+		if StoryState.get_def(str(key)) != null:
+			StoryState.add_value(str(key), int(changes[key]))
+		else:
+			GameState.add_relationship(str(key), int(changes[key]))
 
 func _done_flag(dialogue_id: String) -> String:
 	return "dlg_done_" + dialogue_id.to_lower()

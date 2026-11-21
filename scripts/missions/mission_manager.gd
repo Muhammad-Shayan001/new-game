@@ -1,7 +1,7 @@
 extends Node
-## Runs the mission state machine: LOCKED -> AVAILABLE -> ACTIVE -> COMPLETE.
-## Objectives complete from gameplay events (EventBus + GameState signals); this
-## node never needs to know about scenes, NPCs or puzzles.
+## Mission state machine: LOCKED -> AVAILABLE -> ACTIVE -> COMPLETE (or FAILED -> recovered).
+## Objective counting lives in ObjectiveManager; story variables in StoryState.
+## Failure is soft: a failed mission restarts from its last checkpoint, nothing is lost.
 
 const S := MissionDef.State
 
@@ -9,14 +9,8 @@ var _refreshing := false
 var _refresh_again := false
 
 func _ready() -> void:
-	GameState.flag_changed.connect(_on_flag_changed)
-	EventBus.scene_transition_finished.connect(func(loc): _progress(ObjectiveDef.Kind.REACH_LOCATION, loc))
-	EventBus.interaction_completed.connect(func(id): _progress(ObjectiveDef.Kind.INTERACT, id))
-	EventBus.fragment_collected.connect(func(id): _progress(ObjectiveDef.Kind.FRAGMENT, id))
-	EventBus.item_added.connect(func(id, n): _progress(ObjectiveDef.Kind.ITEM, id, n))
-	EventBus.clue_added.connect(func(id): _progress(ObjectiveDef.Kind.CLUE, id))
-	EventBus.puzzle_solved.connect(func(id): _progress(ObjectiveDef.Kind.PUZZLE, id))
-	EventBus.dialogue_finished.connect(func(id): _progress(ObjectiveDef.Kind.DIALOGUE, id))
+	GameState.flag_changed.connect(func(_f, _v): recheck())
+	EventBus.mission_objectives_changed.connect(_check_complete)
 	EventBus.chapter_changed.connect(func(_c): refresh())
 	EventBus.load_finished.connect(func(_slot, ok): if ok: refresh())
 
@@ -24,7 +18,7 @@ func state_of(mission_id: String) -> int:
 	return GameState.get_mission_state(mission_id)
 
 func get_progress(mission_id: String, objective_id: String) -> int:
-	return GameState.mission_progress.get(mission_id, {}).get(objective_id, 0)
+	return ObjectiveManager.progress_of(mission_id, objective_id)
 
 func active_missions() -> Array[String]:
 	var out: Array[String] = []
@@ -43,7 +37,7 @@ func tracked_mission() -> String:
 		fallback = id if fallback == "" else fallback
 	return fallback
 
-## Re-evaluates LOCKED -> AVAILABLE (and auto-start). Safe to call at any time.
+## Re-evaluates LOCKED -> AVAILABLE (and auto-start), then failure and completion.
 func refresh() -> void:
 	if _refreshing:
 		_refresh_again = true
@@ -61,6 +55,13 @@ func refresh() -> void:
 		if not _refresh_again or guard > 32:
 			break
 	_refreshing = false
+	recheck()
+
+## Failure and completion checks for every ACTIVE mission (flags and conditions changed).
+func recheck() -> void:
+	for id in active_missions():
+		if state_of(id) == S.ACTIVE and not _check_fail(id):
+			_check_complete(id)
 
 func _is_unlocked(def: MissionDef) -> bool:
 	return GameState.chapter >= def.chapter and ConditionSet.check(def.unlock)
@@ -73,71 +74,43 @@ func start_mission(mission_id: String) -> bool:
 	if state_of(mission_id) != S.AVAILABLE:
 		return false
 	_set_state(mission_id, S.ACTIVE)
-	GameState.mission_progress[mission_id] = {}
 	for f in def.start_flags:
 		GameState.set_flag(f, true)
-	_count_existing_progress(def)
-	_check_complete(mission_id)
+	ObjectiveManager.begin(def)
+	if not _check_fail(mission_id):
+		_check_complete(mission_id)
 	return true
 
-## Objectives that are already true when the mission starts (standing in the
-## target location, already owning the item, flag already set...).
-func _count_existing_progress(def: MissionDef) -> void:
-	for o in def.objectives:
-		var met := false
-		match o.objective_kind:
-			ObjectiveDef.Kind.REACH_LOCATION: met = GameState.current_location == o.target
-			ObjectiveDef.Kind.FLAG: met = bool(GameState.get_flag(o.target, false))
-			ObjectiveDef.Kind.FRAGMENT: met = GameState.has_memory(o.target)
-			ObjectiveDef.Kind.CLUE: met = GameState.has_clue(o.target)
-			ObjectiveDef.Kind.ITEM: met = GameState.has_item(o.target)
-			ObjectiveDef.Kind.PUZZLE: met = PuzzleManager.is_solved(o.target)
-			ObjectiveDef.Kind.DIALOGUE: met = bool(GameState.get_flag("dlg_done_" + o.target.to_lower(), false))
-		if met:
-			_set_progress(def.id, o, o.count)
-
-func _on_flag_changed(flag: String, value: Variant) -> void:
-	if value:
-		_progress(ObjectiveDef.Kind.FLAG, flag)
-	refresh()
-
-func _progress(kind: ObjectiveDef.Kind, target: String, amount: int = 1) -> void:
-	for mission_id in active_missions():
-		var def := DataRegistry.get_mission(mission_id)
-		if def == null:
-			continue
-		var changed := false
-		for o in def.objectives:
-			if o.objective_kind == kind and o.target == target and get_progress(mission_id, o.id) < o.count:
-				_set_progress(mission_id, o, get_progress(mission_id, o.id) + amount)
-				changed = true
-		if changed:
-			_check_complete(mission_id)
-
-func _set_progress(mission_id: String, o: ObjectiveDef, value: int) -> void:
-	var prog: Dictionary = GameState.mission_progress.get_or_add(mission_id, {})
-	prog[o.id] = mini(value, o.count)
-	EventBus.mission_objective_progress.emit(mission_id, o.id, prog[o.id], o.count)
+func _check_fail(mission_id: String) -> bool:
+	if state_of(mission_id) != S.ACTIVE:
+		return false
+	var def := DataRegistry.get_mission(mission_id)
+	for f in def.fail_flags:
+		if GameState.get_flag(f, false):
+			fail_mission(mission_id, f)
+			return true
+	return false
 
 func _check_complete(mission_id: String) -> void:
 	if state_of(mission_id) != S.ACTIVE:
 		return
 	var def := DataRegistry.get_mission(mission_id)
-	for o in def.objectives:
-		if not o.optional and get_progress(mission_id, o.id) < o.count:
-			return
-	complete_mission(mission_id)
+	if def != null and ObjectiveManager.required_done(def):
+		complete_mission(mission_id)
 
-## Completes an ACTIVE mission: flags, rewards, closing dialogue, chapter check, autosave.
+## Completes an ACTIVE mission: flags, story states, rewards, closing dialogue, chapter check.
 func complete_mission(mission_id: String) -> bool:
 	var def := DataRegistry.get_mission(mission_id)
 	if def == null or state_of(mission_id) != S.ACTIVE:
 		return false
 	_set_state(mission_id, S.COMPLETE)
+	GameState.mission_checkpoints.erase(mission_id)
 	for f in def.complete_flags: GameState.set_flag(f, true)
+	for s in def.complete_states: StoryState.set_value(str(s), def.complete_states[s])
 	for a in def.reward_abilities: AbilityManager.unlock(a)
 	for i in def.reward_items: InventoryManager.add_item(i)
 	for c in def.reward_clues: InventoryManager.add_clue(c)
+	for i in def.reward_info: ProgressionManager.reveal_info(i)
 	for fr in def.reward_fragments: MemoryManager.collect(fr)
 	EventBus.mission_completed.emit(mission_id)
 	EventBus.autosave_requested.emit("mission_complete")
@@ -145,6 +118,57 @@ func complete_mission(mission_id: String) -> bool:
 		DialogueManager.start(def.completion_dialogue)
 	_check_chapter_end(def.chapter)
 	refresh()
+	return true
+
+## Soft failure. Progress is kept for recovery; the player is told gently and can retry.
+func fail_mission(mission_id: String, reason: String = "") -> bool:
+	var def := DataRegistry.get_mission(mission_id)
+	if def == null or state_of(mission_id) != S.ACTIVE:
+		return false
+	_set_state(mission_id, S.FAILED)
+	EventBus.mission_failed.emit(mission_id, reason)
+	EventBus.toast_requested.emit("TOAST_MISSION_FAILED", "warning")
+	if def.fail_dialogue != "":
+		DialogueManager.start(def.fail_dialogue)
+	return true
+
+## Where "recover" takes the player: last checkpoint, else the mission's respawn point.
+func checkpoint_of(mission_id: String) -> Dictionary:
+	var saved: Dictionary = GameState.mission_checkpoints.get(mission_id, {})
+	if not saved.is_empty():
+		return saved
+	var def := DataRegistry.get_mission(mission_id)
+	if def != null and def.respawn_location != "":
+		return {"location": def.respawn_location, "spawn": def.respawn_spawn}
+	return {}
+
+## Restarts a FAILED (or stuck ACTIVE) mission from its checkpoint. Fail flags are cleared.
+func recover_mission(mission_id: String) -> bool:
+	var def := DataRegistry.get_mission(mission_id)
+	if def == null or state_of(mission_id) not in [S.FAILED, S.ACTIVE]:
+		return false
+	var checkpoint := checkpoint_of(mission_id)
+	for f in def.fail_flags:
+		GameState.set_flag(f, false)
+	_set_state(mission_id, S.ACTIVE)
+	var kept_checkpoint := checkpoint.duplicate()
+	var progress_backup: Dictionary = GameState.mission_progress.get(mission_id, {}).duplicate()
+	ObjectiveManager.reset(def)
+	# Objectives completed before the checkpoint stay completed.
+	var done_before := int(kept_checkpoint.get("objectives_done", 0))
+	if done_before > 0:
+		var restored := 0
+		for o in def.objectives:
+			if restored >= done_before:
+				break
+			if progress_backup.get(o.id, 0) >= o.count:
+				GameState.mission_progress[mission_id][o.id] = o.count
+				restored += 1
+	if not kept_checkpoint.is_empty():
+		GameState.mission_checkpoints[mission_id] = kept_checkpoint
+		if kept_checkpoint.get("location", "") != "" and SceneRouter.current_location_id != "":
+			SceneRouter.change_location(kept_checkpoint["location"], kept_checkpoint.get("spawn", ""))
+	EventBus.mission_state_changed.emit(mission_id, S.ACTIVE)
 	return true
 
 ## A chapter ends when every MAIN mission of that chapter is complete.

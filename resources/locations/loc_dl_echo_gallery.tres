@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_2l8t1"]
 [ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_4fvxe"]
 
-[sub_resource type="Resource" id="Resource_h2ike"]
+[sub_resource type="Resource" id="Resource_aemqo"]
 script = ExtResource("1_2l8t1")
 to_location = "LOC_DL_ANCHOR_FIELDS"
 route_type = "optional"
@@ -11,7 +11,7 @@ gate_chapter = 3
 spawn_id = "default"
 note = "Side door"
 
-[sub_resource type="Resource" id="Resource_15k47"]
+[sub_resource type="Resource" id="Resource_nbkcf"]
 script = ExtResource("1_2l8t1")
 to_location = "LOC_DL_HID_UPSIDE_STAIRS"
 route_type = "hidden"
@@ -27,9 +27,9 @@ location_type = "interior"
 first_chapter = 3
 safe_point = false
 hidden = false
-status = 0
+status = 1
 scene_path = "res://scenes/world/dreamland/echo_gallery.tscn"
 default_spawn = "default"
 ambience_cue = ""
-connections = Array[ExtResource("1_2l8t1")]([SubResource("Resource_h2ike"), SubResource("Resource_15k47")])
+connections = Array[ExtResource("1_2l8t1")]([SubResource("Resource_aemqo"), SubResource("Resource_nbkcf")])
 id = "LOC_DL_ECHO_GALLERY"

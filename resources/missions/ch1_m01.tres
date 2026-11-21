@@ -4,25 +4,29 @@
 [ext_resource type="Script" path="res://scripts/missions/mission_def.gd" id="2_spjau"]
 [ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="3_0b6h6"]
 
-[sub_resource type="Resource" id="Resource_iao54"]
+[sub_resource type="Resource" id="Resource_rsexy"]
 script = ExtResource("1_qh037")
 id = "reach_um_concourse"
 text_key = "MISSION_CH1_M01_OBJ_REACH_UM_CONCOURSE"
 objective_kind = 0
 target = "LOC_UM_CONCOURSE"
 count = 1
+value = ""
 optional = false
+group = ""
 
-[sub_resource type="Resource" id="Resource_v1ae3"]
+[sub_resource type="Resource" id="Resource_yqawm"]
 script = ExtResource("1_qh037")
 id = "reach_ec_metro_entrance"
 text_key = "MISSION_CH1_M01_OBJ_REACH_EC_METRO_ENTRANCE"
 objective_kind = 0
 target = "LOC_EC_METRO_ENTRANCE"
 count = 1
+value = ""
 optional = false
+group = ""
 
-[sub_resource type="Resource" id="Resource_0583g"]
+[sub_resource type="Resource" id="Resource_ddsja"]
 script = ExtResource("3_0b6h6")
 min_chapter = 0
 flags_all = Array[String](["ch1_started"])
@@ -33,6 +37,13 @@ items_all = Array[String]([])
 clues_all = Array[String]([])
 fragments_all = Array[String]([])
 abilities_all = Array[String]([])
+info_all = Array[String]([])
+traces_all = Array[String]([])
+echoes_seen_all = Array[String]([])
+locations_visited = Array[String]([])
+shift_states = {}
+states_min = {}
+states_max = {}
 
 [resource]
 script = ExtResource("2_spjau")
@@ -41,15 +52,19 @@ chapter = 1
 title_key = "MISSION_CH1_M01_TITLE"
 summary_key = ""
 locations = Array[String](["LOC_UM_ECHO_STATION", "LOC_UM_CONCOURSE", "LOC_EC_METRO_ENTRANCE"])
-unlock = SubResource("Resource_0583g")
+unlock = SubResource("Resource_ddsja")
 auto_start = true
 start_flags = Array[String]([])
-objectives = Array[ExtResource("1_qh037")]([SubResource("Resource_iao54"), SubResource("Resource_v1ae3")])
-complete_flags = Array[String](["ch1_exit_reached"])
+objectives = Array[ExtResource("1_qh037")]([SubResource("Resource_rsexy"), SubResource("Resource_yqawm")])
+complete_flags = Array[String](["ch1_exit_reached", "alex_found_first_memory"])
 reward_fragments = Array[String](["CH1_F01"])
 reward_items = Array[String]([])
 reward_clues = Array[String]([])
 reward_abilities = Array[String]([])
+reward_info = Array[String]([])
+complete_states = {}
+fail_flags = Array[String]([])
+fail_dialogue = ""
 completion_dialogue = ""
 respawn_location = "LOC_UM_ECHO_STATION"
 respawn_spawn = "default"

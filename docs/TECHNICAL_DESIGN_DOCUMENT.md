@@ -1,4 +1,4 @@
-# Technical Design Document (v0.1.0 — Prompt 04)
+# Technical Design Document (v0.2.0 — Prompts 04, 08, 09)
 
 Godot 4.3+, GDScript, Mobile renderer. Targets: Android first, PC second. One shared code base; no platform-specific gameplay code.
 
@@ -11,7 +11,7 @@ Godot 4.3+, GDScript, Mobile renderer. Targets: Android first, PC second. One sh
 | Safe | Every failure path logs through `GameLog`, leaves the game in a playable state, and has a test. |
 | Offline-first | The campaign never needs a network. Co-op is an optional layer. |
 | Platform-neutral | Gameplay reads `InputService` only. Keyboard, mouse, gamepad and touch produce the same actions. |
-| Testable | Every system runs headless. `tests/` holds 77 automated tests that boot the real game scene. |
+| Testable | Every system runs headless. `tests/` holds 133 automated tests that boot the real game scene. |
 
 **Completion gate (met):** a developer can add a character, mission, location or puzzle by adding data. See section 7 and `tests/unit/test_content_gate.gd`.
 
@@ -37,12 +37,18 @@ Godot 4.3+, GDScript, Mobile renderer. Targets: Android first, PC second. One sh
 | Saving | `scripts/autoload/save_manager.gd` | Versioned, checksummed, atomic saves | `save_game`, `load_game` |
 | Settings | `scripts/autoload/settings_manager.gd` | Validated user settings | `settings_changed` |
 | Localization | `scripts/systems/localization.gd`, `localization/*.po` | Translation keys, locale | `Localization.t(key)` |
+| Story state | `scripts/story/story_state.gd` | Registered story variables, validation, aliases | `set_value`, `story_state_changed` |
+| Objectives | `scripts/missions/objective_manager.gd` | Counted, optional, conditional, grouped objectives, checkpoints | `mission_objectives_changed` |
+| Progression | `scripts/systems/progression_manager.gd` | Memories, abilities, locations, character info, optional discoveries, ending | `snapshot()`, `resolve_ending()` |
+| Reality Shift | `scripts/abilities/shift_manager.gd` | Zones, states, anchors, safe transitions | `shift_state_changed` |
+| Time Echo | `scripts/echo/time_echo_manager.gd` | Replays and recorded ghosts | `echo_*` |
+| Echo Detection | `scripts/abilities/echo_detection.gd` | Memory pulse | `echo_detected` |
 | Networking | `scripts/autoload/network_manager.gd` | Optional ENet co-op connection layer | `network_state_changed` |
 | Input | `scripts/autoload/input_service.gd`, `scripts/systems/input_actions.gd` | Input abstraction and locking | `get_move_vector()`, `push_lock()` |
 
 ## 3. Boot sequence
 
-1. Godot creates the autoloads in this order: `EventBus`, `DataRegistry`, `GameState`, `InputService`, `AudioManager`, `SettingsManager`, `SaveManager`, `SceneRouter`, `InventoryManager`, `MemoryManager`, `AbilityManager`, `PuzzleManager`, `DialogueManager`, `MissionManager`, `NetworkManager`.
+1. Godot creates the autoloads in this order: `EventBus`, `DataRegistry`, `GameState`, `StoryState`, `InputService`, `AudioManager`, `SettingsManager`, `SaveManager`, `SceneRouter`, `InventoryManager`, `MemoryManager`, `AbilityManager`, `PuzzleManager`, `ShiftManager`, `TimeEchoManager`, `EchoDetection`, `ProgressionManager`, `ObjectiveManager`, `DialogueManager`, `MissionManager`, `NetworkManager`.
    - `EventBus` is first because everything emits through it.
    - `DataRegistry` loads all definitions in `_ready()`.
    - `AudioManager` is created before `SettingsManager` so saved volumes can be applied to existing buses.
@@ -107,6 +113,16 @@ All player-visible text is a translation key resolved with `Localization.t(key)`
 ### 4.17 Networking
 Optional co-op, 1-4 players, host-authoritative, Godot ENet. `NetworkManager` provides host, join, leave, state signals and `is_authority()` (always true offline, so gameplay is written once for both modes). Rule: only the authority changes shared state; clients send requests. **Not yet built:** state replication and the Echo Trials rooms.
 
+### 4.18 Story states, objectives and progression (Prompt 09)
+- `StoryState` is the registry of every flag, counter and relationship value (`resources/story_states/`, 27 registered, see `STORY_STATE_REGISTRY.md`). Writes are validated and clamped; content that uses an unregistered flag fails `validate_all()`.
+- `ObjectiveManager` counts objectives from gameplay events and supports optional, conditional (`conditions`) and alternative-route (`group`) objectives. Each completed objective stores a checkpoint.
+- `MissionManager` adds the `FAILED` state (soft failure through `fail_flags`) and `recover_mission()` from the last checkpoint. Completion also applies `complete_states`, `reward_info` and the other rewards.
+- `ProgressionManager` reports memories, abilities, discovered locations, character information, choices and optional discoveries (`snapshot()`), and resolves the ending from the story states (Secret, Release, Save, Escape).
+- Format: `MISSION_DATA_FORMAT.md`.
+
+### 4.19 Signature abilities and puzzle engine (Prompt 08)
+Memory Vision (`Revealable`, `MemoryTrace`), Echo Detection, Reality Shift (`ShiftManager`, zones, anchors, shiftable objects) and Time Echo (`TimeEchoManager`, replays and ghosts) are described in `ABILITY_SYSTEM.md`. The puzzle framework (`PuzzleDef` with required abilities, initial state, completion, reset, save, accessibility; reusable scene components) is in `PUZZLE_FRAMEWORK.md`; the five prototype puzzles are in `PUZZLE_DESIGN_LIBRARY.md`; test evidence is in `PUZZLE_TEST_PLAN.md`.
+
 ## 5. Android and PC compatibility
 - All input goes through `InputActions` constants and `InputService`. Touch controls feed the same actions (`Input.action_press`) and the same stick vector.
 - `TouchJoystick` and `TouchActionButton` track their own touch indices, so movement, buttons and camera drag work at the same time. A finger claimed by a control never rotates the camera.
@@ -141,11 +157,11 @@ godot --headless --path . res://tools/content_tool.tscn -- validate
 | Item / clue / deduction / ability | matching `.tres` | nothing (new ability effects add one `AbilityBehavior` script) |
 
 ## 8. Testing
-`godot --headless --path . res://tests/test_runner.tscn` runs 77 tests in about a minute: core data, saves (corruption, tampering, versions, migration), missions, dialogue, inventory, puzzles, abilities, settings, input, networking, scene transitions (including a broken scene file), interaction through the real physics engine, the full game scene (boot, walking, doors, pause, respawn, camera override, continue) and the content gate.
+`godot --headless --path . res://tests/test_runner.tscn` runs 133 tests in about two minutes: core data, saves (corruption, tampering, versions, migration), missions, dialogue, inventory, puzzles, abilities, settings, input, networking, scene transitions (including a broken scene file), interaction through the real physics engine, the full game scene (boot, walking, doors, pause, respawn, camera override, continue) and the content gate.
 
 ## 9. Not done yet (honest status)
 - Nothing has been run in the Godot editor window or on an Android device. All verification is headless on Godot 4.3.
-- Reality Shift, Time Echo, Echo Voice effects; Memory Pulse effect (the action exists).
+- Echo Voice effect (stub). Real audio for the ability and echo cues (placeholders log one warning).
 - Cutscene runner (the `cutscene_requested` signal exists), Journal UI, settings screen, main menu, load screen.
 - Editor-authored UI layouts, art, audio, animation.
 - Networking state replication and Echo Trials.

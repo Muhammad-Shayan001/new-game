@@ -16,3 +16,7 @@ extends Resource
 @export var relationship_changes: Dictionary = {}
 ## AudioCueDef id of the spoken line (optional).
 @export var voice_cue: String = ""
+## Character information revealed (InfoDef ids).
+@export var reveals_info: Array[String] = []
+## Story states set (id -> value), for non-boolean values such as {"destroyed_index_node": 1}.
+@export var set_states: Dictionary = {}

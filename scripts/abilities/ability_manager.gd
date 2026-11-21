@@ -23,12 +23,18 @@ func reset_runtime() -> void:
 		_get_behavior(DataRegistry.get_ability(id)).deactivate()
 	_active.clear()
 	_cooldowns.clear()
+	ShiftManager.reset_runtime()
+	EchoDetection.reset_runtime()
+	TimeEchoManager.reset_runtime()
 	for b in _behaviors.values():
 		b.queue_free()
 	_behaviors.clear()
 
 func is_active(ability_id: String) -> bool:
 	return _active.has(ability_id)
+
+func active_left(ability_id: String) -> float:
+	return _active.get(ability_id, 0.0)
 
 func cooldown_left(ability_id: String) -> float:
 	return _cooldowns.get(ability_id, 0.0)
@@ -43,8 +49,10 @@ func activate(ability_id: String) -> bool:
 	if not behavior.can_activate():
 		return false
 	behavior.activate()
+	if def.activation_cue != "":
+		AudioManager.play_cue(def.activation_cue)
 	if def.duration > 0.0:
-		_active[ability_id] = def.duration
+		_active[ability_id] = def.duration * float(SettingsManager.get_value("accessibility", "ability_duration_scale"))
 	else:
 		_start_cooldown(def)
 	EventBus.ability_activated.emit(ability_id)

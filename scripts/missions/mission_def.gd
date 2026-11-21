@@ -4,7 +4,7 @@ extends GameDef
 ## States: LOCKED -> AVAILABLE -> ACTIVE -> COMPLETE. No hard fail: see respawn fields.
 
 enum Type { MAIN, OPTIONAL }
-enum State { LOCKED, AVAILABLE, ACTIVE, COMPLETE }
+enum State { LOCKED, AVAILABLE, ACTIVE, COMPLETE, FAILED }
 
 @export var mission_type: Type = Type.MAIN
 @export_range(1, 6) var chapter: int = 1
@@ -23,6 +23,13 @@ enum State { LOCKED, AVAILABLE, ACTIVE, COMPLETE }
 @export var reward_items: Array[String] = []
 @export var reward_clues: Array[String] = []
 @export var reward_abilities: Array[String] = []
+@export var reward_info: Array[String] = []
+## Story states set on completion, e.g. {"alex_found_first_memory": true, "maya_trust": 1}.
+@export var complete_states: Dictionary = {}
+## Soft failure: if any of these flags becomes true while ACTIVE the mission FAILS.
+## A failed mission can be recovered from its last checkpoint (never a hard fail).
+@export var fail_flags: Array[String] = []
+@export var fail_dialogue: String = ""
 @export var completion_dialogue: String = ""
 ## Checkpoint used by the out-of-bounds / reset rule (never a hard fail).
 @export var respawn_location: String = ""
@@ -59,7 +66,7 @@ func validate() -> Array[String]:
 	for l in locations:
 		if not IdRules.is_valid("location", l):
 			errors.append("%s: '%s' is not a location id" % [id, l])
-	for f in start_flags + complete_flags:
+	for f in start_flags + complete_flags + fail_flags:
 		if not IdRules.is_valid("flag", f):
 			errors.append("%s: flag '%s' must be snake_case" % [id, f])
 	return errors

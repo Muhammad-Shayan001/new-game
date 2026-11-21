@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InfoDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/story/info_def.gd" id="1_3k7li"]
+
+[resource]
+script = ExtResource("1_3k7li")
+character_id = "ARC"
+text_key = "INFO_ARC_TAPE_LOADER_TEXT"
+chapter = 3
+id = "INFO_ARC_TAPE_LOADER"

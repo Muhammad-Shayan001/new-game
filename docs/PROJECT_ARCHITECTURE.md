@@ -61,12 +61,16 @@ Rules:
 | 1 | EventBus | Everyone emits through it |
 | 2 | DataRegistry | Definitions must exist before managers use them |
 | 3 | GameState | Pure data, needs only `LocationIDs` |
+| 3b | StoryState | Reads the registry; GameState consults it in debug builds |
 | 4 | InputService | Registers the input map in `_init()` |
 | 5 | AudioManager | Creates buses before settings apply volumes |
 | 6 | SettingsManager | Applies saved settings |
 | 7 | SaveManager | Needs GameState and EventBus |
 | 8 | SceneRouter | Needs InputService, DataRegistry, GameState |
-| 9-14 | Inventory, Memory, Ability, Puzzle, Dialogue, Mission managers | Rewards flow Mission -> Ability/Inventory/Memory |
+| 9-13 | Inventory, Memory, Ability, Puzzle managers | Rewards flow Mission -> Ability/Inventory/Memory |
+| 14 | ShiftManager, TimeEchoManager, EchoDetection | Ability systems; AbilityManager resets them |
+| 15 | ProgressionManager, ObjectiveManager | Objectives feed MissionManager through `mission_objectives_changed` |
+| 16 | DialogueManager, MissionManager | Mission rewards may start dialogue |
 | 15 | NetworkManager | Optional, independent |
 
 Autoload policy: only services without scene logic become autoloads. Anything that belongs to a place or a level is a scene.
@@ -127,6 +131,10 @@ sequenceDiagram
 | Collections | `item_added/removed`, `clue_added`, `deduction_made`, `fragment_collected` |
 | Abilities / puzzles | `ability_unlocked/activated/ended`, `puzzle_started/hint_given/attempt_failed/solved` |
 | Persistence | `autosave_requested`, `save_finished`, `load_finished`, `settings_changed` |
+| Story | `story_state_changed`, `info_revealed`, `trace_discovered`, `mission_failed`, `mission_objectives_changed`, `progression_changed` |
+| Reality Shift | `shift_state_changed`, `shift_anchor_changed` |
+| Time Echo | `echo_site_changed`, `echo_started`, `echo_caption`, `echo_finished`, `echo_recording_changed` |
+| Echo Detection | `echo_pulse_fired`, `echo_detected`, `echo_nothing_found` |
 | Cinematics | `cutscene_requested` |
 | UI | `toast_requested`, `pause_requested` |
 | Network | `network_state_changed`, `network_peer_joined/left` |
@@ -167,7 +175,7 @@ flowchart LR
 
 | Need | Extension point |
 |---|---|
-| New objective type | add a value to `ObjectiveDef.Kind`, one `match` case in `MissionManager._count_existing_progress`, one signal connection in `_ready` |
+| New objective type | add a value to `ObjectiveDef.Kind`, a case in `ObjectiveManager._already_true`, and a signal connection in `ObjectiveManager._ready` |
 | New puzzle type | `PuzzleRuntime` subclass + case in `PuzzleManager._make_runtime` |
 | New ability | `AbilityBehavior` subclass + `AbilityDef` resource |
 | New interaction effect | one exported field + one line in `Interactable.interact()` |

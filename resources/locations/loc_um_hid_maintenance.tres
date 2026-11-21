@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_4ydwx"]
 [ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_kb6sq"]
 
-[sub_resource type="Resource" id="Resource_00bpe"]
+[sub_resource type="Resource" id="Resource_s84wq"]
 script = ExtResource("1_4ydwx")
 to_location = "LOC_UM_ABANDONED_PLATFORMS"
 route_type = "hidden"
@@ -23,5 +23,5 @@ status = 0
 scene_path = "res://scenes/world/underground_metro/hid_maintenance.tscn"
 default_spawn = "default"
 ambience_cue = ""
-connections = Array[ExtResource("1_4ydwx")]([SubResource("Resource_00bpe")])
+connections = Array[ExtResource("1_4ydwx")]([SubResource("Resource_s84wq")])
 id = "LOC_UM_HID_MAINTENANCE"

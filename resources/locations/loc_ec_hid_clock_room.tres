@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_dd7nu"]
 [ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_phh5g"]
 
-[sub_resource type="Resource" id="Resource_dptg3"]
+[sub_resource type="Resource" id="Resource_yfiry"]
 script = ExtResource("1_dd7nu")
 to_location = "LOC_EC_ARCHIVE_TOWER"
 route_type = "hidden"
@@ -19,9 +19,9 @@ location_type = "interior"
 first_chapter = 1
 safe_point = false
 hidden = true
-status = 0
+status = 1
 scene_path = "res://scenes/world/echo_city/hid_clock_room.tscn"
 default_spawn = "default"
 ambience_cue = ""
-connections = Array[ExtResource("1_dd7nu")]([SubResource("Resource_dptg3")])
+connections = Array[ExtResource("1_dd7nu")]([SubResource("Resource_yfiry")])
 id = "LOC_EC_HID_CLOCK_ROOM"

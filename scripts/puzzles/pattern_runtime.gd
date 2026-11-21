@@ -17,3 +17,9 @@ func submit(value: Variant) -> Result:
 
 func reset() -> void:
 	_entered.clear()
+
+func export_state() -> Dictionary:
+	return {"entered": _entered.duplicate()}
+
+func import_state(state: Dictionary) -> void:
+	_entered.assign(state.get("entered", []))

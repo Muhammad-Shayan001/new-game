@@ -25,6 +25,11 @@ var puzzles: Dictionary = {}            # puzzle_id -> {"solved": bool, "hints":
 var relationships: Dictionary = {}      # e.g. {"maya_trust": 1}
 var choices: Array[String] = []         # decision log (Journal "Choices" tab)
 var deductions: Array[String] = []
+var shift_states: Dictionary = {}        # zone_id -> current state (persistent zones only)
+var discovered_traces: Array[String] = []
+var info: Array[String] = []             # revealed character-information ids
+var echoes_seen: Array[String] = []
+var mission_checkpoints: Dictionary = {} # mission_id -> {"location", "spawn", "objectives_done"}
 var playtime_seconds: float = 0.0
 
 ## While > 0 autosave is refused (pursuits, cutscenes). Not saved.
@@ -40,6 +45,8 @@ func reset() -> void:
 func set_flag(flag: String, value: Variant = true) -> void:
 	if flags.get(flag) == value:
 		return
+	if OS.is_debug_build() and not StoryState.is_known(flag):
+		GameLog.warn("GameState", "flag '%s' is not registered as a story state" % flag)
 	flags[flag] = value
 	flag_changed.emit(flag, value)
 
@@ -111,6 +118,9 @@ func to_dict() -> Dictionary:
 		"inventory": inventory.duplicate(), "abilities": abilities.duplicate(),
 		"puzzles": puzzles.duplicate(true), "relationships": relationships.duplicate(),
 		"choices": choices.duplicate(), "deductions": deductions.duplicate(),
+		"shift_states": shift_states.duplicate(), "discovered_traces": discovered_traces.duplicate(),
+		"info": info.duplicate(), "echoes_seen": echoes_seen.duplicate(),
+		"mission_checkpoints": mission_checkpoints.duplicate(true),
 		"playtime_seconds": playtime_seconds,
 	}
 
@@ -132,6 +142,11 @@ func from_dict(d: Dictionary) -> void:
 	relationships = _normalize_numbers(d.get("relationships", {}))
 	choices.assign(d.get("choices", []))
 	deductions.assign(d.get("deductions", []))
+	shift_states = d.get("shift_states", {}).duplicate()
+	discovered_traces.assign(d.get("discovered_traces", []))
+	info.assign(d.get("info", []))
+	echoes_seen.assign(d.get("echoes_seen", []))
+	mission_checkpoints = _normalize_numbers(d.get("mission_checkpoints", {}))
 	playtime_seconds = float(d.get("playtime_seconds", 0.0))
 
 ## Recursively turns whole-number floats back into ints.

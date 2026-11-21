@@ -128,6 +128,11 @@ func _migrate(state: Dictionary, from_version: int) -> Dictionary:
 					state.get_or_add(key, [])
 				state.get_or_add("last_spawn_id", "default")
 				state.get_or_add("playtime_seconds", 0.0)
+			2: # v2 -> v3: Reality Shift states, traces, character info, echoes, mission checkpoints.
+				for key in ["shift_states", "mission_checkpoints"]:
+					state.get_or_add(key, {})
+				for key in ["discovered_traces", "info", "echoes_seen"]:
+					state.get_or_add(key, [])
 		v += 1
 	return state
 

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InfoDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/story/info_def.gd" id="1_ot2uj"]
+
+[resource]
+script = ExtResource("1_ot2uj")
+character_id = "ARV"
+text_key = "INFO_ARV_KEEPS_RECORDS_TEXT"
+chapter = 1
+id = "INFO_ARV_KEEPS_RECORDS"

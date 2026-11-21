@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ShiftZoneDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/story/shift_zone_def.gd" id="1_s0jq3"]
+
+[resource]
+script = ExtResource("1_s0jq3")
+title_key = "SHF_CH3_ANCHOR_BRIDGE_TITLE"
+location_id = "LOC_DL_ANCHOR_FIELDS"
+states = Array[String](["echo_city", "other_side"])
+default_state = "echo_city"
+persistent = true
+exclusive = true
+transition_time = 0.5
+id = "SHF_CH3_ANCHOR_BRIDGE"

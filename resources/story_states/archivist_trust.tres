@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StoryStateDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/story/story_state_def.gd" id="1_jhjtk"]
+
+[resource]
+script = ExtResource("1_jhjtk")
+value_type = 1
+min_value = -3
+max_value = 3
+default_value = 0
+relationship_key = "archivist_trust"
+aliases = Array[String]([])
+chapter = 1
+ending_relevant = true
+description = "The Archivist's trust in Alex, -3 to +3."
+id = "archivist_trust"

@@ -11,6 +11,14 @@ godot --headless --path . res://tools/content_tool.tscn -- validate     # conten
 ```
 The headless renderer prints `mesh_get_surface_count ... "m" is null` for meshes. This is harmless noise from the dummy renderer. The test `test_broken_scene_keeps_current_location` intentionally prints a scene parse error.
 
+## Rebuilding the authored content and scenes (only if you want to reset them)
+```
+godot --headless --path . res://tools/content_tool.tscn -- bootstrap-story
+godot --headless --path . res://tools/content_tool.tscn -- build-scenes
+godot --headless --path . res://tools/content_tool.tscn -- generate-world
+```
+These overwrite the files listed in `DATA_SCHEMA.md` section 8. Do not run them after editing those files by hand.
+
 ## Regenerating content after changing world data
 ```
 python3 tools/world_data.py
@@ -30,4 +38,4 @@ godot --headless --path . res://tools/content_tool.tscn -- validate
 3. Check on device: launches, touch stick and buttons work together with camera drag, save/continue, pause, 10 minute session without a crash.
 
 ## Status
-Automated: 77/77 passing headless on Godot 4.3. Editor window and Android device: not yet tested.
+Automated: 133/133 passing headless on Godot 4.3. Editor window and Android device: not yet tested.

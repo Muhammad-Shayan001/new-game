@@ -4,25 +4,29 @@
 [ext_resource type="Script" path="res://scripts/missions/mission_def.gd" id="2_h4i0p"]
 [ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="3_l6fej"]
 
-[sub_resource type="Resource" id="Resource_ful24"]
+[sub_resource type="Resource" id="Resource_b8qim"]
 script = ExtResource("1_ytt65")
 id = "reach_ec_maya_cafe"
 text_key = "MISSION_CH2_M02_OBJ_REACH_EC_MAYA_CAFE"
 objective_kind = 0
 target = "LOC_EC_MAYA_CAFE"
 count = 1
+value = ""
 optional = false
+group = ""
 
-[sub_resource type="Resource" id="Resource_l8tnu"]
+[sub_resource type="Resource" id="Resource_oucdq"]
 script = ExtResource("1_ytt65")
 id = "talk_to_maya"
 text_key = "MISSION_CH2_M02_OBJ_TALK"
 objective_kind = 7
 target = "DLG_CH2_M02_CAFE"
 count = 1
+value = ""
 optional = false
+group = ""
 
-[sub_resource type="Resource" id="Resource_eo5lm"]
+[sub_resource type="Resource" id="Resource_56703"]
 script = ExtResource("3_l6fej")
 min_chapter = 0
 flags_all = Array[String]([])
@@ -33,6 +37,13 @@ items_all = Array[String]([])
 clues_all = Array[String]([])
 fragments_all = Array[String]([])
 abilities_all = Array[String]([])
+info_all = Array[String]([])
+traces_all = Array[String]([])
+echoes_seen_all = Array[String]([])
+locations_visited = Array[String]([])
+shift_states = {}
+states_min = {}
+states_max = {}
 
 [resource]
 script = ExtResource("2_h4i0p")
@@ -41,15 +52,19 @@ chapter = 2
 title_key = "MISSION_CH2_M02_TITLE"
 summary_key = ""
 locations = Array[String](["LOC_EC_MAYA_CAFE"])
-unlock = SubResource("Resource_eo5lm")
+unlock = SubResource("Resource_56703")
 auto_start = true
 start_flags = Array[String]([])
-objectives = Array[ExtResource("1_ytt65")]([SubResource("Resource_ful24"), SubResource("Resource_l8tnu")])
+objectives = Array[ExtResource("1_ytt65")]([SubResource("Resource_b8qim"), SubResource("Resource_oucdq")])
 complete_flags = Array[String]([])
 reward_fragments = Array[String](["CH2_F01"])
 reward_items = Array[String]([])
 reward_clues = Array[String]([])
 reward_abilities = Array[String]([])
+reward_info = Array[String]([])
+complete_states = {}
+fail_flags = Array[String]([])
+fail_dialogue = ""
 completion_dialogue = ""
 respawn_location = ""
 respawn_spawn = "default"

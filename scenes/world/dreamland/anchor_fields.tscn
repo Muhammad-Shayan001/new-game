@@ -1,0 +1,392 @@
+[gd_scene load_steps=41 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/prototype_location.gd" id="1_6yefj"]
+[ext_resource type="Script" path="res://scripts/world/spawn_point.gd" id="2_qtim0"]
+[ext_resource type="Script" path="res://scripts/world/shiftable_object.gd" id="3_jq1p5"]
+[ext_resource type="Script" path="res://scripts/world/shift_anchor.gd" id="4_68iu7"]
+[ext_resource type="Script" path="res://scripts/world/interactable.gd" id="5_ulrs2"]
+[ext_resource type="Script" path="res://scripts/world/condition_gate.gd" id="6_0dmin"]
+[ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="7_gagot"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ylbyk"]
+size = Vector3(14, 1, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jg0o1"]
+albedo_color = Color(0.25, 0.25, 0.3, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v4bve"]
+size = Vector3(14, 1, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kvyqb"]
+size = Vector3(14, 1, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqsxx"]
+albedo_color = Color(0.3, 0.25, 0.25, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_71lbk"]
+size = Vector3(14, 1, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dlvp"]
+size = Vector3(6, 1, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8duv"]
+albedo_color = Color(0.25, 0.3, 0.25, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w7duw"]
+size = Vector3(6, 1, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_axlsn"]
+size = Vector3(3, 0.4, 6.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gc1hd"]
+albedo_color = Color(0.5, 0.75, 0.9, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h5jc3"]
+size = Vector3(3, 0.4, 6.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vj2fd"]
+size = Vector3(3, 2, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06kf8"]
+albedo_color = Color(0.35, 0.5, 0.75, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ceg28"]
+size = Vector3(3, 0.05, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tfyjf"]
+size = Vector3(3, 2, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhc45"]
+albedo_color = Color(0.35, 0.5, 0.75, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ugsnu"]
+size = Vector3(3, 0.05, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1eobl"]
+size = Vector3(1.8, 1.8, 1.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_74f2x"]
+albedo_color = Color(0.9, 0.5, 0.9, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jhgfq"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Resource" id="Resource_26a3c"]
+script = ExtResource("7_gagot")
+min_chapter = 0
+flags_all = Array[String]([])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String]([])
+items_all = Array[String]([])
+clues_all = Array[String](["CLUE_ANCHOR_SIGIL"])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+info_all = Array[String]([])
+traces_all = Array[String]([])
+echoes_seen_all = Array[String]([])
+locations_visited = Array[String]([])
+shift_states = {
+"SHF_CH3_ANCHOR_BRIDGE": "echo_city"
+}
+states_min = {}
+states_max = {}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nd5os"]
+size = Vector3(6, 3, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yu8vj"]
+albedo_color = Color(0.4, 0.2, 0.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p5pmj"]
+size = Vector3(6, 3, 0.6)
+
+[sub_resource type="Resource" id="Resource_1v4py"]
+script = ExtResource("7_gagot")
+min_chapter = 0
+flags_all = Array[String]([])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String]([])
+items_all = Array[String]([])
+clues_all = Array[String](["CLUE_ANCHOR_SIGIL"])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+info_all = Array[String]([])
+traces_all = Array[String]([])
+echoes_seen_all = Array[String]([])
+locations_visited = Array[String]([])
+shift_states = {
+"SHF_CH3_ANCHOR_BRIDGE": "echo_city"
+}
+states_min = {}
+states_max = {}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2mh6q"]
+size = Vector3(1.8, 1.8, 1.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2q2b3"]
+albedo_color = Color(0.5, 0.9, 0.6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_oqdsc"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Resource" id="Resource_vabp5"]
+script = ExtResource("7_gagot")
+min_chapter = 0
+flags_all = Array[String](["shift_anchor_bridge_solved"])
+flags_any = Array[String]([])
+flags_none = Array[String]([])
+missions_complete = Array[String]([])
+items_all = Array[String]([])
+clues_all = Array[String]([])
+fragments_all = Array[String]([])
+abilities_all = Array[String]([])
+info_all = Array[String]([])
+traces_all = Array[String]([])
+echoes_seen_all = Array[String]([])
+locations_visited = Array[String]([])
+shift_states = {}
+states_min = {}
+states_max = {}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jagij"]
+size = Vector3(3, 0.4, 6.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w3qrp"]
+albedo_color = Color(0.5, 0.75, 0.9, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aprnh"]
+size = Vector3(3, 0.4, 6.4)
+
+[node name="AnchorFields" type="Node3D"]
+script = ExtResource("1_6yefj")
+door_row_origin = Vector3(-4, 1, 8.2)
+door_row_spacing = 3.0
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.383022, 0.321394, 0, 0.642788, 0.766044, -0.5, -0.663414, 0.55667, 0, 0, 0)
+
+[node name="PlatformA" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 6)
+
+[node name="Shape" type="CollisionShape3D" parent="PlatformA"]
+shape = SubResource("BoxShape3D_ylbyk")
+
+[node name="Mesh" type="MeshInstance3D" parent="PlatformA"]
+material_override = SubResource("StandardMaterial3D_jg0o1")
+mesh = SubResource("BoxMesh_v4bve")
+
+[node name="PlatformB" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -6)
+
+[node name="Shape" type="CollisionShape3D" parent="PlatformB"]
+shape = SubResource("BoxShape3D_kvyqb")
+
+[node name="Mesh" type="MeshInstance3D" parent="PlatformB"]
+material_override = SubResource("StandardMaterial3D_cqsxx")
+mesh = SubResource("BoxMesh_71lbk")
+
+[node name="PlatformC" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -11)
+
+[node name="Shape" type="CollisionShape3D" parent="PlatformC"]
+shape = SubResource("BoxShape3D_6dlvp")
+
+[node name="Mesh" type="MeshInstance3D" parent="PlatformC"]
+material_override = SubResource("StandardMaterial3D_o8duv")
+mesh = SubResource("BoxMesh_w7duw")
+
+[node name="Spawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 6.5)
+script = ExtResource("2_qtim0")
+spawn_id = "default"
+
+[node name="SafeA" type="Marker3D" parent="." groups=["shift_safe_points"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 6)
+
+[node name="SafeB" type="Marker3D" parent="." groups=["shift_safe_points"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -5)
+
+[node name="Bridge" type="Node3D" parent="."]
+script = ExtResource("3_jq1p5")
+zone_id = "SHF_CH3_ANCHOR_BRIDGE"
+visible_in_states = Array[String](["other_side"])
+solid_in_states = Array[String]([])
+
+[node name="Span" type="StaticBody3D" parent="Bridge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="Shape" type="CollisionShape3D" parent="Bridge/Span"]
+shape = SubResource("BoxShape3D_axlsn")
+
+[node name="Mesh" type="MeshInstance3D" parent="Bridge/Span"]
+material_override = SubResource("StandardMaterial3D_gc1hd")
+mesh = SubResource("BoxMesh_h5jc3")
+
+[node name="Label8" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+billboard = 1
+text = "The gap. No way across."
+font_size = 36
+
+[node name="AnchorA" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 4.5)
+script = ExtResource("4_68iu7")
+zone_id = "SHF_CH3_ANCHOR_BRIDGE"
+target_state = "other_side"
+hint_key = "HINT_SHIFT_ANCHOR"
+
+[node name="Shape" type="CollisionShape3D" parent="AnchorA"]
+shape = SubResource("BoxShape3D_vj2fd")
+
+[node name="Mesh" type="MeshInstance3D" parent="AnchorA"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+material_override = SubResource("StandardMaterial3D_06kf8")
+mesh = SubResource("BoxMesh_ceg28")
+
+[node name="Label2" type="Label3D" parent="AnchorA"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+billboard = 1
+text = "Anchor A
+Use Reality Shift"
+font_size = 30
+
+[node name="AnchorB" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -4.5)
+script = ExtResource("4_68iu7")
+zone_id = "SHF_CH3_ANCHOR_BRIDGE"
+target_state = "echo_city"
+hint_key = "HINT_SHIFT_ANCHOR"
+
+[node name="Shape" type="CollisionShape3D" parent="AnchorB"]
+shape = SubResource("BoxShape3D_tfyjf")
+
+[node name="Mesh" type="MeshInstance3D" parent="AnchorB"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+material_override = SubResource("StandardMaterial3D_yhc45")
+mesh = SubResource("BoxMesh_ugsnu")
+
+[node name="Label2" type="Label3D" parent="AnchorB"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+billboard = 1
+text = "Anchor B
+Use Reality Shift"
+font_size = 30
+
+[node name="OtherSideSigil" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6)
+script = ExtResource("3_jq1p5")
+zone_id = "SHF_CH3_ANCHOR_BRIDGE"
+visible_in_states = Array[String](["other_side"])
+solid_in_states = Array[String]([])
+
+[node name="Sigil" type="Area3D" parent="OtherSideSigil"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("5_ulrs2")
+interactable_id = "INT_DL_ANCHOR_FIELDS_SIGIL"
+prompt_key = "PROMPT_EXAMINE"
+interact_priority = 2
+hold_time = 0.0
+conditions = null
+once = true
+enabled = true
+set_flags = Array[String]([])
+give_clue = "CLUE_ANCHOR_SIGIL"
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = ""
+puzzle_symbol = ""
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = ""
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="OtherSideSigil/Sigil"]
+shape = SubResource("BoxShape3D_1eobl")
+
+[node name="Mesh" type="MeshInstance3D" parent="OtherSideSigil/Sigil"]
+material_override = SubResource("StandardMaterial3D_74f2x")
+mesh = SubResource("BoxMesh_jhgfq")
+
+[node name="Label2" type="Label3D" parent="OtherSideSigil/Sigil"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "A sigil that exists
+only on the Other Side"
+font_size = 28
+
+[node name="ExitGate" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -9.2)
+script = ExtResource("6_0dmin")
+conditions = SubResource("Resource_26a3c")
+open_when_met = true
+
+[node name="Wall" type="StaticBody3D" parent="ExitGate"]
+
+[node name="@CollisionShape3D@13" type="CollisionShape3D" parent="ExitGate/Wall"]
+shape = SubResource("BoxShape3D_nd5os")
+
+[node name="@MeshInstance3D@14" type="MeshInstance3D" parent="ExitGate/Wall"]
+material_override = SubResource("StandardMaterial3D_yu8vj")
+mesh = SubResource("BoxMesh_p5pmj")
+
+[node name="Label1" type="Label3D" parent="ExitGate"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.6)
+billboard = 1
+text = "Sealed.
+Needs the sigil and Echo City."
+font_size = 28
+
+[node name="ExitPortal" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -11)
+script = ExtResource("5_ulrs2")
+interactable_id = "INT_DL_ANCHOR_FIELDS_EXIT"
+prompt_key = "PROMPT_ENTER"
+interact_priority = 3
+hold_time = 0.0
+conditions = SubResource("Resource_1v4py")
+once = false
+enabled = true
+set_flags = Array[String]([])
+give_clue = ""
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = ""
+puzzle_symbol = ""
+solve_puzzle = "PZL_CH3_ANCHOR_BRIDGE"
+play_cue = ""
+travel_to_location = ""
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="ExitPortal"]
+shape = SubResource("BoxShape3D_2mh6q")
+
+[node name="Mesh" type="MeshInstance3D" parent="ExitPortal"]
+material_override = SubResource("StandardMaterial3D_2q2b3")
+mesh = SubResource("BoxMesh_oqdsc")
+
+[node name="Label2" type="Label3D" parent="ExitPortal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Exit"
+font_size = 30
+
+[node name="KeptBridge" type="Node3D" parent="."]
+script = ExtResource("6_0dmin")
+conditions = SubResource("Resource_vabp5")
+open_when_met = false
+
+[node name="Span" type="StaticBody3D" parent="KeptBridge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="Shape" type="CollisionShape3D" parent="KeptBridge/Span"]
+shape = SubResource("BoxShape3D_jagij")
+
+[node name="Mesh" type="MeshInstance3D" parent="KeptBridge/Span"]
+material_override = SubResource("StandardMaterial3D_w3qrp")
+mesh = SubResource("BoxMesh_aprnh")

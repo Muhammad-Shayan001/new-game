@@ -11,5 +11,7 @@ unlock_chapter = 1
 input_slot = 1
 duration = 8.0
 cooldown = 6.0
+activation_cue = "AUD_ABILITY_ACTIVATE"
+hint_key = "HINT_ABILITY_MEMORY_SIGHT"
 behavior = ExtResource("1_3c43m")
 id = "ABIL_MEMORY_SIGHT"

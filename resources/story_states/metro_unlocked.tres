@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StoryStateDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/story/story_state_def.gd" id="1_o7qy1"]
+
+[resource]
+script = ExtResource("1_o7qy1")
+value_type = 0
+min_value = 0
+max_value = 1
+default_value = 0
+relationship_key = ""
+aliases = Array[String]([])
+chapter = 2
+ending_relevant = false
+description = "Set by CH2_M03 completion. The Static Tunnel to the Underground Metro opens."
+id = "metro_unlocked"

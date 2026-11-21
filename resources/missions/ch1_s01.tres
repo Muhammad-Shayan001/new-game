@@ -4,16 +4,18 @@
 [ext_resource type="Script" path="res://scripts/missions/mission_def.gd" id="2_4whtb"]
 [ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="3_d3oba"]
 
-[sub_resource type="Resource" id="Resource_np47e"]
+[sub_resource type="Resource" id="Resource_lgmlr"]
 script = ExtResource("1_ck61n")
 id = "find_luggage_tags"
 text_key = "MISSION_CH1_S01_OBJ_TAGS"
 objective_kind = 3
 target = "ITEM_LUGGAGE_TAG"
 count = 3
+value = ""
 optional = false
+group = ""
 
-[sub_resource type="Resource" id="Resource_lrbd2"]
+[sub_resource type="Resource" id="Resource_jfv4e"]
 script = ExtResource("3_d3oba")
 min_chapter = 0
 flags_all = Array[String](["ch1_started"])
@@ -24,6 +26,13 @@ items_all = Array[String]([])
 clues_all = Array[String]([])
 fragments_all = Array[String]([])
 abilities_all = Array[String]([])
+info_all = Array[String]([])
+traces_all = Array[String]([])
+echoes_seen_all = Array[String]([])
+locations_visited = Array[String]([])
+shift_states = {}
+states_min = {}
+states_max = {}
 
 [resource]
 script = ExtResource("2_4whtb")
@@ -32,15 +41,19 @@ chapter = 1
 title_key = "MISSION_CH1_S01_TITLE"
 summary_key = ""
 locations = Array[String](["LOC_UM_CONCOURSE", "LOC_EC_CONV_STORE"])
-unlock = SubResource("Resource_lrbd2")
+unlock = SubResource("Resource_jfv4e")
 auto_start = true
 start_flags = Array[String]([])
-objectives = Array[ExtResource("1_ck61n")]([SubResource("Resource_np47e")])
+objectives = Array[ExtResource("1_ck61n")]([SubResource("Resource_lgmlr")])
 complete_flags = Array[String]([])
 reward_fragments = Array[String]([])
 reward_items = Array[String]([])
 reward_clues = Array[String]([])
 reward_abilities = Array[String]([])
+reward_info = Array[String]([])
+complete_states = {}
+fail_flags = Array[String]([])
+fail_dialogue = ""
 completion_dialogue = ""
 respawn_location = ""
 respawn_spawn = "default"

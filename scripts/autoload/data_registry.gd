@@ -14,6 +14,10 @@ const FOLDERS := {
 	"character": "res://resources/characters",
 	"audio": "res://resources/audio",
 	"deduction": "res://resources/deductions",
+	"story_state": "res://resources/story_states",
+	"info": "res://resources/info",
+	"shift_zone": "res://resources/shift_zones",
+	"echo": "res://resources/echoes",
 }
 
 var _defs: Dictionary = {}       # kind -> {id: GameDef}
@@ -28,6 +32,8 @@ func reload() -> void:
 	for kind in FOLDERS:
 		_defs[kind] = {}
 		_scan(kind, FOLDERS[kind])
+	if is_inside_tree() and has_node("/root/StoryState"):
+		get_node("/root/StoryState").rebuild_aliases()
 
 func _scan(kind: String, dir: String) -> void:
 	if not DirAccess.dir_exists_absolute(dir):
@@ -60,6 +66,8 @@ func register_runtime(def: GameDef) -> bool:
 	if not _defs.has(kind) or _defs[kind].has(def.id):
 		return false
 	_defs[kind][def.id] = def
+	if kind == "story_state" and has_node("/root/StoryState"):
+		get_node("/root/StoryState").rebuild_aliases()
 	return true
 
 func has_def(kind: String, id: String) -> bool:
@@ -85,6 +93,10 @@ func get_puzzle(id: String) -> PuzzleDef: return get_def("puzzle", id) as Puzzle
 func get_character(id: String) -> CharacterDef: return get_def("character", id) as CharacterDef
 func get_audio(id: String) -> AudioCueDef: return get_def("audio", id) as AudioCueDef
 func get_deduction(id: String) -> DeductionDef: return get_def("deduction", id) as DeductionDef
+func get_story_state(id: String) -> StoryStateDef: return get_def("story_state", id) as StoryStateDef
+func get_info(id: String) -> InfoDef: return get_def("info", id) as InfoDef
+func get_shift_zone(id: String) -> ShiftZoneDef: return get_def("shift_zone", id) as ShiftZoneDef
+func get_echo(id: String) -> TimeEchoDef: return get_def("echo", id) as TimeEchoDef
 
 ## Full content check: IDs, naming, dangling references, translations.
 ## Returns a list of problems (empty = healthy). Run by tests and tools/content_tool.gd.
@@ -129,7 +141,74 @@ func validate_all() -> Array[String]:
 			for i in p.solution: _require(errors, "item", i, "puzzle %s" % p.id)
 	for c in all("character"):
 		_check_key(errors, c.name_key, "character %s" % c.id)
+	_validate_story_data(errors)
 	return errors
+
+## Story-state consistency, plus the Prompt 08/09 definition kinds.
+func _validate_story_data(errors: Array[String]) -> void:
+	for m in all("mission"):
+		for f in m.start_flags + m.complete_flags + m.fail_flags:
+			_check_flag(errors, f, "mission %s" % m.id)
+		for s in m.complete_states:
+			_check_flag(errors, str(s), "mission %s complete_states" % m.id)
+		for i in m.reward_info:
+			_require(errors, "info", i, "mission %s" % m.id)
+		for c in m.reward_clues:
+			if not IdRules.is_valid("clue", c): errors.append("mission %s: bad clue '%s'" % [m.id, c])
+		_require_optional(errors, "dialogue", m.fail_dialogue, "mission %s" % m.id)
+		for o in m.objectives:
+			if o.objective_kind == ObjectiveDef.Kind.FLAG:
+				_check_flag(errors, o.target, "mission %s/%s" % [m.id, o.id])
+			elif o.target_id_kind() in ["echo", "shift_zone", "info"]:
+				_require(errors, o.target_id_kind(), o.target, "mission %s/%s" % [m.id, o.id])
+			if o.objective_kind == ObjectiveDef.Kind.SHIFT:
+				var zone := get_shift_zone(o.target)
+				if zone != null and o.value not in zone.states:
+					errors.append("mission %s/%s: '%s' is not a state of %s" % [m.id, o.id, o.value, o.target])
+			if o.conditions != null:
+				_check_conditions(errors, o.conditions, "mission %s/%s" % [m.id, o.id])
+	for d in all("dialogue"):
+		for n in d.nodes:
+			for f in n.set_flags: _check_flag(errors, f, "dialogue %s/%s" % [d.id, n.id])
+			for s in n.set_states: _check_flag(errors, str(s), "dialogue %s/%s" % [d.id, n.id])
+			for i in n.reveals_info: _require(errors, "info", i, "dialogue %s/%s" % [d.id, n.id])
+			for c in n.choices:
+				for f in c.set_flags: _check_flag(errors, f, "dialogue %s choice" % d.id)
+				for s in c.set_states: _check_flag(errors, str(s), "dialogue %s choice" % d.id)
+				for i in c.reveals_info: _require(errors, "info", i, "dialogue %s choice" % d.id)
+				if c.conditions != null: _check_conditions(errors, c.conditions, "dialogue %s choice" % d.id)
+	for p in all("puzzle"):
+		for f in p.set_flags: _check_flag(errors, f, "puzzle %s" % p.id)
+		for a in p.required_abilities: _require(errors, "ability", a, "puzzle %s" % p.id)
+		for fr in p.reward_fragments: _require(errors, "fragment", fr, "puzzle %s" % p.id)
+		for i in p.reward_items: _require(errors, "item", i, "puzzle %s" % p.id)
+		_require_optional(errors, "location", p.location_id, "puzzle %s" % p.id)
+		_check_key(errors, p.title_key, "puzzle %s" % p.id)
+	for dd in all("deduction"):
+		for f in dd.set_flags: _check_flag(errors, f, "deduction %s" % dd.id)
+	for e in all("echo"):
+		_require_optional(errors, "location", e.location_id, "echo %s" % e.id)
+		for f in e.set_flags: _check_flag(errors, f, "echo %s" % e.id)
+		if e.conditions != null: _check_conditions(errors, e.conditions, "echo %s" % e.id)
+		for cue in e.audio_events: _require(errors, "audio", cue.cue_id, "echo %s" % e.id)
+		for cap in e.captions: _check_key(errors, cap.text_key, "echo %s caption" % e.id)
+		for cm in e.clue_moments:
+			_require_optional(errors, "fragment", cm.fragment_id, "echo %s" % e.id)
+			_require_optional(errors, "info", cm.info_id, "echo %s" % e.id)
+		for t in e.tracks:
+			_require_optional(errors, "character", t.actor_id if not t.is_prop else "", "echo %s" % e.id)
+	for z in all("shift_zone"):
+		_require_optional(errors, "location", z.location_id, "shift zone %s" % z.id)
+		_check_key(errors, z.title_key, "shift zone %s" % z.id)
+	for i in all("info"):
+		_require(errors, "character", i.character_id, "info %s" % i.id)
+		_check_key(errors, i.text_key, "info %s" % i.id)
+	for ab in all("ability"):
+		_require_optional(errors, "audio", ab.activation_cue, "ability %s" % ab.id)
+
+func _check_flag(errors: Array[String], flag: String, owner: String) -> void:
+	if not StoryState.is_known(flag):
+		errors.append("%s: '%s' is not a registered story state (add it to resources/story_states)" % [owner, flag])
 
 func _require(errors: Array[String], kind: String, id: String, owner: String) -> void:
 	if not has_def(kind, id):
@@ -146,7 +225,9 @@ func _check_key(errors: Array[String], key: String, owner: String) -> void:
 func _check_conditions(errors: Array[String], c: ConditionSet, owner: String) -> void:
 	var refs := c.referenced_ids()
 	for kind in refs:
-		if kind in ["clue"]:
+		if kind in ["clue", "trace"]:
 			continue
 		for id in refs[kind]:
 			_require(errors, kind, id, owner)
+	for f in c.referenced_flags():
+		_check_flag(errors, f, owner)

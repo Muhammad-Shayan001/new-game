@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_vm10k"]
 [ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_1cjxv"]
 
-[sub_resource type="Resource" id="Resource_m0ai1"]
+[sub_resource type="Resource" id="Resource_ux01g"]
 script = ExtResource("1_vm10k")
 to_location = "LOC_UM_CONCOURSE"
 route_type = "transition"
@@ -11,7 +11,7 @@ gate_chapter = 1
 spawn_id = "default"
 note = "Escalator to street"
 
-[sub_resource type="Resource" id="Resource_fffjq"]
+[sub_resource type="Resource" id="Resource_46y5j"]
 script = ExtResource("1_vm10k")
 to_location = "LOC_EC_MAIN_STREET"
 route_type = "main"
@@ -31,5 +31,5 @@ status = 0
 scene_path = "res://scenes/world/echo_city/metro_entrance.tscn"
 default_spawn = "default"
 ambience_cue = ""
-connections = Array[ExtResource("1_vm10k")]([SubResource("Resource_m0ai1"), SubResource("Resource_fffjq")])
+connections = Array[ExtResource("1_vm10k")]([SubResource("Resource_ux01g"), SubResource("Resource_46y5j")])
 id = "LOC_EC_METRO_ENTRANCE"

@@ -1,19 +1,54 @@
-[gd_resource type="Resource" script_class="MissionDef" load_steps=6 format=3]
+[gd_resource type="Resource" script_class="MissionDef" load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://scripts/missions/objective_def.gd" id="1_l4ibe"]
 [ext_resource type="Script" path="res://scripts/missions/mission_def.gd" id="2_h2spa"]
 [ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="3_5w1wb"]
 
-[sub_resource type="Resource" id="Resource_a6r62"]
+[sub_resource type="Resource" id="Resource_x68ky"]
 script = ExtResource("1_l4ibe")
 id = "reach_dl_echo_gallery"
 text_key = "MISSION_CH3_S01_OBJ_REACH_DL_ECHO_GALLERY"
 objective_kind = 0
 target = "LOC_DL_ECHO_GALLERY"
 count = 1
+value = ""
 optional = false
+group = ""
 
-[sub_resource type="Resource" id="Resource_y422h"]
+[sub_resource type="Resource" id="Resource_kictr"]
+script = ExtResource("1_l4ibe")
+id = "watch_the_echo"
+text_key = "MISSION_CH3_S01_OBJ_ECHO"
+objective_kind = 9
+target = "ECH_CH3_TAPE_LOADING"
+count = 1
+value = ""
+optional = false
+group = ""
+
+[sub_resource type="Resource" id="Resource_wl3cp"]
+script = ExtResource("1_l4ibe")
+id = "order_the_reels"
+text_key = "MISSION_CH3_S01_OBJ_TAPES"
+objective_kind = 6
+target = "PZL_CH3_TAPE_ORDER"
+count = 1
+value = ""
+optional = false
+group = ""
+
+[sub_resource type="Resource" id="Resource_u5g61"]
+script = ExtResource("1_l4ibe")
+id = "hold_both_plates"
+text_key = "MISSION_CH3_S01_OBJ_PLATES"
+objective_kind = 6
+target = "PZL_CH3_ECHO_PLATES"
+count = 1
+value = ""
+optional = false
+group = ""
+
+[sub_resource type="Resource" id="Resource_pujdf"]
 script = ExtResource("3_5w1wb")
 min_chapter = 0
 flags_all = Array[String]([])
@@ -23,7 +58,14 @@ missions_complete = Array[String]([])
 items_all = Array[String]([])
 clues_all = Array[String]([])
 fragments_all = Array[String]([])
-abilities_all = Array[String]([])
+abilities_all = Array[String](["ABIL_TIME_ECHO"])
+info_all = Array[String]([])
+traces_all = Array[String]([])
+echoes_seen_all = Array[String]([])
+locations_visited = Array[String]([])
+shift_states = {}
+states_min = {}
+states_max = {}
 
 [resource]
 script = ExtResource("2_h2spa")
@@ -32,18 +74,22 @@ chapter = 3
 title_key = "MISSION_CH3_S01_TITLE"
 summary_key = ""
 locations = Array[String](["LOC_DL_ECHO_GALLERY"])
-unlock = SubResource("Resource_y422h")
+unlock = SubResource("Resource_pujdf")
 auto_start = true
 start_flags = Array[String]([])
-objectives = Array[ExtResource("1_l4ibe")]([SubResource("Resource_a6r62")])
+objectives = Array[ExtResource("1_l4ibe")]([SubResource("Resource_x68ky"), SubResource("Resource_kictr"), SubResource("Resource_wl3cp"), SubResource("Resource_u5g61")])
 complete_flags = Array[String]([])
 reward_fragments = Array[String]([])
 reward_items = Array[String]([])
 reward_clues = Array[String]([])
 reward_abilities = Array[String]([])
+reward_info = Array[String]([])
+complete_states = {}
+fail_flags = Array[String]([])
+fail_dialogue = ""
 completion_dialogue = ""
 respawn_location = ""
 respawn_spawn = "default"
 estimated_minutes = 10
-authored = false
+authored = true
 id = "CH3_S01"

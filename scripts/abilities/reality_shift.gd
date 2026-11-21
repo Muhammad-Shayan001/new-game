@@ -1,8 +1,13 @@
 class_name RealityShiftBehavior
 extends AbilityBehavior
-## FOUNDATION STUB: interface is final, effect is implemented in a later task
-## (see docs/TASK_TRACKER.md). Activation is refused so gameplay never relies on it yet.
+## Reality Shift: swaps the zone of the Shift Anchor the player stands in.
 
 func can_activate() -> bool:
-	GameLog.warn("Ability", "RealityShiftBehavior is not implemented yet")
-	return false
+	if not ShiftManager.can_shift():
+		if ShiftManager.current_anchor() == null:
+			EventBus.toast_requested.emit("TOAST_NO_ANCHOR", "info")
+		return false
+	return true
+
+func activate() -> void:
+	ShiftManager.shift_at_anchor()

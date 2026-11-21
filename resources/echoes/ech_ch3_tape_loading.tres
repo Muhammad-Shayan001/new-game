@@ -1,0 +1,144 @@
+[gd_resource type="Resource" script_class="TimeEchoDef" load_steps=26 format=3]
+
+[ext_resource type="Script" path="res://scripts/echo/echo_audio_event.gd" id="1_p1xn7"]
+[ext_resource type="Script" path="res://scripts/echo/echo_camera_key.gd" id="2_1uwy4"]
+[ext_resource type="Script" path="res://scripts/echo/echo_caption.gd" id="3_2db7m"]
+[ext_resource type="Script" path="res://scripts/echo/echo_clue_moment.gd" id="4_qgw4m"]
+[ext_resource type="Script" path="res://scripts/echo/time_echo_def.gd" id="5_1nxb2"]
+[ext_resource type="Script" path="res://scripts/echo/echo_track.gd" id="6_7rq6a"]
+[ext_resource type="Script" path="res://scripts/echo/echo_key.gd" id="7_x6l2d"]
+
+[sub_resource type="Resource" id="Resource_smdsy"]
+script = ExtResource("1_p1xn7")
+time = 2.0
+cue_id = "AUD_ECHO_REEL_CLICK"
+
+[sub_resource type="Resource" id="Resource_a7r0u"]
+script = ExtResource("1_p1xn7")
+time = 4.0
+cue_id = "AUD_ECHO_REEL_CLICK"
+
+[sub_resource type="Resource" id="Resource_p077y"]
+script = ExtResource("1_p1xn7")
+time = 6.0
+cue_id = "AUD_ECHO_REEL_CLICK"
+
+[sub_resource type="Resource" id="Resource_y6n6s"]
+script = ExtResource("2_1uwy4")
+time = 0.0
+position = Vector3(-8, 3, 7)
+look_at = Vector3(-8, 1, -1)
+fov = 65.0
+
+[sub_resource type="Resource" id="Resource_l8fhv"]
+script = ExtResource("2_1uwy4")
+time = 4.0
+position = Vector3(-8, 2.5, 4)
+look_at = Vector3(-8, 1.2, -1)
+fov = 65.0
+
+[sub_resource type="Resource" id="Resource_eevtq"]
+script = ExtResource("2_1uwy4")
+time = 8.0
+position = Vector3(-8, 3, 7)
+look_at = Vector3(-8, 1, 0)
+fov = 65.0
+
+[sub_resource type="Resource" id="Resource_258bd"]
+script = ExtResource("3_2db7m")
+time = 1.8
+duration = 1.8
+speaker_id = "ARC"
+text_key = "ECH_CH3_TAPE_LOADING_CAP_1"
+
+[sub_resource type="Resource" id="Resource_aclg6"]
+script = ExtResource("3_2db7m")
+time = 3.8
+duration = 1.8
+speaker_id = "ARC"
+text_key = "ECH_CH3_TAPE_LOADING_CAP_2"
+
+[sub_resource type="Resource" id="Resource_nbg7l"]
+script = ExtResource("3_2db7m")
+time = 5.8
+duration = 1.8
+speaker_id = "ARC"
+text_key = "ECH_CH3_TAPE_LOADING_CAP_3"
+
+[sub_resource type="Resource" id="Resource_le4co"]
+script = ExtResource("3_2db7m")
+time = 7.8
+duration = 1.8
+speaker_id = "ARC"
+text_key = "ECH_CH3_TAPE_LOADING_CAP_4"
+
+[sub_resource type="Resource" id="Resource_xkog0"]
+script = ExtResource("4_qgw4m")
+time = 8.5
+clue_id = "CLUE_TAPE_ORDER"
+fragment_id = ""
+info_id = "INFO_ARC_TAPE_LOADER"
+
+[sub_resource type="Resource" id="Resource_a01sc"]
+script = ExtResource("7_x6l2d")
+time = 0.0
+position = Vector3(-8, 0, 3)
+yaw_degrees = 0.0
+state = "enters"
+
+[sub_resource type="Resource" id="Resource_t8rh0"]
+script = ExtResource("7_x6l2d")
+time = 2.0
+position = Vector3(-10, 0, -1)
+yaw_degrees = 0.0
+state = "loads circle"
+
+[sub_resource type="Resource" id="Resource_ci4ba"]
+script = ExtResource("7_x6l2d")
+time = 4.0
+position = Vector3(-8, 0, -1)
+yaw_degrees = 0.0
+state = "loads square"
+
+[sub_resource type="Resource" id="Resource_478wp"]
+script = ExtResource("7_x6l2d")
+time = 6.0
+position = Vector3(-6, 0, -1)
+yaw_degrees = 0.0
+state = "loads triangle"
+
+[sub_resource type="Resource" id="Resource_o0jdi"]
+script = ExtResource("7_x6l2d")
+time = 8.0
+position = Vector3(-8, 0, 3)
+yaw_degrees = 180.0
+state = "leaves"
+
+[sub_resource type="Resource" id="Resource_ombbq"]
+script = ExtResource("7_x6l2d")
+time = 9.0
+position = Vector3(-8, 0, 4)
+yaw_degrees = 180.0
+state = "gone"
+
+[sub_resource type="Resource" id="Resource_045g8"]
+script = ExtResource("6_7rq6a")
+actor_id = "ARC"
+label_key = "CHR_ARC_NAME"
+color = Color(0.7, 0.85, 1, 0.55)
+keys = Array[ExtResource("7_x6l2d")]([SubResource("Resource_a01sc"), SubResource("Resource_t8rh0"), SubResource("Resource_ci4ba"), SubResource("Resource_478wp"), SubResource("Resource_o0jdi"), SubResource("Resource_ombbq")])
+is_prop = false
+
+[resource]
+script = ExtResource("5_1nxb2")
+title_key = "ECH_CH3_TAPE_LOADING_TITLE"
+location_id = "LOC_DL_ECHO_GALLERY"
+duration = 9.0
+tracks = Array[ExtResource("6_7rq6a")]([SubResource("Resource_045g8")])
+camera_keys = Array[ExtResource("2_1uwy4")]([SubResource("Resource_y6n6s"), SubResource("Resource_l8fhv"), SubResource("Resource_eevtq")])
+audio_events = Array[ExtResource("1_p1xn7")]([SubResource("Resource_smdsy"), SubResource("Resource_a7r0u"), SubResource("Resource_p077y")])
+captions = Array[ExtResource("3_2db7m")]([SubResource("Resource_258bd"), SubResource("Resource_aclg6"), SubResource("Resource_nbg7l"), SubResource("Resource_le4co")])
+clue_moments = Array[ExtResource("4_qgw4m")]([SubResource("Resource_xkog0")])
+replayable = true
+set_flags = Array[String]([])
+id = "ECH_CH3_TAPE_LOADING"

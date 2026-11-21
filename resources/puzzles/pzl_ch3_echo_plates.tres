@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="PuzzleDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/puzzles/puzzle_def.gd" id="1_sjk1k"]
+
+[resource]
+script = ExtResource("1_sjk1k")
+puzzle_type = 5
+title_key = "PZL_CH3_ECHO_PLATES_TITLE"
+location_id = "LOC_DL_ECHO_GALLERY"
+required_abilities = Array[String](["ABIL_TIME_ECHO"])
+initial_state = {}
+hint_keys = Array[String](["PZL_CH3_ECHO_PLATES_HINT_1", "PZL_CH3_ECHO_PLATES_HINT_2", "PZL_CH3_ECHO_PLATES_HINT_3"])
+solution = Array[String]([])
+completion = 1
+reset_policy = 2
+save_policy = 0
+success_key = ""
+failure_key = ""
+feedback_cue = ""
+set_flags = Array[String](["echo_plates_solved"])
+reward_clues = Array[String]([])
+reward_items = Array[String]([])
+reward_fragments = Array[String]([])
+cooperative = true
+min_players = 2
+accessibility_notes = "Recording is 10 seconds and forgiving: no precision needed. The HUD shows a recording indicator. Plates need a 1 second hold, not fast reactions."
+design_notes = "Cooperative puzzle for future co-op: two players each hold a plate. In solo play a Time Echo ghost replaces the second player."
+id = "PZL_CH3_ECHO_PLATES"

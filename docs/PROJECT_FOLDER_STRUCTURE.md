@@ -20,11 +20,16 @@ new-game/
 |  |                            save_manager, scene_router, network_manager
 |  +- player/                   player, camera_rig, interaction_sensor
 |  +- characters/               npc_actor
-|  +- world/                    location_root, spawn_point, interactable, placeholder_location
+|  +- world/                    location_root, spawn_point, interactable, placeholder_location, prototype_location,
+|  |                            shift_anchor, shiftable_object, echo_site, pressure_plate, plate_controller,
+|  |                            clue_board, reconstruction_board, condition_gate
 |  +- missions/                 mission_def, objective_def, mission_manager
 |  +- dialogue/                 dialogue_def, dialogue_node, dialogue_choice, dialogue_manager
 |  +- puzzles/                  puzzle_def, puzzle_runtime, pattern/ordering runtimes, puzzle_manager
-|  +- abilities/                ability_def, ability_behavior, ability_manager, behaviors
+|  +- abilities/                ability_def, ability_behavior, ability_manager, behaviors, shift_manager,
+|  |                            echo_detection, revealable, memory_trace
+|  +- story/                    story_state_def, story_state, info_def, shift_zone_def
+|  +- echo/                     time_echo_def (+ key/track/camera/audio/caption/clue classes), echo_ghost, time_echo_manager
 |  +- data/                     shared definitions: game_def, condition_set, location_def,
 |  |                            location_connection, fragment_def, item_def, character_def,
 |  |                            audio_cue_def, deduction_def
@@ -35,15 +40,19 @@ new-game/
 +- resources/                   data-driven content, one .tres per id (file name = lower-case id)
 |  +- locations/ missions/ fragments/ dialogue/ items/ abilities/
 |  +- puzzles/ characters/ audio/ deductions/
+|  +- story_states/ info/ shift_zones/ echoes/
 +- assets/
 |  +- models/ textures/ audio/  imported art and sound (empty so far)
 +- localization/                en_ui.po, en_world.po (generated), en_content.po
 +- tests/
 |  +- test_runner.tscn/.gd, test_case.gd
-|  +- unit/                     test_*.gd (77 tests)
+|  +- unit/                     test_*.gd (133 tests)
+|  +- fixtures/                 mission_fixtures.gd (test missions)
 +- tools/
 |  +- world_data.py             world data source of truth + validator + generators
-|  +- content_tool.gd/.tscn     generate-world, bootstrap-samples, new-*, validate
+|  +- content_tool.gd/.tscn     generate-world, bootstrap-samples, bootstrap-story, build-scenes, new-*, validate
+|  +- story_content.gd          authored story states, info, puzzles, echoes, missions
+|  +- scene_builder.gd          builds the three graybox puzzle scenes
 |  +- generated/world_data.json
 +- docs/                        all design and technical documents
 ```

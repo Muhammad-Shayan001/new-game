@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StoryStateDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/story/story_state_def.gd" id="1_i2n4j"]
+
+[resource]
+script = ExtResource("1_i2n4j")
+value_type = 0
+min_value = 0
+max_value = 1
+default_value = 0
+relationship_key = ""
+aliases = Array[String]([])
+chapter = 3
+ending_relevant = false
+description = "Set by puzzle PZL_CH3_ECHO_PLATES."
+id = "echo_plates_solved"

@@ -11,5 +11,7 @@ unlock_chapter = 5
 input_slot = 4
 duration = 0.0
 cooldown = 0.0
+activation_cue = "AUD_ABILITY_ACTIVATE"
+hint_key = "HINT_ABILITY_ECHO_VOICE"
 behavior = ExtResource("1_k8uno")
 id = "ABIL_ECHO_VOICE"

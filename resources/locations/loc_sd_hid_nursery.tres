@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_8u12k"]
 [ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_k6c4s"]
 
-[sub_resource type="Resource" id="Resource_e7oxi"]
+[sub_resource type="Resource" id="Resource_sc4bt"]
 script = ExtResource("1_8u12k")
 to_location = "LOC_SD_FLOODED_STREETS"
 route_type = "hidden"
@@ -23,5 +23,5 @@ status = 0
 scene_path = "res://scenes/world/sunken_district/hid_nursery.tscn"
 default_spawn = "default"
 ambience_cue = ""
-connections = Array[ExtResource("1_8u12k")]([SubResource("Resource_e7oxi")])
+connections = Array[ExtResource("1_8u12k")]([SubResource("Resource_sc4bt")])
 id = "LOC_SD_HID_NURSERY"

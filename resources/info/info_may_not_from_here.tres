@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InfoDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/story/info_def.gd" id="1_xiyi6"]
+
+[resource]
+script = ExtResource("1_xiyi6")
+character_id = "MAY"
+text_key = "INFO_MAY_NOT_FROM_HERE_TEXT"
+chapter = 2
+id = "INFO_MAY_NOT_FROM_HERE"

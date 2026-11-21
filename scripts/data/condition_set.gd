@@ -12,6 +12,15 @@ extends Resource
 @export var clues_all: Array[String] = []
 @export var fragments_all: Array[String] = []
 @export var abilities_all: Array[String] = []
+@export var info_all: Array[String] = []
+@export var traces_all: Array[String] = []
+@export var echoes_seen_all: Array[String] = []
+@export var locations_visited: Array[String] = []
+## Reality Shift: zone id -> required state, e.g. {"SHF_CH3_ANCHOR_BRIDGE": "other_side"}.
+@export var shift_states: Dictionary = {}
+## Story states (see StoryState): id -> minimum / maximum value. Bool states count as 0 or 1.
+@export var states_min: Dictionary = {}
+@export var states_max: Dictionary = {}
 
 func is_met() -> bool:
 	if min_chapter > 0 and GameState.chapter < min_chapter:
@@ -45,6 +54,27 @@ func is_met() -> bool:
 	for a in abilities_all:
 		if not GameState.has_ability(a):
 			return false
+	for i in info_all:
+		if i not in GameState.info:
+			return false
+	for t in traces_all:
+		if t not in GameState.discovered_traces:
+			return false
+	for e in echoes_seen_all:
+		if e not in GameState.echoes_seen:
+			return false
+	for l in locations_visited:
+		if l not in GameState.visited_locations:
+			return false
+	for zone in shift_states:
+		if ShiftManager.get_state(zone) != shift_states[zone]:
+			return false
+	for s in states_min:
+		if StoryState.get_number(s) < int(states_min[s]):
+			return false
+	for s in states_max:
+		if StoryState.get_number(s) > int(states_max[s]):
+			return false
 	return true
 
 ## Null-safe helper: a missing ConditionSet means "no restriction".
@@ -55,5 +85,11 @@ static func check(conditions: ConditionSet) -> bool:
 func referenced_ids() -> Dictionary:
 	return {
 		"mission": missions_complete, "item": items_all, "clue": clues_all,
-		"fragment": fragments_all, "ability": abilities_all,
+		"fragment": fragments_all, "ability": abilities_all, "info": info_all,
+		"trace": traces_all, "echo": echoes_seen_all, "location": locations_visited,
+		"shift_zone": shift_states.keys(), "story_state": states_min.keys() + states_max.keys(),
 	}
+
+## Every flag name this set reads (used to check them against the story-state registry).
+func referenced_flags() -> Array:
+	return flags_all + flags_any + flags_none

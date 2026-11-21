@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="PuzzleDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/puzzles/puzzle_def.gd" id="1_cuwmq"]
+
+[resource]
+script = ExtResource("1_cuwmq")
+puzzle_type = 3
+title_key = "PZL_CH3_TAPE_ORDER_TITLE"
+location_id = "LOC_DL_ECHO_GALLERY"
+required_abilities = Array[String](["ABIL_TIME_ECHO"])
+initial_state = {}
+hint_keys = Array[String](["PZL_CH3_TAPE_ORDER_HINT_1", "PZL_CH3_TAPE_ORDER_HINT_2", "PZL_CH3_TAPE_ORDER_HINT_3"])
+solution = Array[String](["tape_circle", "tape_square", "tape_triangle"])
+completion = 0
+reset_policy = 1
+save_policy = 0
+success_key = ""
+failure_key = ""
+feedback_cue = ""
+set_flags = Array[String](["tape_order_solved"])
+reward_clues = Array[String]([])
+reward_items = Array[String]([])
+reward_fragments = Array[String](["CH3_F04"])
+cooperative = false
+min_players = 1
+accessibility_notes = "The echo has captions for every sound and can be replayed or skipped. Cards and slots have text names and numbers, no colour needed. No timer."
+design_notes = "Memory reconstruction: arrange cards to match what the Time Echo showed. Wrong arrangement clears the slots."
+id = "PZL_CH3_TAPE_ORDER"

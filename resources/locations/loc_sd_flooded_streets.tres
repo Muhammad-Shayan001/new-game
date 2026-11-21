@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_nm3dl"]
 [ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_h20s7"]
 
-[sub_resource type="Resource" id="Resource_an7en"]
+[sub_resource type="Resource" id="Resource_xvcra"]
 script = ExtResource("1_nm3dl")
 to_location = "LOC_MH_WARD_ALEX"
 route_type = "transition"
@@ -11,7 +11,7 @@ gate_chapter = 5
 spawn_id = "default"
 note = "Index access door after Ch4"
 
-[sub_resource type="Resource" id="Resource_vfe5x"]
+[sub_resource type="Resource" id="Resource_j8yvg"]
 script = ExtResource("1_nm3dl")
 to_location = "LOC_SD_OLD_CITY_HALL"
 route_type = "main"
@@ -19,7 +19,7 @@ gate_chapter = 5
 spawn_id = "default"
 note = "Steps above water"
 
-[sub_resource type="Resource" id="Resource_f1trv"]
+[sub_resource type="Resource" id="Resource_q2yuk"]
 script = ExtResource("1_nm3dl")
 to_location = "LOC_SD_HID_NURSERY"
 route_type = "hidden"
@@ -39,5 +39,5 @@ status = 0
 scene_path = "res://scenes/world/sunken_district/flooded_streets.tscn"
 default_spawn = "default"
 ambience_cue = ""
-connections = Array[ExtResource("1_nm3dl")]([SubResource("Resource_an7en"), SubResource("Resource_vfe5x"), SubResource("Resource_f1trv")])
+connections = Array[ExtResource("1_nm3dl")]([SubResource("Resource_xvcra"), SubResource("Resource_j8yvg"), SubResource("Resource_q2yuk")])
 id = "LOC_SD_FLOODED_STREETS"

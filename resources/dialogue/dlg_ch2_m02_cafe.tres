@@ -11,9 +11,11 @@ speaker_id = "MAY"
 text_key = "DLG_CH2_M02_CAFE_MAY_001"
 next_id = "alx_001"
 choices = Array[ExtResource("2_qolk4")]([])
-set_flags = Array[String]([])
+set_flags = Array[String](["maya_met"])
 relationship_changes = {}
 voice_cue = ""
+reveals_info = Array[String]([])
+set_states = {}
 
 [sub_resource type="Resource" id="Resource_smqnx"]
 script = ExtResource("1_8jpde")
@@ -25,6 +27,8 @@ choices = Array[ExtResource("2_qolk4")]([])
 set_flags = Array[String]([])
 relationship_changes = {}
 voice_cue = ""
+reveals_info = Array[String]([])
+set_states = {}
 
 [sub_resource type="Resource" id="Resource_23nnd"]
 script = ExtResource("1_8jpde")
@@ -36,6 +40,8 @@ choices = Array[ExtResource("2_qolk4")]([])
 set_flags = Array[String]([])
 relationship_changes = {}
 voice_cue = ""
+reveals_info = Array[String]([])
+set_states = {}
 
 [sub_resource type="Resource" id="Resource_lf3c1"]
 script = ExtResource("1_8jpde")
@@ -47,6 +53,8 @@ choices = Array[ExtResource("2_qolk4")]([])
 set_flags = Array[String]([])
 relationship_changes = {}
 voice_cue = ""
+reveals_info = Array[String](["INFO_MAY_NOT_FROM_HERE"])
+set_states = {}
 
 [sub_resource type="Resource" id="Resource_5hfjy"]
 script = ExtResource("2_qolk4")
@@ -57,6 +65,8 @@ relationship_changes = {
 "maya_trust": 1
 }
 log_choice = ""
+reveals_info = Array[String]([])
+set_states = {}
 
 [sub_resource type="Resource" id="Resource_vn8ov"]
 script = ExtResource("2_qolk4")
@@ -65,6 +75,8 @@ next_id = "may_004"
 set_flags = Array[String]([])
 relationship_changes = {}
 log_choice = "asked_maya_if_real"
+reveals_info = Array[String]([])
+set_states = {}
 
 [sub_resource type="Resource" id="Resource_st2uy"]
 script = ExtResource("1_8jpde")
@@ -76,6 +88,8 @@ choices = Array[ExtResource("2_qolk4")]([SubResource("Resource_5hfjy"), SubResou
 set_flags = Array[String]([])
 relationship_changes = {}
 voice_cue = ""
+reveals_info = Array[String]([])
+set_states = {}
 
 [sub_resource type="Resource" id="Resource_gk1r3"]
 script = ExtResource("1_8jpde")
@@ -87,6 +101,8 @@ choices = Array[ExtResource("2_qolk4")]([])
 set_flags = Array[String]([])
 relationship_changes = {}
 voice_cue = ""
+reveals_info = Array[String]([])
+set_states = {}
 
 [resource]
 script = ExtResource("3_j1hxh")

@@ -9,6 +9,10 @@ extends GameDef
 @export_range(1, 4) var input_slot: int = 1
 @export var duration: float = 0.0
 @export var cooldown: float = 0.0
+## AudioCueDef id played on activation (optional).
+@export var activation_cue: String = ""
+## Short player-facing hint shown by the HUD ("Hold near an anchor").
+@export var hint_key: String = ""
 ## Script extending AbilityBehavior that implements the effect.
 @export var behavior: Script
 

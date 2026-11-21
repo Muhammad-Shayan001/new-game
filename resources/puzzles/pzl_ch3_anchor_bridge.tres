@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="PuzzleDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/puzzles/puzzle_def.gd" id="1_uk53s"]
+
+[resource]
+script = ExtResource("1_uk53s")
+puzzle_type = 4
+title_key = "PZL_CH3_ANCHOR_BRIDGE_TITLE"
+location_id = "LOC_DL_ANCHOR_FIELDS"
+required_abilities = Array[String](["ABIL_REALITY_SHIFT"])
+initial_state = {
+"bridge": "absent",
+"state": "echo_city",
+"zone": "SHF_CH3_ANCHOR_BRIDGE"
+}
+hint_keys = Array[String](["PZL_CH3_ANCHOR_BRIDGE_HINT_1", "PZL_CH3_ANCHOR_BRIDGE_HINT_2", "PZL_CH3_ANCHOR_BRIDGE_HINT_3"])
+solution = Array[String]([])
+completion = 1
+reset_policy = 0
+save_policy = 0
+success_key = ""
+failure_key = ""
+feedback_cue = ""
+set_flags = Array[String](["shift_anchor_bridge_solved"])
+reward_clues = Array[String]([])
+reward_items = Array[String]([])
+reward_fragments = Array[String]([])
+cooperative = false
+min_players = 1
+accessibility_notes = "No timer, no falling hazard on the bridge (shifting only works at anchors). The sigil is text. The state is shown in the HUD. Safe transitions move the player out of solid objects."
+design_notes = "Environmental manipulation with dependencies: shift (bridge) -> clue (only in the other state) -> shift back (gate needs echo_city) -> exit."
+id = "PZL_CH3_ANCHOR_BRIDGE"

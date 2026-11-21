@@ -44,3 +44,84 @@ msgstr "New ability unlocked"
 
 msgid "TOAST_TRANSITION_FAILED"
 msgstr "Something blocked the way. Try again."
+
+msgid "TOAST_PUZZLE_SOLVED"
+msgstr "Solved"
+
+msgid "TOAST_PUZZLE_TRY_AGAIN"
+msgstr "That is not it. Take your time."
+
+msgid "TOAST_NEED_ABILITY"
+msgstr "You cannot do this yet."
+
+msgid "TOAST_NO_ANCHOR"
+msgstr "Reality Shift needs a Shift Anchor."
+
+msgid "TOAST_INFO_LEARNED"
+msgstr "Journal updated: new information"
+
+msgid "TOAST_TRACE_FOUND"
+msgstr "Memory trace found"
+
+msgid "TOAST_MISSION_FAILED"
+msgstr "That did not work out. You can try again from the last checkpoint."
+
+msgid "UI_ECHO_VERY_CLOSE"
+msgstr "Very close"
+
+msgid "UI_ECHO_CLOSE"
+msgstr "Close"
+
+msgid "UI_ECHO_FAR"
+msgstr "Far away"
+
+msgid "UI_ECHO_NOTHING"
+msgstr "Nothing nearby"
+
+msgid "UI_ECHO_RECORDING"
+msgstr "Recording an echo"
+
+msgid "UI_ABILITY_READY"
+msgstr "Ready"
+
+msgid "UI_ABILITY_ACTIVE"
+msgstr "Active"
+
+msgid "UI_ABILITY_COOLDOWN"
+msgstr "Recharging"
+
+msgid "UI_ABILITY_LOCKED"
+msgstr "Locked"
+
+msgid "HINT_SHIFT_ANCHOR"
+msgstr "Shift Anchor: use Reality Shift here"
+
+msgid "HINT_ECHO_SITE"
+msgstr "Echo Site: use Time Echo here"
+
+msgid "HINT_ECHO_RECORD"
+msgstr "Use Time Echo to record, use it again to replay"
+
+msgid "PROMPT_PLACE"
+msgstr "Place"
+
+msgid "PROMPT_PICK_UP"
+msgstr "Pick up"
+
+msgid "PROMPT_LINK_CLUES"
+msgstr "Link clues"
+
+msgid "PROMPT_PRESS"
+msgstr "Press"
+
+msgid "UI_ECHO_AHEAD"
+msgstr "ahead"
+
+msgid "UI_ECHO_RIGHT"
+msgstr "to your right"
+
+msgid "UI_ECHO_LEFT"
+msgstr "to your left"
+
+msgid "UI_ECHO_BEHIND"
+msgstr "behind you"

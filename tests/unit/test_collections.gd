@@ -46,6 +46,7 @@ func test_fragments_and_deep_counter() -> void:
 	assert_eq(MemoryManager.collected_count(FragmentDef.Kind.DEEP), 2)
 
 func test_pattern_puzzle_hints_and_rewards() -> void:
+	AbilityManager.unlock("ABIL_MEMORY_SIGHT")   # the clock puzzle requires it
 	var failed := watch(EventBus.puzzle_attempt_failed)
 	assert_eq(PuzzleManager.submit("PZL_CH1_CLOCK_4_17", "4"), PuzzleRuntime.Result.PROGRESS)
 	assert_eq(PuzzleManager.submit("PZL_CH1_CLOCK_4_17", "7"), PuzzleRuntime.Result.FAILED, "wrong symbol resets")
@@ -72,10 +73,14 @@ func test_hint_tiers_cap_at_three() -> void:
 
 func test_puzzle_mission_objective_completes() -> void:
 	GameState.set_flag("ch1_started")
+	AbilityManager.unlock("ABIL_MEMORY_SIGHT")
 	MissionManager.refresh()
+	assert_eq(MissionManager.state_of("CH1_S02"), MissionDef.State.ACTIVE)
+	EventBus.scene_transition_finished.emit("LOC_EC_HID_CLOCK_ROOM")
+	PuzzleManager.mark_solved("PZL_CH1_CLOCK_DEDUCTION")
 	for s in ["4", "1", "7"]:
 		PuzzleManager.submit("PZL_CH1_CLOCK_4_17", s)
-	assert_eq(MissionManager.state_of("CH1_S02"), MissionDef.State.COMPLETE)
+	assert_eq(MissionManager.state_of("CH1_S02"), MissionDef.State.COMPLETE, "the optional trace does not block completion")
 
 func test_ordering_puzzle_and_scene_driven_puzzle() -> void:
 	var p := PuzzleDef.new()

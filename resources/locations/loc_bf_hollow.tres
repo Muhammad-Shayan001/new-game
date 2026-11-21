@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_kp3rc"]
 [ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_tn126"]
 
-[sub_resource type="Resource" id="Resource_s05if"]
+[sub_resource type="Resource" id="Resource_cpci8"]
 script = ExtResource("1_kp3rc")
 to_location = "LOC_BF_ROAD_EDGE"
 route_type = "optional"
@@ -11,7 +11,7 @@ gate_chapter = 4
 spawn_id = "default"
 note = "Deer trail"
 
-[sub_resource type="Resource" id="Resource_0sht2"]
+[sub_resource type="Resource" id="Resource_rjrdl"]
 script = ExtResource("1_kp3rc")
 to_location = "LOC_BF_LAKE_OVERLOOK"
 route_type = "optional"
@@ -31,5 +31,5 @@ status = 0
 scene_path = "res://scenes/world/black_forest/hollow.tscn"
 default_spawn = "default"
 ambience_cue = ""
-connections = Array[ExtResource("1_kp3rc")]([SubResource("Resource_s05if"), SubResource("Resource_0sht2")])
+connections = Array[ExtResource("1_kp3rc")]([SubResource("Resource_cpci8"), SubResource("Resource_rjrdl")])
 id = "LOC_BF_HOLLOW"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StoryStateDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/story/story_state_def.gd" id="1_iraj1"]
+
+[resource]
+script = ExtResource("1_iraj1")
+value_type = 1
+min_value = 0
+max_value = 3
+default_value = 0
+relationship_key = ""
+aliases = Array[String]([])
+chapter = 5
+ending_relevant = true
+description = "Number of Index nodes Alex destroyed, 0 to 3. Ending variable."
+id = "destroyed_index_node"

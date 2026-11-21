@@ -131,3 +131,120 @@ msgstr "Solve the stopped clock"
 
 msgid "MISSION_CH2_M02_OBJ_TALK"
 msgstr "Talk to Maya"
+
+msgid "INFO_ARV_KEEPS_RECORDS_TEXT"
+msgstr "The Archivist keeps the records of Echo City. He says he is only permitted to give some answers."
+
+msgid "INFO_ARV_SLIP_WE_TEXT"
+msgstr "The Archivist said \"we\", then asked for it to be recorded as a slip."
+
+msgid "INFO_MAY_NOT_FROM_HERE_TEXT"
+msgstr "Maya says she is not from Echo City. The city makes her fuzzy at the edges."
+
+msgid "INFO_ARC_TAPE_LOADER_TEXT"
+msgstr "A figure loaded three reels into the machine in a fixed order. Someone built this gallery on purpose."
+
+msgid "HINT_ABILITY_MEMORY_SIGHT"
+msgstr "Reveals hidden memories, writing and clues for a few seconds."
+
+msgid "HINT_ABILITY_REALITY_SHIFT"
+msgstr "Stand on a Shift Anchor to swap that area between two states."
+
+msgid "HINT_ABILITY_TIME_ECHO"
+msgstr "At an Echo Site watch a past event. In a record zone record a ghost copy of yourself."
+
+msgid "HINT_ABILITY_ECHO_VOICE"
+msgstr "Not available yet."
+
+msgid "SHF_CH3_ANCHOR_BRIDGE_TITLE"
+msgstr "The Anchor Fields gap"
+
+msgid "DED_STUCK_AT_417_TITLE"
+msgstr "The clocks stopped at the same moment"
+
+msgid "ECH_CH3_TAPE_LOADING_TITLE"
+msgstr "The Reel Loader"
+
+msgid "ECH_CH3_TAPE_LOADING_CAP_1"
+msgstr "The figure loads the CIRCLE reel. (click)"
+
+msgid "ECH_CH3_TAPE_LOADING_CAP_2"
+msgstr "Then the SQUARE reel. (click)"
+
+msgid "ECH_CH3_TAPE_LOADING_CAP_3"
+msgstr "Last, the TRIANGLE reel. (click)"
+
+msgid "ECH_CH3_TAPE_LOADING_CAP_4"
+msgstr "The figure leaves. The machine hums."
+
+msgid "PZL_CH1_CLOCK_DEDUCTION_TITLE"
+msgstr "What the Clocks Agree On"
+
+msgid "PZL_CH1_CLOCK_DEDUCTION_HINT_1"
+msgstr "Two things you found say the same thing. One is on a wall you can only read with Memory Sight."
+
+msgid "PZL_CH1_CLOCK_DEDUCTION_HINT_2"
+msgstr "Examine the station clock in Echo Station, then find the hidden writing in the clock room."
+
+msgid "PZL_CH1_CLOCK_DEDUCTION_HINT_3"
+msgstr "Use the clue board in the clock room. It links the station clock and the wall writing."
+
+msgid "PZL_CH3_ANCHOR_BRIDGE_TITLE"
+msgstr "The Missing Bridge"
+
+msgid "PZL_CH3_ANCHOR_BRIDGE_HINT_1"
+msgstr "There is no way across in this state. Try the anchor where you start."
+
+msgid "PZL_CH3_ANCHOR_BRIDGE_HINT_2"
+msgstr "On the Other Side a bridge exists, and a sigil only that side can show."
+
+msgid "PZL_CH3_ANCHOR_BRIDGE_HINT_3"
+msgstr "Shift at the first anchor, cross, read the sigil, shift back at the second anchor, then open the exit."
+
+msgid "PZL_CH3_TAPE_ORDER_TITLE"
+msgstr "The Reel Order"
+
+msgid "PZL_CH3_TAPE_ORDER_HINT_1"
+msgstr "Watch the echo again. The order matters."
+
+msgid "PZL_CH3_TAPE_ORDER_HINT_2"
+msgstr "Three reels: circle, square, triangle. Watch which goes in first."
+
+msgid "PZL_CH3_TAPE_ORDER_HINT_3"
+msgstr "Place CIRCLE in slot 1, SQUARE in slot 2, TRIANGLE in slot 3."
+
+msgid "PZL_CH3_ECHO_PLATES_TITLE"
+msgstr "Two Plates, One Person"
+
+msgid "PZL_CH3_ECHO_PLATES_HINT_1"
+msgstr "Both plates must be pressed at the same time."
+
+msgid "PZL_CH3_ECHO_PLATES_HINT_2"
+msgstr "You cannot stand on both. Record yourself with Time Echo."
+
+msgid "PZL_CH3_ECHO_PLATES_HINT_3"
+msgstr "Record yourself walking onto plate A, stop, then stand on plate B while your echo holds plate A."
+
+msgid "MISSION_CH1_S02_OBJ_DEDUCE"
+msgstr "Link what the wall and the station clock tell you"
+
+msgid "MISSION_CH1_S02_OBJ_DIAL"
+msgstr "Set the dial"
+
+msgid "MISSION_CH1_S02_OBJ_TRACE"
+msgstr "Find the clockmaker's note (optional)"
+
+msgid "MISSION_CH3_M02_OBJ_SHIFT"
+msgstr "Use Reality Shift at the first anchor"
+
+msgid "MISSION_CH3_M02_OBJ_BRIDGE"
+msgstr "Cross to the far platform and open the exit"
+
+msgid "MISSION_CH3_S01_OBJ_ECHO"
+msgstr "Watch the echo of the reel loader"
+
+msgid "MISSION_CH3_S01_OBJ_TAPES"
+msgstr "Put the memories in order"
+
+msgid "MISSION_CH3_S01_OBJ_PLATES"
+msgstr "Hold both plates with an echo"

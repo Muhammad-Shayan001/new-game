@@ -38,7 +38,7 @@ func _ready() -> void:
 			suite.before_each()
 			var before := suite.failures.size()
 			await suite.call(method["name"])
-			suite.after_each()
+			await suite.after_each()
 			total += 1
 			if suite.failures.size() > before:
 				failed += 1

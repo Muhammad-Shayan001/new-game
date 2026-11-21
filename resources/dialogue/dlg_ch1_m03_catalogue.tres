@@ -11,9 +11,11 @@ speaker_id = "ARV"
 text_key = "DLG_CH1_M03_CATALOGUE_ARV_001"
 next_id = "alx_001"
 choices = Array[ExtResource("2_spn8b")]([])
-set_flags = Array[String]([])
+set_flags = Array[String](["archivist_met"])
 relationship_changes = {}
 voice_cue = ""
+reveals_info = Array[String](["INFO_ARV_KEEPS_RECORDS"])
+set_states = {}
 
 [sub_resource type="Resource" id="Resource_oah72"]
 script = ExtResource("1_ownsw")
@@ -25,6 +27,8 @@ choices = Array[ExtResource("2_spn8b")]([])
 set_flags = Array[String]([])
 relationship_changes = {}
 voice_cue = ""
+reveals_info = Array[String]([])
+set_states = {}
 
 [sub_resource type="Resource" id="Resource_p5sy1"]
 script = ExtResource("1_ownsw")
@@ -36,6 +40,8 @@ choices = Array[ExtResource("2_spn8b")]([])
 set_flags = Array[String]([])
 relationship_changes = {}
 voice_cue = ""
+reveals_info = Array[String]([])
+set_states = {}
 
 [sub_resource type="Resource" id="Resource_4igsk"]
 script = ExtResource("1_ownsw")
@@ -47,6 +53,8 @@ choices = Array[ExtResource("2_spn8b")]([])
 set_flags = Array[String]([])
 relationship_changes = {}
 voice_cue = ""
+reveals_info = Array[String]([])
+set_states = {}
 
 [sub_resource type="Resource" id="Resource_wa05k"]
 script = ExtResource("1_ownsw")
@@ -58,6 +66,8 @@ choices = Array[ExtResource("2_spn8b")]([])
 set_flags = Array[String]([])
 relationship_changes = {}
 voice_cue = ""
+reveals_info = Array[String]([])
+set_states = {}
 
 [sub_resource type="Resource" id="Resource_47y3j"]
 script = ExtResource("1_ownsw")
@@ -69,6 +79,8 @@ choices = Array[ExtResource("2_spn8b")]([])
 set_flags = Array[String]([])
 relationship_changes = {}
 voice_cue = ""
+reveals_info = Array[String]([])
+set_states = {}
 
 [sub_resource type="Resource" id="Resource_fqbw6"]
 script = ExtResource("1_ownsw")
@@ -80,6 +92,8 @@ choices = Array[ExtResource("2_spn8b")]([])
 set_flags = Array[String]([])
 relationship_changes = {}
 voice_cue = ""
+reveals_info = Array[String]([])
+set_states = {}
 
 [sub_resource type="Resource" id="Resource_4nl5x"]
 script = ExtResource("1_ownsw")
@@ -91,6 +105,8 @@ choices = Array[ExtResource("2_spn8b")]([])
 set_flags = Array[String]([])
 relationship_changes = {}
 voice_cue = ""
+reveals_info = Array[String]([])
+set_states = {}
 
 [sub_resource type="Resource" id="Resource_p3pdy"]
 script = ExtResource("1_ownsw")
@@ -102,6 +118,8 @@ choices = Array[ExtResource("2_spn8b")]([])
 set_flags = Array[String]([])
 relationship_changes = {}
 voice_cue = ""
+reveals_info = Array[String](["INFO_ARV_SLIP_WE"])
+set_states = {}
 
 [sub_resource type="Resource" id="Resource_2khs7"]
 script = ExtResource("1_ownsw")
@@ -110,9 +128,11 @@ speaker_id = "ARV"
 text_key = "DLG_CH1_M03_CATALOGUE_ARV_006"
 next_id = ""
 choices = Array[ExtResource("2_spn8b")]([])
-set_flags = Array[String](["ch1_archive_card_received"])
+set_flags = Array[String](["archive_card_received"])
 relationship_changes = {}
 voice_cue = ""
+reveals_info = Array[String]([])
+set_states = {}
 
 [resource]
 script = ExtResource("3_hjwwx")

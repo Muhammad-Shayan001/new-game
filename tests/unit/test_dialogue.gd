@@ -16,7 +16,9 @@ func test_linear_dialogue_runs_to_the_end() -> void:
 	assert_false(DialogueManager.is_active())
 	assert_false(InputService.is_locked(), "lock released")
 	assert_eq(finished.size(), 1)
-	assert_true(GameState.get_flag("ch1_archive_card_received"), "node set_flags applied")
+	assert_true(GameState.get_flag("archive_card_received"), "node set_flags applied")
+	assert_true(GameState.get_flag("archivist_met"))
+	assert_true("INFO_ARV_KEEPS_RECORDS" in GameState.info, "dialogue reveals character information")
 
 func test_non_repeatable_dialogue_plays_once() -> void:
 	DialogueManager.start("DLG_CH1_M03_CATALOGUE")

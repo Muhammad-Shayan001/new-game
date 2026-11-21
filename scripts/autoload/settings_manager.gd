@@ -23,6 +23,11 @@ const SCHEMA := {
 	"accessibility": {
 		"subtitles": [true, [false, true]], "subtitle_size": [1.0, 0.8, 1.6],
 		"reduce_motion": [false, [false, true]],
+		"puzzle_skip": [false, [false, true]],
+		"ability_duration_scale": [1.0, 1.0, 2.0],
+		"echo_audio_cues": [true, [false, true]],
+		"echo_visual_cues": [true, [false, true]],
+		"echo_haptics": [true, [false, true]],
 	},
 	"game": {"language": ["en", ["en"]]},
 }

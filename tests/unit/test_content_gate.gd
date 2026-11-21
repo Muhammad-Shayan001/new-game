@@ -50,6 +50,12 @@ func test_new_location_character_dialogue_mission_and_puzzle_end_to_end() -> voi
 	puzzle.solution.assign(["a", "b"])
 	puzzle.hint_keys.assign(["UI_RESUME", "UI_QUIT", "UI_PAUSED"])
 	puzzle.reward_items.assign(["ITEM_ARCHIVE_CARD"])
+	puzzle.accessibility_notes = "No timer."
+	puzzle.title_key = "UI_PAUSED"
+	var baker_state := StoryStateDef.new()
+	baker_state.id = "met_baker"
+	baker_state.description = "Test state: the baker was met."
+	assert_true(DataRegistry.register_runtime(baker_state))
 	assert_true(DataRegistry.register_runtime(puzzle))
 	# 4. New mission wiring it all together.
 	var mission := MissionDef.new()

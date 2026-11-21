@@ -1,0 +1,573 @@
+[gd_scene load_steps=53 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/prototype_location.gd" id="1_vwlvh"]
+[ext_resource type="Script" path="res://scripts/world/spawn_point.gd" id="2_v0vxg"]
+[ext_resource type="Script" path="res://scripts/world/echo_site.gd" id="3_5873o"]
+[ext_resource type="Script" path="res://scripts/world/reconstruction_board.gd" id="4_ktlvj"]
+[ext_resource type="Script" path="res://scripts/world/interactable.gd" id="5_ixf2y"]
+[ext_resource type="Script" path="res://scripts/world/pressure_plate.gd" id="6_1iv6i"]
+[ext_resource type="Script" path="res://scripts/world/plate_controller.gd" id="7_jiuhr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o4cio"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ijl6q"]
+albedo_color = Color(0.2, 0.2, 0.24, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_psjgt"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6g01r"]
+size = Vector3(4, 2, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c43xp"]
+albedo_color = Color(0.35, 0.5, 0.75, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rbufk"]
+size = Vector3(4, 0.05, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_btktd"]
+size = Vector3(6, 2, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hinvm"]
+albedo_color = Color(0.3, 0.25, 0.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jteo2"]
+size = Vector3(6, 2, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_487gk"]
+albedo_color = Color(0.7, 0.7, 0.75, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_htfou"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x4ajp"]
+albedo_color = Color(0.7, 0.7, 0.75, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s0m3v"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u03ok"]
+albedo_color = Color(0.7, 0.7, 0.75, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y3bat"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oh3p2"]
+size = Vector3(1.8, 1.8, 1.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5b41"]
+albedo_color = Color(0.8, 0.8, 0.85, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xm0v"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_apk6l"]
+size = Vector3(1.8, 1.8, 1.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtv3q"]
+albedo_color = Color(0.8, 0.8, 0.85, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1om1g"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kwfoy"]
+size = Vector3(1.8, 1.8, 1.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxwvd"]
+albedo_color = Color(0.8, 0.8, 0.85, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0ui28"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aymph"]
+size = Vector3(1.8, 1.8, 1.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_od6np"]
+albedo_color = Color(0.5, 0.6, 0.8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_772wy"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ylmr3"]
+size = Vector3(1.8, 1.8, 1.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mpjsy"]
+albedo_color = Color(0.5, 0.6, 0.8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s7uc4"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qfuip"]
+size = Vector3(1.8, 1.8, 1.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wj8n3"]
+albedo_color = Color(0.5, 0.6, 0.8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xi41"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x3cpl"]
+size = Vector3(5, 2, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xn1pi"]
+albedo_color = Color(0.35, 0.5, 0.75, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jcvqr"]
+size = Vector3(5, 0.05, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b1uuf"]
+size = Vector3(2, 0.6, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7i80"]
+albedo_color = Color(0.45, 0.45, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_heiwu"]
+size = Vector3(2, 0.1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w7mt2"]
+size = Vector3(2, 0.6, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cor1s"]
+albedo_color = Color(0.45, 0.45, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_08hgu"]
+size = Vector3(2, 0.1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0hmhi"]
+size = Vector3(1.8, 1.8, 1.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvqo7"]
+albedo_color = Color(0.5, 0.8, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c6fjl"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="EchoGallery" type="Node3D"]
+script = ExtResource("1_vwlvh")
+door_row_origin = Vector3(-4, 1, 16)
+door_row_spacing = 3.0
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Shape" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_o4cio")
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor"]
+material_override = SubResource("StandardMaterial3D_ijl6q")
+mesh = SubResource("BoxMesh_psjgt")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.383022, 0.321394, 0, 0.642788, 0.766044, -0.5, -0.663414, 0.55667, 0, 0, 0)
+
+[node name="Spawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 12)
+script = ExtResource("2_v0vxg")
+spawn_id = "default"
+
+[node name="TapeEchoSite" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 5)
+script = ExtResource("3_5873o")
+echo_id = "ECH_CH3_TAPE_LOADING"
+allow_recording = false
+hint_key = "HINT_ECHO_SITE"
+
+[node name="Shape" type="CollisionShape3D" parent="TapeEchoSite"]
+shape = SubResource("BoxShape3D_6g01r")
+
+[node name="Mesh" type="MeshInstance3D" parent="TapeEchoSite"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+material_override = SubResource("StandardMaterial3D_c43xp")
+mesh = SubResource("BoxMesh_rbufk")
+
+[node name="Label2" type="Label3D" parent="TapeEchoSite"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+billboard = 1
+text = "Echo Site
+Use Time Echo"
+font_size = 30
+
+[node name="Shelf" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -2.6)
+
+[node name="Shape" type="CollisionShape3D" parent="Shelf"]
+shape = SubResource("BoxShape3D_btktd")
+
+[node name="Mesh" type="MeshInstance3D" parent="Shelf"]
+material_override = SubResource("StandardMaterial3D_hinvm")
+mesh = SubResource("BoxMesh_jteo2")
+
+[node name="CircleReel" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.6, -2)
+
+[node name="Mesh" type="MeshInstance3D" parent="CircleReel"]
+material_override = SubResource("StandardMaterial3D_487gk")
+mesh = SubResource("BoxMesh_htfou")
+
+[node name="Label1" type="Label3D" parent="CircleReel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+billboard = 1
+text = "Circle reel"
+font_size = 28
+
+[node name="SquareReel" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.6, -2)
+
+[node name="Mesh" type="MeshInstance3D" parent="SquareReel"]
+material_override = SubResource("StandardMaterial3D_x4ajp")
+mesh = SubResource("BoxMesh_s0m3v")
+
+[node name="Label1" type="Label3D" parent="SquareReel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+billboard = 1
+text = "Square reel"
+font_size = 28
+
+[node name="TriangleReel" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.6, -2)
+
+[node name="Mesh" type="MeshInstance3D" parent="TriangleReel"]
+material_override = SubResource("StandardMaterial3D_u03ok")
+mesh = SubResource("BoxMesh_y3bat")
+
+[node name="Label1" type="Label3D" parent="TriangleReel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+billboard = 1
+text = "Triangle reel"
+font_size = 28
+
+[node name="ReelBoard" type="Node3D" parent="."]
+script = ExtResource("4_ktlvj")
+puzzle_id = "PZL_CH3_TAPE_ORDER"
+card_ids = Array[String](["tape_circle", "tape_square", "tape_triangle"])
+slot_count = 3
+card_names = {
+"tape_circle": "Circle reel",
+"tape_square": "Square reel",
+"tape_triangle": "Triangle reel"
+}
+
+[node name="Cards" type="Node3D" parent="ReelBoard"]
+
+[node name="tape_triangle" type="Area3D" parent="ReelBoard/Cards"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, -6.5)
+script = ExtResource("5_ixf2y")
+interactable_id = "INT_DL_ECHO_GALLERY_TAPE_TRIANGLE"
+prompt_key = "PROMPT_PICK_UP"
+interact_priority = 1
+hold_time = 0.0
+conditions = null
+once = false
+enabled = true
+set_flags = Array[String]([])
+give_clue = ""
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = ""
+puzzle_symbol = ""
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = ""
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="ReelBoard/Cards/tape_triangle"]
+shape = SubResource("BoxShape3D_oh3p2")
+
+[node name="Mesh" type="MeshInstance3D" parent="ReelBoard/Cards/tape_triangle"]
+material_override = SubResource("StandardMaterial3D_y5b41")
+mesh = SubResource("BoxMesh_0xm0v")
+
+[node name="Label2" type="Label3D" parent="ReelBoard/Cards/tape_triangle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+text = "Triangle reel"
+font_size = 28
+
+[node name="tape_circle" type="Area3D" parent="ReelBoard/Cards"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -6.5)
+script = ExtResource("5_ixf2y")
+interactable_id = "INT_DL_ECHO_GALLERY_TAPE_CIRCLE"
+prompt_key = "PROMPT_PICK_UP"
+interact_priority = 1
+hold_time = 0.0
+conditions = null
+once = false
+enabled = true
+set_flags = Array[String]([])
+give_clue = ""
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = ""
+puzzle_symbol = ""
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = ""
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="ReelBoard/Cards/tape_circle"]
+shape = SubResource("BoxShape3D_apk6l")
+
+[node name="Mesh" type="MeshInstance3D" parent="ReelBoard/Cards/tape_circle"]
+material_override = SubResource("StandardMaterial3D_xtv3q")
+mesh = SubResource("BoxMesh_1om1g")
+
+[node name="Label2" type="Label3D" parent="ReelBoard/Cards/tape_circle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+text = "Circle reel"
+font_size = 28
+
+[node name="tape_square" type="Area3D" parent="ReelBoard/Cards"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, -6.5)
+script = ExtResource("5_ixf2y")
+interactable_id = "INT_DL_ECHO_GALLERY_TAPE_SQUARE"
+prompt_key = "PROMPT_PICK_UP"
+interact_priority = 1
+hold_time = 0.0
+conditions = null
+once = false
+enabled = true
+set_flags = Array[String]([])
+give_clue = ""
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = ""
+puzzle_symbol = ""
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = ""
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="ReelBoard/Cards/tape_square"]
+shape = SubResource("BoxShape3D_kwfoy")
+
+[node name="Mesh" type="MeshInstance3D" parent="ReelBoard/Cards/tape_square"]
+material_override = SubResource("StandardMaterial3D_mxwvd")
+mesh = SubResource("BoxMesh_0ui28")
+
+[node name="Label2" type="Label3D" parent="ReelBoard/Cards/tape_square"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+text = "Square reel"
+font_size = 28
+
+[node name="Slots" type="Node3D" parent="ReelBoard"]
+
+[node name="Slot1" type="Area3D" parent="ReelBoard/Slots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, -10)
+script = ExtResource("5_ixf2y")
+interactable_id = "INT_DL_ECHO_GALLERY_SLOT1"
+prompt_key = "PROMPT_PLACE"
+interact_priority = 1
+hold_time = 0.0
+conditions = null
+once = false
+enabled = true
+set_flags = Array[String]([])
+give_clue = ""
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = ""
+puzzle_symbol = ""
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = ""
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="ReelBoard/Slots/Slot1"]
+shape = SubResource("BoxShape3D_aymph")
+
+[node name="Mesh" type="MeshInstance3D" parent="ReelBoard/Slots/Slot1"]
+material_override = SubResource("StandardMaterial3D_od6np")
+mesh = SubResource("BoxMesh_772wy")
+
+[node name="Text" type="Label3D" parent="ReelBoard/Slots/Slot1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+text = "1: ..."
+font_size = 28
+
+[node name="Slot2" type="Area3D" parent="ReelBoard/Slots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -10)
+script = ExtResource("5_ixf2y")
+interactable_id = "INT_DL_ECHO_GALLERY_SLOT2"
+prompt_key = "PROMPT_PLACE"
+interact_priority = 1
+hold_time = 0.0
+conditions = null
+once = false
+enabled = true
+set_flags = Array[String]([])
+give_clue = ""
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = ""
+puzzle_symbol = ""
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = ""
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="ReelBoard/Slots/Slot2"]
+shape = SubResource("BoxShape3D_ylmr3")
+
+[node name="Mesh" type="MeshInstance3D" parent="ReelBoard/Slots/Slot2"]
+material_override = SubResource("StandardMaterial3D_mpjsy")
+mesh = SubResource("BoxMesh_s7uc4")
+
+[node name="Text" type="Label3D" parent="ReelBoard/Slots/Slot2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+text = "2: ..."
+font_size = 28
+
+[node name="Slot3" type="Area3D" parent="ReelBoard/Slots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, -10)
+script = ExtResource("5_ixf2y")
+interactable_id = "INT_DL_ECHO_GALLERY_SLOT3"
+prompt_key = "PROMPT_PLACE"
+interact_priority = 1
+hold_time = 0.0
+conditions = null
+once = false
+enabled = true
+set_flags = Array[String]([])
+give_clue = ""
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = ""
+puzzle_symbol = ""
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = ""
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="ReelBoard/Slots/Slot3"]
+shape = SubResource("BoxShape3D_qfuip")
+
+[node name="Mesh" type="MeshInstance3D" parent="ReelBoard/Slots/Slot3"]
+material_override = SubResource("StandardMaterial3D_wj8n3")
+mesh = SubResource("BoxMesh_0xi41")
+
+[node name="Text" type="Label3D" parent="ReelBoard/Slots/Slot3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+text = "3: ..."
+font_size = 28
+
+[node name="RecordZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 8)
+script = ExtResource("3_5873o")
+echo_id = ""
+allow_recording = true
+hint_key = "HINT_ECHO_RECORD"
+
+[node name="Shape" type="CollisionShape3D" parent="RecordZone"]
+shape = SubResource("BoxShape3D_x3cpl")
+
+[node name="Mesh" type="MeshInstance3D" parent="RecordZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+material_override = SubResource("StandardMaterial3D_xn1pi")
+mesh = SubResource("BoxMesh_jcvqr")
+
+[node name="Label2" type="Label3D" parent="RecordZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+billboard = 1
+text = "Record zone
+Use Time Echo to record,
+use it again to stop"
+font_size = 28
+
+[node name="PlateA" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.2, -4)
+script = ExtResource("6_1iv6i")
+puzzle_id = "PZL_CH3_ECHO_PLATES"
+label_key = ""
+
+[node name="Shape" type="CollisionShape3D" parent="PlateA"]
+shape = SubResource("BoxShape3D_b1uuf")
+
+[node name="Mesh" type="MeshInstance3D" parent="PlateA"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+material_override = SubResource("StandardMaterial3D_l7i80")
+mesh = SubResource("BoxMesh_heiwu")
+
+[node name="Label2" type="Label3D" parent="PlateA"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Plate A"
+font_size = 30
+
+[node name="PlateB" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.2, -4)
+script = ExtResource("6_1iv6i")
+puzzle_id = "PZL_CH3_ECHO_PLATES"
+label_key = ""
+
+[node name="Shape" type="CollisionShape3D" parent="PlateB"]
+shape = SubResource("BoxShape3D_w7mt2")
+
+[node name="Mesh" type="MeshInstance3D" parent="PlateB"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+material_override = SubResource("StandardMaterial3D_cor1s")
+mesh = SubResource("BoxMesh_08hgu")
+
+[node name="Label2" type="Label3D" parent="PlateB"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Plate B"
+font_size = 30
+
+[node name="PlateController" type="Node" parent="."]
+script = ExtResource("7_jiuhr")
+puzzle_id = "PZL_CH3_ECHO_PLATES"
+hold_seconds = 1.0
+
+[node name="ExitToAnchorFields" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 15)
+script = ExtResource("5_ixf2y")
+interactable_id = "INT_DL_ECHO_GALLERY_EXIT"
+prompt_key = "PROMPT_ENTER"
+interact_priority = 3
+hold_time = 0.0
+conditions = null
+once = false
+enabled = true
+set_flags = Array[String]([])
+give_clue = ""
+give_item = ""
+collect_fragment = ""
+start_mission = ""
+start_dialogue = ""
+puzzle_id = ""
+puzzle_symbol = ""
+solve_puzzle = ""
+play_cue = ""
+travel_to_location = "LOC_DL_ANCHOR_FIELDS"
+travel_spawn = ""
+
+[node name="Reach" type="CollisionShape3D" parent="ExitToAnchorFields"]
+shape = SubResource("BoxShape3D_0hmhi")
+
+[node name="Mesh" type="MeshInstance3D" parent="ExitToAnchorFields"]
+material_override = SubResource("StandardMaterial3D_uvqo7")
+mesh = SubResource("BoxMesh_c6fjl")
+
+[node name="Label2" type="Label3D" parent="ExitToAnchorFields"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Back to the Anchor Fields"
+font_size = 30

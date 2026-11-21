@@ -1,6 +1,6 @@
 # Data Schema
 
-Schema version: **1** (`GameVersion.DATA_SCHEMA_VERSION`). Save version: **2**. Settings version: **1**.
+Schema version: **2** (`GameVersion.DATA_SCHEMA_VERSION`). Save version: **3**. Settings version: **1**.
 
 ## 1. Unique IDs
 
@@ -17,6 +17,11 @@ Schema version: **1** (`GameVersion.DATA_SCHEMA_VERSION`). Save version: **2**. 
 | Character | 3 capital letters | `ALX`, `MAY`, `ARV`, `ARC`, `FCH` | `resources/characters/` |
 | Audio cue | `AUD_<NAME>` | `AUD_STATION_AMBIENCE` | `resources/audio/` |
 | Deduction | `DED_<NAME>` | `DED_TICKET_OWNER` | `resources/deductions/` |
+| Story state | `snake_case` | `alex_found_first_memory` | `resources/story_states/` |
+| Character info | `INFO_<CHR>_<NAME>` | `INFO_ARV_KEEPS_RECORDS` | `resources/info/` |
+| Shift zone | `SHF_<NAME>` | `SHF_CH3_ANCHOR_BRIDGE` | `resources/shift_zones/` |
+| Time echo | `ECH_<NAME>` | `ECH_CH3_TAPE_LOADING` | `resources/echoes/` |
+| Memory trace (scene node) | `TRC_<NAME>` | `TRC_CH1_CLOCKMAKER_NOTE` | set on the node |
 | Interactable (scene node) | `INT_<LOCATION>_<NAME>` | `INT_UM_ECHO_STATION_CLOCK` | set on the node |
 | Flag, spawn id, local node/objective id | `snake_case` | `ch1_started`, `default`, `reach_um_concourse` | — |
 
@@ -82,6 +87,15 @@ All extend `GameDef` (field `id`, `kind()`, `validate()`).
 | AbilityDef | name_key, description_key, unlock_chapter, input_slot (1-4), duration, cooldown, behavior (script) |
 | PuzzleDef | puzzle_type, title_key, location_id, hint_keys (exactly 3), solution, set_flags, reward_clues/items/fragments |
 
+### Added in version 2 (Prompts 08 and 09)
+- `MissionDef`: `reward_info`, `complete_states`, `fail_flags`, `fail_dialogue`; state `FAILED` (4).
+- `ObjectiveDef`: kinds TRACE, ECHO, SHIFT, INFO; fields `value`, `conditions`, `group`.
+- `ConditionSet`: `info_all`, `traces_all`, `echoes_seen_all`, `locations_visited`, `shift_states`, `states_min`, `states_max`.
+- `DialogueNode` and `DialogueChoice`: `reveals_info`, `set_states`.
+- `PuzzleDef`: `required_abilities`, `initial_state`, `completion`, `reset_policy`, `save_policy`, `success_key`, `failure_key`, `feedback_cue`, `cooperative`, `min_players`, `accessibility_notes` (required), `design_notes`; types LOGIC and OBSERVATION.
+- `AbilityDef`: `activation_cue`, `hint_key`.
+- New definitions: `StoryStateDef` (`value_type`, range, `relationship_key`, `aliases`, `description` required), `InfoDef` (`character_id`, `text_key`, `chapter`), `ShiftZoneDef` (`states`, `default_state`, `persistent`, `exclusive`, `transition_time`), `TimeEchoDef` (`duration`, `tracks` of `EchoTrack`/`EchoKey`, `camera_keys`, `audio_events`, `captions`, `clue_moments`, `conditions`, `replayable`, `set_flags`).
+
 ## 3. Translation keys
 
 | Text | Key |
@@ -133,6 +147,11 @@ State (`GameState.to_dict()`):
 | inventory | Dictionary | item id -> count |
 | puzzles | Dictionary | puzzle id -> {"solved": bool, "hints": int} |
 | relationships | Dictionary | key -> int |
+| shift_states | Dictionary | zone id -> state (persistent zones) |
+| discovered_traces | Array[String] | `TRC_` ids found |
+| info | Array[String] | revealed character information |
+| echoes_seen | Array[String] | watched echoes |
+| mission_checkpoints | Dictionary | mission id -> {location, spawn, objectives_done} |
 | playtime_seconds | float | |
 
 Not saved: player position inside a location (the player resumes at the last spawn point), camera, UI state, ability timers.
@@ -146,7 +165,8 @@ Not saved: player position inside a location (the player resumes at the last spa
 | Older supported version | Migrated step by step in `SaveManager._migrate()` |
 | Missing keys | Defaults in `GameState.from_dict()` |
 | Checksum mismatch or corrupt JSON | Falls back to `.bak`, else load fails (state untouched) |
-| v1 legacy file (`{"version":1,"state":{}}`) | Accepted, migrated to v2 |
+| v1 legacy file (`{"version":1,"state":{}}`) | Accepted, migrated to v2, then v3 |
+| v2 file | Migrated to v3 (adds shift states, traces, info, echoes, checkpoints) |
 
 To change the save schema: add the field to `GameState` (`to_dict`, `from_dict`, default), bump `SAVE_VERSION`, add a migration case, add a test in `tests/unit/test_save.gd`, update section 5.
 
@@ -165,6 +185,9 @@ To remove or rename a content id: do not. Add a new id and keep the old one reti
 | accessibility.subtitles | true | bool |
 | accessibility.subtitle_size | 1.0 | 0.8-1.6 |
 | accessibility.reduce_motion | false | bool |
+| accessibility.puzzle_skip | false | bool (skip after the last hint) |
+| accessibility.ability_duration_scale | 1.0 | 1.0-2.0 |
+| accessibility.echo_audio_cues / echo_visual_cues / echo_haptics | true | bool |
 | game.language | en | en |
 
 Invalid or missing values fall back to the default. `meta/version` stores the settings version.
@@ -174,7 +197,9 @@ Invalid or missing values fall back to the default. `meta/version` stores the se
 | File | Owner | Regenerated? |
 |---|---|---|
 | `scripts/systems/location_ids.gd`, `docs/LOCATION_REGISTER.md`, `WORLD_MAP.md`, `LEVEL_FLOW_DIAGRAMS.md`, `localization/en_world.po`, `tools/generated/world_data.json` | `python3 tools/world_data.py` | yes, never edit by hand |
-| `resources/locations/*`, `resources/fragments/*` | `content_tool generate-world` | updated in place; `status`, `scene_path`, `ambience_cue`, `flashback_scene` are preserved |
+| `resources/locations/*`, `resources/fragments/*` | `content_tool generate-world` | updated in place; `status` (promoted to GRAYBOX when the scene exists), `scene_path`, `ambience_cue`, `flashback_scene` are preserved |
+| `resources/story_states`, `info`, `shift_zones`, `echoes`, the 5 prototype puzzles, abilities, deductions, audio cues and 10 missions | `content_tool bootstrap-story` (`tools/story_content.gd`) | rewrites exactly these files; edit the `.tres` afterwards and do not rerun if you changed them |
+| `scenes/world/echo_city/hid_clock_room.tscn`, `dreamland/anchor_fields.tscn`, `dreamland/echo_gallery.tscn` | `content_tool build-scenes` (`tools/scene_builder.gd`) | one-time generation; edit in the editor afterwards |
 | `resources/missions/*` | `content_tool generate-world` creates skeletons | never overwritten; set `authored = true` when edited |
 | everything else under `resources/` | hand-authored or `content_tool new-*` | no |
 

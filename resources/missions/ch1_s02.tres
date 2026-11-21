@@ -1,19 +1,54 @@
-[gd_resource type="Resource" script_class="MissionDef" load_steps=6 format=3]
+[gd_resource type="Resource" script_class="MissionDef" load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://scripts/missions/objective_def.gd" id="1_w21mu"]
 [ext_resource type="Script" path="res://scripts/missions/mission_def.gd" id="2_1spqb"]
 [ext_resource type="Script" path="res://scripts/data/condition_set.gd" id="3_yajys"]
 
-[sub_resource type="Resource" id="Resource_xlvrv"]
+[sub_resource type="Resource" id="Resource_fkigm"]
 script = ExtResource("1_w21mu")
-id = "stop_the_clock"
-text_key = "MISSION_CH1_S02_OBJ_CLOCK"
+id = "reach_ec_hid_clock_room"
+text_key = "MISSION_CH1_S02_OBJ_REACH_EC_HID_CLOCK_ROOM"
+objective_kind = 0
+target = "LOC_EC_HID_CLOCK_ROOM"
+count = 1
+value = ""
+optional = false
+group = ""
+
+[sub_resource type="Resource" id="Resource_ajbb8"]
+script = ExtResource("1_w21mu")
+id = "link_the_clues"
+text_key = "MISSION_CH1_S02_OBJ_DEDUCE"
+objective_kind = 6
+target = "PZL_CH1_CLOCK_DEDUCTION"
+count = 1
+value = ""
+optional = false
+group = ""
+
+[sub_resource type="Resource" id="Resource_8snw6"]
+script = ExtResource("1_w21mu")
+id = "set_the_dial"
+text_key = "MISSION_CH1_S02_OBJ_DIAL"
 objective_kind = 6
 target = "PZL_CH1_CLOCK_4_17"
 count = 1
+value = ""
 optional = false
+group = ""
 
-[sub_resource type="Resource" id="Resource_lfhwg"]
+[sub_resource type="Resource" id="Resource_o7pbd"]
+script = ExtResource("1_w21mu")
+id = "find_the_note"
+text_key = "MISSION_CH1_S02_OBJ_TRACE"
+objective_kind = 8
+target = "TRC_CH1_CLOCKMAKER_NOTE"
+count = 1
+value = ""
+optional = true
+group = ""
+
+[sub_resource type="Resource" id="Resource_gifrp"]
 script = ExtResource("3_yajys")
 min_chapter = 0
 flags_all = Array[String](["ch1_started"])
@@ -23,7 +58,14 @@ missions_complete = Array[String]([])
 items_all = Array[String]([])
 clues_all = Array[String]([])
 fragments_all = Array[String]([])
-abilities_all = Array[String]([])
+abilities_all = Array[String](["ABIL_MEMORY_SIGHT"])
+info_all = Array[String]([])
+traces_all = Array[String]([])
+echoes_seen_all = Array[String]([])
+locations_visited = Array[String]([])
+shift_states = {}
+states_min = {}
+states_max = {}
 
 [resource]
 script = ExtResource("2_1spqb")
@@ -32,15 +74,19 @@ chapter = 1
 title_key = "MISSION_CH1_S02_TITLE"
 summary_key = ""
 locations = Array[String](["LOC_EC_HID_CLOCK_ROOM"])
-unlock = SubResource("Resource_lfhwg")
+unlock = SubResource("Resource_gifrp")
 auto_start = true
 start_flags = Array[String]([])
-objectives = Array[ExtResource("1_w21mu")]([SubResource("Resource_xlvrv")])
+objectives = Array[ExtResource("1_w21mu")]([SubResource("Resource_fkigm"), SubResource("Resource_ajbb8"), SubResource("Resource_8snw6"), SubResource("Resource_o7pbd")])
 complete_flags = Array[String]([])
 reward_fragments = Array[String]([])
 reward_items = Array[String]([])
 reward_clues = Array[String]([])
 reward_abilities = Array[String]([])
+reward_info = Array[String]([])
+complete_states = {}
+fail_flags = Array[String]([])
+fail_dialogue = ""
 completion_dialogue = ""
 respawn_location = ""
 respawn_spawn = "default"

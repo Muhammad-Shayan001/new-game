@@ -1,4 +1,15 @@
 # Changelog
+## 0.2.0 — Signature abilities, puzzle engine, quests and progression (Prompts 08 and 09)
+- Abilities: Memory Vision (`Revealable`, `MemoryTrace`, HUD feedback), Echo Detection (pulse with visual, audio and haptic cues), Reality Shift (`ShiftManager`, `ShiftZoneDef`, anchors, shiftable objects, safe transitions, saved zone states), Time Echo (`TimeEchoManager`, `TimeEchoDef` replays with camera, audio, captions and clue moments; recording ghosts that hold plates). Echo Voice remains a stub.
+- Puzzle framework: `PuzzleDef` now defines required abilities, initial state, completion rule, feedback, reset and save policy, accessibility notes and co-op. New types LOGIC and OBSERVATION. Progress saving, leave-reset, hint tiers, optional skip. Components: `ClueBoard`, `ReconstructionBoard`, `PressurePlate`, `PlateController`, `ConditionGate`, `EchoSite`, `ShiftAnchor`, `ShiftableObject`.
+- Five prototype puzzles in three graybox scenes (`hid_clock_room`, `anchor_fields`, `echo_gallery`), built by `tools/scene_builder.gd`.
+- Quests: `ObjectiveManager` (counted, optional, conditional and alternative-route objectives, checkpoints), `MissionManager` with soft failure (`FAILED`) and checkpoint recovery, `StoryState` registry (27 registered states, alias `maya_trust_level`), `ProgressionManager` (memories, abilities, locations, character info, choices, optional discoveries, completion, ending resolution).
+- Save version 3 (shift states, traces, character info, echoes, mission checkpoints); v1 and v2 saves migrate.
+- New settings: `ability_duration_scale`, `puzzle_skip`, `echo_audio_cues`, `echo_visual_cues`, `echo_haptics`.
+- Content validation now rejects unregistered story flags, missing accessibility notes, bad shift zones, echoes and info.
+- `Area3D.priority` clash: unchanged (`interact_priority`). Test runner now awaits `after_each()` (fixed a one-frame scene leak between tests).
+- 133 headless tests (was 77). Docs: ABILITY_SYSTEM, PUZZLE_FRAMEWORK, PUZZLE_DESIGN_LIBRARY, PUZZLE_TEST_PLAN, MISSION_DATA_FORMAT, STORY_STATE_REGISTRY.
+
 ## 0.1.0 — Technical architecture (Prompt 04)
 - New: EventBus, DataRegistry, InputService, AudioManager, SettingsManager, SceneRouter, InventoryManager, MemoryManager, AbilityManager, PuzzleManager, DialogueManager, MissionManager, NetworkManager.
 - GameState now saves missions, inventory, abilities, puzzles, relationships, decisions, deductions, playtime. SaveManager rewritten: 4 slots, atomic write, backup, SHA-256 checksum, version checks, v1 -> v2 migration.

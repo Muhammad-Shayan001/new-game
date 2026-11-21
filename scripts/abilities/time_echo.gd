@@ -1,8 +1,9 @@
 class_name TimeEchoBehavior
 extends AbilityBehavior
-## FOUNDATION STUB: interface is final, effect is implemented in a later task
-## (see docs/TASK_TRACKER.md). Activation is refused so gameplay never relies on it yet.
+## Time Echo: replay a past event at an Echo Site, or record a ghost in a record zone.
 
 func can_activate() -> bool:
-	GameLog.warn("Ability", "TimeEchoBehavior is not implemented yet")
-	return false
+	return TimeEchoManager.can_use()
+
+func activate() -> void:
+	TimeEchoManager.use()

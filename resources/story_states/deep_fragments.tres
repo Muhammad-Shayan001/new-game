@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StoryStateDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/story/story_state_def.gd" id="1_eyf4v"]
+
+[resource]
+script = ExtResource("1_eyf4v")
+value_type = 1
+min_value = 0
+max_value = 3
+default_value = 0
+relationship_key = ""
+aliases = Array[String]([])
+chapter = 2
+ending_relevant = true
+description = "Count of Deep Memory Fragments recovered, 0 to 3. Kept by MemoryManager."
+id = "deep_fragments"

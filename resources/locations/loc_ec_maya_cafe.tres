@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_475x0"]
 [ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_orc7e"]
 
-[sub_resource type="Resource" id="Resource_om6qk"]
+[sub_resource type="Resource" id="Resource_67shq"]
 script = ExtResource("1_475x0")
 to_location = "LOC_EC_FORGOTTEN_QUARTER"
 route_type = "main"
@@ -23,5 +23,5 @@ status = 0
 scene_path = "res://scenes/world/echo_city/maya_cafe.tscn"
 default_spawn = "default"
 ambience_cue = ""
-connections = Array[ExtResource("1_475x0")]([SubResource("Resource_om6qk")])
+connections = Array[ExtResource("1_475x0")]([SubResource("Resource_67shq")])
 id = "LOC_EC_MAYA_CAFE"

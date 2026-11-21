@@ -26,6 +26,8 @@ signal interacted
 @export var start_dialogue: String = ""
 @export var puzzle_id: String = ""
 @export var puzzle_symbol: String = ""
+## Marks a scene-driven puzzle as solved (REALITY_SWAP, TIME_ECHO...).
+@export var solve_puzzle: String = ""
 @export var play_cue: String = ""
 @export var travel_to_location: String = ""
 @export var travel_spawn: String = ""
@@ -63,6 +65,7 @@ func interact() -> void:
 			PuzzleManager.submit(puzzle_id, puzzle_symbol)
 		else:
 			PuzzleManager.start(puzzle_id)
+	if solve_puzzle != "": PuzzleManager.mark_solved(solve_puzzle)
 	if play_cue != "": AudioManager.play_cue(play_cue)
 	interacted.emit()
 	EventBus.interaction_completed.emit(interactable_id)

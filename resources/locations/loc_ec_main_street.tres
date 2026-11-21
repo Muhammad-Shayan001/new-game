@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/data/location_connection.gd" id="1_4nuak"]
 [ext_resource type="Script" path="res://scripts/data/location_def.gd" id="2_4yil7"]
 
-[sub_resource type="Resource" id="Resource_ehdqq"]
+[sub_resource type="Resource" id="Resource_1g708"]
 script = ExtResource("1_4nuak")
 to_location = "LOC_EC_METRO_ENTRANCE"
 route_type = "main"
@@ -11,7 +11,7 @@ gate_chapter = 1
 spawn_id = "default"
 note = "Canopy exit"
 
-[sub_resource type="Resource" id="Resource_riytt"]
+[sub_resource type="Resource" id="Resource_p2c28"]
 script = ExtResource("1_4nuak")
 to_location = "LOC_EC_APT_BLDG"
 route_type = "main"
@@ -19,7 +19,7 @@ gate_chapter = 1
 spawn_id = "default"
 note = "Lit doorway"
 
-[sub_resource type="Resource" id="Resource_ifn3a"]
+[sub_resource type="Resource" id="Resource_2v5ns"]
 script = ExtResource("1_4nuak")
 to_location = "LOC_EC_CONV_STORE"
 route_type = "optional"
@@ -27,7 +27,7 @@ gate_chapter = 1
 spawn_id = "default"
 note = "Neon sign"
 
-[sub_resource type="Resource" id="Resource_mvqic"]
+[sub_resource type="Resource" id="Resource_stj5d"]
 script = ExtResource("1_4nuak")
 to_location = "LOC_EC_PARK"
 route_type = "optional"
@@ -35,7 +35,7 @@ gate_chapter = 1
 spawn_id = "default"
 note = "Tree-lined side path"
 
-[sub_resource type="Resource" id="Resource_swbbe"]
+[sub_resource type="Resource" id="Resource_7il45"]
 script = ExtResource("1_4nuak")
 to_location = "LOC_EC_ARCHIVE_TOWER"
 route_type = "main"
@@ -43,7 +43,7 @@ gate_chapter = 1
 spawn_id = "default"
 note = "Tower visible at street end"
 
-[sub_resource type="Resource" id="Resource_axpnf"]
+[sub_resource type="Resource" id="Resource_mkjio"]
 script = ExtResource("1_4nuak")
 to_location = "LOC_EC_ALLEY"
 route_type = "main"
@@ -63,5 +63,5 @@ status = 0
 scene_path = "res://scenes/world/echo_city/main_street.tscn"
 default_spawn = "default"
 ambience_cue = ""
-connections = Array[ExtResource("1_4nuak")]([SubResource("Resource_ehdqq"), SubResource("Resource_riytt"), SubResource("Resource_ifn3a"), SubResource("Resource_mvqic"), SubResource("Resource_swbbe"), SubResource("Resource_axpnf")])
+connections = Array[ExtResource("1_4nuak")]([SubResource("Resource_1g708"), SubResource("Resource_p2c28"), SubResource("Resource_2v5ns"), SubResource("Resource_stj5d"), SubResource("Resource_7il45"), SubResource("Resource_mkjio")])
 id = "LOC_EC_MAIN_STREET"

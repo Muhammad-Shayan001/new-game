@@ -39,6 +39,30 @@ signal clue_added(clue_id: String)
 signal deduction_made(deduction_id: String)
 signal fragment_collected(fragment_id: String)
 
+# Story and progression
+signal story_state_changed(state_id: String, value: Variant)
+signal info_revealed(info_id: String)
+signal trace_discovered(trace_id: String)
+signal mission_failed(mission_id: String, reason: String)
+signal mission_objectives_changed(mission_id: String)
+signal progression_changed()
+
+# Reality Shift
+signal shift_state_changed(zone_id: String, state: String)
+signal shift_anchor_changed(zone_id: String, available: bool)
+
+# Time Echo
+signal echo_site_changed(echo_id: String, available: bool)
+signal echo_started(echo_id: String)
+signal echo_caption(speaker_id: String, text_key: String)
+signal echo_finished(echo_id: String)
+signal echo_recording_changed(recording: bool)
+
+# Echo Detection
+signal echo_pulse_fired()
+signal echo_detected(trace_id: String, distance: float, bearing: float)
+signal echo_nothing_found()
+
 # Abilities and puzzles
 signal ability_unlocked(ability_id: String)
 signal ability_activated(ability_id: String)
@@ -47,6 +71,7 @@ signal puzzle_started(puzzle_id: String)
 signal puzzle_hint_given(puzzle_id: String, tier: int, hint_key: String)
 signal puzzle_attempt_failed(puzzle_id: String)
 signal puzzle_solved(puzzle_id: String)
+signal puzzle_reset(puzzle_id: String)
 
 # Persistence and settings
 signal autosave_requested(reason: String)

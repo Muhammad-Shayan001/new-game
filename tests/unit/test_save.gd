@@ -19,6 +19,11 @@ func test_round_trip_all_state() -> void:
 	GameState.abilities.append("ABIL_MEMORY_SIGHT")
 	GameState.puzzles["PZL_CH1_CLOCK_4_17"] = {"solved": true, "hints": 2}
 	GameState.choices.append("asked_maya_if_real")
+	GameState.shift_states["SHF_CH3_ANCHOR_BRIDGE"] = "other_side"
+	GameState.discovered_traces.append("TRC_CH1_CLOCKMAKER_NOTE")
+	GameState.info.append("INFO_ARV_KEEPS_RECORDS")
+	GameState.echoes_seen.append("ECH_CH3_TAPE_LOADING")
+	GameState.mission_checkpoints["CH1_M02"] = {"location": "LOC_EC_SAFE_ROOM", "spawn": "default", "objectives_done": 2}
 	MissionManager.refresh()   # loading re-evaluates missions, so start from the refreshed state
 	var expected := GameState.to_dict()
 	assert_true(SaveManager.save_game(1))
@@ -94,3 +99,15 @@ func test_autosave_respects_blocks() -> void:
 	GameState.autosave_blocks = 0
 	assert_true(SaveManager.autosave("test"))
 	assert_true(FileAccess.file_exists(SaveManager.slot_path(0)))
+
+func test_v2_save_is_migrated_to_v3() -> void:
+	DirAccess.make_dir_recursive_absolute(SaveManager.save_dir)
+	var state := {"chapter": 3, "flags": {}, "mission_states": {"CH1_M01": 3}, "inventory": {}, "abilities": []}
+	var text := JSON.stringify(state, "", true)
+	var envelope := {"version": 2, "game_version": "0.1.0", "saved_at": 1, "meta": {}, "checksum": text.sha256_text(), "state_json": text}
+	_write(SaveManager.slot_path(1), JSON.stringify(envelope))
+	assert_true(SaveManager.load_game(1), SaveManager.last_error)
+	assert_eq(GameState.chapter, 3)
+	assert_eq(GameState.shift_states.size(), 0)
+	assert_eq(GameState.info.size(), 0)
+	assert_eq(GameState.mission_checkpoints.size(), 0)

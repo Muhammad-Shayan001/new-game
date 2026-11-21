@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="PuzzleDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/puzzles/puzzle_def.gd" id="1_bi2mg"]
+
+[resource]
+script = ExtResource("1_bi2mg")
+puzzle_type = 7
+title_key = "PZL_CH1_CLOCK_DEDUCTION_TITLE"
+location_id = "LOC_EC_HID_CLOCK_ROOM"
+required_abilities = Array[String](["ABIL_MEMORY_SIGHT"])
+initial_state = {
+"board": "locked",
+"clues_needed": 2
+}
+hint_keys = Array[String](["PZL_CH1_CLOCK_DEDUCTION_HINT_1", "PZL_CH1_CLOCK_DEDUCTION_HINT_2", "PZL_CH1_CLOCK_DEDUCTION_HINT_3"])
+solution = Array[String]([])
+completion = 2
+reset_policy = 0
+save_policy = 0
+success_key = ""
+failure_key = ""
+feedback_cue = ""
+set_flags = Array[String](["ch1_clock_dial_unlocked"])
+reward_clues = Array[String]([])
+reward_items = Array[String]([])
+reward_fragments = Array[String]([])
+cooperative = false
+min_players = 1
+accessibility_notes = "No timer. Both clues are written text kept in the Journal. The board says which clue is missing. Hint tier 3 names the answer."
+design_notes = "Logic discovery: combine two clues from different places. Solved by making the deduction."
+id = "PZL_CH1_CLOCK_DEDUCTION"
