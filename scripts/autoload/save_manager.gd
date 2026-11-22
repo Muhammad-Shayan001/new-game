@@ -152,6 +152,9 @@ func list_slots() -> Array[Dictionary]:
 		out.append(info)
 	return out
 
+func has_save(slot: int = AUTO_SLOT) -> bool:
+	return is_valid_slot(slot) and FileAccess.file_exists(slot_path(slot))
+
 func delete_slot(slot: int) -> void:
 	if not is_valid_slot(slot):
 		return

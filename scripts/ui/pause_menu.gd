@@ -1,6 +1,6 @@
 class_name PauseMenu
 extends PanelContainer
-## Pause screen: resume, save to a manual slot, quit. Opened through EventBus.pause_requested.
+## Pause screen: resume, save to a manual slot, main menu, quit. Opened through EventBus.pause_requested.
 
 var _status := Label.new()
 
@@ -15,7 +15,9 @@ func _ready() -> void:
 	box.add_child(_button("UI_RESUME", func(): EventBus.pause_requested.emit(false)))
 	for slot in SaveManager.MANUAL_SLOTS:
 		box.add_child(_button_text("%s %d" % [Localization.t("UI_SAVE_SLOT"), slot], func(): _save(slot)))
-	box.add_child(_button("UI_QUIT", func(): get_tree().quit()))
+	box.add_child(_button_text("MAIN MENU", _return_to_main_menu))
+	if not OS.has_feature("mobile"):
+		box.add_child(_button("UI_QUIT", func(): get_tree().quit()))
 	box.add_child(_status)
 	add_child(box)
 	visible = false
@@ -32,3 +34,10 @@ func _button_text(text: String, action: Callable) -> Button:
 
 func _save(slot: int) -> void:
 	_status.text = Localization.t("UI_SAVED") if SaveManager.save_game(slot) else Localization.t("UI_SAVE_FAILED")
+
+func _return_to_main_menu() -> void:
+	EventBus.pause_requested.emit(false)
+	var main_menu: MainMenu = get_tree().root.find_child("MainMenu", true, false) as MainMenu
+	if main_menu != null:
+		InputService.push_lock("main_menu")
+		main_menu.show_menu()

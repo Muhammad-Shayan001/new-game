@@ -4,9 +4,12 @@ extends Node
 ## scenes. Systems are autoloads; this script only wires them together.
 ## Nothing here is specific to one level, mission or character.
 
+@export var show_main_menu_on_boot: bool = true
+
 @onready var _world: Node3D = $World
 @onready var _player: Player = $Player
 @onready var _camera: CameraRig = $CameraRig
+@onready var _main_menu: MainMenu = $HUD/MainMenu if has_node("HUD/MainMenu") else null
 
 var _paused := false
 
@@ -15,6 +18,26 @@ func _ready() -> void:
 	EventBus.location_ready.connect(_on_location_ready)
 	EventBus.pause_requested.connect(_on_pause_requested)
 	EventBus.scene_transition_failed.connect(func(_l, reason): EventBus.toast_requested.emit("TOAST_TRANSITION_FAILED", "warning"))
+
+	var is_headless: bool = DisplayServer.get_name().to_lower().contains("headless")
+	if show_main_menu_on_boot and _main_menu != null and not is_headless:
+		_main_menu.start_game_requested.connect(start_new_game)
+		_main_menu.continue_game_requested.connect(continue_game)
+		InputService.push_lock("main_menu")
+		_main_menu.show_menu()
+	else:
+		if _main_menu != null:
+			_main_menu.visible = false
+		if SaveManager.load_game(SaveManager.AUTO_SLOT):
+			GameLog.info("GameRoot", "continued from autosave")
+		else:
+			start_new_game()
+			return
+		MissionManager.refresh()
+		SceneRouter.change_location(GameState.current_location, GameState.last_spawn_id)
+
+func continue_game() -> void:
+	InputService.pop_lock("main_menu")
 	if SaveManager.load_game(SaveManager.AUTO_SLOT):
 		GameLog.info("GameRoot", "continued from autosave")
 	else:
@@ -24,6 +47,7 @@ func _ready() -> void:
 	SceneRouter.change_location(GameState.current_location, GameState.last_spawn_id)
 
 func start_new_game() -> void:
+	InputService.pop_lock("main_menu")
 	GameState.reset()
 	AbilityManager.reset_runtime()
 	PuzzleManager.reset_runtime()

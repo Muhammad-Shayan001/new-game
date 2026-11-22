@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://scripts/game_root.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/characters/player.tscn" id="2"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/touch_controls.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="9"]
 [ext_resource type="PackedScene" path="res://scenes/ui/ability_hud.tscn" id="10"]
+[ext_resource type="PackedScene" path="res://scenes/ui/main_menu.tscn" id="11"]
 
 [node name="GameRoot" type="Node"]
 script = ExtResource("1")
@@ -36,3 +37,5 @@ layer = 10
 [node name="TouchControls" parent="HUD" instance=ExtResource("8")]
 
 [node name="PauseMenu" parent="HUD" instance=ExtResource("9")]
+
+[node name="MainMenu" parent="HUD" instance=ExtResource("11")]
