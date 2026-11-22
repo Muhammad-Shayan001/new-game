@@ -10,6 +10,8 @@ extends Node
 @onready var _player: Player = $Player
 @onready var _camera: CameraRig = $CameraRig
 @onready var _main_menu: MainMenu = $HUD/MainMenu if has_node("HUD/MainMenu") else null
+@onready var _cutscene_runner: CutsceneRunner = $CutsceneLayer/CutsceneRunner if has_node("CutsceneLayer/CutsceneRunner") else null
+@onready var _hud: CanvasLayer = $HUD
 
 var _paused := false
 
@@ -18,6 +20,9 @@ func _ready() -> void:
 	EventBus.location_ready.connect(_on_location_ready)
 	EventBus.pause_requested.connect(_on_pause_requested)
 	EventBus.scene_transition_failed.connect(func(_l, reason): EventBus.toast_requested.emit("TOAST_TRANSITION_FAILED", "warning"))
+
+	if _cutscene_runner != null and _hud != null:
+		_cutscene_runner.set_hud_reference(_hud)
 
 	var is_headless: bool = DisplayServer.get_name().to_lower().contains("headless")
 	if show_main_menu_on_boot and _main_menu != null and not is_headless:
@@ -54,6 +59,10 @@ func start_new_game() -> void:
 	GameState.set_flag("ch1_started", true)
 	MissionManager.refresh()
 	SceneRouter.change_location(GameState.current_location, "default")
+
+	var is_headless: bool = DisplayServer.get_name().to_lower().contains("headless")
+	if not is_headless and ResourceLoader.exists("res://scenes/cinematics/opening_sequence.tscn"):
+		EventBus.cutscene_requested.emit("res://scenes/cinematics/opening_sequence.tscn")
 
 func _on_location_ready(_location_id: String, root: Node) -> void:
 	var spawn := (root as LocationRoot).get_spawn_transform(GameState.last_spawn_id) if root is LocationRoot else Transform3D.IDENTITY

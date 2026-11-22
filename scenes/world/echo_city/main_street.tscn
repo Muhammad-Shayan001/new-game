@@ -1,0 +1,197 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/location_root.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/world/spawn_point.gd" id="2"]
+[ext_resource type="Environment" path="res://resources/default_env.tres" id="3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
+size = Vector3(24, 0.2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ground"]
+size = Vector3(24, 0.2, 60)
+
+[sub_resource type="StandardMaterial3D" id="Mat_asphalt"]
+albedo_color = Color(0.1, 0.1, 0.12, 1)
+roughness = 0.95
+metallic = 0.05
+
+[sub_resource type="BoxMesh" id="BoxMesh_facade"]
+size = Vector3(4, 10, 2)
+
+[sub_resource type="StandardMaterial3D" id="Mat_facade"]
+albedo_color = Color(0.1, 0.1, 0.13, 1)
+roughness = 0.9
+emission_enabled = true
+emission = Color(0.05, 0.05, 0.1, 1)
+emission_energy_multiplier = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_sidewalk"]
+size = Vector3(3, 0.15, 60)
+
+[sub_resource type="StandardMaterial3D" id="Mat_sidewalk"]
+albedo_color = Color(0.2, 0.2, 0.22, 1)
+roughness = 0.98
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sidewalk"]
+size = Vector3(3, 0.15, 60)
+
+[node name="MainStreet" type="Node3D"]
+script = ExtResource("1")
+location_id = "LOC_EC_MAIN_STREET"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="GroundMesh" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_ground")
+get_surface_override_material(0) = SubResource("Mat_asphalt")
+
+[node name="GroundCol" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_ground")
+
+[node name="SidewalkL" type="StaticBody3D" parent="."]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, -13.5, 0.075, 0)
+
+[node name="SidewalkLMesh" type="MeshInstance3D" parent="SidewalkL"]
+mesh = SubResource("BoxMesh_sidewalk")
+get_surface_override_material(0) = SubResource("Mat_sidewalk")
+
+[node name="SidewalkLCol" type="CollisionShape3D" parent="SidewalkL"]
+shape = SubResource("BoxShape3D_sidewalk")
+
+[node name="SidewalkR" type="StaticBody3D" parent="."]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 13.5, 0.075, 0)
+
+[node name="SidewalkRMesh" type="MeshInstance3D" parent="SidewalkR"]
+mesh = SubResource("BoxMesh_sidewalk")
+get_surface_override_material(0) = SubResource("Mat_sidewalk")
+
+[node name="SidewalkRCol" type="CollisionShape3D" parent="SidewalkR"]
+shape = SubResource("BoxShape3D_sidewalk")
+
+[node name="Buildings" type="Node3D" parent="."]
+
+[node name="FacL1" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, -13, 5, -20)
+mesh = SubResource("BoxMesh_facade")
+get_surface_override_material(0) = SubResource("Mat_facade")
+
+[node name="FacL2" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, -13, 5, -10)
+mesh = SubResource("BoxMesh_facade")
+get_surface_override_material(0) = SubResource("Mat_facade")
+
+[node name="FacL3" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, -13, 5, 0)
+mesh = SubResource("BoxMesh_facade")
+get_surface_override_material(0) = SubResource("Mat_facade")
+
+[node name="FacL4" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, -13, 5, 10)
+mesh = SubResource("BoxMesh_facade")
+get_surface_override_material(0) = SubResource("Mat_facade")
+
+[node name="FacL5" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, -13, 5, 20)
+mesh = SubResource("BoxMesh_facade")
+get_surface_override_material(0) = SubResource("Mat_facade")
+
+[node name="FacR1" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 13, 5, -20)
+mesh = SubResource("BoxMesh_facade")
+get_surface_override_material(0) = SubResource("Mat_facade")
+
+[node name="FacR2" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 13, 5, -10)
+mesh = SubResource("BoxMesh_facade")
+get_surface_override_material(0) = SubResource("Mat_facade")
+
+[node name="FacR3" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 13, 5, 0)
+mesh = SubResource("BoxMesh_facade")
+get_surface_override_material(0) = SubResource("Mat_facade")
+
+[node name="FacR4" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 13, 5, 10)
+mesh = SubResource("BoxMesh_facade")
+get_surface_override_material(0) = SubResource("Mat_facade")
+
+[node name="FacR5" type="MeshInstance3D" parent="Buildings"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 13, 5, 20)
+mesh = SubResource("BoxMesh_facade")
+get_surface_override_material(0) = SubResource("Mat_facade")
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="Lamp1" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, -6, 5.5, -20)
+light_color = Color(1.0, 0.82, 0.4, 1)
+light_energy = 2.5
+omni_range = 12.0
+shadow_enabled = false
+
+[node name="Lamp2" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 6, 5.5, -20)
+light_color = Color(1.0, 0.82, 0.4, 1)
+light_energy = 2.5
+omni_range = 12.0
+shadow_enabled = false
+
+[node name="Lamp3" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, -6, 5.5, -5)
+light_color = Color(1.0, 0.82, 0.4, 1)
+light_energy = 2.5
+omni_range = 12.0
+shadow_enabled = false
+
+[node name="Lamp4" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 6, 5.5, -5)
+light_color = Color(1.0, 0.82, 0.4, 1)
+light_energy = 2.5
+omni_range = 12.0
+shadow_enabled = false
+
+[node name="Lamp5" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, -6, 5.5, 15)
+light_color = Color(1.0, 0.82, 0.4, 1)
+light_energy = 2.5
+omni_range = 12.0
+shadow_enabled = false
+
+[node name="Lamp6" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 6, 5.5, 15)
+light_color = Color(1.0, 0.82, 0.4, 1)
+light_energy = 2.5
+omni_range = 12.0
+shadow_enabled = false
+
+[node name="CrisisLight" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0, 3, 25)
+light_color = Color(1.0, 0.1, 0.05, 1)
+light_energy = 1.5
+omni_range = 14.0
+shadow_enabled = false
+
+[node name="AmbientLight" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(0.866025, -0.25, 0.433013, 0, 0.866025, 0.5, -0.5, -0.433013, 0.75, 0, 12, 0)
+light_color = Color(0.4, 0.45, 0.65, 1)
+light_energy = 0.4
+shadow_enabled = false
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="default" type="Node3D" parent="SpawnPoints"]
+script = ExtResource("2")
+spawn_id = "default"
+
+[node name="from_metro" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0, 0.1, -8)
+script = ExtResource("2")
+spawn_id = "from_metro"
+
+[node name="from_alley" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 5, 0.1, 0)
+script = ExtResource("2")
+spawn_id = "from_alley"

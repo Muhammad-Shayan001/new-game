@@ -49,3 +49,4 @@ locale/translations=PackedStringArray("res://localization/en_ui.po", "res://loca
 [rendering]
 renderer/rendering_method="mobile"
 renderer/rendering_method.mobile="mobile"
+environment/defaults/default_environment="res://resources/default_env.tres"

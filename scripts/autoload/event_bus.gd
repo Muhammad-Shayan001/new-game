@@ -78,6 +78,8 @@ signal autosave_requested(reason: String)
 signal save_finished(slot: int, ok: bool)
 signal load_finished(slot: int, ok: bool)
 signal settings_changed(section: String, key: String, value: Variant)
+signal graphics_quality_changed(preset: int)
+signal fov_changed(degrees: float)
 
 # Cinematics (a CutsceneRunner listens; flashbacks and cinematics are scenes)
 signal cutscene_requested(scene_path: String)

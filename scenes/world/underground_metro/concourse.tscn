@@ -1,0 +1,131 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/location_root.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/world/spawn_point.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/world/interactable.gd" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/characters/npc_base.tscn" id="4"]
+
+[sub_resource type="BoxShape3D" id="FloorShape"]
+size = Vector3(32, 1, 32)
+
+[sub_resource type="BoxMesh" id="FloorMesh"]
+size = Vector3(32, 1, 32)
+
+[sub_resource type="StandardMaterial3D" id="FloorMat"]
+albedo_color = Color(0.18, 0.2, 0.22, 1)
+roughness = 0.4
+
+[sub_resource type="BoxShape3D" id="PillarShape"]
+size = Vector3(1.2, 4.5, 1.2)
+
+[sub_resource type="BoxMesh" id="PillarMesh"]
+size = Vector3(1.2, 4.5, 1.2)
+
+[sub_resource type="StandardMaterial3D" id="PillarMat"]
+albedo_color = Color(0.28, 0.3, 0.32, 1)
+roughness = 0.6
+
+[sub_resource type="BoxShape3D" id="Reach"]
+size = Vector3(2.0, 2.0, 2.0)
+
+[node name="Concourse" type="Node3D"]
+script = ExtResource("1")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+collision_layer = 1
+
+[node name="Shape" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("FloorShape")
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("FloorMesh")
+surface_material_override/0 = SubResource("FloorMat")
+
+[node name="Ceiling" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+collision_layer = 1
+
+[node name="Shape" type="CollisionShape3D" parent="Ceiling"]
+shape = SubResource("FloorShape")
+
+[node name="Mesh" type="MeshInstance3D" parent="Ceiling"]
+mesh = SubResource("FloorMesh")
+surface_material_override/0 = SubResource("FloorMat")
+
+[node name="Spawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 6)
+script = ExtResource("2")
+
+[node name="Light1" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, 0)
+light_color = Color(1, 0.88, 0.72, 1)
+light_energy = 1.8
+omni_range = 14.0
+
+[node name="Light2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, -8)
+light_color = Color(0.7, 0.9, 1, 1)
+light_energy = 1.4
+omni_range = 12.0
+
+[node name="PillarLeft" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
+collision_layer = 1
+
+[node name="Shape" type="CollisionShape3D" parent="PillarLeft"]
+shape = SubResource("PillarShape")
+
+[node name="Mesh" type="MeshInstance3D" parent="PillarLeft"]
+mesh = SubResource("PillarMesh")
+surface_material_override/0 = SubResource("PillarMat")
+
+[node name="PillarRight" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
+collision_layer = 1
+
+[node name="Shape" type="CollisionShape3D" parent="PillarRight"]
+shape = SubResource("PillarShape")
+
+[node name="Mesh" type="MeshInstance3D" parent="PillarRight"]
+mesh = SubResource("PillarMesh")
+surface_material_override/0 = SubResource("PillarMat")
+
+[node name="Archivist" parent="." instance=ExtResource("4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+character_id = "ARV"
+dialogue_id = "DLG_CH1_M03_CATALOGUE"
+
+[node name="StairsToStation" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 12)
+script = ExtResource("3")
+interactable_id = "INT_UM_CONCOURSE_STAIRS_DOWN"
+prompt_key = "PROMPT_ENTER"
+interact_priority = 2
+travel_to_location = "LOC_UM_ECHO_STATION"
+
+[node name="Reach" type="CollisionShape3D" parent="StairsToStation"]
+shape = SubResource("Reach")
+
+[node name="EscalatorToStreet" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -12)
+script = ExtResource("3")
+interactable_id = "INT_UM_CONCOURSE_ESCALATOR"
+prompt_key = "PROMPT_ENTER"
+interact_priority = 3
+travel_to_location = "LOC_EC_METRO_ENTRANCE"
+
+[node name="Reach" type="CollisionShape3D" parent="EscalatorToStreet"]
+shape = SubResource("Reach")
+
+[node name="TurnstileClue" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.8, -4)
+script = ExtResource("3")
+interactable_id = "INT_UM_CONCOURSE_TURNSTILE"
+prompt_key = "PROMPT_EXAMINE"
+interact_priority = 1
+once = true
+give_clue = "CLUE_METRO_PASS"
+
+[node name="Reach" type="CollisionShape3D" parent="TurnstileClue"]
+shape = SubResource("Reach")

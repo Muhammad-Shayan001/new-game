@@ -47,7 +47,13 @@ func _on_new_game_pressed() -> void:
 	visible = false
 
 func _on_settings_pressed() -> void:
-	EventBus.toast_requested.emit("Settings: Defaults configured in SettingsManager", "info")
+	var settings_scene: PackedScene = load("res://scenes/ui/settings_menu.tscn")
+	if settings_scene == null:
+		EventBus.toast_requested.emit("TOAST_SETTINGS_LOAD_FAILED", "warning")
+		return
+	var settings_node: SettingsMenu = settings_scene.instantiate()
+	add_child(settings_node)
+	settings_node.closed.connect(func(): pass)  # queue_free handled inside SettingsMenu
 
 func _on_credits_pressed() -> void:
 	_credits_panel.visible = true

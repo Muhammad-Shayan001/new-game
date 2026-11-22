@@ -33,8 +33,8 @@
 
 ## 2. ACTIVE DETAILED WORK ORDERS
 
-- **`T-011` (Main Menu & Navigation Flow):** Implemented `MainMenu` control scene (`scenes/ui/main_menu.tscn`) and controller (`scripts/ui/main_menu.gd`) supporting New Game, Continue, Settings, and Credits with pause menu integration. (`READY FOR TESTING`)
-- **`T-VS-01` (Opening Cinematic & Control Handoff):** Assemble the rain-drenched alley sequence in Godot with seamless camera transition into player control. (`IN PROGRESS`)
-- **`T-VS-02` (Echo City District 1 Environment Dressing):** Place modular street kits, telephone booth hero prop, sodium streetlights, and wet tarmac materials. (`IN PROGRESS`)
-- **`T-VS-03` (Memory Vision Clue Discovery):** Wire the glowing UV clue on the convenience store shutter to trigger the initial memory revelation sequence. (`READY FOR TESTING`)
-- **`T-VS-04` (Archivist Subway Encounter):** Implement dialogue choice tree at the subway turnstile using `DialogueManager`. (`READY FOR TESTING`)
+- **`T-010` (Cutscene Runner & Opening Sequence):** Implemented `CutsceneRunner` (`scripts/cinematics/cutscene_runner.gd`) and live CinemaScope opening sequence (`scenes/cinematics/opening_sequence.tscn`, `scripts/cinematics/opening_sequence.gd`) with text typewriter, audio cues, and seamless player handoff. (`READY FOR TESTING`)
+- **`T-015` / `T-004` (EchoOS v4.0 Smartphone & Journal):** Implemented diegetic smartphone UI (`scenes/ui/journal_phone.tscn`, `scripts/ui/journal_phone.gd`) with tabs for Clues, Memories, Character Dossiers, and Choice Timeline, bound to `InputActions.JOURNAL`. (`READY FOR TESTING`)
+- **`T-VS-01` & `T-VS-02` (Echo City & Subway Environments):** Assembled live playable scenes: `concourse.tscn`, `metro_entrance.tscn`, and `alley.tscn` featuring dynamic wet PBR shaders, sodium/neon lighting, and connected transitions. (`READY FOR TESTING`)
+- **`T-VS-03` (Memory Vision & Phone Clue Discovery):** Integrated glowing shattered smartphone (`INT_EC_ALLEY_PHONE`) and UV memory wall sigil (`INT_EC_ALLEY_TRACE`) into `alley.tscn`. (`READY FOR TESTING`)
+- **`T-VS-04` (Archivist Subway Encounter):** Integrated the Archivist NPC (`ARV`) into `concourse.tscn` running interactive dialogue tree `DLG_CH1_M03_CATALOGUE` with turnstile clue. (`READY FOR TESTING`)

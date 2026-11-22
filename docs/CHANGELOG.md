@@ -5,6 +5,14 @@
   - Implemented `reality_tear_glitch.gdshader`: Real-time post-processing chromatic aberration (RGB split), digital block displacement, analog CRT scanlines for Reality Shift transitions.
   - Implemented `memory_vision.gdshader`: Fullscreen luminance desaturation, cold charcoal vignette, electric vermilion anomaly pulsation.
   - Implemented `time_echo_hologram.gdshader`: Additive transparent spatial hologram with animated scan-bands, Fresnel rim glow, and digital jitter.
+- **Cinematics & Smartphone UI Systems:**
+  - `CutsceneRunner` (`scripts/cinematics/cutscene_runner.gd`): Decoupled cutscene lifecycle manager handling input locks, autosave prevention, and HUD toggling.
+  - `OpeningSequence` (`scenes/cinematics/opening_sequence.tscn`, `scripts/cinematics/opening_sequence.gd`): 2.39:1 CinemaScope opening sequence with real-time text fades, haptic phone buzzes, and seamless control handoff.
+  - `JournalPhone` (`scenes/ui/journal_phone.tscn`, `scripts/ui/journal_phone.gd`): Diegetic smartphone OS ("EchoOS v4.0") with real-time clue logs, restored memory fragments, character dossiers, and choice timeline.
+- **Chapter 1 Live Playable Locations:**
+  - `concourse.tscn`: Subway concourse featuring the Archivist NPC (`ARV`), interactive branching dialogue (`DLG_CH1_M03_CATALOGUE`), turnstile clue, and dual stair/escalator transitions.
+  - `metro_entrance.tscn`: Surface canopy transition scene connecting the underground to the street with transit kiosk and sodium/neon lighting.
+  - `alley.tscn`: Alleyway 04 featuring the procedural wet road PBR shader, shattered smartphone clue (`INT_EC_ALLEY_PHONE`), and wall memory trace (`INT_EC_ALLEY_TRACE`).
 - **Main Menu & Title Flow (`scenes/ui/main_menu.tscn`, `scripts/ui/main_menu.gd`):**
   - High-contrast cyber-noir title screen with "CONTINUE", "NEW GAME", "SETTINGS", and "CREDITS".
   - Automated state detection disabling "CONTINUE" if no valid auto-save exists.

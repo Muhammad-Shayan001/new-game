@@ -1,0 +1,138 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/journal_phone.gd" id="1"]
+
+[node name="JournalPhone" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="DarkBackdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.03, 0.05, 0.75)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PhoneContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(480, 520)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/PhoneContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TopBar" type="HBoxContainer" parent="CenterContainer/PhoneContainer/VBox"]
+layout_mode = 2
+
+[node name="OSLabel" type="Label" parent="CenterContainer/PhoneContainer/VBox/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.0, 0.94, 1.0, 1.0)
+theme_override_font_sizes/font_size = 13
+text = "EchoOS v4.0 // TIME: 04:17 AM // BAT: 14%"
+
+[node name="CloseButton" type="Button" parent="CenterContainer/PhoneContainer/VBox/TopBar"]
+custom_minimum_size = Vector2(36, 32)
+layout_mode = 2
+text = "✕"
+
+[node name="NavBar" type="HBoxContainer" parent="CenterContainer/PhoneContainer/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="CluesBtn" type="Button" parent="CenterContainer/PhoneContainer/VBox/NavBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CLUES"
+
+[node name="MemoriesBtn" type="Button" parent="CenterContainer/PhoneContainer/VBox/NavBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MEMORIES"
+
+[node name="DossierBtn" type="Button" parent="CenterContainer/PhoneContainer/VBox/NavBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DOSSIER"
+
+[node name="ChoicesBtn" type="Button" parent="CenterContainer/PhoneContainer/VBox/NavBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CHOICES"
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PhoneContainer/VBox"]
+layout_mode = 2
+
+[node name="TabContent" type="Control" parent="CenterContainer/PhoneContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CluesScroll" type="ScrollContainer" parent="CenterContainer/PhoneContainer/VBox/TabContent"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CluesList" type="VBoxContainer" parent="CenterContainer/PhoneContainer/VBox/TabContent/CluesScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="MemoriesScroll" type="ScrollContainer" parent="CenterContainer/PhoneContainer/VBox/TabContent"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MemoriesList" type="VBoxContainer" parent="CenterContainer/PhoneContainer/VBox/TabContent/MemoriesScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="DossierScroll" type="ScrollContainer" parent="CenterContainer/PhoneContainer/VBox/TabContent"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DossierList" type="VBoxContainer" parent="CenterContainer/PhoneContainer/VBox/TabContent/DossierScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="ChoicesScroll" type="ScrollContainer" parent="CenterContainer/PhoneContainer/VBox/TabContent"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChoicesList" type="VBoxContainer" parent="CenterContainer/PhoneContainer/VBox/TabContent/ChoicesScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8

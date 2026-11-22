@@ -63,7 +63,7 @@ static func default_bindings() -> Dictionary:
 		ABILITY_3: [_key(KEY_3), _button(JOY_BUTTON_RIGHT_SHOULDER)],
 		ABILITY_4: [_key(KEY_4), _button(JOY_BUTTON_LEFT_SHOULDER)],
 		PAUSE: [_key(KEY_ESCAPE), _button(JOY_BUTTON_START)],
-		JOURNAL: [_key(KEY_J), _button(JOY_BUTTON_BACK)],
+		JOURNAL: [_key(KEY_J), _key(KEY_TAB), _button(JOY_BUTTON_BACK)],
 	}
 
 ## Adds every missing action with its default events (keeps user remaps intact).
