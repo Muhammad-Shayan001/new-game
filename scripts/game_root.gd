@@ -9,7 +9,7 @@ extends Node
 @onready var _world: Node3D = $World
 @onready var _player: Player = $Player
 @onready var _camera: CameraRig = $CameraRig
-@onready var _main_menu: MainMenu = $HUD/MainMenu if has_node("HUD/MainMenu") else null
+@onready var _main_menu: Control = $HUD/MainMenu if has_node("HUD/MainMenu") else null
 @onready var _cutscene_runner: CutsceneRunner = $CutsceneLayer/CutsceneRunner if has_node("CutsceneLayer/CutsceneRunner") else null
 @onready var _hud: CanvasLayer = $HUD
 

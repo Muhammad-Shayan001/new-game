@@ -1,63 +1,84 @@
-[gd_scene load_steps=18 format=3]
+[gd_scene load_steps=22 format=3]
 
-[ext_resource type="Script" path="res://scripts/world/location_root.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/world/echo_station.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/world/spawn_point.gd" id="2"]
 [ext_resource type="Script" path="res://scripts/world/interactable.gd" id="3"]
+[ext_resource type="Environment" path="res://resources/default_env.tres" id="4"]
 
 [sub_resource type="BoxShape3D" id="PlatformShape"]
-size = Vector3(20, 1, 36)
+size = Vector3(18, 1, 38)
 
 [sub_resource type="BoxMesh" id="PlatformMesh"]
-size = Vector3(20, 1, 36)
+size = Vector3(18, 1, 38)
 
 [sub_resource type="StandardMaterial3D" id="PlatformMat"]
-albedo_color = Color(0.16, 0.18, 0.22, 1)
+albedo_color = Color(0.15, 0.17, 0.2, 1)
 roughness = 0.4
-metallic = 0.05
+metallic = 0.1
 
 [sub_resource type="BoxMesh" id="YellowStripMesh"]
-size = Vector3(0.4, 0.02, 36)
+size = Vector3(0.5, 0.02, 38)
 
 [sub_resource type="StandardMaterial3D" id="YellowStripMat"]
-albedo_color = Color(0.88, 0.74, 0.12, 1)
+albedo_color = Color(0.95, 0.78, 0.1, 1)
 roughness = 0.5
 
 [sub_resource type="BoxShape3D" id="WallShape"]
-size = Vector3(1, 6, 36)
+size = Vector3(1, 6, 38)
 
 [sub_resource type="BoxMesh" id="WallMesh"]
-size = Vector3(1, 6, 36)
+size = Vector3(1, 6, 38)
 
 [sub_resource type="StandardMaterial3D" id="WallMat"]
-albedo_color = Color(0.22, 0.25, 0.28, 1)
-roughness = 0.65
+albedo_color = Color(0.18, 0.2, 0.24, 1)
+roughness = 0.7
 
 [sub_resource type="BoxMesh" id="CeilingMesh"]
-size = Vector3(24, 0.6, 36)
+size = Vector3(26, 0.6, 38)
 
 [sub_resource type="StandardMaterial3D" id="CeilingMat"]
-albedo_color = Color(0.12, 0.13, 0.16, 1)
-roughness = 0.85
+albedo_color = Color(0.1, 0.11, 0.13, 1)
+roughness = 0.9
+
+[sub_resource type="CylinderMesh" id="PillarMesh"]
+top_radius = 0.45
+bottom_radius = 0.45
+height = 5.6
+
+[sub_resource type="StandardMaterial3D" id="PillarMat"]
+albedo_color = Color(0.25, 0.28, 0.32, 1)
+roughness = 0.6
 
 [sub_resource type="CylinderMesh" id="ClockFaceMesh"]
-top_radius = 0.65
-bottom_radius = 0.65
-height = 0.12
+top_radius = 0.7
+bottom_radius = 0.7
+height = 0.15
 
 [sub_resource type="StandardMaterial3D" id="ClockMat"]
-albedo_color = Color(0.92, 0.9, 0.82, 1)
+albedo_color = Color(0.95, 0.93, 0.85, 1)
 emission_enabled = true
-emission = Color(1.0, 0.95, 0.85, 1)
-emission_energy_multiplier = 0.6
+emission = Color(1.0, 0.96, 0.88, 1)
+emission_energy_multiplier = 0.8
 
 [sub_resource type="BoxShape3D" id="Reach"]
-size = Vector3(2.2, 2.0, 2.2)
+size = Vector3(2.4, 2.0, 2.4)
 
 [sub_resource type="BoxMesh" id="StairStepMesh"]
-size = Vector3(4.0, 0.3, 1.2)
+size = Vector3(4.5, 0.3, 1.2)
+
+[sub_resource type="BoxMesh" id="TrackBedMesh"]
+size = Vector3(6.0, 0.4, 38)
+
+[sub_resource type="StandardMaterial3D" id="TrackBedMat"]
+albedo_color = Color(0.08, 0.08, 0.09, 1)
+roughness = 0.95
 
 [node name="EchoStation" type="Node3D"]
 script = ExtResource("1")
+location_id = "LOC_UM_ECHO_STATION"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("4")
 
 [node name="Platform" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -71,12 +92,17 @@ mesh = SubResource("PlatformMesh")
 surface_material_override/0 = SubResource("PlatformMat")
 
 [node name="YellowSafetyEdge" type="MeshInstance3D" parent="Platform"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.6, 0.51, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.51, 0)
 mesh = SubResource("YellowStripMesh")
 surface_material_override/0 = SubResource("YellowStripMat")
 
+[node name="TrackBed" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0, -0.7, 0)
+mesh = SubResource("TrackBedMesh")
+surface_material_override/0 = SubResource("TrackBedMat")
+
 [node name="BackWall" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 0)
 collision_layer = 1
 
 [node name="Shape" type="CollisionShape3D" parent="BackWall"]
@@ -90,38 +116,68 @@ surface_material_override/0 = SubResource("WallMat")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8, 0)
 collision_layer = 1
 
+[node name="Shape" type="CollisionShape3D" parent="Ceiling"]
+shape = SubResource("PlatformShape")
+
 [node name="Mesh" type="MeshInstance3D" parent="Ceiling"]
 mesh = SubResource("CeilingMesh")
 surface_material_override/0 = SubResource("CeilingMat")
 
-[node name="Spawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 4)
+[node name="Pillars" type="Node3D" parent="."]
+
+[node name="Pillar1" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.8, -10)
+mesh = SubResource("PillarMesh")
+surface_material_override/0 = SubResource("PillarMat")
+
+[node name="Pillar2" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.8, 0)
+mesh = SubResource("PillarMesh")
+surface_material_override/0 = SubResource("PillarMat")
+
+[node name="Pillar3" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.8, 10)
+mesh = SubResource("PillarMesh")
+surface_material_override/0 = SubResource("PillarMat")
+
+[node name="Spawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 6)
 script = ExtResource("2")
+spawn_id = "default"
 
-[node name="PlatformLight1" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4.8, 4)
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="PlatformLight1" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.8, 8)
 light_color = Color(1.0, 0.88, 0.72, 1)
-light_energy = 2.2
+light_energy = 2.4
 shadow_enabled = true
-omni_range = 14.0
+omni_range = 15.0
 
-[node name="PlatformLight2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4.8, -8)
+[node name="PlatformLight2" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.8, -4)
 light_color = Color(0.75, 0.9, 1.0, 1)
-light_energy = 1.8
+light_energy = 2.0
 shadow_enabled = true
-omni_range = 14.0
+omni_range = 15.0
+
+[node name="PlatformLight3" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, -14)
+light_color = Color(0.0, 0.9, 1.0, 1)
+light_energy = 1.8
+omni_range = 10.0
 
 [node name="StationClock" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -9.4, 3.2, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.2, -2)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("3")
 interactable_id = "INT_UM_ECHO_STATION_CLOCK"
 prompt_key = "PROMPT_EXAMINE"
 interact_priority = 2
-once = true
+once = false
 give_clue = "CLUE_STATION_CLOCK"
+start_dialogue = "DLG_CH1_CLOCK"
 
 [node name="Reach" type="CollisionShape3D" parent="StationClock"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
@@ -132,14 +188,22 @@ mesh = SubResource("ClockFaceMesh")
 surface_material_override/0 = SubResource("ClockMat")
 
 [node name="ClockLabel" type="Label3D" parent="StationClock"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 pixel_size = 0.008
 text = "04:17"
-font_size = 36
+font_size = 40
+outline_size = 5
+
+[node name="SignStation" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4, 3.6, 2)
+pixel_size = 0.009
+text = "ECHO STATION — PLATFORM 1"
+font_size = 32
 outline_size = 4
+modulate = Color(0.9, 0.95, 1.0, 1)
 
 [node name="StairsToConcourse" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -15)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("3")
@@ -167,8 +231,9 @@ mesh = SubResource("StairStepMesh")
 surface_material_override/0 = SubResource("PlatformMat")
 
 [node name="StairsSign" type="Label3D" parent="StairsToConcourse"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 pixel_size = 0.008
-text = "CONCOURSE -> EXIT TO STREET"
-font_size = 32
+text = "[↑] WAY OUT / CONCOURSE & MAIN STREET"
+font_size = 30
 outline_size = 6
+modulate = Color(0.0, 0.94, 1.0, 1)

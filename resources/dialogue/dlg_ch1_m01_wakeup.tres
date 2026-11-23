@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="DialogueDef" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/dialogue/dialogue_node.gd" id="1_node"]
+[ext_resource type="Script" path="res://scripts/dialogue/dialogue_choice.gd" id="2_choice"]
+[ext_resource type="Script" path="res://scripts/dialogue/dialogue_def.gd" id="3_def"]
+
+[sub_resource type="Resource" id="Resource_alx_001"]
+script = ExtResource("1_node")
+id = "alx_001"
+speaker_id = "ALX"
+text_key = "DLG_CH1_WAKEUP_ALX_001"
+next_id = "alx_002"
+choices = Array[ExtResource("2_choice")]([])
+set_flags = Array[String](["alex_awoke_station"])
+relationship_changes = {}
+voice_cue = ""
+reveals_info = Array[String]([])
+set_states = {}
+
+[sub_resource type="Resource" id="Resource_alx_002"]
+script = ExtResource("1_node")
+id = "alx_002"
+speaker_id = "ALX"
+text_key = "DLG_CH1_WAKEUP_ALX_002"
+next_id = ""
+choices = Array[ExtResource("2_choice")]([])
+set_flags = Array[String]([])
+relationship_changes = {}
+voice_cue = ""
+reveals_info = Array[String]([])
+set_states = {}
+
+[resource]
+script = ExtResource("3_def")
+start_id = "alx_001"
+nodes = Array[ExtResource("1_node")]([SubResource("Resource_alx_001"), SubResource("Resource_alx_002")])
+repeatable = false
+id = "DLG_CH1_M01_WAKEUP"

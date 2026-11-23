@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="DialogueDef" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/dialogue/dialogue_node.gd" id="1_node"]
+[ext_resource type="Script" path="res://scripts/dialogue/dialogue_choice.gd" id="2_choice"]
+[ext_resource type="Script" path="res://scripts/dialogue/dialogue_def.gd" id="3_def"]
+
+[sub_resource type="Resource" id="Resource_clock_001"]
+script = ExtResource("1_node")
+id = "clock_001"
+speaker_id = "ALX"
+text_key = "DLG_CH1_CLOCK_EXAMINE_001"
+next_id = ""
+choices = Array[ExtResource("2_choice")]([])
+set_flags = Array[String](["clock_examined"])
+relationship_changes = {}
+voice_cue = ""
+reveals_info = Array[String]([])
+set_states = {}
+
+[resource]
+script = ExtResource("3_def")
+start_id = "clock_001"
+nodes = Array[ExtResource("1_node")]([SubResource("Resource_clock_001")])
+repeatable = true
+id = "DLG_CH1_CLOCK"

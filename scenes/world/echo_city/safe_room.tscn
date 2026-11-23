@@ -125,11 +125,11 @@ shadow_enabled = false
 
 [node name="SpawnPoints" type="Node3D" parent="."]
 
-[node name="default" type="Node3D" parent="SpawnPoints"]
+[node name="default" type="Marker3D" parent="SpawnPoints"]
 script = ExtResource("2")
 spawn_id = "default"
 
-[node name="basement_door" type="Node3D" parent="SpawnPoints"]
+[node name="basement_door" type="Marker3D" parent="SpawnPoints"]
 transform = Transform3D(1,0,0, 0,1,0, 0,0,1, 0, 0.1, 4.5)
 script = ExtResource("2")
 spawn_id = "basement_door"

@@ -34,6 +34,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var input: Vector2 = InputService.get_move_vector()
+	if InputService.is_locked():
+		velocity.x = 0.0
+		velocity.z = 0.0
 	var rig: Node3D = get_tree().get_first_node_in_group("camera_rig") as Node3D
 	var basis_ref: Basis = rig.global_transform.basis if rig != null else global_transform.basis
 	

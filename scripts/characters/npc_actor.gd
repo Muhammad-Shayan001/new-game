@@ -19,4 +19,8 @@ func _ready() -> void:
 	_interactable.prompt_key = "PROMPT_TALK"
 	if _interactable.interactable_id == "":
 		_interactable.interactable_id = "INT_NPC_" + character_id
+	var tag: Label3D = get_node_or_null("NameTag")
+	if tag != null and def != null:
+		tag.text = Localization.t(def.name_key)
+		tag.modulate = def.accent_color
 	add_to_group("npcs")

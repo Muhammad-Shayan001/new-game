@@ -95,7 +95,11 @@ static func _room(root: PrototypeLocation, root_name: String, floor_size: Vector
 	root.add_child(sun)
 
 static func _spawn(root: Node, pos: Vector3) -> void:
-	var s := SpawnPoint.new()
+	var s := Marker3D.new()
+	var spawn_script := load("res://scripts/world/spawn_point.gd") as Script
+	if spawn_script != null:
+		s.set_script(spawn_script)
+		s.set("spawn_id", "default")
 	s.name = "Spawn"
 	s.position = pos
 	root.add_child(s)

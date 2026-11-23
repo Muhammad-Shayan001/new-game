@@ -1,0 +1,238 @@
+[gd_scene load_steps=18 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/location_root.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/world/spawn_point.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/world/interactable.gd" id="3"]
+[ext_resource type="Environment" path="res://resources/default_env.tres" id="4"]
+
+[sub_resource type="BoxShape3D" id="LobbyFloorShape"]
+size = Vector3(14, 0.4, 18)
+
+[sub_resource type="BoxMesh" id="LobbyFloorMesh"]
+size = Vector3(14, 0.4, 18)
+
+[sub_resource type="StandardMaterial3D" id="TileMat"]
+albedo_color = Color(0.14, 0.16, 0.19, 1)
+roughness = 0.35
+metallic = 0.15
+
+[sub_resource type="BoxShape3D" id="WallShapeLong"]
+size = Vector3(0.4, 4.5, 18)
+
+[sub_resource type="BoxMesh" id="WallMeshLong"]
+size = Vector3(0.4, 4.5, 18)
+
+[sub_resource type="StandardMaterial3D" id="WallMat"]
+albedo_color = Color(0.18, 0.19, 0.22, 1)
+roughness = 0.85
+
+[sub_resource type="BoxShape3D" id="WallShapeShort"]
+size = Vector3(14, 4.5, 0.4)
+
+[sub_resource type="BoxMesh" id="WallMeshShort"]
+size = Vector3(14, 4.5, 0.4)
+
+[sub_resource type="BoxMesh" id="MailboxMesh"]
+size = Vector3(3.5, 1.4, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="BrassMat"]
+albedo_color = Color(0.42, 0.36, 0.22, 1)
+roughness = 0.4
+metallic = 0.7
+
+[sub_resource type="BoxMesh" id="DoorFrameMesh"]
+size = Vector3(2.0, 2.8, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="DoorWoodMat"]
+albedo_color = Color(0.25, 0.18, 0.14, 1)
+roughness = 0.6
+
+[sub_resource type="BoxShape3D" id="TriggerReach"]
+size = Vector3(2.2, 2.2, 2.2)
+
+[node name="ApartmentBuilding" type="Node3D"]
+script = ExtResource("1")
+location_id = "LOC_EC_APT_BLDG"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("4")
+
+[node name="Lobby" type="Node3D" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="Lobby"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+collision_layer = 1
+
+[node name="Shape" type="CollisionShape3D" parent="Lobby/Floor"]
+shape = SubResource("LobbyFloorShape")
+
+[node name="Mesh" type="MeshInstance3D" parent="Lobby/Floor"]
+mesh = SubResource("LobbyFloorMesh")
+surface_material_override/0 = SubResource("TileMat")
+
+[node name="Ceiling" type="StaticBody3D" parent="Lobby"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.4, 0)
+collision_layer = 1
+
+[node name="Shape" type="CollisionShape3D" parent="Lobby/Ceiling"]
+shape = SubResource("LobbyFloorShape")
+
+[node name="Mesh" type="MeshInstance3D" parent="Lobby/Ceiling"]
+mesh = SubResource("LobbyFloorMesh")
+surface_material_override/0 = SubResource("WallMat")
+
+[node name="WallLeft" type="StaticBody3D" parent="Lobby"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.0, 0)
+collision_layer = 1
+
+[node name="Shape" type="CollisionShape3D" parent="Lobby/WallLeft"]
+shape = SubResource("WallShapeLong")
+
+[node name="Mesh" type="MeshInstance3D" parent="Lobby/WallLeft"]
+mesh = SubResource("WallMeshLong")
+surface_material_override/0 = SubResource("WallMat")
+
+[node name="WallRight" type="StaticBody3D" parent="Lobby"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2.0, 0)
+collision_layer = 1
+
+[node name="Shape" type="CollisionShape3D" parent="Lobby/WallRight"]
+shape = SubResource("WallShapeLong")
+
+[node name="Mesh" type="MeshInstance3D" parent="Lobby/WallRight"]
+mesh = SubResource("WallMeshLong")
+surface_material_override/0 = SubResource("WallMat")
+
+[node name="WallBack" type="StaticBody3D" parent="Lobby"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0, -9)
+collision_layer = 1
+
+[node name="Shape" type="CollisionShape3D" parent="Lobby/WallBack"]
+shape = SubResource("WallShapeShort")
+
+[node name="Mesh" type="MeshInstance3D" parent="Lobby/WallBack"]
+mesh = SubResource("WallMeshShort")
+surface_material_override/0 = SubResource("WallMat")
+
+[node name="WallFront" type="StaticBody3D" parent="Lobby"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0, 9)
+collision_layer = 1
+
+[node name="Shape" type="CollisionShape3D" parent="Lobby/WallFront"]
+shape = SubResource("WallShapeShort")
+
+[node name="Mesh" type="MeshInstance3D" parent="Lobby/WallFront"]
+mesh = SubResource("WallMeshShort")
+surface_material_override/0 = SubResource("WallMat")
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Mailboxes" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6, 1.8, 2.0)
+mesh = SubResource("MailboxMesh")
+surface_material_override/0 = SubResource("BrassMat")
+
+[node name="MailboxLabel" type="Label3D" parent="Props/Mailboxes"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.2, 0.4, 0)
+pixel_size = 0.007
+text = "APT 4B: A. MORGAN"
+font_size = 28
+outline_size = 4
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="ChandelierWarm" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6, 0)
+light_color = Color(1.0, 0.85, 0.65, 1)
+light_energy = 2.2
+omni_range = 14.0
+shadow_enabled = true
+
+[node name="StairsGlow" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -7)
+light_color = Color(0.3, 0.75, 1.0, 1)
+light_energy = 1.6
+omni_range = 8.0
+
+[node name="Transitions" type="Node3D" parent="."]
+
+[node name="DoorToStreet" type="Area3D" parent="Transitions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 8.2)
+script = ExtResource("3")
+interactable_id = "INT_EC_APT_BLDG_EXIT_STREET"
+prompt_key = "PROMPT_ENTER"
+interact_priority = 2
+travel_to_location = "LOC_EC_MAIN_STREET"
+
+[node name="Reach" type="CollisionShape3D" parent="Transitions/DoorToStreet"]
+shape = SubResource("TriggerReach")
+
+[node name="DoorMesh" type="MeshInstance3D" parent="Transitions/DoorToStreet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("DoorFrameMesh")
+surface_material_override/0 = SubResource("DoorWoodMat")
+
+[node name="StreetLabel" type="Label3D" parent="Transitions/DoorToStreet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+pixel_size = 0.008
+text = "EXIT TO MAIN STREET"
+font_size = 28
+outline_size = 4
+
+[node name="StairsToAlexApt" type="Area3D" parent="Transitions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0, 0.8, -8.0)
+script = ExtResource("3")
+interactable_id = "INT_EC_APT_BLDG_STAIRS_APT"
+prompt_key = "PROMPT_ENTER"
+interact_priority = 3
+travel_to_location = "LOC_EC_ALEX_APT"
+
+[node name="Reach" type="CollisionShape3D" parent="Transitions/StairsToAlexApt"]
+shape = SubResource("TriggerReach")
+
+[node name="AptLabel" type="Label3D" parent="Transitions/StairsToAlexApt"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+pixel_size = 0.008
+text = "STAIRS -> APARTMENT 4B"
+font_size = 28
+outline_size = 4
+
+[node name="BasementToSafeRoom" type="Area3D" parent="Transitions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0, 0.8, -8.0)
+script = ExtResource("3")
+interactable_id = "INT_EC_APT_BLDG_DOOR_SAFE_ROOM"
+prompt_key = "PROMPT_ENTER"
+interact_priority = 2
+travel_to_location = "LOC_EC_SAFE_ROOM"
+
+[node name="Reach" type="CollisionShape3D" parent="Transitions/BasementToSafeRoom"]
+shape = SubResource("TriggerReach")
+
+[node name="BasementLabel" type="Label3D" parent="Transitions/BasementToSafeRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+pixel_size = 0.008
+text = "BASEMENT -> SAFE ROOM"
+font_size = 28
+outline_size = 4
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="default" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 5.0)
+script = ExtResource("2")
+spawn_id = "default"
+
+[node name="from_street" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 6.5)
+script = ExtResource("2")
+spawn_id = "from_street"
+
+[node name="from_apt" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0, 0.2, -6.0)
+script = ExtResource("2")
+spawn_id = "from_apt"
+
+[node name="from_basement" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0, 0.2, -6.0)
+script = ExtResource("2")
+spawn_id = "from_basement"

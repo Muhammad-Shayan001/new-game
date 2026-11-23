@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=18 format=3]
 
 [ext_resource type="Script" path="res://scripts/world/location_root.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/world/spawn_point.gd" id="2"]
 [ext_resource type="Script" path="res://scripts/world/interactable.gd" id="3"]
 [ext_resource type="PackedScene" path="res://scenes/characters/npc_base.tscn" id="4"]
+[ext_resource type="Environment" path="res://resources/default_env.tres" id="5"]
 
 [sub_resource type="BoxShape3D" id="FloorShape"]
 size = Vector3(32, 1, 32)
@@ -12,8 +13,9 @@ size = Vector3(32, 1, 32)
 size = Vector3(32, 1, 32)
 
 [sub_resource type="StandardMaterial3D" id="FloorMat"]
-albedo_color = Color(0.18, 0.2, 0.22, 1)
-roughness = 0.4
+albedo_color = Color(0.16, 0.18, 0.2, 1)
+roughness = 0.35
+metallic = 0.1
 
 [sub_resource type="BoxShape3D" id="PillarShape"]
 size = Vector3(1.2, 4.5, 1.2)
@@ -22,14 +24,38 @@ size = Vector3(1.2, 4.5, 1.2)
 size = Vector3(1.2, 4.5, 1.2)
 
 [sub_resource type="StandardMaterial3D" id="PillarMat"]
-albedo_color = Color(0.28, 0.3, 0.32, 1)
-roughness = 0.6
+albedo_color = Color(0.24, 0.26, 0.28, 1)
+roughness = 0.7
+
+[sub_resource type="BoxMesh" id="TurnstileMesh"]
+size = Vector3(6.0, 1.1, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="SteelMat"]
+albedo_color = Color(0.35, 0.38, 0.42, 1)
+roughness = 0.3
+metallic = 0.8
+
+[sub_resource type="BoxShape3D" id="TurnstileShape"]
+size = Vector3(6.0, 1.1, 0.6)
 
 [sub_resource type="BoxShape3D" id="Reach"]
-size = Vector3(2.0, 2.0, 2.0)
+size = Vector3(2.6, 2.2, 2.6)
+
+[sub_resource type="BoxMesh" id="CardMesh"]
+size = Vector3(0.4, 0.05, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="GlowCyanMat"]
+albedo_color = Color(0.0, 0.9, 1.0, 1)
+emission_enabled = true
+emission = Color(0.0, 0.9, 1.0, 1)
+emission_energy_multiplier = 2.0
 
 [node name="Concourse" type="Node3D"]
 script = ExtResource("1")
+location_id = "LOC_UM_CONCOURSE"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("5")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -53,73 +79,74 @@ shape = SubResource("FloorShape")
 mesh = SubResource("FloorMesh")
 surface_material_override/0 = SubResource("FloorMat")
 
-[node name="Spawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 6)
+[node name="Spawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 8)
 script = ExtResource("2")
+spawn_id = "default"
 
-[node name="Light1" type="OmniLight3D" parent="."]
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="LightCenter" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, 0)
 light_color = Color(1, 0.88, 0.72, 1)
-light_energy = 1.8
+light_energy = 2.0
 omni_range = 14.0
+shadow_enabled = true
 
-[node name="Light2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, -8)
+[node name="LightNorth" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, -9)
 light_color = Color(0.7, 0.9, 1, 1)
+light_energy = 1.6
+omni_range = 12.0
+
+[node name="LightSouth" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, 9)
+light_color = Color(0.75, 0.85, 1, 1)
 light_energy = 1.4
 omni_range = 12.0
 
-[node name="PillarLeft" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
+[node name="Pillars" type="Node3D" parent="."]
+
+[node name="PillarLeft" type="StaticBody3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 0)
 collision_layer = 1
 
-[node name="Shape" type="CollisionShape3D" parent="PillarLeft"]
+[node name="Shape" type="CollisionShape3D" parent="Pillars/PillarLeft"]
 shape = SubResource("PillarShape")
 
-[node name="Mesh" type="MeshInstance3D" parent="PillarLeft"]
+[node name="Mesh" type="MeshInstance3D" parent="Pillars/PillarLeft"]
 mesh = SubResource("PillarMesh")
 surface_material_override/0 = SubResource("PillarMat")
 
-[node name="PillarRight" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
+[node name="PillarRight" type="StaticBody3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 0)
 collision_layer = 1
 
-[node name="Shape" type="CollisionShape3D" parent="PillarRight"]
+[node name="Shape" type="CollisionShape3D" parent="Pillars/PillarRight"]
 shape = SubResource("PillarShape")
 
-[node name="Mesh" type="MeshInstance3D" parent="PillarRight"]
+[node name="Mesh" type="MeshInstance3D" parent="Pillars/PillarRight"]
 mesh = SubResource("PillarMesh")
 surface_material_override/0 = SubResource("PillarMat")
+
+[node name="Turnstiles" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -2)
+collision_layer = 1
+
+[node name="Shape" type="CollisionShape3D" parent="Turnstiles"]
+shape = SubResource("TurnstileShape")
+
+[node name="Mesh" type="MeshInstance3D" parent="Turnstiles"]
+mesh = SubResource("TurnstileMesh")
+surface_material_override/0 = SubResource("SteelMat")
 
 [node name="Archivist" parent="." instance=ExtResource("4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5)
 character_id = "ARV"
 dialogue_id = "DLG_CH1_M03_CATALOGUE"
 
-[node name="StairsToStation" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 12)
-script = ExtResource("3")
-interactable_id = "INT_UM_CONCOURSE_STAIRS_DOWN"
-prompt_key = "PROMPT_ENTER"
-interact_priority = 2
-travel_to_location = "LOC_UM_ECHO_STATION"
-
-[node name="Reach" type="CollisionShape3D" parent="StairsToStation"]
-shape = SubResource("Reach")
-
-[node name="EscalatorToStreet" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -12)
-script = ExtResource("3")
-interactable_id = "INT_UM_CONCOURSE_ESCALATOR"
-prompt_key = "PROMPT_ENTER"
-interact_priority = 3
-travel_to_location = "LOC_EC_METRO_ENTRANCE"
-
-[node name="Reach" type="CollisionShape3D" parent="EscalatorToStreet"]
-shape = SubResource("Reach")
-
 [node name="TurnstileClue" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.8, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.2, -1.9)
 script = ExtResource("3")
 interactable_id = "INT_UM_CONCOURSE_TURNSTILE"
 prompt_key = "PROMPT_EXAMINE"
@@ -129,3 +156,52 @@ give_clue = "CLUE_METRO_PASS"
 
 [node name="Reach" type="CollisionShape3D" parent="TurnstileClue"]
 shape = SubResource("Reach")
+
+[node name="Mesh" type="MeshInstance3D" parent="TurnstileClue"]
+mesh = SubResource("CardMesh")
+surface_material_override/0 = SubResource("GlowCyanMat")
+
+[node name="ClueLabel" type="Label3D" parent="TurnstileClue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+pixel_size = 0.007
+text = "METRO PASS\n(Examine)"
+font_size = 24
+outline_size = 4
+
+[node name="Transitions" type="Node3D" parent="."]
+
+[node name="StairsToStation" type="Area3D" parent="Transitions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 13)
+script = ExtResource("3")
+interactable_id = "INT_UM_CONCOURSE_STAIRS_DOWN"
+prompt_key = "PROMPT_ENTER"
+interact_priority = 2
+travel_to_location = "LOC_UM_ECHO_STATION"
+
+[node name="Reach" type="CollisionShape3D" parent="Transitions/StairsToStation"]
+shape = SubResource("Reach")
+
+[node name="SignDown" type="Label3D" parent="Transitions/StairsToStation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+pixel_size = 0.008
+text = "[v] DOWN TO ECHO STATION PLATFORM"
+font_size = 28
+outline_size = 4
+
+[node name="EscalatorToStreet" type="Area3D" parent="Transitions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -13)
+script = ExtResource("3")
+interactable_id = "INT_UM_CONCOURSE_ESCALATOR"
+prompt_key = "PROMPT_ENTER"
+interact_priority = 3
+travel_to_location = "LOC_EC_METRO_ENTRANCE"
+
+[node name="Reach" type="CollisionShape3D" parent="Transitions/EscalatorToStreet"]
+shape = SubResource("Reach")
+
+[node name="SignUp" type="Label3D" parent="Transitions/EscalatorToStreet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+pixel_size = 0.008
+text = "[^] ESCALATOR TO STREET LEVEL"
+font_size = 28
+outline_size = 4

@@ -66,4 +66,4 @@ layer = 99
 
 [node name="DebugOverlay" type="Label" parent="DebugLayer"]
 script = ExtResource("15")
-enabled = true
+enabled = false

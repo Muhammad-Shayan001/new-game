@@ -28,8 +28,16 @@ func _setup_ui() -> void:
 	_quit_button.pressed.connect(_on_quit_pressed)
 	_close_credits_btn.pressed.connect(func(): _credits_panel.visible = false)
 	_credits_panel.visible = false
+
+	# Audio juice on hover
+	for btn: Button in [_continue_button, _new_game_button, _settings_button, _credits_button, _quit_button, _close_credits_btn]:
+		btn.mouse_entered.connect(_on_button_hover)
+
 	if OS.has_feature("mobile"):
 		_quit_button.visible = false
+
+func _on_button_hover() -> void:
+	AudioManager.play_cue("sfx_phone_buzz", randf_range(1.15, 1.3))
 
 func _refresh_buttons() -> void:
 	var can_continue: bool = SaveManager.has_save(SaveManager.AUTO_SLOT)
@@ -47,15 +55,17 @@ func _on_new_game_pressed() -> void:
 	visible = false
 
 func _on_settings_pressed() -> void:
+	AudioManager.play_cue("sfx_phone_buzz")
 	var settings_scene: PackedScene = load("res://scenes/ui/settings_menu.tscn")
 	if settings_scene == null:
 		EventBus.toast_requested.emit("TOAST_SETTINGS_LOAD_FAILED", "warning")
 		return
-	var settings_node: SettingsMenu = settings_scene.instantiate()
+	var settings_node: Control = settings_scene.instantiate()
 	add_child(settings_node)
-	settings_node.closed.connect(func(): pass)  # queue_free handled inside SettingsMenu
+	settings_node.closed.connect(func(): pass)
 
 func _on_credits_pressed() -> void:
+	AudioManager.play_cue("sfx_phone_buzz")
 	_credits_panel.visible = true
 
 func _on_quit_pressed() -> void:
@@ -64,3 +74,6 @@ func _on_quit_pressed() -> void:
 func show_menu() -> void:
 	visible = true
 	_refresh_buttons()
+	modulate.a = 0.0
+	var tween := create_tween()
+	tween.tween_property(self, "modulate:a", 1.0, 0.35)

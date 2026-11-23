@@ -248,3 +248,36 @@ msgstr "Put the memories in order"
 
 msgid "MISSION_CH3_S01_OBJ_PLATES"
 msgstr "Hold both plates with an echo"
+
+msgid "DLG_CH1_WAKEUP_ALX_001"
+msgstr "Where... am I? Everything feels dead silent and cold."
+
+msgid "DLG_CH1_WAKEUP_ALX_002"
+msgstr "A subway station? My head is pounding... I need to find the way up to the surface."
+
+msgid "DLG_CH1_CLOCK_EXAMINE_001"
+msgstr "The station clock stopped at 04:17 AM. No trains are coming. Time feels frozen here."
+
+msgid "MISSION_CH1_M01_TITLE"
+msgstr "Chapter 1: The Waking Ghost"
+
+msgid "MISSION_CH1_M01_OBJ_REACH_UM_CONCOURSE"
+msgstr "Take the stairs up to the Station Concourse"
+
+msgid "MISSION_CH1_M01_OBJ_REACH_EC_METRO_ENTRANCE"
+msgstr "Exit through the Concourse to street level"
+
+msgid "MISSION_CH1_M02_TITLE"
+msgstr "Chapter 1: Empty Streets"
+
+msgid "MISSION_CH1_M02_OBJ_REACH_EC_MAIN_STREET"
+msgstr "Investigate Main Street"
+
+msgid "MISSION_CH1_M02_OBJ_REACH_EC_APT_BLDG"
+msgstr "Enter Morgan Court Apartments"
+
+msgid "MISSION_CH1_M02_OBJ_REACH_EC_ALEX_APT"
+msgstr "Search Apartment 4B for memories"
+
+msgid "MISSION_CH1_M02_OBJ_REACH_EC_SAFE_ROOM"
+msgstr "Head down to the basement Safe Room"

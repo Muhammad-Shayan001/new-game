@@ -23,12 +23,14 @@ var _blend_time := 0.6
 
 func _ready() -> void:
 	add_to_group("camera_rig")
-	_camera.fov = float(SettingsManager.get_value("video", "fov"))
+	var fov_val = SettingsManager.get_value("video", "fov")
+	_camera.fov = float(fov_val) if (fov_val != null and float(fov_val) >= 45.0) else 65.0
 	EventBus.settings_changed.connect(_on_setting_changed)
+	EventBus.fov_changed.connect(func(deg: float): _camera.fov = clampf(deg, 45.0, 100.0))
 
 func _on_setting_changed(section: String, key: String, value: Variant) -> void:
-	if section == "video" and key == "fov":
-		_camera.fov = float(value)
+	if (section == "video" or section == "graphics") and key == "fov":
+		_camera.fov = clampf(float(value), 45.0, 100.0)
 
 func snap_to(target: Node3D) -> void:
 	global_position = target.global_position + follow_offset
@@ -36,8 +38,10 @@ func snap_to(target: Node3D) -> void:
 
 func follow(target: Node3D, delta: float) -> void:
 	global_position = global_position.lerp(target.global_position + follow_offset, 1.0 - exp(-follow_speed * delta))
-	var sensitivity := float(SettingsManager.get_value("controls", "look_sensitivity"))
-	var invert := -1.0 if bool(SettingsManager.get_value("controls", "invert_y")) else 1.0
+	var sens_val = SettingsManager.get_value("controls", "look_sensitivity")
+	var sensitivity: float = float(sens_val) if (sens_val != null and float(sens_val) > 0.05) else 1.0
+	var inv_val = SettingsManager.get_value("controls", "invert_y")
+	var invert: float = -1.0 if (inv_val != null and bool(inv_val)) else 1.0
 	var look := InputService.consume_look_delta() * sensitivity
 	var stick := InputService.get_look_axis() * stick_speed * sensitivity * delta
 	var total := look + stick

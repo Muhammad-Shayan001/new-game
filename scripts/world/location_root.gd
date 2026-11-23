@@ -5,22 +5,50 @@ extends Node3D
 ## Scene ownership rule: a location scene owns its geometry, lights, SpawnPoints,
 ## Interactables and NPC instances. The player, camera and UI are never part of it.
 
-var location_id: String = ""
-var spawn_id: String = "default"
+@export var location_id: String = ""
+@export var spawn_id: String = "default"
 
 func setup(id: String, spawn: String) -> void:
-	location_id = id
-	spawn_id = spawn
+	if id != "":
+		location_id = id
+	if spawn != "":
+		spawn_id = spawn
 
 ## Transform for a spawn id; falls back to "default", then to the origin.
 func get_spawn_transform(wanted: String = "") -> Transform3D:
-	var fallback: SpawnPoint = null
-	for node in find_children("*", "SpawnPoint", true, false):
-		var sp := node as SpawnPoint
-		if sp.spawn_id == (wanted if wanted != "" else spawn_id):
-			return sp.global_transform
-		if sp.spawn_id == "default":
-			fallback = sp
+	var requested := wanted if wanted != "" else spawn_id
+
+	if requested == "" or requested == "default":
+		var direct_spawn := find_child("Spawn", true, false)
+		if direct_spawn is Marker3D:
+			return (direct_spawn as Marker3D).global_transform
+		var default_spawn := find_child("default", true, false)
+		if default_spawn is Marker3D:
+			return (default_spawn as Marker3D).global_transform
+
+	var fallback: Marker3D = null
+	for node in find_children("*", "*", true, false):
+		if not node is Marker3D:
+			continue
+		var marker := node as Marker3D
+		var id := ""
+		if "spawn_id" in marker:
+			id = str(marker.get("spawn_id"))
+		elif marker.name == "Spawn":
+			id = "default"
+		else:
+			id = str(marker.name)
+		if id == requested:
+			return marker.global_transform
+		if id == "default":
+			fallback = marker
+
+	var direct_default := find_child("Spawn", true, false)
+	if direct_default is Marker3D:
+		fallback = direct_default as Marker3D
+	var named_default := find_child("default", true, false)
+	if fallback == null and named_default is Marker3D:
+		fallback = named_default as Marker3D
 	if fallback != null:
 		GameLog.warn("LocationRoot", "%s: spawn '%s' missing, using default" % [location_id, wanted])
 		return fallback.global_transform
@@ -29,8 +57,7 @@ func get_spawn_transform(wanted: String = "") -> Transform3D:
 
 ## Builds a door (Interactable) for every route that is open at the current chapter.
 ## Hidden routes appear once the player owns Memory Sight. Used by the placeholder scene and
-## by every graybox scene so the world graph is always walkable.
-## Layout: a ring of `ring_radius`, or a row starting at `row_origin` when `use_row` is true.
+## by graybox scenes so the world graph is always walkable.
 func build_route_doors(ring_radius: float = 9.0, use_row: bool = false,
 		row_origin: Vector3 = Vector3.ZERO, row_spacing: float = 3.0) -> void:
 	var def := DataRegistry.get_location(location_id)
